@@ -1,0 +1,44 @@
+{
+	"name": "Spreadsheet Widget",
+	"qset": {
+		"version": 1,
+		"data": {
+			"questions": [
+				{
+					"materiaType": "question",
+					"id": null,
+					"type": "",
+					"question": [
+						{
+							"text": ""
+						}
+					],
+					"answer": [
+						{
+							"id": null,
+							"text": "",
+							"value": 100
+						}
+					]
+				},
+				{
+					"materiaType": "question",
+					"id": null,
+					"type": "",
+					"question": [
+						{
+							"text": ""
+						}
+					],
+					"answers": [
+						{
+							"id": null,
+							"text": "",
+							"value": 100
+						}
+					]
+				}
+			]
+		}
+	}
+}
