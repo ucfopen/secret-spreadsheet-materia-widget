@@ -1,0 +1,22 @@
+{
+	"name": "_testing",
+	"materia": {
+		"cleanName": "test-widget"
+	},
+	"dependencies": {
+		"@babel/preset-react": "^7.0.0",
+		"materia-widget-development-kit": "^2.4.2",
+		"react": "16.5.2",
+		"react-dom": "^16.5.2",
+		"react-test-renderer": "^16.5.2"
+	},
+	"scripts": {
+		"start": "webpack-dev-server",
+		"build": "webpack -p",
+		"build-dev": "webpack"
+	},
+	"author": "University of Central Florida, Center for Distributed Learning",
+	"description": "Testing widget to see if I'm dumb",
+	"license": "AGPL-3.0",
+	"version": "1.1.0"
+}
