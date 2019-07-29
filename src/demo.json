@@ -3,14 +3,18 @@
 	"qset": {
 		"version": 1,
 		"data": {
+			"dimensions": {
+				"x": 2,
+				"y": 2
+			},
 			"questions": [
 				{
 					"materiaType": "question",
 					"id": null,
-					"type": "",
+					"type": "QA",
 					"question": [
 						{
-							"text": ""
+							"text": "Show 1"
 						}
 					],
 					"answer": [
@@ -24,10 +28,44 @@
 				{
 					"materiaType": "question",
 					"id": null,
-					"type": "",
+					"type": "QA",
 					"question": [
 						{
 							"text": ""
+						}
+					],
+					"answers": [
+						{
+							"id": null,
+							"text": "Hide 1",
+							"value": 100
+						}
+					]
+				},
+				{
+					"materiaType": "question",
+					"id": null,
+					"type": "QA",
+					"question": [
+						{
+							"text": ""
+						}
+					],
+					"answer": [
+						{
+							"id": null,
+							"text": "Hide 2",
+							"value": 100
+						}
+					]
+				},
+				{
+					"materiaType": "question",
+					"id": null,
+					"type": "QA",
+					"question": [
+						{
+							"text": "Show 2"
 						}
 					],
 					"answers": [
