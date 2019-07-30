@@ -1,7 +1,7 @@
 {
-	"name": "_testing",
+	"name": "Spreadsheet",
 	"materia": {
-		"cleanName": "test-widget"
+		"cleanName": "spreadsheet-widget"
 	},
 	"dependencies": {
 		"@babel/preset-react": "^7.0.0",
@@ -16,7 +16,7 @@
 		"build-dev": "webpack"
 	},
 	"author": "University of Central Florida, Center for Distributed Learning",
-	"description": "Testing widget to see if I'm dumb",
+	"description": "",
 	"license": "AGPL-3.0",
 	"version": "1.1.0"
 }

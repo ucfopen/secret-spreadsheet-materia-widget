@@ -4,7 +4,7 @@ general:
   height: 500
   width: 750
   in_catalog: Yes
-  is_editable: Yes
+  is_editable: No
   is_playable: Yes
   is_qset_encrypted: Yes
   is_answer_encrypted: Yes
@@ -16,8 +16,12 @@ files:
 score:
   is_scorable: Yes
 meta_data:
-  features: []
-  supported_data: []
+  features:
+    - Scorable
+    - Custom
+    - Question/Answer
+  supported_data:
+    - Question/Answer
   about: >
     Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing
   excerpt: >

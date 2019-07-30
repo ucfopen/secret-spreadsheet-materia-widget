@@ -1,10 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const endPlayer = () => {
-	Materia.Engine.end();
-}
-
 const checkAnswer = (question, answer) => {
 	Materia.Score.submitQuestionForScoring(question.id, answer.id);
 }
@@ -33,7 +29,7 @@ class Player extends React.Component {
 			}
 		}
 
-		endPlayer();
+		Materia.Engine.end();
 	}
 
 	handleNewAnswer(newAnswers) {
