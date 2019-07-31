@@ -1,10 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const checkAnswer = (question, answer) => {
-	Materia.Score.submitQuestionForScoring(question.id, answer.id);
-}
-
 class Player extends React.Component {
 	constructor(props) {
 		super(props);
@@ -16,19 +12,36 @@ class Player extends React.Component {
 	}
 
 	handleSubmit(event) {
+		let score = 0.0;
+		let totalPointsPossible = 0.0;
 		event.preventDefault;
 
+		// calculates final score. Only counts questions that user was supposed to answer
 		for (let i=0;i<this.props.qset.length;i++) {
-			const id = this.props.qset[i].id;
+			const question = this.props.qset[i];
 
-			if (this.state.answers.hasOwnProperty(`${i}-input`)) {
-				checkAnswer(id, this.state.answers[`${i}-input`]);
-			}
-			else {
-				checkAnswer(id, "");
+			if (question.options.blank) {
+				totalPointsPossible++;
+
+				if (this.state.answers.hasOwnProperty(`${i}-input`)) {
+					if (this.state.answers[`${i}-input`] === question.answer[0].text) {
+						score++;
+					}
+				}
 			}
 		}
 
+		let finalScore = Math.round((score / totalPointsPossible) * 100);
+
+		if (finalScore > 100) {
+			finalScore = 100;
+		}
+
+		if (finalScore < 0) {
+			finalScore = 0;
+		}
+
+		Materia.Score.submitFinalScoreFromClient(0, '', finalScore);
 		Materia.Engine.end();
 	}
 
@@ -39,7 +52,6 @@ class Player extends React.Component {
 	}
 
 	render() {
-		console.log(this.state.answers);
 		return(
 			<div>
 				<h1>{this.props.title}</h1>
@@ -90,7 +102,7 @@ class MainTable extends React.Component {
 				// show input if blank question, show text if not
 				cell.push(
 					<td key={cellID} id={cellID}>
-					{(this.props.qset[counter].question[0].text === "") ? (<input type="text" onBlur={this.handleBlur} id={`${cellID}-input`} />):(this.props.qset[counter].question[0].text)}
+					{(this.props.qset[counter].options.blank) ? (<input type="text" onBlur={this.handleBlur} id={`${cellID}-input`} />):(this.props.qset[counter].question[0].text)}
 					</td>
 				);
 
