@@ -2,8 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 let title = ''
-let qset = {'dimensions': {x: 0, y: 0},
-						'questions': []}
+let qset = {
+	'name': '',
+	'qset': {
+		'version': 1,
+		'data': {
+			'dimensions': {'x': 0, 'y': 0},
+			'questions': []
+		}
+	}
+}
 
 class Creator extends React.Component {
 	constructor(props) {
@@ -18,8 +26,8 @@ class Creator extends React.Component {
 
   handleInitSubmit(event) {
 		title = event.target[0].value
-		qset.dimensions.x = parseInt(event.target[1].value)
-		qset.dimensions.y = parseInt(event.target[2].value)
+		qset.qset.data.dimensions.x = parseInt(event.target[1].value)
+		qset.qset.data.dimensions.y = parseInt(event.target[2].value)
 		this.setState({canHazTable: true});
 		event.preventDefault();
 		console.log(qset)
@@ -27,12 +35,12 @@ class Creator extends React.Component {
 
 	createTable() {
 		let table = []
-		for (let i = 0; i < qset.dimensions.x; i++)
+		for (let i = 0; i < qset.qset.data.dimensions.x; i++)
 		{
 			let children = []
-			for (let j = 0; j < qset.dimensions.y; j++)
+			for (let j = 0; j < qset.qset.data.dimensions.y; j++)
 			{
-				let temp = this.props.qset && this.props.qset.questions[i] && this.props.qset.questions[i][j]
+				let temp = this.props.qset && this.props.qset.qset.data.questions[i] && this.props.qset.qset.data.questions[i][j]
 				children.push(<td key={`${i} - ${j}`}>
 												<input type="checkbox" defaultChecked={temp && temp.options}/>
 												<input type="text" placeholder="" defaultValue={temp && temp.text}/>
@@ -45,17 +53,17 @@ class Creator extends React.Component {
 	}
 
 	handleTableSubmit(event) {
-		qset.questions = []
-		for (let i = 0; i < qset.dimensions.x; i++)
+		qset.qset.data.questions = []
+		for (let i = 0; i < qset.qset.data.dimensions.x; i++)
 		{
 			let temp = []
-			for (let j = 0; j < qset.dimensions.y * 2; j += 2)
+			for (let j = 0; j < qset.qset.data.dimensions.y * 2; j += 2)
 			{
-				temp.push({'options': event.target[i * qset.dimensions.y * 2 + j].checked,
-									 'text': event.target[i * qset.dimensions.y * 2 + j + 1].value
+				temp.push({'options': event.target[i * qset.qset.data.dimensions.y * 2 + j].checked,
+									 'text': event.target[i * qset.qset.data.dimensions.y * 2 + j + 1].value
 									})
 			}
-			qset.questions.push(temp)
+			qset.qset.data.questions.push(temp)
 		}
 		event.preventDefault();
 		console.log(qset)
@@ -72,11 +80,11 @@ class Creator extends React.Component {
 					</div>
 					<div>
 						Number of Rows (1-20):
-						<input type="number" min="1" max="20" placeholder={0} defaultValue={this.props.qset && this.props.qset.dimensions.x}/>
+						<input type="number" min="1" max="20" placeholder={0} defaultValue={this.props.qset && this.props.qset.qset.data.dimensions.x}/>
 					</div>
 					<div>
 						Number of Columns (1-20):
-						<input type="number" min="1" max="20" placeholder={0} defaultValue={this.props.qset && this.props.qset.dimensions.y}/>
+						<input type="number" min="1" max="20" placeholder={0} defaultValue={this.props.qset && this.props.qset.qset.data.dimensions.y}/>
 					</div>
 					<input type="submit" value="Save"/>
 				</form>
