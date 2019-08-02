@@ -80,7 +80,7 @@ class MainTable extends React.Component {
 				// show input if blank question, show text if not
 				cell.push(
 					<td key={cellID} id={cellID}>
-					{(this.props.qset[counter].options.blank) ? (<input type="text" onBlur={this.handleBlur} id={`${cellID}-input`} />):(this.props.qset[counter].question[0].text)}
+					{(this.props.qset[counter].options.blank) ? (<input type="text" onBlur={this.handleBlur} id={`${cellID}-input`} />):(this.props.qset[counter].questions[0].text)}
 					</td>
 				);
 

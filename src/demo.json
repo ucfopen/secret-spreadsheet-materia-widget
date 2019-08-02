@@ -4,15 +4,15 @@
 		"version": 1,
 		"data": {
 			"dimensions": {
-				"x": 2,
-				"y": 2
+				"x": 4,
+				"y": 1
 			},
 			"questions": [
 				{
 					"materiaType": "question",
 					"id": null,
 					"type": "QA",
-					"question": [
+					"questions": [
 						{
 							"text": "Show 1"
 						}
@@ -32,7 +32,7 @@
 					"materiaType": "question",
 					"id": null,
 					"type": "QA",
-					"question": [
+					"questions": [
 						{
 							"text": "Hide 1"
 						}
@@ -52,7 +52,7 @@
 					"materiaType": "question",
 					"id": null,
 					"type": "QA",
-					"question": [
+					"questions": [
 						{
 							"text": "Hide 2"
 						}
@@ -72,7 +72,7 @@
 					"materiaType": "question",
 					"id": null,
 					"type": "QA",
-					"question": [
+					"questions": [
 						{
 							"text": "Show 2"
 						}
