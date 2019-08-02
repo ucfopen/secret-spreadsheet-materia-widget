@@ -97,7 +97,7 @@ class MainTable extends React.Component {
 Materia.Engine.start({
 	start: (instance, qset) => {
 		ReactDOM.render(
-			<Player title={instance.name} dimensions={qset.dimensions} qset={qset.items[0].items} />,
+			<Player title={instance.name} dimensions={qset.dimensions} qset={qset.questions} />,
 			document.getElementById('root')
 		);
 	},
