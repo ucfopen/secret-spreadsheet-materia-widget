@@ -4,51 +4,32 @@ import ReactDOM from 'react-dom';
 class Player extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			answers: {}
-		}
+		this.answers = {};
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleNewAnswer = this.handleNewAnswer.bind(this);
 	}
 
 	handleSubmit(event) {
-		let score = 0.0;
-		let totalPointsPossible = 0.0;
-		event.preventDefault;
+		event.preventDefault();
 
-		// calculates final score. Only counts questions that user was supposed to answer
 		for (let i=0;i<this.props.qset.length;i++) {
 			const question = this.props.qset[i];
 
 			if (question.options.blank) {
-				totalPointsPossible++;
-
-				if (this.state.answers.hasOwnProperty(`${i}-input`)) {
-					if (this.state.answers[`${i}-input`] === question.answer[0].text) {
-						score++;
-					}
+				if (this.answers.hasOwnProperty(`${i}-input`)) {
+					Materia.Score.submitQuestionForScoring(question.id, this.answers[`${i}-input`]);
+				}
+				else {
+					Materia.Score.submitQuestionForScoring(question.id, '');
 				}
 			}
 		}
 
-		let finalScore = Math.round((score / totalPointsPossible) * 100);
-
-		if (finalScore > 100) {
-			finalScore = 100;
-		}
-
-		if (finalScore < 0) {
-			finalScore = 0;
-		}
-
-		Materia.Score.submitFinalScoreFromClient(0, '', finalScore);
 		Materia.Engine.end();
 	}
 
 	handleNewAnswer(newAnswers) {
-		this.setState({
-			answers: newAnswers
-		});
+		this.answers = newAnswers;
 	}
 
 	render() {
@@ -59,7 +40,7 @@ class Player extends React.Component {
 				<form onSubmit={this.handleSubmit}>
 					<table>
 						<tbody>
-							<MainTable dimensions={this.props.dimensions} qset={this.props.qset} parentState={this.state} handleNewAnswer={this.handleNewAnswer} />
+							<MainTable dimensions={this.props.dimensions} qset={this.props.qset} parentAnswers={this.answers} handleNewAnswer={this.handleNewAnswer} />
 						</tbody>
 					</table>
 
@@ -73,14 +54,11 @@ class Player extends React.Component {
 class MainTable extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			answers: {}
-		};
 		this.handleBlur = this.handleBlur.bind(this);
 	}
 
 	handleBlur(event) {
-		let newAnswers = this.props.parentState;
+		let newAnswers = this.props.parentAnswers;
 		newAnswers[event.target.id] = event.target.value;
 
 		this.props.handleNewAnswer(newAnswers);
