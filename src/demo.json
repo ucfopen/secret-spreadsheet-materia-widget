@@ -10,7 +10,7 @@
 							"materiaType": "question",
 							"id": null,
 							"type": "QA",
-							"question": [
+							"questions": [
 								{
 									"text": "Show 1"
 								}
@@ -30,7 +30,7 @@
 							"materiaType": "question",
 							"id": null,
 							"type": "QA",
-							"question": [
+							"questions": [
 								{
 									"text": "Hide 1"
 								}
@@ -50,7 +50,7 @@
 							"materiaType": "question",
 							"id": null,
 							"type": "QA",
-							"question": [
+							"questions": [
 								{
 									"text": "Hide 2"
 								}
@@ -70,7 +70,7 @@
 							"materiaType": "question",
 							"id": null,
 							"type": "QA",
-							"question": [
+							"questions": [
 								{
 									"text": "Show 2"
 								}
