@@ -11,8 +11,8 @@ general:
   is_storage_enabled: No
   api_version: 2
 files:
-  creator: default
   player: player.html
+  creator: creator.html
   flash_version: 0
 score:
   is_scorable: Yes

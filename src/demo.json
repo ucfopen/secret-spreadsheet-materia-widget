@@ -8,7 +8,7 @@
 				"y": 1
 			},
 			"questions": [
-				{
+				[{
 					"materiaType": "question",
 					"id": null,
 					"type": "QA",
@@ -47,8 +47,8 @@
 					"options": {
 						"blank": true
 					}
-				},
-				{
+				}],
+				[{
 					"materiaType": "question",
 					"id": null,
 					"type": "QA",
@@ -87,7 +87,7 @@
 					"options": {
 						"blank": false
 					}
-				}
+				}]
 			]
 		}
 	}
