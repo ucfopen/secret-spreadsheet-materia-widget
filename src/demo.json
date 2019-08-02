@@ -3,92 +3,96 @@
 	"qset": {
 		"version": 1,
 		"data": {
-			"dimensions": {
-				"x": 2,
-				"y": 2
-			},
-			"questions": [
+			"items": [
 				{
-					"materiaType": "question",
-					"id": null,
-					"type": "QA",
-					"question": [
+					"items": [
 						{
-							"text": "Show 1"
-						}
-					],
-					"answers": [
-						{
+							"materiaType": "question",
 							"id": null,
-							"text": "Show 1",
-							"value": 100
-						}
-					],
-					"options": {
-						"blank": false
-					}
-				},
-				{
-					"materiaType": "question",
-					"id": null,
-					"type": "QA",
-					"question": [
+							"type": "QA",
+							"question": [
+								{
+									"text": "Show 1"
+								}
+							],
+							"answers": [
+								{
+									"id": null,
+									"text": "Show 1",
+									"value": 100
+								}
+							],
+							"options": {
+								"blank": false
+							}
+						},
 						{
-							"text": "Hide 1"
-						}
-					],
-					"answers": [
-						{
+							"materiaType": "question",
 							"id": null,
-							"text": "Hide 1",
-							"value": 100
-						}
-					],
-					"options": {
-						"blank": true
-					}
-				},
-				{
-					"materiaType": "question",
-					"id": null,
-					"type": "QA",
-					"question": [
+							"type": "QA",
+							"question": [
+								{
+									"text": "Hide 1"
+								}
+							],
+							"answers": [
+								{
+									"id": null,
+									"text": "Hide 1",
+									"value": 100
+								}
+							],
+							"options": {
+								"blank": true
+							}
+						},
 						{
-							"text": "Hide 2"
-						}
-					],
-					"answers": [
-						{
+							"materiaType": "question",
 							"id": null,
-							"text": "Hide 2",
-							"value": 100
-						}
-					],
-					"options": {
-						"blank": true
-					}
-				},
-				{
-					"materiaType": "question",
-					"id": null,
-					"type": "QA",
-					"question": [
+							"type": "QA",
+							"question": [
+								{
+									"text": "Hide 2"
+								}
+							],
+							"answers": [
+								{
+									"id": null,
+									"text": "Hide 2",
+									"value": 100
+								}
+							],
+							"options": {
+								"blank": true
+							}
+						},
 						{
-							"text": "Show 2"
-						}
-					],
-					"answers": [
-						{
+							"materiaType": "question",
 							"id": null,
-							"text": "Show 2",
-							"value": 100
+							"type": "QA",
+							"question": [
+								{
+									"text": "Show 2"
+								}
+							],
+							"answers": [
+								{
+									"id": null,
+									"text": "Show 2",
+									"value": 100
+								}
+							],
+							"options": {
+								"blank": false
+							}
 						}
-					],
-					"options": {
-						"blank": false
-					}
+					]
 				}
-			]
+			],
+			"dimensions": {
+				"x": 4,
+				"y": 1
+			}
 		}
 	}
 }
