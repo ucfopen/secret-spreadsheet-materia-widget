@@ -1,0 +1,30 @@
+general:
+  name: Spreadsheet Widget
+  group: Materia
+  height: 500
+  width: 750
+  in_catalog: Yes
+  is_editable: No
+  is_playable: Yes
+  is_qset_encrypted: Yes
+  is_answer_encrypted: Yes
+  is_storage_enabled: No
+  api_version: 2
+files:
+  creator: default
+  player: player.html
+  flash_version: 0
+score:
+  is_scorable: Yes
+  score_module: SpreadsheetWidget
+meta_data:
+  features:
+    - Scorable
+    - Custom
+    - Question/Answer
+  supported_data:
+    - Question/Answer
+  about: >
+    Widget to test out creation and filling in of spreadsheets.
+  excerpt: >
+    Spreadsheet creation and testing.

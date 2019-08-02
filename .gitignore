@@ -24,6 +24,10 @@ coverage
 .grunt
 
 # Bower dependency directory (https://bower.io/)
+.DS_Store
+*/.DS_Store
+.sass-cache
+node_modules
 bower_components
 
 # node-waf configuration
@@ -59,3 +63,6 @@ typings/
 
 # next.js build output
 .next
+*build
+coverage
+yarn-error.log

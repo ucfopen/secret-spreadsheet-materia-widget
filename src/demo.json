@@ -1,0 +1,94 @@
+{
+	"name": "Spreadsheet Widget",
+	"qset": {
+		"version": 1,
+		"data": {
+			"dimensions": {
+				"x": 2,
+				"y": 2
+			},
+			"questions": [
+				{
+					"materiaType": "question",
+					"id": null,
+					"type": "QA",
+					"question": [
+						{
+							"text": "Show 1"
+						}
+					],
+					"answers": [
+						{
+							"id": null,
+							"text": "Show 1",
+							"value": 100
+						}
+					],
+					"options": {
+						"blank": false
+					}
+				},
+				{
+					"materiaType": "question",
+					"id": null,
+					"type": "QA",
+					"question": [
+						{
+							"text": "Hide 1"
+						}
+					],
+					"answers": [
+						{
+							"id": null,
+							"text": "Hide 1",
+							"value": 100
+						}
+					],
+					"options": {
+						"blank": true
+					}
+				},
+				{
+					"materiaType": "question",
+					"id": null,
+					"type": "QA",
+					"question": [
+						{
+							"text": "Hide 2"
+						}
+					],
+					"answers": [
+						{
+							"id": null,
+							"text": "Hide 2",
+							"value": 100
+						}
+					],
+					"options": {
+						"blank": true
+					}
+				},
+				{
+					"materiaType": "question",
+					"id": null,
+					"type": "QA",
+					"question": [
+						{
+							"text": "Show 2"
+						}
+					],
+					"answers": [
+						{
+							"id": null,
+							"text": "Show 2",
+							"value": 100
+						}
+					],
+					"options": {
+						"blank": false
+					}
+				}
+			]
+		}
+	}
+}
