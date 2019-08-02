@@ -16,14 +16,10 @@ class Player extends React.Component {
 			const question = this.props.qset[i];
 
 			if (question.options.blank) {
-				console.log(`question id: ${question.id}`);
-				console.log('is scorable');
 				if (this.answers.hasOwnProperty(`${i}-input`)) {
-					console.log('has answer');
 					Materia.Score.submitQuestionForScoring(question.id, this.answers[`${i}-input`]);
 				}
 				else {
-					console.log("doesn't have answers");
 					Materia.Score.submitQuestionForScoring(question.id, '');
 				}
 			}
@@ -100,7 +96,6 @@ class MainTable extends React.Component {
 
 Materia.Engine.start({
 	start: (instance, qset) => {
-		console.log(qset);
 		ReactDOM.render(
 			<Player title={instance.name} dimensions={qset.dimensions} qset={qset.items[0].items} />,
 			document.getElementById('root')
