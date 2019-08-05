@@ -75,17 +75,17 @@ class MainTable extends React.Component {
 		let counter = 0;
 
 		// going down columns
-		for (let i=0;i<this.props.dimensions.y;i++) {
+		for (let i=0;i<this.props.dimensions.x;i++) {
 			let rowID = `row${i}`;
 			let cell = [];
 
 			// going across
-			for (let j=0;j<this.props.dimensions.x;j++) {
-				const cellID = counter;
+			for (let j=0;j<this.props.dimensions.y;j++) {
+				const cellID = `cell${counter}`;
 
 				cell.push(
 					<td key={cellID} id={cellID}>
-					{(this.props.qset[i][j].options.blank) ? (<input type="text" onBlur={this.handleBlur} id={`${cellID}-input`} />):(this.props.qset[i][j].questions[0].text)}
+					{(this.props.qset[i][j].options.blank) ? (<input type="text" onBlur={this.handleBlur} id={`${counter}-input`} />):(this.props.qset[i][j].questions[0].text)}
 					</td>
 				);
 
@@ -101,7 +101,6 @@ class MainTable extends React.Component {
 
 Materia.Engine.start({
 	start: (instance, qset) => {
-		console.log(qset);
 		ReactDOM.render(
 			<Player title={instance.name} dimensions={qset.dimensions} qset={qset.items[0].items} />,
 			document.getElementById('root')

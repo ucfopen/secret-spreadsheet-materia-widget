@@ -82,18 +82,18 @@ class Creator extends React.Component {
 			<div>
 
 				<form onSubmit={this.handleInitSubmit}>
-					<div>
-						Title of Widget:
+					<label>Title of Widget:
 						<input type="text" placeholder="New Spreadsheet Widget" defaultValue={title = (this.props.title ? this.props.title : title)}/>
-					</div>
-					<div>
-						Number of Rows (1-20):
+					</label>
+
+					<label>Number of Rows (1-20):
 						<input type="number" min="1" max="20" placeholder={0} defaultValue={this.props.qset && this.props.qset.dimensions.x}/>
-					</div>
-					<div>
-						Number of Columns (1-20):
+					</label>
+
+					<label>Number of Columns (1-20):
 						<input type="number" min="1" max="20" placeholder={0} defaultValue={this.props.qset && this.props.qset.dimensions.y}/>
-					</div>
+					</label>
+
 					<input type="submit" value="Save"/>
 				</form>
 

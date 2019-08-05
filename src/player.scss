@@ -1,14 +1,17 @@
-body {
-	background: #FFF;
-	font-family: Lato, sans-serif;
+@import 'base';
+
+h1 {
+	margin: 20px auto;
 }
 
-table, th, td {
-	border: 1px solid black;
-	padding: 10px;
+input {
+	&:hover, &:focus {
+		background-color: inherit;
+	}
 }
 
 table {
+	max-width: 712px;
 	border-collapse: collapse;
-	margin-bottom: 20px
+	margin: 40px auto;
 }
