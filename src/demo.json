@@ -4,90 +4,94 @@
 		"version": 1,
 		"data": {
 			"dimensions": {
-				"x": 4,
-				"y": 1
+				"x": 2,
+				"y": 2
 			},
 			"questions": [
-				[{
-					"materiaType": "question",
-					"id": null,
-					"type": "QA",
-					"questions": [
+					[
 						{
-							"text": "Show 1"
+						"materiaType": "question",
+						"id": null,
+						"type": "QA",
+						"questions": [
+							{
+								"text": "Show 1"
+							}
+						],
+						"answers": [
+							{
+								"id": null,
+								"text": "Show 1",
+								"value": 100
+							}
+						],
+						"options": {
+							"blank": false
 						}
-					],
-					"answers": [
-						{
-							"id": null,
-							"text": "Show 1",
-							"value": 100
+					},
+					{
+						"materiaType": "question",
+						"id": null,
+						"type": "QA",
+						"questions": [
+							{
+								"text": "Hide 1"
+							}
+						],
+						"answers": [
+							{
+								"id": null,
+								"text": "Hide 1",
+								"value": 100
+							}
+						],
+						"options": {
+							"blank": true
 						}
-					],
-					"options": {
-						"blank": false
 					}
-				},
-				{
-					"materiaType": "question",
-					"id": null,
-					"type": "QA",
-					"questions": [
-						{
-							"text": "Hide 1"
+				],
+				[
+					{
+						"materiaType": "question",
+						"id": null,
+						"type": "QA",
+						"questions": [
+							{
+								"text": "Hide 2"
+							}
+						],
+						"answers": [
+							{
+								"id": null,
+								"text": "Hide 2",
+								"value": 100
+							}
+						],
+						"options": {
+							"blank": true
 						}
-					],
-					"answers": [
-						{
-							"id": null,
-							"text": "Hide 1",
-							"value": 100
+					},
+					{
+						"materiaType": "question",
+						"id": null,
+						"type": "QA",
+						"questions": [
+							{
+								"text": "Show 2"
+							}
+						],
+						"answers": [
+							{
+								"id": null,
+								"text": "Show 2",
+								"value": 100
+							}
+						],
+						"options": {
+							"blank": false
 						}
-					],
-					"options": {
-						"blank": true
 					}
-				}],
-				[{
-					"materiaType": "question",
-					"id": null,
-					"type": "QA",
-					"questions": [
-						{
-							"text": "Hide 2"
-						}
-					],
-					"answers": [
-						{
-							"id": null,
-							"text": "Hide 2",
-							"value": 100
-						}
-					],
-					"options": {
-						"blank": true
-					}
-				},
-				{
-					"materiaType": "question",
-					"id": null,
-					"type": "QA",
-					"questions": [
-						{
-							"text": "Show 2"
-						}
-					],
-					"answers": [
-						{
-							"id": null,
-							"text": "Show 2",
-							"value": 100
-						}
-					],
-					"options": {
-						"blank": false
-					}
-				}]
+				]
 			]
 		}
 	}
