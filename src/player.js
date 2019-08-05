@@ -10,18 +10,24 @@ class Player extends React.Component {
 	}
 
 	handleSubmit(event) {
+		let counter = 0;
+
 		event.preventDefault();
 
 		for (let i=0;i<this.props.qset.length;i++) {
-			const question = this.props.qset[i];
+			for (let j=0;j<this.props.qset[i].length;j++) {
+				const question = this.props.qset[i][j];
 
-			if (question.options.blank) {
-				if (this.answers.hasOwnProperty(`${i}-input`)) {
-					Materia.Score.submitQuestionForScoring(question.id, this.answers[`${i}-input`]);
+				if (question.options.blank) {
+					if (this.answers.hasOwnProperty(`${counter}-input`)) {
+						Materia.Score.submitQuestionForScoring(question.id, this.answers[`${counter}-input`]);
+					}
+					else {
+						Materia.Score.submitQuestionForScoring(question.id, '');
+					}
 				}
-				else {
-					Materia.Score.submitQuestionForScoring(question.id, '');
-				}
+
+				counter++;
 			}
 		}
 
@@ -68,19 +74,18 @@ class MainTable extends React.Component {
 		let rows = [];
 		let counter = 0;
 
-		// column
+		// going down columns
 		for (let i=0;i<this.props.dimensions.y;i++) {
 			let rowID = `row${i}`;
 			let cell = [];
 
-			// row
+			// going across
 			for (let j=0;j<this.props.dimensions.x;j++) {
-				let cellID = counter;
+				const cellID = counter;
 
-				// show input if blank question, show text if not
 				cell.push(
 					<td key={cellID} id={cellID}>
-					{(this.props.qset[counter].options.blank) ? (<input type="text" onBlur={this.handleBlur} id={`${cellID}-input`} />):(this.props.qset[counter].questions[0].text)}
+					{(this.props.qset[i][j].options.blank) ? (<input type="text" onBlur={this.handleBlur} id={`${cellID}-input`} />):(this.props.qset[i][j].questions[0].text)}
 					</td>
 				);
 
