@@ -81,7 +81,7 @@ class MainTable extends React.Component {
 
 			// going across
 			for (let j=0;j<this.props.dimensions.y;j++) {
-				const cellID = counter;
+				const cellID = `cell${counter}`;
 
 				cell.push(
 					<td key={cellID} id={cellID}>
