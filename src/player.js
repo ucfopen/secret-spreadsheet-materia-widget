@@ -75,12 +75,12 @@ class MainTable extends React.Component {
 		let counter = 0;
 
 		// going down columns
-		for (let i=0;i<this.props.dimensions.y;i++) {
+		for (let i=0;i<this.props.dimensions.x;i++) {
 			let rowID = `row${i}`;
 			let cell = [];
 
 			// going across
-			for (let j=0;j<this.props.dimensions.x;j++) {
+			for (let j=0;j<this.props.dimensions.y;j++) {
 				const cellID = counter;
 
 				cell.push(
