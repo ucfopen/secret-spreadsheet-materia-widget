@@ -12,6 +12,7 @@ label {
 input {
 	&[type=submit] {
 		margin: 20px auto;
+		margin-left: 5rem;
 
 		&:hover, &:focus {
 			background-color: inherit;
@@ -24,6 +25,28 @@ input {
 		height: 1.5em;
 	}
 }
+
+.title-container,
+.dimensions-container {
+	height: 5rem;
+
+	.title,
+	.dimensions {
+		left: 35%;
+		top: 2.4rem;
+		position: absolute;
+	}
+
+	.dimensions {
+		top: 7.5rem;
+	}
+
+	.btn {
+		left: 50%;
+		position: absolute;
+	}
+}
+
 
 table, td {
 	td {
@@ -39,4 +62,31 @@ table, td {
 
 table {
 	max-width: 96%;
+}
+
+.lit {
+	border-color: #b944cc;
+	box-shadow: inset 0 0 10px #b944cc;
+}
+
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0,0,0, 0.5);
+}
+.popup\_inner {
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 25%;
+  bottom: 25%;
+  margin: auto;
+  border-radius: 20px;
+  background: white;
 }
