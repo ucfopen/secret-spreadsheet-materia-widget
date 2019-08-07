@@ -46,7 +46,7 @@ class Player extends React.Component {
 				<form onSubmit={this.handleSubmit}>
 					<table>
 						<tbody>
-							<MainTable dimensions={this.props.dimensions} qset={this.props.qset} parentAnswers={this.answers} handleNewAnswer={this.handleNewAnswer} random={this.props.random} count={this.props.count} />
+							<MainTable dimensions={this.props.dimensions} qset={this.props.qset} parentAnswers={this.answers} handleNewAnswer={this.handleNewAnswer} count={this.props.count} />
 						</tbody>
 					</table>
 
@@ -87,7 +87,7 @@ class MainTable extends React.Component {
 	}
 
 	render() {
-		if (Object.entries(this.randPositions).length === 0 && this.randPositions.constructor === Object && this.props.random) {
+		if (Object.entries(this.randPositions).length === 0 && this.randPositions.constructor === Object && this.props.count !== 0) {
 			this.randomize();
 		}
 
@@ -103,7 +103,7 @@ class MainTable extends React.Component {
 			for (let j=0;j<this.props.dimensions.y;j++) {
 				const cellID = `cell${counter}`;
 
-				if (this.props.random) {
+				if (this.props.count !== 0) {
 					cell.push(
 						<td key={cellID} id={cellID}>
 						{(this.randPositions.hasOwnProperty(counter)) ? (<input type="text" onBlur={this.handleBlur} id={`${counter}-input`} />):(this.props.qset[i][j].questions[0].text)}
@@ -131,7 +131,7 @@ class MainTable extends React.Component {
 Materia.Engine.start({
 	start: (instance, qset) => {
 		ReactDOM.render(
-			<Player title={instance.name} dimensions={qset.dimensions} qset={qset.items[0].items} random={qset.randomization.random} count={qset.randomization.count} />,
+			<Player title={instance.name} dimensions={qset.dimensions} qset={qset.items[0].items} count={qset.randomization} />,
 			document.getElementById('root')
 		);
 	},
