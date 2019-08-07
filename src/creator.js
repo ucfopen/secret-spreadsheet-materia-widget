@@ -126,9 +126,9 @@ class Creator extends React.Component {
 			<div>
 				{this.state.popup === true ?
 					<div className='popup'>
-						<div className='popup\_inner'>
-							<form className="title-container" onSubmit={this.handleTitleSubmit}>
-								<input required="required" type="text" placeholder="New Spreadsheet Widget" defaultValue="New Spreadsheet Widget"/>
+						<div className='popup-inner'>
+							<form onSubmit={this.handleTitleSubmit}>
+								<input className="popup-input" required="required" type="text" placeholder="My Spreadsheet Widget" defaultValue="New Spreadsheet Widget"/>
 								<input type="submit" value="Save"/>
 							</form>
 						</div>
@@ -143,7 +143,7 @@ class Creator extends React.Component {
 						</div>
 					:
 						<form className="title-container" onSubmit={this.handleTitleSubmit}>
-							<input required="required" className="title" type="text" placeholder="Title" defaultValue={title = (title || this.props.title)}/>
+							<input required="required" className="title" type="text" placeholder="My Spreadsheet Widget" defaultValue={title = (title || this.props.title)}/>
 							<input className="btn" type="submit" value="Save"/>
 						</form>
 				: ""}
@@ -189,6 +189,24 @@ class Creator extends React.Component {
 							</form>
 						</div>
 				: ""}
+
+				<div className="container">
+					<div className="bird-container bird-container--one">
+						<div className="bird bird--one"></div>
+					</div>
+
+					<div className="bird-container bird-container--two">
+						<div className="bird bird--two"></div>
+					</div>
+
+					<div className="bird-container bird-container--three">
+						<div className="bird bird--three"></div>
+					</div>
+
+					<div className="bird-container bird-container--four">
+						<div className="bird bird--four"></div>
+					</div>
+				</div>
 
 			</div>
 		);
