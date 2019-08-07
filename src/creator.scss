@@ -10,13 +10,8 @@ label {
 }
 
 input {
-	&[type=submit] {
-		margin: 20px auto;
-		margin-left: 5rem;
-
-		&:hover, &:focus {
-			background-color: inherit;
-		}
+	.table-button {
+		margin-left: 0;
 	}
 
 	&[type=text], &[type=number] {
@@ -36,6 +31,8 @@ input {
 		top: 2.4rem;
 		width: 15rem;
 		position: absolute;
+		width: 15rem;
+		text-align: left;
 	}
 
 	.dimensions {
@@ -45,6 +42,12 @@ input {
 	.btn {
 		left: 50%;
 		position: absolute;
+		margin: 20px auto;
+		margin-left: 5rem;
+
+		&:hover, &:focus {
+			background-color: inherit;
+		}
 	}
 }
 
@@ -82,14 +85,14 @@ table {
   background-color: rgba(0,0,0, 0.5);
 }
 
-.popup-inner {
-  position: absolute;
+
+	.popup-inner {
+	position: absolute;
 	left: 20%;
 	right: 20%;
-	top: 20%;
-	bottom: 20%;
+	top: 25%;
+	bottom: auto;
 	margin: auto;
-	padding: 1rem;
 	border-radius: 20px;
 	border-color: #0093e7;
 	box-shadow: inset 0 0 10px #0093e7;
@@ -246,4 +249,8 @@ table {
 		transform: translateY(0vh) translateX(110vw) scale(0.45);
 	}
 
+}
+
+.popup-input {
+	width: 25rem;
 }
