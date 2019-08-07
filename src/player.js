@@ -85,7 +85,7 @@ class MainTable extends React.Component {
 
 				cell.push(
 					<td key={cellID} id={cellID}>
-					{(this.props.qset[i][j].options.blank) ? (<input type="text" onBlur={this.handleBlur} id={`${cellID}-input`} />):(this.props.qset[i][j].questions[0].text)}
+					{(this.props.qset[i][j].options.blank) ? (<input type="text" onBlur={this.handleBlur} id={`${counter}-input`} />):(this.props.qset[i][j].questions[0].text)}
 					</td>
 				);
 
@@ -101,7 +101,6 @@ class MainTable extends React.Component {
 
 Materia.Engine.start({
 	start: (instance, qset) => {
-		console.log(qset);
 		ReactDOM.render(
 			<Player title={instance.name} dimensions={qset.dimensions} qset={qset.items[0].items} />,
 			document.getElementById('root')
