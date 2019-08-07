@@ -1,14 +1,42 @@
-body {
-	background: #FFF;
-	font-family: Lato, sans-serif;
+@import 'base';
+
+label {
+	display: block;
+	margin: 10px 5px;
+
+	input {
+		margin-left: 5px;
+	}
 }
 
-table, th, td {
-	border: 1px solid black;
-	padding: 10px;
+input {
+	&[type=submit] {
+		margin: 20px auto;
+
+		&:hover, &:focus {
+			background-color: inherit;
+		}
+	}
+
+	&[type=text], &[type=number] {
+		font-size: inherit;
+		font-family: inherit;
+		height: 1.5em;
+	}
+}
+
+table, td {
+	td {
+		input {
+			&[type=text] {
+				&:hover, &:focus {
+					background-color: inherit;
+				}
+			}
+		}
+	}
 }
 
 table {
-	border-collapse: collapse;
-	margin-bottom: 20px
+	max-width: 96%;
 }

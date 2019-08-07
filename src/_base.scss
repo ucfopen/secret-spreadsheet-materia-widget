@@ -1,0 +1,60 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #FFF;
+	font-family: Lato, sans-serif;
+	padding: 10px 0;
+	font-size: 16px;
+	text-align: center;
+}
+
+input {
+	&[type=submit] {
+		font-size: inherit;
+		font-family: inherit;
+		background-color: orange;
+		border: solid 1px orange;
+		border-radius: 3px;
+		padding: 0.5em 4em;
+		cursor: pointer;
+	}
+}
+
+table, td {
+	border: 1px solid black;
+
+	tr {
+		@for $i from 1 through 21 {
+			td:first-child:nth-last-child(#{$i}),
+			td:first-child:nth-last-child(#{$i}) ~ td {
+				width: 100% / $i;
+			}
+		}
+	}
+
+	td {
+		max-width: 100%;
+		padding: 0.5em 0;
+		word-break: break-all;
+
+		input {
+			resize: horizontal;
+			font-size: inherit;
+			font-family: inherit;
+			width: 90%;
+			height: 1em;
+			border: none;
+			border-bottom: 1px solid black;
+			text-align: center;
+			background-color: lightgray;
+		}
+	}
+}
+
+table {
+	border-collapse: collapse;
+	margin: 40px auto;
+}
