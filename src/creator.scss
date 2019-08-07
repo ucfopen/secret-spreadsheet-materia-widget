@@ -10,13 +10,8 @@ label {
 }
 
 input {
-	&[type=submit] {
-		margin: 20px auto;
-		margin-left: 5rem;
-
-		&:hover, &:focus {
-			background-color: inherit;
-		}
+	.table-button {
+		margin-left: 0;
 	}
 
 	&[type=text], &[type=number] {
@@ -35,6 +30,8 @@ input {
 		left: 35%;
 		top: 2.4rem;
 		position: absolute;
+		width: 15rem;
+		text-align: left;
 	}
 
 	.dimensions {
@@ -44,6 +41,12 @@ input {
 	.btn {
 		left: 50%;
 		position: absolute;
+		margin: 20px auto;
+		margin-left: 5rem;
+
+		&:hover, &:focus {
+			background-color: inherit;
+		}
 	}
 }
 
@@ -80,13 +83,17 @@ table {
   margin: auto;
   background-color: rgba(0,0,0, 0.5);
 }
-.popup\_inner {
+.popup-inner {
   position: absolute;
-  left: 25%;
-  right: 25%;
+  left: 20%;
+  right: 20%;
   top: 25%;
-  bottom: 25%;
+  bottom: auto;
   margin: auto;
   border-radius: 20px;
   background: white;
+}
+
+.popup-input {
+	width: 25rem;
 }
