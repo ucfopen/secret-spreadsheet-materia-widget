@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 let title = ''
 let qset = {
-	'randomization': null,
+	'randomization': 0,
 	'dimensions': {'x': null, 'y': null},
 	'items': [{'items': []}]
 }
@@ -135,6 +135,16 @@ class Creator extends React.Component {
 	}
 
 	render() {
+		// on initial load props.qset is undefined which does not work with player
+		if (this.state.iCanHazTable) {
+			if (typeof this.props.qset === 'undefined') {
+				qset.randomization = 0;
+			}
+			else {
+				qset.randomization = (qset.randomization || (this.props.qset && this.props.qset.randomization));
+			}
+		}
+
 		return (
 			<div>
 				{this.state.iCanHazPopup === true ?
@@ -191,7 +201,7 @@ class Creator extends React.Component {
 									</div>
 								:
 									<div className="table-container">
-										<label>Check the boxes to hide from players or randomly hide <input type="number" placeholder={0} defaultValue={qset.randomization = (qset.randomization || this.props.qset && this.props.qset.randomization)} min="1" max={qset.dimensions.x * qset.dimensions.y} onBlur={this.handleBlur}/> fields</label>
+										<label>Check the boxes to hide from players or randomly hide <input type="number" placeholder={0} defaultValue={qset.randomization} min="1" max={qset.dimensions.x * qset.dimensions.y} onBlur={this.handleBlur}/> fields</label>
 										<form onSubmit={this.handleTableSubmit}>
 											<table>
 												<tbody>
