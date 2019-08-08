@@ -37,7 +37,7 @@ class Player extends React.Component {
 			for (let j=0;j<this.props.qset[i].length;j++) {
 				const question = this.props.qset[i][j];
 
-				if (this.props.count !== 0) {
+				if (this.props.randCount !== 0) {
 					if (this.randPositions.hasOwnProperty(counter)) {
 						this.submitAnswer(question.id, counter);
 					}
@@ -68,7 +68,14 @@ class Player extends React.Component {
 				<form onSubmit={this.handleSubmit}>
 					<table>
 						<tbody>
-							<MainTable dimensions={this.props.dimensions} qset={this.props.qset} parentAnswers={this.answers} handleNewAnswer={this.handleNewAnswer} collectPositions={this.collectPositions} count={this.props.count} />
+							<MainTable
+								dimensions={this.props.dimensions}
+								qset={this.props.qset}
+								parentAnswers={this.answers}
+								handleNewAnswer={this.handleNewAnswer}
+								collectPositions={this.collectPositions}
+								randCount={this.props.randCount}
+							/>
 						</tbody>
 					</table>
 
@@ -100,7 +107,7 @@ class MainTable extends React.Component {
 		const totalCells = this.props.dimensions.x * this.props.dimensions.y;
 		let selectCount = 0;
 
-		while (selectCount < this.props.count) {
+		while (selectCount < this.props.randCount) {
 			const position = Math.floor(Math.random() * totalCells);
 
 			if (!this.selectedPositions.hasOwnProperty(position)) {
@@ -113,15 +120,15 @@ class MainTable extends React.Component {
 	}
 
 	render() {
-		// randomize which entries are blank if the count if the creator says more than 0 should be random and we haven't already done this
-		if (Object.entries(this.selectedPositions).length === 0 && this.selectedPositions.constructor === Object && this.props.count !== 0) {
+		// randomize which entries are blank if the creator says more than 0 should be random and this is the first render of the table
+		if (Object.entries(this.selectedPositions).length === 0 && this.selectedPositions.constructor === Object && this.props.randCount !== 0) {
 			this.randomize();
 		}
 
 		let rows = [];
 		let counter = 0;
 
-		// generates the table
+		// generate the table
 		// going down columns
 		for (let i=0;i<this.props.dimensions.x;i++) {
 			let rowID = `row${i}`;
@@ -132,7 +139,7 @@ class MainTable extends React.Component {
 				const cellID = `cell${counter}`;
 
 				// adds in the random questions
-				if (this.props.count !== 0) {
+				if (this.props.randCount !== 0) {
 					cell.push(
 						<td key={cellID} id={cellID}>
 						{(this.selectedPositions.hasOwnProperty(counter)) ? (<input type="text" onBlur={this.handleBlur} id={`${counter}-input`} />):(this.props.qset[i][j].questions[0].text)}
@@ -161,7 +168,12 @@ class MainTable extends React.Component {
 Materia.Engine.start({
 	start: (instance, qset) => {
 		ReactDOM.render(
-			<Player title={instance.name} dimensions={qset.dimensions} qset={qset.items[0].items} count={qset.randomization} />,
+			<Player
+				title={instance.name}
+				dimensions={qset.dimensions}
+				qset={qset.items[0].items}
+				randCount={qset.randomization}
+			/>,
 			document.getElementById('root')
 		);
 	},
