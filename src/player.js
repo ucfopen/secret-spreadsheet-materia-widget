@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MainTable from './player-table'
+import MainTable from './player-table';
+import Popup from './player-popup'
 
 class PlayerApp extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			popup: true,
+			answered: 0
+		}
 		this.answers = {};
 		this.randPositions = {};
 		this.submitAnswer = this.submitAnswer.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleNewAnswer = this.handleNewAnswer.bind(this);
+		this.handlePopupToggle = this.handlePopupToggle.bind(this);
 		this.randomize = this.randomize.bind(this);
 	}
 
@@ -56,6 +62,20 @@ class PlayerApp extends React.Component {
 		this.answers = newAnswers;
 	}
 
+	// decides if it should show popup or not
+	handlePopupToggle() {
+		if (this.state.popup) {
+			this.setState({
+				popup: false
+			});
+		}
+		else {
+			this.setState({
+				popup: true
+			});
+		}
+	}
+
 	// select random blank answers
 	randomize() {
 		const totalCells = this.props.dimensions.x * this.props.dimensions.y;
@@ -79,24 +99,31 @@ class PlayerApp extends React.Component {
 
 		return(
 			<div>
-				<h1>{this.props.title}</h1>
+				<header>
+					<h1>{this.props.title}</h1>
+					{this.state.popup ? null:<button type="button" value="Help" onClick={this.handlePopupToggle}>Help</button>}
+				</header>
 
-				<form onSubmit={this.handleSubmit}>
-					<table>
-						<tbody>
-							<MainTable
-								dimensions={this.props.dimensions}
-								qset={this.props.qset}
-								parentAnswers={this.answers}
-								handleNewAnswer={this.handleNewAnswer}
-								randPositions={this.randPositions}
-								randCount={this.props.randCount}
-							/>
-						</tbody>
-					</table>
+				<main>
+					{this.state.popup ? <Popup handlePopupToggle={this.handlePopupToggle} />:null}
 
-					<input type="submit" value="Submit" />
-				</form>
+					<form onSubmit={this.handleSubmit}>
+						<table>
+							<tbody>
+								<MainTable
+									dimensions={this.props.dimensions}
+									qset={this.props.qset}
+									parentAnswers={this.answers}
+									handleNewAnswer={this.handleNewAnswer}
+									randPositions={this.randPositions}
+									randCount={this.props.randCount}
+								/>
+							</tbody>
+						</table>
+
+						<input type="submit" value="Submit" />
+					</form>
+				</main>
 			</div>
 		);
 	}

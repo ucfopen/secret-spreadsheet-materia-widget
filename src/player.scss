@@ -1,17 +1,84 @@
-@import 'base';
-
-h1 {
-	margin: 20px auto;
+* {
+	margin: 0;
+	padding: 0;
 }
 
-input {
-	&:hover, &:focus {
-		background-color: inherit;
+body {
+	background: #FFF;
+	font-family: Lato, sans-serif;
+	font-size: 16px;
+	text-align: center;
+}
+
+header {
+	width: 750px;
+	box-sizing: border-box;
+	padding: 10px 15px;
+	background-color: green;
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+	align-items: center;
+	font-size: 16px;
+
+	h1 {
+		align-self: center;
+		color: white;
+	}
+
+	button {
+		font-size: 14px;
+		background-color: green;
+		color: white;
+		border: 1px solid white;
+		border-radius: 3px;
+		padding: 0.2em 1.4em;
+		cursor: pointer;
 	}
 }
 
-table {
-	max-width: 712px;
-	border-collapse: collapse;
-	margin: 40px auto;
+main {
+	margin: 20px auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+}
+
+.popup {
+	background-color: rgba(0, 0, 0, 0.3);
+	width: 750px;
+	height: 500px;
+	position: fixed;
+	top: 57px;
+
+	div {
+		margin: 30px auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-content: center;
+		align-items: center;
+		width: 85%;
+		background-color: white;
+		align-items: space-between;
+
+		h2 {
+			font-size: 26px;
+			margin: 30px auto;
+			color: green;
+		}
+
+		button {
+			font-size: 16px;
+			margin: 30px auto;
+			padding: 0.3em 2em;
+			background-color: purple;
+			color: white;
+			border-radius: 3px;
+			border: none;
+			cursor: pointer;
+		}
+	}
 }
