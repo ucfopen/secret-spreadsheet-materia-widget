@@ -1,11 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-<<<<<<< HEAD
-import MainTable from './player-table';
-import Popup from './player-popup'
-=======
-import PlayerTable from './components/player-table'
->>>>>>> 4060113... Move components to own directory and code improvements
+import PlayerTable from './components/player-table';
+import Popup from './components/player-popup';
 
 class PlayerApp extends React.Component {
 	constructor(props) {
