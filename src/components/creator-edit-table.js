@@ -3,14 +3,19 @@ import ReactDOM from 'react-dom'
 import EditCell from './creator-edit-cell'
 
 class EditTable extends React.Component {
+	constructor(props) {
+		super(props)
+		this.handleRandomizationBlur = this.handleRandomizationBlur.bind(this)
+	}
+
 	// Make sure the value for number of randomization is within bounds
 	handleRandomizationBlur(event) {
 		if (event.target.value <= 0) {
-			this.state.qset.randomization = event.target.value = 0
-		} else if (event.target.value > (this.state.qset.dimensions.x * this.state.qset.dimensions.y)) {
-			this.state.qset.randomization = event.target.value = this.state.qset.dimensions.x * this.state.qset.dimensions.y
+			this.props.qset.randomization = event.target.value = 0
+		} else if (event.target.value > (this.props.qset.dimensions.x * this.props.qset.dimensions.y)) {
+			this.props.qset.randomization = event.target.value = this.props.qset.dimensions.x * this.props.qset.dimensions.y
 		} else {
-			this.state.qset.randomization = event.target.value
+			this.props.qset.randomization = event.target.value
 		}
 		event.preventDefault()
 	}
