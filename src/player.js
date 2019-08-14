@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+<<<<<<< HEAD
 import MainTable from './player-table';
 import Popup from './player-popup'
+=======
+import PlayerTable from './components/player-table'
+>>>>>>> 4060113... Move components to own directory and code improvements
 
 class PlayerApp extends React.Component {
 	constructor(props) {
@@ -11,7 +15,7 @@ class PlayerApp extends React.Component {
 			answered: 0
 		}
 		this.answers = {};
-		this.randPositions = {};
+		this.randPositions = new Set(); // set of randomly chosen cells that need to be answered
 		this.submitAnswer = this.submitAnswer.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleNewAnswer = this.handleNewAnswer.bind(this);
@@ -39,7 +43,7 @@ class PlayerApp extends React.Component {
 			element.forEach(question => {
 				// randomly selected questions
 				if (this.props.randCount !== 0) {
-					if (this.randPositions.hasOwnProperty(counter)) {
+					if (this.randPositions.has(counter)) {
 						this.submitAnswer(question.id, counter);
 					}
 				}
@@ -84,8 +88,8 @@ class PlayerApp extends React.Component {
 		while (selectCount < this.props.randCount) {
 			const position = Math.floor(Math.random() * totalCells);
 
-			if (!this.randPositions.hasOwnProperty(position)) {
-				this.randPositions[position] = true;
+			if (!this.randPositions.has(position)) {
+				this.randPositions.add(position);
 				selectCount++;
 			}
 		}
@@ -93,7 +97,7 @@ class PlayerApp extends React.Component {
 
 	render() {
 		// randomize which entries are blank if the creator says more than 0 should be random and this is the first render of the table
-		if (Object.entries(this.randPositions).length === 0 && this.randPositions.constructor === Object && this.props.randCount !== 0) {
+		if (this.randPositions.size === 0 && this.props.randCount !== 0) {
 			this.randomize();
 		}
 
@@ -110,7 +114,7 @@ class PlayerApp extends React.Component {
 					<form onSubmit={this.handleSubmit}>
 						<table>
 							<tbody>
-								<MainTable
+								<PlayerTable
 									dimensions={this.props.dimensions}
 									qset={this.props.qset}
 									parentAnswers={this.answers}
