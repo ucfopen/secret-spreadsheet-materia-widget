@@ -1,5 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Popup from './components/creator-popup'
+import Title from './components/creator-title'
+import Dimensions from './components/creator-dimensions'
+import PreviewTable from './components/creator-preview-table'
+import EditTable from './components/creator-edit-table'
+
 
 const materiaCallbacks = {}
 
@@ -28,10 +34,9 @@ class CreatorApp extends React.Component {
 		}
 
 		this.handleTitleSubmit = this.handleTitleSubmit.bind(this)
-		this.handleTableSubmit = this.handleTableSubmit.bind(this)
-		this.editTable = this.editTable.bind(this)
-		this.handleRandomizationBlur = this.handleRandomizationBlur.bind(this)
 		this.handleTitleChange = this.handleTitleChange.bind(this)
+		this.handleTableSubmit = this.handleTableSubmit.bind(this)
+		this.handleTableEditability = this.handleTableEditability.bind(this)
 		this.handleXChange = this.handleXChange.bind(this)
 		this.handleYChange = this.handleYChange.bind(this)
 	}
@@ -41,6 +46,12 @@ class CreatorApp extends React.Component {
 		this.setState({showPopup: false,
 									 hasTitle: true
 									})
+		event.preventDefault()
+	}
+
+	// Save title
+	handleTitleChange(event) {
+		this.setState({title: event.target.value})
 		event.preventDefault()
 	}
 
@@ -75,27 +86,11 @@ class CreatorApp extends React.Component {
 	}
 
 	// Go from preview mode back to edit mode for the table
-	editTable(event) {
+	handleTableEditability(event) {
 		this.setState({hasTable: false})
 		event.preventDefault()
 	}
 
-	// Make sure the value for number of randomization is within bounds
-	handleRandomizationBlur(event) {
-		if (event.target.value <= 0) {
-			this.state.qset.randomization = event.target.value = 0
-		} else if (event.target.value > (this.state.qset.dimensions.x * this.state.qset.dimensions.y)) {
-			this.state.qset.randomization = event.target.value = this.state.qset.dimensions.x * this.state.qset.dimensions.y
-		} else {
-			this.state.qset.randomization = event.target.value
-		}
-		event.preventDefault()
-	}
-
-	handleTitleChange(event) {
-		this.setState({title: event.target.value})
-		event.preventDefault()
-	}
 
 	// Make sure number of rows is 1-10
 	handleXChange(event) {
@@ -160,12 +155,11 @@ class CreatorApp extends React.Component {
 							this.state.hasTable ?
 								<PreviewTable
 									qset={this.state.qset}
-									editTable={this.editTable}
+									handleTableEditability={this.handleTableEditability}
 								/>
 							:
-								<EditableTable
+								<EditTable
 									qset={this.state.qset}
-									onBlur={this.handleRandomizationBlur}
 									onSubmit={this.handleTableSubmit}
 								/>
 						: ""}
@@ -183,135 +177,6 @@ CreatorApp.defaultProps = {
 		'dimensions': {'x': '', 'y': ''},
 		'items': [{'items': []}]
 	},
-}
-
-class Popup extends React.Component {
-	render() {
-		return (
-			<div className='popup'>
-				<div className='popup-inner'>
-					<form className="title-container" onSubmit={this.props.onSubmit}>
-						<input className="popup-input" required="required" type="text" placeholder="My Spreadsheet Widget" value={this.props.title} onChange={this.props.onChange}/>
-						<input type="submit" value="Submit"/>
-					</form>
-				</div>
-			</div>
-		)
-	}
-}
-
-class Title extends React.Component {
-	render() {
-		return (
-			<input required="required" className="title-input" type="text" placeholder="My Spreadsheet Widget" value={this.props.title} onChange={this.props.onChange}/>
-		)
-	}
-}
-
-class Dimensions extends React.Component {
-	render() {
-		return (
-			this.props.isEditable ?
-				<div className="dimensions-input">
-					<input required="required" type="number" min="1" max="10" placeholder="X" value={this.props.qset.dimensions.x} onChange={this.props.onXChange}/>
-					{"  Row(s)  x  "}
-					<input required="required" type="number" min="1" max="10" placeholder="Y" value={this.props.qset.dimensions.y} onChange={this.props.onYChange}/>
-					{"  Column(s)"}
-				</div>
-			: ""
-		)
-	}
-}
-
-class PreviewTable extends React.Component {
-	renderTable() {
-		const table = []
-		for (let i = 0; i < this.props.qset.dimensions.x; i++) {
-			const row = []
-			for (let j = 0; j < this.props.qset.dimensions.y; j++) {
-				// Make sure data exist, use shortened variable name for readability
-				const cellData = this.props.qset && this.props.qset.items[0].items[i] && this.props.qset.items[0].items[i][j]
-				if (cellData && cellData.options.blank) {
-					// Assign a specific className to cells meant to be hidden
-					row.push(<PreviewCell lit='lit' data={cellData} key={`${i} - ${j}`}/>)
-				} else {
-					row.push(<PreviewCell lit='' data={cellData} key={`${i} - ${j}`}/>)
-				}
-			}
-			table.push(<tr key={i}>{row}</tr>)
-		}
-		return table
-	}
-
-	render() {
-		return (
-			<div className="table-container">
-				<table>
-					<tbody>
-						{this.renderTable()}
-					</tbody>
-				</table>
-				<input className="table-button" type="submit" value="Edit" onClick={this.props.editTable}/>
-			</div>
-		)
-	}
-}
-
-class EditableTable extends React.Component {
-	renderTable() {
-		const table = []
-		for (let i = 0; i < this.props.qset.dimensions.x; i++) {
-			const row = []
-			for (let j = 0; j < this.props.qset.dimensions.y; j++) {
-				// Make sure data exist, use shortened variable name for readability
-				const cellData = (this.props.qset && this.props.qset.items[0].items[i] && this.props.qset.items[0].items[i][j]) || (this.props.qset && this.props.qset.items[0].items[i] && this.props.qset.items[0].items[i][j])
-				row.push(<EditableCell key={`${i} - ${j}`} data={cellData}/>)
-			}
-			table.push(<tr key={i}>{row}</tr>)
-		}
-		return table
-	}
-
-	render() {
-		return (
-			<div className="table-container">
-				<label>
-					Check the boxes to hide from players or randomly hide
-					<input type="number" placeholder={0} defaultValue={this.props.qset.randomization} min="1" max={this.props.qset.dimensions.x * this.props.qset.dimensions.y} onBlur={this.props.onBlur}/>
-					fields
-				</label>
-				<form onSubmit={this.props.onSubmit}>
-					<table>
-						<tbody>
-							{this.renderTable()}
-						</tbody>
-					</table>
-					<input className="table-button" type="submit" value="Preview"/>
-				</form>
-			</div>
-		)
-	}
-}
-
-class EditableCell extends React.Component {
-	render() {
-		return (
-			<td>
-				<input type="checkbox" defaultChecked={this.props.data && this.props.data.options.blank}/>
-				<input type="text" placeholder="" defaultValue={this.props.data && this.props.data.questions[0].text}/>
-			</td>
-		)
-	}
-}
-
-class PreviewCell extends React.Component {
-	render() {
-		return (
-			<td className={this.props.lit}>
-				{this.props.data && this.props.data.questions[0].text}
-			</td>
-		)
-	}
 }
 
 // Callback when a new widget is being created
