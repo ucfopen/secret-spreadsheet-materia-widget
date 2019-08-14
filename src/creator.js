@@ -33,12 +33,19 @@ class CreatorApp extends React.Component {
 			return null
 		}
 
+		this.editTitle = this.editTitle.bind(this)
 		this.handleTitleSubmit = this.handleTitleSubmit.bind(this)
 		this.handleTitleChange = this.handleTitleChange.bind(this)
 		this.handleTableSubmit = this.handleTableSubmit.bind(this)
 		this.handleTableEditability = this.handleTableEditability.bind(this)
 		this.handleXChange = this.handleXChange.bind(this)
 		this.handleYChange = this.handleYChange.bind(this)
+	}
+
+	editTitle(event) {
+		const isEditable = !this.state.hasTitle
+		this.setState({hasTitle: isEditable})
+		event.preventDefault()
 	}
 
 	// A title for the new widget is submitted in the popup
@@ -141,28 +148,57 @@ class CreatorApp extends React.Component {
 					/>
 				:
 					<div>
-						<Title
-							title={this.state.title}
-							onChange={this.handleTitleChange}
-						/>
-						<Dimensions
-							isEditable={this.state.hasTitle}
-							qset={this.state.qset}
-							onXChange={this.handleXChange}
-							onYChange={this.handleYChange}
-						/>
-						{(this.state.qset.dimensions.x && this.state.qset.dimensions.y) ?
-							this.state.hasTable ?
-								<PreviewTable
-									qset={this.state.qset}
-									handleTableEditability={this.handleTableEditability}
-								/>
-							:
-								<EditTable
-									qset={this.state.qset}
-									onSubmit={this.handleTableSubmit}
-								/>
-						: ""}
+						<div className="title-bar">
+							<Title
+								hasTitle={this.state.hasTitle}
+								editTitle={this.editTitle}
+								title={this.state.title}
+								onChange={this.handleTitleChange}
+								onBlur={this.handleTitleBlur}
+							/>
+						</div>
+
+						<div className="options-bar">
+							<div className="options">
+								<label>OPTIONS</label>
+							</div>
+							<div className="style">
+								<label><strong>Style:</strong></label>
+								<label className="radio"><input type="radio" name="style" value="Spreadsheet"/> Spreadsheet</label>
+								<label className="radio"><input type="radio" name="style" value="Table"/> Table</label>
+							</div>
+							<div className="text">
+								<label><strong>Text:</strong></label>
+							</div>
+							<div className="header">
+								<label><strong>Header:</strong></label>
+							</div>
+							<div className="randomize">
+								<label><strong>Randomize:</strong></label>
+							</div>
+						</div>
+
+							<Dimensions
+								isEditable={this.state.hasTitle}
+								qset={this.state.qset}
+								onXChange={this.handleXChange}
+								onYChange={this.handleYChange}
+							/>
+
+						<div className="table-container">
+							{(this.state.qset.dimensions.x && this.state.qset.dimensions.y) ?
+								this.state.hasTable ?
+									<PreviewTable
+										qset={this.state.qset}
+										handleTableEditability={this.handleTableEditability}
+									/>
+								:
+									<EditTable
+										qset={this.state.qset}
+										onSubmit={this.handleTableSubmit}
+									/>
+							: ""}
+						</div>
 					</div>
 				}
 			</div>
