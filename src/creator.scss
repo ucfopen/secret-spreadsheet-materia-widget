@@ -21,35 +21,14 @@ input {
 	}
 }
 
-.title-container,
-.dimensions-container {
-	height: 5rem;
-
-	.title,
-	.dimensions {
-		left: 35%;
-		top: 2.4rem;
-		position: absolute;
-		width: 15rem;
-		text-align: left;
-	}
-
-	.dimensions {
-		top: 7.5rem;
-	}
-
-	.btn {
-		left: 50%;
-		position: absolute;
-		margin: 20px auto;
-		margin-left: 5rem;
-
-		&:hover, &:focus {
-			background-color: inherit;
-		}
-	}
+.title-input {
+	width:15rem;
 }
 
+.dimensions-input {
+	margin-top: 2rem;
+	top: 7.5rem;
+}
 
 table, td {
 	td {
@@ -91,9 +70,11 @@ table {
   bottom: auto;
   margin: auto;
   border-radius: 20px;
-  background: white;
+	background: white;
+	height: 5rem;
 }
 
 .popup-input {
+	margin: auto;
 	width: 25rem;
 }
