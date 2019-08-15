@@ -8,10 +8,12 @@ body {
 	font-family: Lato, sans-serif;
 	font-size: 16px;
 	text-align: center;
+	width: 750px;
+	height: 500px;
 }
 
 header {
-	width: 750px;
+	width: 100%;
 	box-sizing: border-box;
 	padding: 10px 15px;
 	background-color: green;
@@ -34,51 +36,180 @@ header {
 		border-radius: 3px;
 		padding: 0.2em 1.4em;
 		cursor: pointer;
+
+		// remove later; for own sanity w/ firefox
+		&:hover, &:focus {
+			border: 2px solid blue;
+		}
 	}
 }
 
-main {
-	margin: 20px auto;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-content: center;
-	align-items: center;
-}
-
 .popup {
-	background-color: rgba(0, 0, 0, 0.3);
-	width: 750px;
-	height: 500px;
+	background-color: rgba(0, 0, 0, 0.35);
 	position: fixed;
+	width: 100%;
+	height: 443px;
 	top: 57px;
+	z-index: 5;
 
 	div {
-		margin: 30px auto;
+		margin: 15px auto;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-content: center;
 		align-items: center;
 		width: 85%;
+		box-sizing: border-box;
 		background-color: white;
 		align-items: space-between;
 
+		div {
+			background-color: rgba(0, 0, 0, 0.07);
+			width: 80%;
+			padding: 25px 25px 0;
+			border: none;
+			border-radius: 4px;
+			display: grid;
+			grid: repeat(2, 1fr) / repeat(2, 1fr);
+			grid-column-gap: 15px;
+			justify-items: center;
+			align-items: center;
+			text-align: left;
+
+			img {
+				grid-area: 1 / 1 / span 1 / span 2;
+				height: 100px;
+				width: auto;
+			}
+
+			img, p {
+				justify-self: center;
+				align-self: center;
+			}
+		}
+
 		h2 {
 			font-size: 26px;
-			margin: 30px auto;
+			margin-top: 30px;
 			color: green;
 		}
 
 		button {
 			font-size: 16px;
-			margin: 30px auto;
+			margin: 10px auto 30px;
 			padding: 0.3em 2em;
 			background-color: purple;
 			color: white;
 			border-radius: 3px;
 			border: none;
 			cursor: pointer;
+
+			// remove later; for own sanity w/ firefox
+			&:hover, &:focus {
+				border: 2px solid blue;
+			}
+		}
+	}
+}
+
+main {
+	p {
+		margin: 15px auto;
+	}
+
+	.instructions {
+		position: relative;
+		background: rgba(173, 216, 230, 0.6);
+		border-radius: 15px;
+		padding: 0.3em 1em;
+		margin-bottom: 20px;
+		width: 400px;
+
+		&:after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			width: 0;
+			height: 0;
+			border: 10px solid transparent;
+			border-top-color: rgba(173, 216, 230, 0.6);
+			border-bottom: 0;
+			margin-left: -10px;
+			margin-bottom: -10px;
+		}
+
+		span {
+			color: #000178;
+		}
+	}
+
+	input[type='submit'] {
+		padding: 0.3em 1em;
+		border-radius: 3px;
+		font-size: inherit;
+		font-family: inherit;
+	}
+
+	.grayed {
+		background-color: lightgray;
+		color: gray;
+	}
+
+	.filled {
+		background-color: purple;
+		color: white;
+		cursor: pointer;
+	}
+
+	table, td {
+		border: 1px solid black;
+	}
+
+	table {
+		margin-bottom: 30px;
+		border-collapse: collapse;
+		table-layout: fixed;
+		width: 100%;
+		box-sizing: border-box;
+
+		td {
+			box-sizing: border-box;
+			padding: 0.3em 0.5em;
+		}
+
+		thead {
+			background-color: lightgray;
+			font-weight: bold;
+		}
+
+		tbody {
+			input {
+				font-size: inherit;
+				font-family: inherit;
+				text-align: inherit;
+				border: none;
+				width: 90%;
+			}
+
+			.answered {
+				background-color: lightyellow;
+			}
+
+			.unanswered {
+				background-color: lightblue;
+			}
+
+			td {
+				&.answered {
+					border: 2px solid yellow;
+				}
+
+				&.unanswered {
+					border: 2px solid blue;
+				}
+			}
 		}
 	}
 }
