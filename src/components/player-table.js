@@ -11,9 +11,14 @@ class PlayerTable extends React.Component {
 	// when a box is deselected, add/overwrite in answers and pass to parent
 	saveAnswer(event) {
 		const newAnswers = this.props.parentAnswers;
+		// check if the user answered this with a non blank answer for the first time
+		const fromBlankToFilled = event.target.value !== '' &&
+								  (!this.props.parentAnswers.hasOwnProperty(event.target.id) ||
+								  this.props.parentAnswers[event.target.id] === '');
+		const fromFilledToBlank = this.props.parentAnswers[event.target.id] !== '' && event.target.value === '';
 		newAnswers[event.target.id] = event.target.value;
 
-		this.props.handleNewAnswer(newAnswers);
+		this.props.handleNewAnswer(newAnswers, fromBlankToFilled, fromFilledToBlank);
 	}
 
 	render() {
@@ -35,6 +40,10 @@ class PlayerTable extends React.Component {
 				const showInput = this.props.randCount === 0 ?
 					question.options.blank
 					: this.props.randPositions.has(counter);
+
+				if (this.props.randCount === 0 && question.options.blank) {
+					this.props.countBlanks(counter);
+				}
 
 				// adds in the random questions
 				cells.push(

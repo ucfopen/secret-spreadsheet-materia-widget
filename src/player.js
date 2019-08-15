@@ -11,12 +11,13 @@ class PlayerApp extends React.Component {
 			answered: 0
 		}
 		this.answers = {};
-		this.randPositions = new Set(); // set of randomly chosen cells that need to be answered
+		this.blankPositions = new Set(); // list of blank cells
 		this.submitAnswer = this.submitAnswer.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleNewAnswer = this.handleNewAnswer.bind(this);
 		this.handlePopupToggle = this.handlePopupToggle.bind(this);
 		this.randomize = this.randomize.bind(this);
+		this.countBlanks = this.countBlanks.bind(this);
 	}
 
 	// check if question has been answered. If it is, submit the answer, or submit blank
@@ -39,7 +40,7 @@ class PlayerApp extends React.Component {
 			element.forEach(question => {
 				// randomly selected questions
 				if (this.props.randCount !== 0) {
-					if (this.randPositions.has(counter)) {
+					if (this.blankPositions.has(counter)) {
 						this.submitAnswer(question.id, counter);
 					}
 				}
@@ -57,9 +58,25 @@ class PlayerApp extends React.Component {
 		Materia.Engine.end();
 	}
 
-	// add new answers to bank
-	handleNewAnswer(newAnswers) {
+	// add new answers to bank and if the user filled in a blank for the first time increment the answered question count
+	handleNewAnswer(newAnswers, fromBlankToFilled, fromFilledToBlank) {
 		this.answers = newAnswers;
+
+		if (fromBlankToFilled && !fromFilledToBlank && this.state.answered < this.blankPositions.size) {
+			this.setState({
+				popup: this.state.popup,
+				answered: this.state.answered + 1
+			});
+		}
+		else if (!fromBlankToFilled && fromFilledToBlank && this.state.answered > 0) {
+			this.setState({
+				popup: this.state.popup,
+				answered: this.state.answered - 1
+			});
+		}
+		else if (fromBlankToFilled && fromFilledToBlank) {
+			console.error('Answer count error in handleNewAnswer');
+		}
 	}
 
 	// decides if it should show popup or not
@@ -84,16 +101,21 @@ class PlayerApp extends React.Component {
 		while (selectCount < this.props.randCount) {
 			const position = Math.floor(Math.random() * totalCells);
 
-			if (!this.randPositions.has(position)) {
-				this.randPositions.add(position);
+			if (!this.blankPositions.has(position)) {
+				this.blankPositions.add(position);
 				selectCount++;
 			}
 		}
 	}
 
+	// as the table is being created from user selected blanks, add each blank to the blank position set
+	countBlanks(position) {
+		this.blankPositions.add(position);
+	}
+
 	render() {
 		// randomize which entries are blank if the creator says more than 0 should be random and this is the first render of the table
-		if (this.randPositions.size === 0 && this.props.randCount !== 0) {
+		if (this.blankPositions.size === 0 && this.props.randCount !== 0) {
 			this.randomize();
 		}
 
@@ -107,6 +129,8 @@ class PlayerApp extends React.Component {
 				<main>
 					{this.state.popup ? <Popup handlePopupToggle={this.handlePopupToggle} />:null}
 
+					<p className="instructions">Input the <span><strong>missing data</strong></span> to complete the spreadsheet:</p>
+
 					<form onSubmit={this.handleSubmit}>
 						<table>
 							<tbody>
@@ -115,13 +139,19 @@ class PlayerApp extends React.Component {
 									qset={this.props.qset}
 									parentAnswers={this.answers}
 									handleNewAnswer={this.handleNewAnswer}
-									randPositions={this.randPositions}
+									randPositions={this.blankPositions}
 									randCount={this.props.randCount}
+									countBlanks={this.countBlanks}
 								/>
 							</tbody>
 						</table>
 
-						<input type="submit" value="Submit" />
+						<p>You've filled out {this.state.answered} of {this.blankPositions.size} missing cells</p>
+
+						<input
+							type="submit"
+							value="Submit"
+							className={this.state.answered !== this.blankPositions.size ? 'grayed':'filled'} />
 					</form>
 				</main>
 			</div>
