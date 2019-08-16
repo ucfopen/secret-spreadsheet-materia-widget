@@ -3,7 +3,7 @@
 	"qset": {
 		"left": true,
 		"header": false,
-		"spredsheet": true,
+		"spreadsheet": true,
 		"version": 1,
 		"data": {
 			"dimensions": {
