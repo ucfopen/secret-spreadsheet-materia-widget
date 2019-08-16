@@ -5,6 +5,7 @@ import Title from './components/creator-title'
 import Dimensions from './components/creator-dimensions'
 import PreviewTable from './components/creator-preview-table'
 import EditTable from './components/creator-edit-table'
+import Options from './components/creator-options'
 
 
 const materiaCallbacks = {}
@@ -13,7 +14,7 @@ class CreatorApp extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			hasTitle: Boolean(props.title),
+			isTitleEditable: Boolean(props.title),
 			showPopup: props.init,
 			hasTable: Boolean(props.qset && props.qset.dimensions && props.qset.items.items),
 			qset: props.qset,
@@ -43,15 +44,14 @@ class CreatorApp extends React.Component {
 	}
 
 	editTitle(event) {
-		const isEditable = !this.state.hasTitle
-		this.setState({hasTitle: isEditable})
+		this.setState({showPopup: true})
 		event.preventDefault()
 	}
 
 	// A title for the new widget is submitted in the popup
 	handleTitleSubmit(event) {
 		this.setState({showPopup: false,
-									 hasTitle: true
+									 isTitleEditable: true
 									})
 		event.preventDefault()
 	}
@@ -146,61 +146,35 @@ class CreatorApp extends React.Component {
 						onChange={this.handleTitleChange}
 						title={this.state.title}
 					/>
-				:
-					<div>
-						<div className="title-bar">
-							<Title
-								hasTitle={this.state.hasTitle}
-								editTitle={this.editTitle}
-								title={this.state.title}
-								onChange={this.handleTitleChange}
-								onBlur={this.handleTitleBlur}
-							/>
-						</div>
+				: "" }
+				<div className="title-bar">
+					<Title
+						isTitleEditable={this.state.isTitleEditable}
+						editTitle={this.editTitle}
+						title={this.state.title}
+						onChange={this.handleTitleChange}
+						onBlur={this.handleTitleBlur}
+					/>
+				</div>
 
-						<div className="options-bar">
-							<div className="options">
-								<label>OPTIONS</label>
-							</div>
-							<div className="style">
-								<label><strong>Style:</strong></label>
-								<label className="radio"><input type="radio" name="style" value="Spreadsheet"/> Spreadsheet</label>
-								<label className="radio"><input type="radio" name="style" value="Table"/> Table</label>
-							</div>
-							<div className="text">
-								<label><strong>Text:</strong></label>
-							</div>
-							<div className="header">
-								<label><strong>Header:</strong></label>
-							</div>
-							<div className="randomize">
-								<label><strong>Randomize:</strong></label>
-							</div>
-						</div>
+				<Options
+					qset={this.state.qset}
+				/>
 
-							<Dimensions
-								isEditable={this.state.hasTitle}
+				<div className="table-container">
+					{(this.state.qset.dimensions.x && this.state.qset.dimensions.y) ?
+						this.state.hasTable ?
+							<PreviewTable
 								qset={this.state.qset}
-								onXChange={this.handleXChange}
-								onYChange={this.handleYChange}
+								handleTableEditability={this.handleTableEditability}
 							/>
-
-						<div className="table-container">
-							{(this.state.qset.dimensions.x && this.state.qset.dimensions.y) ?
-								this.state.hasTable ?
-									<PreviewTable
-										qset={this.state.qset}
-										handleTableEditability={this.handleTableEditability}
-									/>
-								:
-									<EditTable
-										qset={this.state.qset}
-										onSubmit={this.handleTableSubmit}
-									/>
-							: ""}
-						</div>
-					</div>
-				}
+						:
+							<EditTable
+								qset={this.state.qset}
+								onSubmit={this.handleTableSubmit}
+							/>
+					: ""}
+				</div>
 			</div>
 		)
 	}
@@ -209,8 +183,11 @@ class CreatorApp extends React.Component {
 CreatorApp.defaultProps = {
 	title: 'New Spreadsheet Widget',
 	qset: {
+		'left': true,
+		'header': false,
+		'spreadsheet': true,
 		'randomization': 0,
-		'dimensions': {'x': '', 'y': ''},
+		'dimensions': {'x': 2, 'y': 2},
 		'items': [{'items': []}]
 	},
 }

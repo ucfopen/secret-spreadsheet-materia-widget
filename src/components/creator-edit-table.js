@@ -5,21 +5,9 @@ import EditCell from './creator-edit-cell'
 class EditTable extends React.Component {
 	constructor(props) {
 		super(props)
-		this.handleRandomizationBlur = this.handleRandomizationBlur.bind(this)
 		this.increaseRow = this.increaseRow.bind(this)
 		this.increaseColumn = this.increaseColumn.bind(this)
 		this.renderTable = this.renderTable.bind(this)
-	}
-
-	// Make sure the value for number of randomization is within bounds
-	handleRandomizationBlur(event) {
-		if (event.target.value <= 0) {
-			this.props.qset.randomization = event.target.value = 0
-		} else if (event.target.value > (this.props.qset.dimensions.x * this.props.qset.dimensions.y)) {
-			this.props.qset.randomization = event.target.value = this.props.qset.dimensions.x * this.props.qset.dimensions.y
-		} else {
-			this.props.qset.randomization = event.target.value
-		}
 	}
 
 	increaseRow(event) {
@@ -50,32 +38,23 @@ class EditTable extends React.Component {
 	}
 
 	render() {
-		return (
-			<div>
-				<label>
-					Check the boxes to hide from players or randomly hide
-					<input type="number" placeholder={0} defaultValue={this.props.qset.randomization} min="1" max={this.props.qset.dimensions.x * this.props.qset.dimensions.y} onBlur={this.handleRandomizationBlur}/>
-					fields
-				</label>
-				<div className="table-elements">
-					<div className="table">
-						<form onSubmit={this.props.onSubmit}>
-							<table>
-								<tbody>
-									{this.renderTable()}
-								</tbody>
-							</table>
-							<button  variant="dark" onClick={this.increaseRow}>+ Row</button>
-							<div>
-								<input className="table-submit-button" type="submit" value="Preview"/>
-							</div>
-						</form>
+	return (
+			<div className="table">
+				<form onSubmit={this.props.onSubmit}>
+					<div className="table-elements">
+						<table>
+							<tbody>
+								{this.renderTable()}
+							</tbody>
+						</table>
+						<button className="increase-column-button" onClick={this.increaseColumn}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg>Column</button>
 					</div>
-					<div className="increase-column-container">
-						<button  variant="dark" onClick={this.increaseColumn}>+ Column</button>
+					<button className="increase-row-button" onClick={this.increaseRow} ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg>
+						<span>Row</span></button>
+					<div>
+						<input className="table-submit-button" type="submit" value="Preview"/>
 					</div>
-				</div>
-
+				</form>
 			</div>
 		)
 	}
