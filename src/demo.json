@@ -1,11 +1,11 @@
 {
 	"name": "Spreadsheet Widget",
 	"qset": {
-		"left": true,
-		"header": false,
-		"spreadsheet": true,
 		"version": 1,
 		"data": {
+			"left": false,
+			"header": false,
+			"spreadsheet": true,
 			"dimensions": {
 				"x": 2,
 				"y": 2
