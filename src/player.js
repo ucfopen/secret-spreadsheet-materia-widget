@@ -103,7 +103,7 @@ class PlayerApp extends React.Component {
 		}
 
 		while (selectCount < this.props.randCount) {
-			const position = Math.floor(Math.random() * totalCells + this.props.dimensions.x);
+			const position = Math.floor(Math.random() * totalCells + (this.props.header ? this.props.dimensions.x:0));
 
 			if (!this.blankPositions.has(position)) {
 				this.blankPositions.add(position);
