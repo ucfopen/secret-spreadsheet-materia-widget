@@ -202,12 +202,25 @@ main {
 			}
 
 			td {
+				&.leftAlign {
+					text-align: left;
+				}
+
+				&.rightAlign {
+					text-align: center;
+				}
+
 				&.answered {
 					border: 2px solid yellow;
 				}
 
 				&.unanswered {
 					border: 2px solid blue;
+				}
+
+				&.header {
+					font-weight: bold;
+					background-color: lightgray;
 				}
 			}
 		}

@@ -95,11 +95,15 @@ class PlayerApp extends React.Component {
 
 	// select random blank answers
 	randomize() {
-		const totalCells = this.props.dimensions.x * this.props.dimensions.y;
+		let totalCells = this.props.dimensions.x * this.props.dimensions.y;
 		let selectCount = 0;
 
+		if (this.props.header) {
+			totalCells -= this.props.dimensions.x;
+		}
+
 		while (selectCount < this.props.randCount) {
-			const position = Math.floor(Math.random() * totalCells);
+			const position = Math.floor(Math.random() * totalCells + this.props.dimensions.x);
 
 			if (!this.blankPositions.has(position)) {
 				this.blankPositions.add(position);
@@ -142,6 +146,8 @@ class PlayerApp extends React.Component {
 									randPositions={this.blankPositions}
 									randCount={this.props.randCount}
 									countBlanks={this.countBlanks}
+									leftAlign={this.props.leftAlign}
+									header={this.props.header}
 								/>
 							</tbody>
 						</table>
@@ -167,6 +173,8 @@ Materia.Engine.start({
 				dimensions={qset.dimensions}
 				qset={qset.items[0].items}
 				randCount={qset.randomization}
+				leftAlign={qset.left}
+				header={qset.header}
 			/>,
 			document.getElementById('root')
 		);
