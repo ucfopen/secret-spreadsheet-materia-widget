@@ -24,6 +24,7 @@ class PlayerTable extends React.Component {
 	render() {
 		const rows = [];
 		let counter = 0;
+		let headerCount = 0;
 
 		// generate the table
 		// going down columns
@@ -35,6 +36,25 @@ class PlayerTable extends React.Component {
 			for (let j=0;j<this.props.dimensions.y;j++) {
 				const question = this.props.qset[i][j];
 				const cellID = `cell${counter}`;
+
+				if (this.props.header && headerCount < (this.props.dimensions.x )) {
+					cells.push(
+						<Cell
+							key={cellID}
+							id={cellID}
+							saveAnswer={this.saveAnswer}
+							inputID={`${counter}-input`}
+							displayText={question.questions[0].text}
+							showInput={false}
+							leftAlign={this.props.leftAlign}
+							header={true}
+						/>
+					);
+
+					headerCount++;
+					counter++;
+					continue;
+				}
 
 				// no random items? use options, otherwise check randPositions
 				const showInput = this.props.randCount === 0 ?
@@ -54,6 +74,8 @@ class PlayerTable extends React.Component {
 						inputID={`${counter}-input`}
 						displayText={question.questions[0].text}
 						showInput={showInput}
+						leftAlign={this.props.leftAlign}
+						header={false}
 					/>
 				);
 
