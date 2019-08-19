@@ -1,20 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PlayerTable from './components/player-table'
 
-class Player extends React.Component {
+class PlayerApp extends React.Component {
 	constructor(props) {
 		super(props);
 		this.answers = {};
-		this.randPositions = null;
-		this.collectPositions = this.collectPositions.bind(this);
+		this.randPositions = new Set(); // set of randomly chosen cells that need to be answered
 		this.submitAnswer = this.submitAnswer.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleNewAnswer = this.handleNewAnswer.bind(this);
-	}
-
-	// get random positions from randomize in main table
-	collectPositions(positions) {
-		this.randPositions = positions;
+		this.randomize = this.randomize.bind(this);
 	}
 
 	// check if question has been answered. If it is, submit the answer, or submit blank
@@ -33,15 +29,15 @@ class Player extends React.Component {
 
 		event.preventDefault();
 
-		for (let i=0;i<this.props.qset.length;i++) {
-			for (let j=0;j<this.props.qset[i].length;j++) {
-				const question = this.props.qset[i][j];
-
+		this.props.qset.forEach(element => {
+			element.forEach(question => {
+				// randomly selected questions
 				if (this.props.randCount !== 0) {
-					if (this.randPositions.hasOwnProperty(counter)) {
+					if (this.randPositions.has(counter)) {
 						this.submitAnswer(question.id, counter);
 					}
 				}
+				// not random
 				else {
 					if (question.options.blank) {
 						this.submitAnswer(question.id, counter);
@@ -49,8 +45,8 @@ class Player extends React.Component {
 				}
 
 				counter++;
-			}
-		}
+			});
+		});
 
 		Materia.Engine.end();
 	}
@@ -60,7 +56,27 @@ class Player extends React.Component {
 		this.answers = newAnswers;
 	}
 
+	// select random blank answers
+	randomize() {
+		const totalCells = this.props.dimensions.x * this.props.dimensions.y;
+		let selectCount = 0;
+
+		while (selectCount < this.props.randCount) {
+			const position = Math.floor(Math.random() * totalCells);
+
+			if (!this.randPositions.has(position)) {
+				this.randPositions.add(position);
+				selectCount++;
+			}
+		}
+	}
+
 	render() {
+		// randomize which entries are blank if the creator says more than 0 should be random and this is the first render of the table
+		if (this.randPositions.size === 0 && this.props.randCount !== 0) {
+			this.randomize();
+		}
+
 		return(
 			<div>
 				<h1>{this.props.title}</h1>
@@ -68,12 +84,12 @@ class Player extends React.Component {
 				<form onSubmit={this.handleSubmit}>
 					<table>
 						<tbody>
-							<MainTable
+							<PlayerTable
 								dimensions={this.props.dimensions}
 								qset={this.props.qset}
 								parentAnswers={this.answers}
 								handleNewAnswer={this.handleNewAnswer}
-								collectPositions={this.collectPositions}
+								randPositions={this.randPositions}
 								randCount={this.props.randCount}
 							/>
 						</tbody>
@@ -86,89 +102,10 @@ class Player extends React.Component {
 	}
 }
 
-class MainTable extends React.Component {
-	constructor(props) {
-		super(props);
-		this.selectedPositions = {};
-		this.handleBlur = this.handleBlur.bind(this);
-		this.randomize = this.randomize.bind(this);
-	}
-
-	// when a box is deselected, add/overwrite in answers and pass to parent
-	handleBlur(event) {
-		let newAnswers = this.props.parentAnswers;
-		newAnswers[event.target.id] = event.target.value;
-
-		this.props.handleNewAnswer(newAnswers);
-	}
-
-	// select random blank answers
-	randomize() {
-		const totalCells = this.props.dimensions.x * this.props.dimensions.y;
-		let selectCount = 0;
-
-		while (selectCount < this.props.randCount) {
-			const position = Math.floor(Math.random() * totalCells);
-
-			if (!this.selectedPositions.hasOwnProperty(position)) {
-				this.selectedPositions[position] = true;
-				selectCount++;
-			}
-		}
-
-		this.props.collectPositions(this.selectedPositions);
-	}
-
-	render() {
-		// randomize which entries are blank if the creator says more than 0 should be random and this is the first render of the table
-		if (Object.entries(this.selectedPositions).length === 0 && this.selectedPositions.constructor === Object && this.props.randCount !== 0) {
-			this.randomize();
-		}
-
-		let rows = [];
-		let counter = 0;
-
-		// generate the table
-		// going down columns
-		for (let i=0;i<this.props.dimensions.x;i++) {
-			let rowID = `row${i}`;
-			let cell = [];
-
-			// going across
-			for (let j=0;j<this.props.dimensions.y;j++) {
-				const cellID = `cell${counter}`;
-
-				// adds in the random questions
-				if (this.props.randCount !== 0) {
-					cell.push(
-						<td key={cellID} id={cellID}>
-						{(this.selectedPositions.hasOwnProperty(counter)) ? (<input type="text" onBlur={this.handleBlur} id={`${counter}-input`} />):(this.props.qset[i][j].questions[0].text)}
-						</td>
-					);
-				}
-				// adds in the selected answers
-				else {
-					cell.push(
-						<td key={cellID} id={cellID}>
-						{(this.props.qset[i][j].options.blank) ? (<input type="text" onBlur={this.handleBlur} id={`${counter}-input`} />):(this.props.qset[i][j].questions[0].text)}
-						</td>
-					);
-				}
-
-				counter++;
-			}
-
-			rows.push(<tr key={i} id={rowID}>{cell}</tr>);
-		}
-
-		return rows;
-	}
-};
-
 Materia.Engine.start({
 	start: (instance, qset) => {
 		ReactDOM.render(
-			<Player
+			<PlayerApp
 				title={instance.name}
 				dimensions={qset.dimensions}
 				qset={qset.items[0].items}
