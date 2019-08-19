@@ -22,9 +22,38 @@ class PlayerTable extends React.Component {
 	}
 
 	render() {
-		const rows = [];
+		const headRows = [];
+		const mainRows = [];
 		let counter = 0;
 		let headerCount = 0;
+
+		if (this.props.spreadsheet) {
+			const cells = [];
+			const rowID = 'column labels';
+
+			// add this later when you add the sides
+			if (this.props.header) {
+				cells.push(
+					<th key="col-label-0" id="col-label-0" className="label skinny" />
+				);
+			}
+			else {
+				cells.push(
+					<td key="col-label-0" id="col-label-0" className="label skinny" />
+				);
+			}
+
+			for (let i=0;i<this.props.dimensions.y;i++) {
+				const charCode = (i % 26) + 'A'.charCodeAt(0);
+				cells.push(
+					<th key={`col-label-${i+1}`} id={`col-label-${i+1}`} className="label">
+						{String.fromCharCode(charCode)}
+					</th>
+				);
+			}
+
+			headRows.push(<tr key={rowID} id={rowID}>{cells}</tr>);
+		}
 
 		// generate the table
 		// going down columns
@@ -37,18 +66,29 @@ class PlayerTable extends React.Component {
 				const question = this.props.qset[i][j];
 				const cellID = `cell${counter}`;
 
+				// add in the horizontal labels
+				if (j === 0 && this.props.spreadsheet) {
+					if (i === 0 && this.props.header) {
+						cells.push(
+							<th key={`row-label-${i}`} id={`row-label-${i}`} className="label skinny" >
+								{i}
+							</th>
+						);
+					}
+					else {
+						cells.push(
+							<td key={`row-label-${i}`} id={`row-label-${i}`} className="label skinny" >
+								{i}
+							</td>
+						);
+					}
+				}
+
 				if (this.props.header && headerCount < (this.props.dimensions.x )) {
 					cells.push(
-						<Cell
-							key={cellID}
-							id={cellID}
-							saveAnswer={this.saveAnswer}
-							inputID={`${counter}-input`}
-							displayText={question.questions[0].text}
-							showInput={false}
-							leftAlign={this.props.leftAlign}
-							header={true}
-						/>
+						<th key={cellID} id={cellID} className={`${this.props.leftAlign ? 'leftAlign':'centerAlign'}${this.props.header ? ' header':''}`}>
+							{question.questions[0].text}
+						</th>
 					);
 
 					headerCount++;
@@ -82,10 +122,25 @@ class PlayerTable extends React.Component {
 				counter++;
 			}
 
-			rows.push(<tr key={i} id={rowID}>{cells}</tr>);
+			if (i === 0 && this.props.header) {
+				headRows.push(<tr key={i} id={rowID}>{cells}</tr>);
+			}
+			else {
+				mainRows.push(<tr key={i} id={rowID}>{cells}</tr>);
+			}
 		}
 
-		return rows;
+		return(
+			<table>
+				<thead>
+					{headRows}
+				</thead>
+
+				<tbody>
+					{mainRows}
+				</tbody>
+			</table>
+		);
 	}
 };
 

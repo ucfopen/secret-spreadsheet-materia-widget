@@ -43,7 +43,7 @@ class Cell extends React.Component {
 	render() {
 		// test if it should display an input box or if it should show some text
 		return(
-			<td id={this.props.id} className={`${this.props.showInput ? 'unanswered ':''}${this.props.leftAlign ? 'leftAlign':'centerAlign'}${this.props.header ? ' header':''}`} ref={this.cell}>
+			<td id={this.props.id} className={`${this.props.showInput ? 'unanswered ':''}${this.props.leftAlign ? 'leftAlign':'centerAlign'}`} ref={this.cell}>
 				{ this.props.showInput ?
 					<input
 						type="text"

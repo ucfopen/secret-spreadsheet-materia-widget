@@ -136,28 +136,28 @@ class PlayerApp extends React.Component {
 					<p className="instructions">Input the <span><strong>missing data</strong></span> to complete the spreadsheet:</p>
 
 					<form onSubmit={this.handleSubmit}>
-						<table>
-							<tbody>
-								<PlayerTable
-									dimensions={this.props.dimensions}
-									qset={this.props.qset}
-									parentAnswers={this.answers}
-									handleNewAnswer={this.handleNewAnswer}
-									randPositions={this.blankPositions}
-									randCount={this.props.randCount}
-									countBlanks={this.countBlanks}
-									leftAlign={this.props.leftAlign}
-									header={this.props.header}
-								/>
-							</tbody>
-						</table>
+						<div className="table-surround">
+							<PlayerTable
+								dimensions={this.props.dimensions}
+								qset={this.props.qset}
+								parentAnswers={this.answers}
+								handleNewAnswer={this.handleNewAnswer}
+								randPositions={this.blankPositions}
+								randCount={this.props.randCount}
+								countBlanks={this.countBlanks}
+								leftAlign={this.props.leftAlign}
+								header={this.props.header}
+								spreadsheet={this.props.spreadsheet}
+							/>
+						</div>
 
 						<p>You've filled out {this.state.answered} of {this.blankPositions.size} missing cells</p>
 
 						<input
 							type="submit"
 							value="Submit"
-							className={this.state.answered !== this.blankPositions.size ? 'grayed':'filled'} />
+							className={this.state.answered !== this.blankPositions.size ? 'grayed':'filled'}
+						/>
 					</form>
 				</main>
 			</div>
@@ -175,6 +175,7 @@ Materia.Engine.start({
 				randCount={qset.randomization}
 				leftAlign={qset.left}
 				header={qset.header}
+				spreadsheet={qset.spreadsheet}
 			/>,
 			document.getElementById('root')
 		);
