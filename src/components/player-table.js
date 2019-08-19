@@ -27,9 +27,9 @@ class PlayerTable extends React.Component {
 		let counter = 0;
 		let headerCount = 0;
 
+		// generate the table labels (in header) if needed
 		if (this.props.spreadsheet) {
 			const cells = [];
-			const rowID = 'column labels';
 
 			// add this later when you add the sides
 			if (this.props.header) {
@@ -37,14 +37,10 @@ class PlayerTable extends React.Component {
 					<th key="col-label-0" id="col-label-0" className="label skinny" />
 				);
 			}
-			else {
-				cells.push(
-					<td key="col-label-0" id="col-label-0" className="label skinny" />
-				);
-			}
 
 			for (let i=0;i<this.props.dimensions.y;i++) {
 				const charCode = (i % 26) + 'A'.charCodeAt(0);
+
 				cells.push(
 					<th key={`col-label-${i+1}`} id={`col-label-${i+1}`} className="label">
 						{String.fromCharCode(charCode)}
@@ -52,7 +48,7 @@ class PlayerTable extends React.Component {
 				);
 			}
 
-			headRows.push(<tr key={rowID} id={rowID}>{cells}</tr>);
+			headRows.push(<tr key="column-labels" id="column-labels">{cells}</tr>);
 		}
 
 		// generate the table
@@ -66,8 +62,9 @@ class PlayerTable extends React.Component {
 				const question = this.props.qset[i][j];
 				const cellID = `cell${counter}`;
 
-				// add in the horizontal labels
+				// add in the row labels if needed
 				if (j === 0 && this.props.spreadsheet) {
+					// make the first label generated a th if needed
 					if (i === 0 && this.props.header) {
 						cells.push(
 							<th key={`row-label-${i}`} id={`row-label-${i}`} className="label skinny" >
@@ -84,9 +81,14 @@ class PlayerTable extends React.Component {
 					}
 				}
 
+				// make the first row of user created content a header if needed
 				if (this.props.header && headerCount < (this.props.dimensions.x )) {
 					cells.push(
-						<th key={cellID} id={cellID} className={`${this.props.leftAlign ? 'leftAlign':'centerAlign'}${this.props.header ? ' header':''}`}>
+						<th
+							key={cellID}
+							id={cellID}
+							className={`${this.props.leftAlign ? 'leftAlign':'centerAlign'}${this.props.header ? ' header':''}`}
+						>
 							{question.questions[0].text}
 						</th>
 					);

@@ -58,7 +58,7 @@ class PlayerApp extends React.Component {
 		Materia.Engine.end();
 	}
 
-	// add new answers to bank and if the user filled in a blank for the first time increment the answered question count
+	// add new answers to bank. If the user filled in a blank for the first time increment the answered question count and if they removed an answer decrement
 	handleNewAnswer(newAnswers, fromBlankToFilled, fromFilledToBlank) {
 		this.answers = newAnswers;
 
@@ -103,6 +103,7 @@ class PlayerApp extends React.Component {
 		}
 
 		while (selectCount < this.props.randCount) {
+			// decide to use all cells or ignore top header row
 			const position = Math.floor(Math.random() * totalCells + (this.props.header ? this.props.dimensions.x:0));
 
 			if (!this.blankPositions.has(position)) {
