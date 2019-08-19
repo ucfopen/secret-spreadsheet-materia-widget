@@ -19,6 +19,12 @@ body {
 	height: 500px;
 }
 
+button {
+	color: white;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
 header {
 	z-index: 10;
 	position: fixed;
@@ -35,18 +41,15 @@ header {
 	font-size: 16px;
 
 	h1 {
-		align-self: center;
 		color: white;
 	}
 
 	button {
 		font-size: 14px;
 		background-color: green;
-		color: white;
 		border: 1px solid white;
 		border-radius: 3px;
 		padding: 0.2em 1.4em;
-		cursor: pointer;
 	}
 }
 
@@ -74,7 +77,6 @@ header {
 			background-color: rgba(0, 0, 0, 0.07);
 			width: 80%;
 			padding: 25px 25px 0;
-			border: none;
 			border-radius: 4px;
 			display: grid;
 			grid: repeat(2, 1fr) / repeat(2, 1fr);
@@ -82,17 +84,12 @@ header {
 			justify-items: center;
 			align-items: center;
 			text-align: left;
+		}
 
-			img {
-				grid-area: 1 / 1 / span 1 / span 2;
-				height: 100px;
-				width: auto;
-			}
-
-			img, p {
-				justify-self: center;
-				align-self: center;
-			}
+		img {
+			grid-area: 1 / 1 / span 1 / span 2;
+			height: 100px;
+			width: auto;
 		}
 
 		h2 {
@@ -106,10 +103,7 @@ header {
 			margin: 10px auto 30px;
 			padding: 0.3em 2em;
 			background-color: purple;
-			color: white;
-			border-radius: 3px;
 			border: none;
-			cursor: pointer;
 
 			// remove later; for own sanity w/ firefox
 			&:focus {
@@ -126,141 +120,145 @@ main {
 		margin: 15px auto;
 	}
 
-	.instructions {
-		position: relative;
-		background: rgba(173, 216, 230, 0.6);
-		border-radius: 15px;
-		padding: 0.3em 1em;
-		margin-bottom: 15px;
-		width: 400px;
-
-		&:after {
-			content: '';
-			position: absolute;
-			bottom: 0;
-			left: 50%;
-			width: 0;
-			height: 0;
-			border: 10px solid transparent;
-			border-top-color: rgba(173, 216, 230, 0.6);
-			border-bottom: 0;
-			margin-left: -10px;
-			margin-bottom: -10px;
-		}
-
-		span {
-			color: #000178;
-		}
-	}
-
 	input[type='submit'] {
 		padding: 0.3em 1em;
 		border-radius: 3px;
 		font-size: inherit;
 		font-family: inherit;
 	}
+}
 
-	.grayed {
-		background-color: lightgray;
-		color: gray;
+// the speech bubble
+.instructions {
+	position: relative;
+	background: rgba(173, 216, 230, 0.6);
+	border-radius: 15px;
+	padding: 0.3em 1em;
+	margin-bottom: 15px;
+	width: 400px;
+
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		width: 0;
+		height: 0;
+		border: 10px solid transparent;
+		border-top-color: rgba(173, 216, 230, 0.6);
+		border-bottom: 0;
+		margin-left: -10px;
+		margin-bottom: -10px;
 	}
 
-	.filled {
-		background-color: purple;
-		color: white;
-		cursor: pointer;
+	span {
+		color: #000178;
 	}
+}
 
-	.table-surround {
-		display: flex;
-		flex-direction: row;
+// button colors
+.grayed {
+	background-color: lightgray;
+	color: gray;
+}
+
+// button colors
+.filled {
+	background-color: purple;
+	color: white;
+	cursor: pointer;
+}
+
+.table-surround {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: auto;
+	min-height: 150px;
+	background-color: lightgray;
+	margin-bottom: 30px;
+}
+
+table, td, th {
+	border: 1px solid black;
+}
+
+table {
+	margin: auto;
+	border-collapse: collapse;
+	box-sizing: border-box;
+	box-shadow: 4px 4px 2px 2px darkgray;
+
+	input {
+		font-size: inherit;
+		font-family: inherit;
+		text-align: inherit;
+		border: none;
 		width: 100%;
-		height: auto;
-		min-height: 150px;
-		background-color: lightgray;
-		margin-bottom: 30px;
+	}
+}
+
+td, th {
+	box-sizing: border-box;
+	width: 150px;
+	min-width: 150px;
+	max-width: 150px;
+	height: 30px;
+	min-height: 20px;
+	padding: 0.4em 5px;
+	word-break: break-all;
+
+	// have to say nested to not effect inputs
+	&.answered {
+		border: 2px solid yellow;
 	}
 
-	table, td, th {
-		border: 1px solid black;
+	&.unanswered {
+		border: 2px solid blue;
 	}
+}
 
-	table {
-		margin: auto;
-		border-collapse: collapse;
-		box-sizing: border-box;
-		box-shadow: 4px 4px 2px 2px darkgray;
+td {
+	background-color: white;
+}
 
-		input {
-			word-break: inherit;
-			font-size: inherit;
-			font-family: inherit;
-			text-align: inherit;
-			border: none;
-			width: 100%;
-		}
-	}
+thead {
+	background-color: lightgray;
+	font-weight: bold;
+}
 
-	td, th {
-		box-sizing: border-box;
-		width: 150px;
-		min-width: 150px;
-		max-width: 150px;
-		height: 30px;
-		min-height: 20px;
-		padding: 0.4em 5px;
-		word-break: break-all;
+.leftAlign {
+	text-align: left;
+}
 
-		&.leftAlign {
-			text-align: left;
-		}
+.rightAlign {
+	text-align: center;
+}
 
-		&.rightAlign {
-			text-align: center;
-		}
+.header {
+	font-weight: bold;
+	background-color: lightgray;
+}
 
-		&.answered {
-			border: 2px solid yellow;
-		}
+.answered {
+	background-color: lightyellow;
+}
 
-		&.unanswered {
-			border: 2px solid blue;
-		}
+.unanswered {
+	background-color: lightblue;
+}
 
-		&.header {
-			font-weight: bold;
-			background-color: lightgray;
-		}
-	}
+// for excel style labels
+.label {
+	min-width: 0;
+	min-height: 0;
+	height: 1.4em;
+	font-size: 10px;
+	color: gray;
+	background-color: #f2f2f2;
+	font-weight: normal;
+}
 
-	td {
-		background-color: white;
-	}
-
-	thead {
-		background-color: lightgray;
-		font-weight: bold;
-	}
-
-	.answered {
-		background-color: lightyellow;
-	}
-
-	.unanswered {
-		background-color: lightblue;
-	}
-
-	.label {
-		min-width: 0;
-		min-height: 0;
-		height: 1.4em;
-		font-size: 10px;
-		color: gray;
-		background-color: #f2f2f2;
-		font-weight: normal;
-	}
-
-	.skinny {
-		width: 20px;
-	}
+.skinny {
+	width: 20px;
 }
