@@ -1,3 +1,10 @@
+// remove later; for own sanity w/ firefox
+button, input[type='submit'] {
+	&:focus {
+		border: 2px solid blue;
+	}
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -13,6 +20,10 @@ body {
 }
 
 header {
+	z-index: 10;
+	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
 	box-sizing: border-box;
 	padding: 10px 15px;
@@ -36,11 +47,6 @@ header {
 		border-radius: 3px;
 		padding: 0.2em 1.4em;
 		cursor: pointer;
-
-		// remove later; for own sanity w/ firefox
-		&:hover, &:focus {
-			border: 2px solid blue;
-		}
 	}
 }
 
@@ -48,8 +54,8 @@ header {
 	background-color: rgba(0, 0, 0, 0.35);
 	position: fixed;
 	width: 100%;
-	height: 443px;
-	top: 57px;
+	height: 100%;
+	top: 52px;
 	z-index: 5;
 
 	div {
@@ -106,7 +112,7 @@ header {
 			cursor: pointer;
 
 			// remove later; for own sanity w/ firefox
-			&:hover, &:focus {
+			&:focus {
 				border: 2px solid blue;
 			}
 		}
@@ -114,6 +120,8 @@ header {
 }
 
 main {
+	padding-top: 55px;
+
 	p {
 		margin: 15px auto;
 	}
@@ -123,7 +131,7 @@ main {
 		background: rgba(173, 216, 230, 0.6);
 		border-radius: 15px;
 		padding: 0.3em 1em;
-		margin-bottom: 20px;
+		margin-bottom: 15px;
 		width: 400px;
 
 		&:after {
@@ -163,66 +171,96 @@ main {
 		cursor: pointer;
 	}
 
-	table, td {
+	.table-surround {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		height: auto;
+		min-height: 150px;
+		background-color: lightgray;
+		margin-bottom: 30px;
+	}
+
+	table, td, th {
 		border: 1px solid black;
 	}
 
 	table {
-		margin-bottom: 30px;
+		margin: auto;
 		border-collapse: collapse;
-		table-layout: fixed;
-		width: 100%;
 		box-sizing: border-box;
+		box-shadow: 4px 4px 2px 2px darkgray;
 
-		td {
-			box-sizing: border-box;
-			padding: 0.3em 0.5em;
+		input {
+			word-break: inherit;
+			font-size: inherit;
+			font-family: inherit;
+			text-align: inherit;
+			border: none;
+			width: 100%;
+		}
+	}
+
+	td, th {
+		box-sizing: border-box;
+		width: 150px;
+		min-width: 150px;
+		max-width: 150px;
+		height: 30px;
+		min-height: 20px;
+		padding: 0.4em 5px;
+		word-break: break-all;
+
+		&.leftAlign {
+			text-align: left;
 		}
 
-		thead {
-			background-color: lightgray;
+		&.rightAlign {
+			text-align: center;
+		}
+
+		&.answered {
+			border: 2px solid yellow;
+		}
+
+		&.unanswered {
+			border: 2px solid blue;
+		}
+
+		&.header {
 			font-weight: bold;
+			background-color: lightgray;
 		}
+	}
 
-		tbody {
-			input {
-				font-size: inherit;
-				font-family: inherit;
-				text-align: inherit;
-				border: none;
-				width: 90%;
-			}
+	td {
+		background-color: white;
+	}
 
-			.answered {
-				background-color: lightyellow;
-			}
+	thead {
+		background-color: lightgray;
+		font-weight: bold;
+	}
 
-			.unanswered {
-				background-color: lightblue;
-			}
+	.answered {
+		background-color: lightyellow;
+	}
 
-			td {
-				&.leftAlign {
-					text-align: left;
-				}
+	.unanswered {
+		background-color: lightblue;
+	}
 
-				&.rightAlign {
-					text-align: center;
-				}
+	.label {
+		min-width: 0;
+		min-height: 0;
+		height: 1.4em;
+		font-size: 10px;
+		color: gray;
+		background-color: #f2f2f2;
+		font-weight: normal;
+	}
 
-				&.answered {
-					border: 2px solid yellow;
-				}
-
-				&.unanswered {
-					border: 2px solid blue;
-				}
-
-				&.header {
-					font-weight: bold;
-					background-color: lightgray;
-				}
-			}
-		}
+	.skinny {
+		width: 20px;
 	}
 }
