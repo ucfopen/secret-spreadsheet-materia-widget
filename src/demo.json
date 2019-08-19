@@ -4,13 +4,13 @@
 		"version": 1,
 		"data": {
 			"left": false,
-			"header": false,
+			"header": true,
 			"spreadsheet": true,
 			"dimensions": {
 				"x": 2,
 				"y": 2
 			},
-			"randomization": 2,
+			"randomization": 1,
 			"items": [
 				{
 					"items": [
