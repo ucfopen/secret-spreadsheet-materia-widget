@@ -128,28 +128,30 @@ class PlayerApp extends React.Component {
 			<div>
 				<header>
 					<h1>{this.props.title}</h1>
-					{this.state.popup ? null:<button type="button" value="Help" onClick={this.handlePopupToggle}>Help</button>}
+					{this.state.popup ? null:<button type="button" value="Help" onClick={this.handlePopupToggle}><img src="./assets/question-mark.png" />Help</button>}
 				</header>
 
 				<main>
 					{this.state.popup ? <Popup handlePopupToggle={this.handlePopupToggle} />:null}
 
-					<p className="instructions">Input the <span><strong>missing data</strong></span> to complete the spreadsheet:</p>
+					<p className="instructions">Input the <span>missing data</span> to complete the spreadsheet:</p>
 
 					<form onSubmit={this.handleSubmit}>
 						<div className="table-surround">
-							<PlayerTable
-								dimensions={this.props.dimensions}
-								qset={this.props.qset}
-								parentAnswers={this.answers}
-								handleNewAnswer={this.handleNewAnswer}
-								randPositions={this.blankPositions}
-								randCount={this.props.randCount}
-								countBlanks={this.countBlanks}
-								leftAlign={this.props.leftAlign}
-								header={this.props.header}
-								spreadsheet={this.props.spreadsheet}
-							/>
+							<div>
+								<PlayerTable
+									dimensions={this.props.dimensions}
+									qset={this.props.qset}
+									parentAnswers={this.answers}
+									handleNewAnswer={this.handleNewAnswer}
+									randPositions={this.blankPositions}
+									randCount={this.props.randCount}
+									countBlanks={this.countBlanks}
+									leftAlign={this.props.leftAlign}
+									header={this.props.header}
+									spreadsheet={this.props.spreadsheet}
+								/>
+							</div>
 						</div>
 
 						<p>You've filled out {this.state.answered} of {this.blankPositions.size} missing cells</p>

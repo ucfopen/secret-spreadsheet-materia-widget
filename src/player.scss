@@ -1,3 +1,17 @@
+@font-face {
+	font-family: 'Open Sans';
+	src:url('assets/fonts/OpenSans.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto Mono';
+	src:url('assets/fonts/RobotoMono.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
 // remove later; for own sanity w/ firefox
 button, input[type='submit'] {
 	&:focus {
@@ -12,7 +26,7 @@ button, input[type='submit'] {
 
 body {
 	background: #FFF;
-	font-family: Lato, sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
 	text-align: center;
 	width: 750px;
@@ -32,24 +46,36 @@ header {
 	left: 0;
 	width: 100%;
 	box-sizing: border-box;
-	padding: 10px 15px;
-	background-color: green;
+	padding: 12px 25px;
+	background-color: #408532;
 	display: flex;
 	justify-content: space-between;
 	align-content: center;
 	align-items: center;
-	font-size: 16px;
+	font-size: 14px;
 
 	h1 {
 		color: white;
 	}
 
 	button {
+		display: flex;
+		flex-direction: row;
+		align-content: center;
+		align-items: center;
+		justify-content: center;
 		font-size: 14px;
-		background-color: green;
+		background-color: #408532;
 		border: 1px solid white;
-		border-radius: 3px;
-		padding: 0.2em 1.4em;
+		border-radius: 4px;
+		padding: 0.3em 0.6em;
+	}
+
+	img {
+		margin-right: 4px;
+		display: inline-block;
+		height: 17px;
+		width: 17px;
 	}
 }
 
@@ -75,12 +101,12 @@ header {
 
 		div {
 			background-color: rgba(0, 0, 0, 0.07);
-			width: 80%;
-			padding: 25px 25px 0;
+			width: 90%;
+			padding: 20px 25px 0;
 			border-radius: 4px;
 			display: grid;
 			grid: repeat(2, 1fr) / repeat(2, 1fr);
-			grid-column-gap: 15px;
+			grid-column-gap: 40px;
 			justify-items: center;
 			align-items: center;
 			text-align: left;
@@ -95,14 +121,14 @@ header {
 		h2 {
 			font-size: 26px;
 			margin-top: 30px;
-			color: green;
+			color: #408532;
 		}
 
 		button {
 			font-size: 16px;
 			margin: 10px auto 30px;
 			padding: 0.3em 2em;
-			background-color: purple;
+			background-color: #6f0cac;
 			border: none;
 
 			// remove later; for own sanity w/ firefox
@@ -121,7 +147,7 @@ main {
 	}
 
 	input[type='submit'] {
-		padding: 0.3em 1em;
+		padding: 0.3em 1.7em;
 		border-radius: 3px;
 		font-size: inherit;
 		font-family: inherit;
@@ -131,7 +157,7 @@ main {
 // the speech bubble
 .instructions {
 	position: relative;
-	background: rgba(173, 216, 230, 0.6);
+	background: #deebf3;
 	border-radius: 15px;
 	padding: 0.3em 1em;
 	margin-bottom: 15px;
@@ -152,21 +178,27 @@ main {
 	}
 
 	span {
-		color: #000178;
+		color: #5098c4;
 	}
+}
+
+form p {
+	color: #818281;
 }
 
 // button colors
 .grayed {
-	background-color: lightgray;
+	background-color: #eff0ef;
+	border: none;
 	color: gray;
 }
 
 // button colors
 .filled {
-	background-color: purple;
+	background-color: #6f0cac;
 	color: white;
 	cursor: pointer;
+	border: none;
 }
 
 .table-surround {
@@ -175,8 +207,17 @@ main {
 	width: 100%;
 	height: auto;
 	min-height: 150px;
-	background-color: lightgray;
+	background-color: #eff0ef;
 	margin-bottom: 30px;
+
+	div {
+		margin: auto;
+		display: inline;
+		background-color: white;
+		padding: 4px;
+		border-radius: 5px;
+		box-shadow: 10px 10px 0px 1px #dcdddc;
+	}
 }
 
 table, td, th {
@@ -184,10 +225,10 @@ table, td, th {
 }
 
 table {
+	font-family: 'Roboto Mono', sans-serif;
 	margin: auto;
 	border-collapse: collapse;
 	box-sizing: border-box;
-	box-shadow: 4px 4px 2px 2px darkgray;
 
 	input {
 		font-size: inherit;
@@ -210,21 +251,16 @@ td, th {
 
 	// have to say nested to not effect inputs
 	&.answered {
-		border: 2px solid yellow;
+		border: 2px solid #e6c485;
 	}
 
 	&.unanswered {
-		border: 2px solid blue;
+		border: 2px solid #5098c4;
 	}
 }
 
 td {
 	background-color: white;
-}
-
-thead {
-	background-color: lightgray;
-	font-weight: bold;
 }
 
 .leftAlign {
@@ -237,15 +273,15 @@ thead {
 
 .header {
 	font-weight: bold;
-	background-color: lightgray;
+	background-color: #e7e8e7;
 }
 
 .answered {
-	background-color: lightyellow;
+	background-color: #fff7e7;
 }
 
 .unanswered {
-	background-color: lightblue;
+	background-color: #d9e9f3;
 }
 
 // for excel style labels
@@ -255,8 +291,9 @@ thead {
 	height: 1.4em;
 	font-size: 10px;
 	color: gray;
-	background-color: #f2f2f2;
+	background-color: #f2f3f2;
 	font-weight: normal;
+	border-color: #a7a8a7;
 }
 
 .skinny {
