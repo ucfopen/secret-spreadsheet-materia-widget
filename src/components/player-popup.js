@@ -7,7 +7,7 @@ const Popup = props => {
 				<h2>Secret Spreadsheet - How it works:</h2>
 
 				<div>
-					<img src="assets/player-instruction-placeholder.jpg" alt="Secret Spreadsheet Instructions" />
+					<img src="assets/img/player-instruction-placeholder.jpg" alt="Secret Spreadsheet Instructions" />
 
 					<p>Cells of this spreadsheet have been <strong>intentionally hidden.</strong></p>
 
