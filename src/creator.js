@@ -153,7 +153,10 @@ class CreatorApp extends React.Component {
   }
 
   useHeader() {
-    this.setState(Object.assign(this.state.qset,{header:!this.state.qset.header}))
+		this.setState(Object.assign(this.state.qset,{header:!this.state.qset.header}))
+		for (let i = 0; i < this.state.qset.dimensions.y; i++) {
+			this.setState(Object.assign(this.state.qset.items[0].items[0][i].options, {blank: false}))
+		}
 	}
 
 	render() {
