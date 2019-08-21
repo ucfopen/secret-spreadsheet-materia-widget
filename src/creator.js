@@ -6,6 +6,7 @@ import Dimensions from './components/creator-dimensions'
 import PreviewTable from './components/creator-preview-table'
 import EditTable from './components/creator-edit-table'
 import Options from './components/creator-options'
+import Intro from './components/creator-intro'
 
 
 const materiaCallbacks = {}
@@ -15,10 +16,11 @@ class CreatorApp extends React.Component {
 		super(props)
 		this.state = {
 			isTitleEditable: Boolean(props.title),
-			showPopup: props.init,
+			showIntro: props.init,
 			hasTable: Boolean(props.qset && props.qset.dimensions && props.qset.items.items),
 			qset: props.qset,
 			title: props.title,
+			showPopup: false,
 		}
 
 		// Callback when widget save is clicked
@@ -50,7 +52,8 @@ class CreatorApp extends React.Component {
 
 	// A title for the new widget is submitted in the popup
 	handleTitleSubmit(event) {
-		this.setState({showPopup: false,
+		this.setState({showIntro: false,
+									 showPopup: false,
 									 isTitleEditable: true
 									})
 		event.preventDefault()
@@ -140,6 +143,14 @@ class CreatorApp extends React.Component {
 
 		return (
 			<div>
+				{this.state.showIntro ?
+					<Intro
+						onSubmit={this.handleTitleSubmit}
+						onChange={this.handleTitleChange}
+						title={this.state.title}
+					/>
+				: "" }
+
 				{this.state.showPopup ?
 					<Popup
 						onSubmit={this.handleTitleSubmit}
@@ -147,6 +158,7 @@ class CreatorApp extends React.Component {
 						title={this.state.title}
 					/>
 				: "" }
+
 				<div className="title-bar">
 					<Title
 						isTitleEditable={this.state.isTitleEditable}
