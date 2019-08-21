@@ -17,6 +17,20 @@
 		"build-dev": "webpack",
 		"test": "jest"
 	},
+	"jest": {
+		"coverageReporters": [
+			"text",
+			"lcov"
+		],
+		"coverageThreshold": {
+			"global": {
+				"branches": 100,
+				"functions": 100,
+				"lines": 100,
+				"statements": 100
+			}
+		}
+	},
 	"author": "University of Central Florida, Center for Distributed Learning",
 	"description": "",
 	"license": "AGPL-3.0",
