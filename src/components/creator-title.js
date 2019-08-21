@@ -1,7 +1,6 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 
-// TODO: auto set focus to 'title-input' after 'edit title' is pressed
+// TODO: auto set focus to title input after 'edit title' is pressed
 
 class Title extends React.Component {
 	render() {

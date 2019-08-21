@@ -1,16 +1,10 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 
 class Options extends React.Component {
 
 	constructor(props) {
 		super(props)
     this.handleRandomizationBlur = this.handleRandomizationBlur.bind(this)
-    this.useSpreadsheet = this.useSpreadsheet.bind(this)
-    this.useTable = this.useTable.bind(this)
-    this.useLeftAlign = this.useLeftAlign.bind(this)
-    this.useCenterAlign = this.useCenterAlign.bind(this)
-    this.useHeader = this.useHeader.bind(this)
   }
 
   // Make sure the value for number of randomization is within bounds
@@ -24,26 +18,6 @@ class Options extends React.Component {
 		}
 	}
 
-  useSpreadsheet() {
-    this.setState(Object.assign(this.props.qset,{spreadsheet:true}));
-  }
-
-  useTable() {
-    this.setState(Object.assign(this.props.qset,{spreadsheet:false}));
-  }
-
-  useLeftAlign() {
-    this.setState(Object.assign(this.props.qset,{left:true}));
-  }
-
-  useCenterAlign() {
-    this.setState(Object.assign(this.props.qset,{left:false}));
-  }
-
-  useHeader() {
-    this.setState(Object.assign(this.props.qset,{header:!this.props.qset.header}));
-  }
-
   render() {
     return (
       <div>
@@ -54,7 +28,7 @@ class Options extends React.Component {
           <div className="style">
             <label><strong>Style:</strong></label>
 
-            <div onClick={this.useSpreadsheet} className={this.props.qset.spreadsheet ? "active" : ""}>
+            <div onClick={this.props.useSpreadsheet} className={this.props.qset.spreadsheet ? "active" : ""}>
               {!this.props.qset.spreadsheet ?
                 <svg id="spreadsheet-checkbox" viewBox="0 0 28 28" width="20px" height="20px" color="lightblue">
                   <path d="M0 0v28h28V0H0zm24 24H4V4h20v20z"></path>
@@ -67,7 +41,7 @@ class Options extends React.Component {
               <label>Spreadsheet</label>
             </div>
 
-            <div onClick={this.useTable} className={!this.props.qset.spreadsheet ? "active" : ""}>
+            <div onClick={this.props.useTable} className={!this.props.qset.spreadsheet ? "active" : ""}>
               {this.props.qset.spreadsheet ?
                 <svg id="table-checkbox" viewBox="0 0 28 28" width="20px" height="20px">
                   <path d="M0 0v28h28V0H0zm24 24H4V4h20v20z"></path>
@@ -82,7 +56,7 @@ class Options extends React.Component {
           </div>
           <div className="text">
             <label><strong>Text:</strong></label>
-            <div onClick={this.useLeftAlign} className={this.props.qset.left ? "active" : ""}>
+            <div onClick={this.props.useLeftAlign} className={this.props.qset.left ? "active" : ""}>
               <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="20px" height="20px" viewBox="0 0 344 344" preserveAspectRatio="xMidYMid meet">
                 <g transform="translate(0,344) scale(0.1,-0.1)" fill="#000000" stroke="none">
                 <path d="M130 3095 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"/>
@@ -93,7 +67,7 @@ class Options extends React.Component {
                 </g>
               </svg>
             </div>
-            <div onClick={this.useCenterAlign} className={!this.props.qset.left ? "active" : ""}>
+            <div onClick={this.props.useCenterAlign} className={!this.props.qset.left ? "active" : ""}>
               <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="20px" height="20px" viewBox="0 0 344 344" preserveAspectRatio="xMidYMid meet">
                 <g transform="translate(0,344) scale(0.1,-0.1)" fill="#000000" stroke="none">
                 <path d="M130 3095 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"/>
@@ -109,7 +83,7 @@ class Options extends React.Component {
 
           <div className="header">
             <label><strong>Header:</strong></label>
-            <div onClick={this.useHeader} className={this.props.qset.header ? "active" : ""}>
+            <div onClick={this.props.useHeader} className={this.props.qset.header ? "active" : ""}>
               {!this.props.qset.header ?
                 <svg id="header-checkbox" viewBox="0 0 28 28" width="20px" height="20px" color="lightblue">
                   <path d="M0 0v28h28V0H0zm24 24H4V4h20v20z"></path>
