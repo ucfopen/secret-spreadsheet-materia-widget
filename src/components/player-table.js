@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Cell from './player-cell';
 
 class PlayerTable extends React.Component {
@@ -117,7 +116,6 @@ class PlayerTable extends React.Component {
 						displayText={question.questions[0].text}
 						showInput={showInput}
 						leftAlign={this.props.leftAlign}
-						header={false}
 					/>
 				);
 
