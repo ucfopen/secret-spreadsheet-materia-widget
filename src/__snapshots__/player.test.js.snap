@@ -1,0 +1,209 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Player Player renders with no randomization 1`] = `
+<PlayerApp
+  dimensions={
+    Object {
+      "x": 2,
+      "y": 2,
+    }
+  }
+  header={false}
+  leftAlign={false}
+  qset={
+    Array [
+      Array [
+        Object {
+          "answers": Array [
+            Object {
+              "id": null,
+              "text": "Show 1",
+              "value": 100,
+            },
+          ],
+          "id": null,
+          "materiaType": "question",
+          "options": Object {
+            "blank": false,
+          },
+          "questions": Array [
+            Object {
+              "text": "Show 1",
+            },
+          ],
+          "type": "QA",
+        },
+        Object {
+          "answers": Array [
+            Object {
+              "id": null,
+              "text": "Hide 1",
+              "value": 100,
+            },
+          ],
+          "id": null,
+          "materiaType": "question",
+          "options": Object {
+            "blank": true,
+          },
+          "questions": Array [
+            Object {
+              "text": "Hide 1",
+            },
+          ],
+          "type": "QA",
+        },
+      ],
+      Array [
+        Object {
+          "answers": Array [
+            Object {
+              "id": null,
+              "text": "Hide 2",
+              "value": 100,
+            },
+          ],
+          "id": null,
+          "materiaType": "question",
+          "options": Object {
+            "blank": true,
+          },
+          "questions": Array [
+            Object {
+              "text": "Hide 2",
+            },
+          ],
+          "type": "QA",
+        },
+        Object {
+          "answers": Array [
+            Object {
+              "id": null,
+              "text": "Show 2",
+              "value": 100,
+            },
+          ],
+          "id": null,
+          "materiaType": "question",
+          "options": Object {
+            "blank": false,
+          },
+          "questions": Array [
+            Object {
+              "text": "Show 2",
+            },
+          ],
+          "type": "QA",
+        },
+      ],
+    ]
+  }
+  randCount={0}
+  spreadsheet={false}
+  title="Test Widget"
+/>
+`;
+
+exports[`Player Player renders with randomization 1`] = `
+<PlayerApp
+  dimensions={
+    Object {
+      "x": 2,
+      "y": 2,
+    }
+  }
+  header={false}
+  leftAlign={false}
+  qset={
+    Array [
+      Array [
+        Object {
+          "answers": Array [
+            Object {
+              "id": null,
+              "text": "Show 1",
+              "value": 100,
+            },
+          ],
+          "id": null,
+          "materiaType": "question",
+          "options": Object {
+            "blank": false,
+          },
+          "questions": Array [
+            Object {
+              "text": "Show 1",
+            },
+          ],
+          "type": "QA",
+        },
+        Object {
+          "answers": Array [
+            Object {
+              "id": null,
+              "text": "Hide 1",
+              "value": 100,
+            },
+          ],
+          "id": null,
+          "materiaType": "question",
+          "options": Object {
+            "blank": true,
+          },
+          "questions": Array [
+            Object {
+              "text": "Hide 1",
+            },
+          ],
+          "type": "QA",
+        },
+      ],
+      Array [
+        Object {
+          "answers": Array [
+            Object {
+              "id": null,
+              "text": "Hide 2",
+              "value": 100,
+            },
+          ],
+          "id": null,
+          "materiaType": "question",
+          "options": Object {
+            "blank": true,
+          },
+          "questions": Array [
+            Object {
+              "text": "Hide 2",
+            },
+          ],
+          "type": "QA",
+        },
+        Object {
+          "answers": Array [
+            Object {
+              "id": null,
+              "text": "Show 2",
+              "value": 100,
+            },
+          ],
+          "id": null,
+          "materiaType": "question",
+          "options": Object {
+            "blank": false,
+          },
+          "questions": Array [
+            Object {
+              "text": "Show 2",
+            },
+          ],
+          "type": "QA",
+        },
+      ],
+    ]
+  }
+  randCount={2}
+  spreadsheet={false}
+  title="Test Widget"
+/>
+`;
