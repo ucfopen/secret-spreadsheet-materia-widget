@@ -8,12 +8,14 @@
 		"materia-widget-development-kit": "^2.4.2",
 		"react": "16.5.2",
 		"react-dom": "^16.5.2",
-		"react-test-renderer": "^16.5.2"
+		"react-test-renderer": "^16.5.2",
+		"jest": "^24.9"
 	},
 	"scripts": {
 		"start": "webpack-dev-server",
 		"build": "webpack -p",
-		"build-dev": "webpack"
+		"build-dev": "webpack",
+		"test": "jest"
 	},
 	"author": "University of Central Florida, Center for Distributed Learning",
 	"description": "",
