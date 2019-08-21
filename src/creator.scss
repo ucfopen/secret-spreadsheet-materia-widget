@@ -18,29 +18,81 @@ label {
   right: 0;
   bottom: 0;
   margin: auto;
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: rgba(0, 0, 0, 0.6);
 	z-index: 9999999;
+	overflow: auto;
 
 	.popup-inner {
-		position: absolute;
-		left: 20%;
-		right: 20%;
-		top: 25%;
-		bottom: auto;
-		margin: auto;
-		border-radius: 20px;
+		top: 20rem;
+		width: 40rem;
+		margin: 10rem auto;
 		background: white;
 		font-size: 20px;
+		text-align: center;
+		overflow: hidden;
+
+		justify-items: center;
+		align-items: center;
+
+		div {
+			background-color: rgba(0, 0, 0, 0.07);
+			width: 85%;
+			height: 50%;
+			border: none;
+			border-radius: 4px;
+			display: grid;
+			grid-column-gap: 15px;
+			justify-items: center;
+			align-items: center;
+			text-align: left;
+			margin: 0 auto;
+
+			img {
+				grid-area: 1 / 1 / span 1 / span 2;
+				height: 100px;
+				width: auto;
+				background: url(tutorial.jpg);
+				width: 20rem;
+				height: auto;
+				margin: 10px;
+			}
+
+			p {
+				margin-bottom: 20px;
+			}
+
+		}
+
+		h2 {
+			font-size: 26px;
+			margin-top: 30px;
+			color: green;
+		}
 
 		label {
-			margin: 20px 0;
+			margin: 20px;
+			margin-bottom: 0;
 		}
 
 		.popup-input {
-			margin: auto;
+			margin: 20px;
+			padding-left: 5px;
 			width: 25rem;
 			height: 2rem;
 			font-size: 20px;
+			border-style: solid;
+			border-color: purple;
+			border-width: 1px;
+		}
+
+		.popup-submit {
+			margin: 20px;
+			width: 20%;
+			padding-top: .5rem;
+			padding-bottom: .5rem;
+			color: white;
+			border-width: 0;
+			background: purple;
 		}
 	}
 }
@@ -85,6 +137,8 @@ label {
 	background: white;
 	display: flex;
 	flex-direction: row;
+	overflow: auto;
+	justify-content: center;
 
 	.options,
 	.style,
@@ -136,6 +190,7 @@ label {
 
 	.options {
 		height: 40%;
+		border-width: 0;
 	}
 }
 
@@ -153,7 +208,7 @@ table {
 	display: flex;
 
 	.table {
-		top: 30%;
+		top: 10rem;
 		position: absolute;
 		clear:both;
 		float:left;
