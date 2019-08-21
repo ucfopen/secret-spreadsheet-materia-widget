@@ -66,15 +66,15 @@ class PlayerTable extends React.Component {
 					// make the first label generated a th if needed
 					if (i === 0 && this.props.header) {
 						cells.push(
-							<th key={`row-label-${i}`} id={`row-label-${i}`} className="label skinny" >
-								{i}
+							<th key={`row-label-${i+1}`} id={`row-label-${i+1}`} className="label skinny" >
+								{i+1}
 							</th>
 						);
 					}
 					else {
 						cells.push(
-							<td key={`row-label-${i}`} id={`row-label-${i}`} className="label skinny" >
-								{i}
+							<td key={`row-label-${i+1}`} id={`row-label-${i+1}`} className="label skinny" >
+								{i+1}
 							</td>
 						);
 					}
