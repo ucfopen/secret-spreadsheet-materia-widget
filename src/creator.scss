@@ -1,4 +1,22 @@
-@import 'base';
+@font-face {
+	font-family: 'Open Sans';
+	src:url('assets/fonts/OpenSans.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto Mono';
+	src:url('assets/fonts/RobotoMono.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	background: rgb(255, 255, 255);
+
+}
 
 label {
 	display: block;
@@ -58,6 +76,7 @@ label {
 			}
 
 			p {
+				margin: 0 8px;
 				margin-bottom: 20px;
 			}
 
@@ -90,6 +109,7 @@ label {
 			width: 20%;
 			padding-top: .5rem;
 			padding-bottom: .5rem;
+			font-size: 20px;
 			color: white;
 			border-width: 0;
 			background: purple;
@@ -134,7 +154,7 @@ label {
 }
 
 .options-bar {
-	background: white;
+	background: rgb(236, 236, 236);
 	display: flex;
 	flex-direction: row;
 	overflow: auto;
@@ -174,7 +194,7 @@ label {
 			}
 
 			label {
-				margin: 1px 0 0 3px;
+				margin-left: 3px;
 			}
 		}
 	}
@@ -194,62 +214,117 @@ label {
 	}
 }
 
-table {
-	max-width: 100%;
-}
-
-.lit {
-	border-color: #b944cc;
-	box-shadow: inset 0 0 10px #b944cc;
-}
-
 .table-container {
+	font-family: 'Roboto Mono', sans-serif;
 	justify-content: center;
 	display: flex;
 
 	.table {
-		top: 10rem;
-		position: absolute;
+		top: 20px;
+		position: relative;
 		clear:both;
 		float:left;
+		padding-right: 50px;
 
+		.delete-cell,
+		.empty-cell {
+			width: 2%;
+			border-width: 0;
+			opacity: 0;
+		}
+
+		.delete-button {
+			font-size: 20px;
+		}
 
 		.table-elements {
 			position: relative;
 
 			table {
 				margin: 0;
+				border-width: 0;
+				max-width: 100%;
+				border-collapse: collapse;
+
+				tr {
+					@for $i from 1 through 21 {
+						td:first-child:nth-last-child(#{$i}),
+						td:first-child:nth-last-child(#{$i}) ~ td {
+							width: 100% / $i;
+						}
+					}
+				}
+
+				td {
+					max-width: 100%;
+					word-break: break-all;
+					border: 1px solid black;
+
+					div {
+						padding: .5em;
+						display:flex;
+						flex-direction: row;
+						align-items: center;
+						justify-content: center;
+
+						input {
+							&[type=text] {
+								resize: horizontal;
+								font-size: inherit;
+								font-family: inherit;
+								width: 80%;
+								height: 2em;
+								border: none;
+								background-color: rgba(255, 255, 255, 0);
+							}
+
+							&[type=checkbox] {
+
+							}
+						}
+					}
+
+					label {
+						font-size: 12px;
+					}
+				}
 			}
 
-			.increase-column-button {
-				top: 0;
-				right: 0;
+			.column-buttons {
 				bottom: 0;
 				width: 50px;
 				left: 100%;
 				height: 100%;
 				position: absolute;
+
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+
+				button {
+					height: 49%;
+					border-style: dotted;
+					border-color: purple;
+					border-width: 1px;
+					margin: auto;
+				}
 			}
 		}
 
-		.increase-row-button {
+		.row-buttons {
 			width: 100%;
-			height: 50px;
-		}
+			height: 49px;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
 
-		.table-submit-button {
-			margin-top: 1rem;
-		}
-
-		button {
-			background: rgba(255, 255, 255, 0);
-			border-style: dotted;
-			border-color: purple;
-			border-width: 1px;
-			color: purple;
-
-			span {
-				height: 24px;
+			button {
+				width: 49%;
+				border-style: dotted;
+				border-color: purple;
+				border-width: 1px;
 			}
 		}
 
@@ -257,4 +332,26 @@ table {
 			fill: purple;
 		}
 	}
+}
+
+.center-align {
+	input {
+		text-align: center;
+	}
+}
+
+.header-cell {
+	font-weight: bold;
+	background-color: #e7e8e7 !important;
+
+	input {
+		&[type=checkbox] {
+			opacity: 0;
+			height: 0;
+		}
+	}
+}
+
+.hidden {
+	background: lightblue;
 }
