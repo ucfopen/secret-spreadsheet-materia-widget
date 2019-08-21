@@ -25,6 +25,7 @@ class Table extends React.Component {
 	removeRow(event) {
 		const xValue = Math.max(1, parseInt(this.props.qset.dimensions.x) - 1)
 		this.setState(Object.assign(this.props.qset.dimensions,{x:xValue}));
+		this.props.qset.items[0].items.pop()
 		event.preventDefault()
 	}
 
@@ -40,7 +41,9 @@ class Table extends React.Component {
 	removeColumn(event) {
 		const yValue = Math.max(1, parseInt(this.props.qset.dimensions.y) - 1)
 		this.setState(Object.assign(this.props.qset.dimensions,{y:yValue}));
-
+		for (let i = 0; i < this.props.qset.dimensions.x; i++) {
+			this.props.qset.items[0].items[i].pop()
+		}
 		event.preventDefault()
 	}
 
