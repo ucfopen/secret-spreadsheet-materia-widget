@@ -247,6 +247,7 @@ label {
 		justify-content: center;
 		overflow: hidden;
 		white-space: nowrap;
+		font-size: 14px;
 
 		.what-to-do {
 			padding: 20px;
@@ -328,7 +329,7 @@ label {
 						input {
 							&[type=text] {
 								margin: 10px;
-								margin-right: 0;
+								margin-right: 2px;
 								resize: horizontal;
 								font-size: inherit;
 								font-family: inherit;
