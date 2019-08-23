@@ -123,7 +123,7 @@ label {
 
 	.title-text{
 		float: left;
-		margin-top: 20px;
+		margin-top: 15px;
 		margin-left: 15px;
 		margin-right: 15px;
 		font-size: inherit;
@@ -139,7 +139,7 @@ label {
 
 	.edit-title-button {
 		float: left;
-		margin-top: 30px;
+		margin-top: 25px;
 		font-size: 12px;
 		color: white;
 		background: green;
@@ -165,7 +165,7 @@ label {
 }
 
 .options-bar {
-	background: rgb(236, 236, 236);
+	background: rgba(245, 245, 245, 0.5);
 	display: flex;
 	flex-direction: row;
 	overflow: auto;
@@ -186,8 +186,14 @@ label {
 		flex-direction: row;
 		white-space: nowrap;
 
+		input {
+			&[type=number] {
+				width: 2em;
+				text-align: center;
+			}
+		}
 		.active {
-			background: lightblue;
+			background: rgba(173, 216, 230, 0.5);
 		}
 
 		div {
@@ -201,7 +207,7 @@ label {
 
 			svg {
 				margin-left: 3px;
-				color: lightblue;
+				color: rgba(173, 216, 230, 0.5);
 			}
 
 			label {
@@ -239,6 +245,8 @@ label {
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
+		overflow: hidden;
+		white-space: nowrap;
 
 		.what-to-do {
 			padding: 20px;
@@ -252,19 +260,21 @@ label {
 				margin-top: 10px;
 
 				.blue-text {
+					padding: 2px 5px;
 					color: rgb(1, 56, 75);
-					background: lightblue;
+					background: rgba(173, 216, 230, 0.5);
 				}
 			}
 		}
 	}
 
 	.table {
-		top: 20px;
+		top: 10px;
 		position: relative;
 		clear:both;
 		float:left;
 		padding-right: 50px;
+
 
 		.delete-cell,
 		.empty-cell {
@@ -283,7 +293,6 @@ label {
 			table {
 				margin: 0;
 				border-width: 0;
-				max-width: 100%;
 				border-collapse: collapse;
 
 				tr {
@@ -332,8 +341,8 @@ label {
 
 			.column-buttons {
 				bottom: 0;
-				width: 50px;
 				left: 100%;
+				width: 50px;
 				height: 100%;
 				position: absolute;
 
@@ -354,7 +363,7 @@ label {
 
 		.row-buttons {
 			width: 100%;
-			height: 49px;
+			height: 50px;
 			display: flex;
 			flex-direction: row;
 			align-items: center;
@@ -393,5 +402,5 @@ label {
 }
 
 .hidden {
-	background: lightblue;
+	background: rgba(173, 216, 230, 0.5);
 }

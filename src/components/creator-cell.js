@@ -21,7 +21,7 @@ class Cell extends React.Component {
 			<td className={`${this.props.className} ${this.props.data && this.props.data.options.blank ? "hidden" : ""}`}>
 				<div>
 					<input type="text" value={this.props.data && this.props.data.questions[0].text} onChange={this.handleTextboxChange} placeholder={`${String.fromCharCode(this.props.row + 65)}${this.props.column + 1}`}/>
-					<input type="checkbox" checked={this.props.data && this.props.data.options.blank} onChange={this.handleCheckboxChange}/>
+					<input type="checkbox" onKeyDown={(e) => {if (e.key === 'Enter') {this.handleCheckboxChange()}}} checked={this.props.data && this.props.data.options.blank} onChange={this.handleCheckboxChange}/>
 				</div>
 			</td>
 		)
