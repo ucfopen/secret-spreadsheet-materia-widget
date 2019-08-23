@@ -7,7 +7,7 @@ export default class Intro extends React.Component {
         <div className="popup-inner">
           <h2>Secret Spreadsheet - How it works:</h2>
           <div>
-            <img src='assets/creator-tutorial.jpg'/>
+            <img src='assets/img/creator-tutorial.jpg'/>
             <p>You'll create a spreadsheet and choose which cells to hide.</p>
             <p>Students will attempt to fill in the hidden cells correctly.</p>
           </div>
