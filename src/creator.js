@@ -12,7 +12,6 @@ class CreatorApp extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			isTitleEditable: Boolean(props.title),
 			showIntro: props.init,
 			qset: props.qset,
 			title: props.title,
@@ -35,6 +34,7 @@ class CreatorApp extends React.Component {
 			return null
 		}
 
+		this.showIntro = this.showIntro.bind(this)
 		this.editTitle = this.editTitle.bind(this)
 		this.handleTitleSubmit = this.handleTitleSubmit.bind(this)
 		this.handleTitleChange = this.handleTitleChange.bind(this)
@@ -46,6 +46,11 @@ class CreatorApp extends React.Component {
     this.useLeftAlign = this.useLeftAlign.bind(this)
     this.useCenterAlign = this.useCenterAlign.bind(this)
     this.useHeader = this.useHeader.bind(this)
+	}
+
+	showIntro(event) {
+		this.setState({showIntro: true})
+		event.preventDefault()
 	}
 
 	editTitle(event) {
@@ -180,7 +185,7 @@ class CreatorApp extends React.Component {
 
 				<div className="title-bar">
 					<Title
-						isTitleEditable={this.state.isTitleEditable}
+						showIntro={this.showIntro}
 						editTitle={this.editTitle}
 						title={this.state.title}
 						onChange={this.handleTitleChange}
@@ -198,11 +203,22 @@ class CreatorApp extends React.Component {
 				/>
 
 				<div className="table-container">
-					<Table
-						cellData={this.cellData}
-						qset={this.state.qset}
-						onSubmit={this.handleTableSubmit}
-					/>
+					<div className="table-text">
+						<label className="what-to-do">WHAT TO DO</label>
+						<div>
+							<ul>
+								<li><label>Add rows and columns, then input data in the cells below.</label></li>
+								<li><label>Check cells to turn them <span className="blue-text"> blue </span> - these will be left blank for students to fill out.</label></li>
+							</ul>
+						</div>
+					</div>
+					<div>
+						<Table
+							cellData={this.cellData}
+							qset={this.state.qset}
+							onSubmit={this.handleTableSubmit}
+						/>
+					</div>
 				</div>
 			</div>
 		)
