@@ -208,7 +208,7 @@ class CreatorApp extends React.Component {
 						<div>
 							<ul>
 								<li><label>Add rows and columns, then input data in the cells below.</label></li>
-								<li><label>Check cells to turn them <span className="blue-text"> blue </span> - these will be left blank for students to fill out.</label></li>
+								<li><label>Check cells to turn them <span className="blue-text">blue</span> - these will be left blank for students to fill out.</label></li>
 							</ul>
 						</div>
 					</div>

@@ -16,7 +16,7 @@ class Intro extends React.Component {
 
           <label><strong>Start by giving your Spreadsheet widget a title</strong></label>
 					<form className="title-container" onSubmit={this.props.onSubmit}>
-						<input className="popup-input" required="required" type="text" placeholder="My Spreadsheet Widget" value={this.props.title} onChange={this.props.onChange}/>
+						<input autoFocus={true} className="popup-input" required="required" type="text" placeholder="My Spreadsheet Widget" value={this.props.title} onChange={this.props.onChange}/>
 						<input className="popup-submit" type="submit" value="Get Started"/>
 					</form>
         </div>
