@@ -1,8 +1,6 @@
 import React from 'react'
 
-// TODO: auto set focus to title input after 'edit title' is pressed
-
-class Title extends React.Component {
+export default class Title extends React.Component {
 	render() {
 		return (
 			<div className="title-container">
@@ -13,5 +11,3 @@ class Title extends React.Component {
 		)
 	}
 }
-
-export default Title

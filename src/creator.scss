@@ -123,7 +123,7 @@ label {
 
 	.title-text{
 		float: left;
-		margin-top: 15px;
+		margin-top: 20px;
 		margin-left: 15px;
 		margin-right: 15px;
 		font-size: inherit;
@@ -295,13 +295,22 @@ label {
 				border-width: 0;
 				border-collapse: collapse;
 
-				tr {
-					@for $i from 1 through 21 {
-						td:first-child:nth-last-child(#{$i}),
-						td:first-child:nth-last-child(#{$i}) ~ td {
-							width: 100% / $i;
-						}
+				.header-cell {
+					background-color: #e7e8e7;
+
+					.checkbox {
+						visibility: hidden;
 					}
+				}
+
+				.center-align {
+					input {
+						text-align: center;
+					}
+				}
+
+				.hidden {
+					background: rgba(173, 216, 230, 0.5);
 				}
 
 				td {
@@ -310,14 +319,16 @@ label {
 					border: 1px solid black;
 
 					div {
-						padding: .5em;
 						display:flex;
 						flex-direction: row;
 						align-items: center;
 						justify-content: center;
+						overflow: hidden;
 
 						input {
 							&[type=text] {
+								margin: 10px;
+								margin-right: 0;
 								resize: horizontal;
 								font-size: inherit;
 								font-family: inherit;
@@ -326,9 +337,20 @@ label {
 								border: none;
 								background-color: rgba(255, 255, 255, 0);
 							}
+						}
 
-							&[type=checkbox] {
+						.checkbox {
+							padding: 10px 0 15px 0;
+							width: 34px;
+							display: flex;
+							flex-direction: column;
+							align-items: center;
+							justify-content: center;
+							font-size: 10px;
+							overflow: visible;
 
+							&:hover {
+								background: rgba(173, 216, 230, 0.5);
 							}
 						}
 					}
@@ -381,26 +403,4 @@ label {
 			fill: purple;
 		}
 	}
-}
-
-.center-align {
-	input {
-		text-align: center;
-	}
-}
-
-.header-cell {
-	font-weight: bold;
-	background-color: #e7e8e7 !important;
-
-	input {
-		&[type=checkbox] {
-			opacity: 0;
-			height: 0;
-		}
-	}
-}
-
-.hidden {
-	background: rgba(173, 216, 230, 0.5);
 }

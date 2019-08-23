@@ -1,7 +1,7 @@
 import React from 'react'
 import Cell from './creator-cell'
 
-class Table extends React.Component {
+export default class Table extends React.Component {
 	constructor(props) {
 		super(props)
 		this.appendRow = this.appendRow.bind(this)
@@ -11,6 +11,7 @@ class Table extends React.Component {
 		this.renderTable = this.renderTable.bind(this)
 	}
 
+	// Add a row to the table, limited to 10 rows
 	appendRow(event) {
 		const xValue = Math.min(10, parseInt(this.props.qset.dimensions.x) + 1)
 		this.setState(Object.assign(this.props.qset.dimensions,{x:xValue}));
@@ -22,6 +23,7 @@ class Table extends React.Component {
 		event.preventDefault()
 	}
 
+	// Remove the last row of the table until only 1 row remains
 	removeRow(event) {
 		if(this.props.qset.dimensions.x > 1) {
 			const xValue = parseInt(this.props.qset.dimensions.x) - 1
@@ -31,6 +33,7 @@ class Table extends React.Component {
 		}
 	}
 
+	// Add a column to the table, limited to 10 rows
 	appendColumn(event) {
 		const yValue = Math.min(10, parseInt(this.props.qset.dimensions.y) + 1)
 		this.setState(Object.assign(this.props.qset.dimensions,{y:yValue}));
@@ -40,6 +43,7 @@ class Table extends React.Component {
 		event.preventDefault()
 	}
 
+	// Remove the last column of the table until only 1 column remains
 	removeColumn(event) {
 		if(this.props.qset.dimensions.y > 1) {
 			const yValue = Math.max(1, parseInt(this.props.qset.dimensions.y) - 1)
@@ -77,14 +81,19 @@ class Table extends React.Component {
 	render() {
 	return (
 			<div className="table" onKeyDown={(e) => {
-				if (e.key === 'PageDown' && e.altKey) {
-					this.removeColumn(event)
-				} else if (e.key === 'PageUp' && e.altKey) {
+				// Keyboard controls for table:
+				// Alt + PageUp     = Add Column
+				// Alt + PageDown   = Remove Column
+				// Shift + PageUp   = Add Row
+				// Shift + PageDown = Remove Row
+				if (e.key === 'PageUp' && e.altKey) {
 					this.appendColumn(event)
-				} else if (e.key === 'PageDown' && e.shiftKey) {
-					this.removeRow(event)
+				} else if (e.key === 'PageDown' && e.altKey) {
+					this.removeColumn(event)
 				} else if (e.key === 'PageUp' && e.shiftKey) {
 					this.appendRow(event)
+				} else if (e.key === 'PageDown' && e.shiftKey) {
+						this.removeRow(event)
 				}
 			}}>
 				<form onSubmit={this.props.onSubmit} >
@@ -110,5 +119,3 @@ class Table extends React.Component {
 		)
 	}
 }
-
-export default Table

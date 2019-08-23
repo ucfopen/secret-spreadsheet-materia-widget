@@ -1,14 +1,13 @@
 import React from 'react'
 
-class Cell extends React.Component {
+export default class Cell extends React.Component {
 	constructor(props) {
 		super(props)
-
-		this.handleCheckboxChange = this.handleCheckboxChange.bind(this)
+		this.handleCheckboxToggle = this.handleCheckboxToggle.bind(this)
 		this.handleTextboxChange = this.handleTextboxChange.bind(this)
 	}
 
-	handleCheckboxChange(event) {
+	handleCheckboxToggle(event) {
 		this.setState(Object.assign(this.props.data.options, {blank: !this.props.data.options.blank}))
 	}
 
@@ -21,11 +20,9 @@ class Cell extends React.Component {
 			<td className={`${this.props.className} ${this.props.data && this.props.data.options.blank ? "hidden" : ""}`}>
 				<div>
 					<input type="text" value={this.props.data && this.props.data.questions[0].text} onChange={this.handleTextboxChange} placeholder={`${String.fromCharCode(this.props.row + 65)}${this.props.column + 1}`}/>
-					<input type="checkbox" onKeyDown={(e) => {if (e.key === 'Enter') {this.handleCheckboxChange()}}} checked={this.props.data && this.props.data.options.blank} onChange={this.handleCheckboxChange}/>
+					<div className="checkbox" onClick={this.handleCheckboxToggle}><input type="checkbox" onKeyDown={(e) => {if (e.key === 'Enter') {this.handleCheckboxToggle()}}} checked={this.props.data && this.props.data.options.blank}/>Hide</div>
 				</div>
 			</td>
 		)
 	}
 }
-
-export default Cell
