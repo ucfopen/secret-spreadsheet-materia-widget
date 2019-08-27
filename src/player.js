@@ -168,6 +168,8 @@ class PlayerApp extends React.Component {
 	}
 }
 
+export default PlayerApp;
+
 Materia.Engine.start({
 	start: (instance, qset) => {
 		ReactDOM.render(

@@ -4,7 +4,8 @@ class Cell extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			value: ''
+			value: '',
+			colorClass: 'unanswered'
 		}
 		this.handleChange = this.handleChange.bind(this);
 		this.cell = React.createRef();
@@ -13,7 +14,8 @@ class Cell extends React.Component {
 
 	handleChange(event) {
 		this.setState({
-			value: event.target.value
+			value: event.target.value,
+			colorClass: this.state.colorClass
 		});
 	}
 
@@ -21,28 +23,24 @@ class Cell extends React.Component {
 		const cellComponent = this.cell.current;
 		const inputComponent = this.input.current;
 
-		if (this.props.showInput) {
-			if (this.state.value !== '') {
-				cellComponent.classList.remove('unanswered');
-				cellComponent.classList.add('answered');
-
-				inputComponent.classList.remove('unanswered');
-				inputComponent.classList.add('answered');
-			}
-			else {
-				cellComponent.classList.remove('answered');
-				cellComponent.classList.add('unanswered');
-
-				inputComponent.classList.remove('answered');
-				inputComponent.classList.add('unanswered');
-			}
+		if (this.state.value !== '' && this.state.colorClass === 'unanswered') {
+			this.setState({
+				value: this.state.value,
+				colorClass: 'answered'
+			});
+		}
+		else if (this.state.value === '' && this.state.colorClass === 'answered') {
+			this.setState({
+				value: this.state.value,
+				colorClass: 'unanswered'
+			});
 		}
 	}
 
 	render() {
 		// test if it should display an input box or if it should show some text
 		return(
-			<td id={this.props.id} className={`${this.props.showInput ? 'unanswered ':''}${this.props.leftAlign ? 'leftAlign':'centerAlign'}`} ref={this.cell}>
+			<td id={this.props.id} className={`${this.props.showInput ? `${this.state.colorClass} `:''}${this.props.leftAlign ? 'leftAlign':'centerAlign'}`} ref={this.cell}>
 				{ this.props.showInput ?
 					<input
 						type="text"
@@ -50,7 +48,7 @@ class Cell extends React.Component {
 						value={this.state.value}
 						onChange={this.handleChange}
 						onBlur={this.props.saveAnswer}
-						className="unanswered"
+						className={this.state.colorClass}
 						ref={this.input}
 					/>
 					: this.props.displayText
