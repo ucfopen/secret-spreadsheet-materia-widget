@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import Cell from './creator-cell'
 
 export default class Table extends React.Component {
@@ -9,6 +10,7 @@ export default class Table extends React.Component {
 		this.appendColumn = this.appendColumn.bind(this)
 		this.removeColumn = this.removeColumn.bind(this)
 		this.renderTable = this.renderTable.bind(this)
+		this.goToCell = this.goToCell.bind(this)
 	}
 
 	// Add a row to the table, limited to 10 rows
@@ -24,11 +26,14 @@ export default class Table extends React.Component {
 	}
 
 	// Remove the last row of the table until only 1 row remains
-	removeRow(event) {
+	removeRow(event, row, col) {
 		if(this.props.qset.dimensions.x > 1) {
 			const xValue = parseInt(this.props.qset.dimensions.x) - 1
 			this.setState(Object.assign(this.props.qset.dimensions,{x:xValue}));
 			this.props.qset.items[0].items.pop()
+			if (xValue == row) {
+				this.goToCell(event, xValue - 1, col)
+			}
 			event.preventDefault()
 		}
 	}
@@ -44,15 +49,26 @@ export default class Table extends React.Component {
 	}
 
 	// Remove the last column of the table until only 1 column remains
-	removeColumn(event) {
+	removeColumn(event, row, col) {
 		if(this.props.qset.dimensions.y > 1) {
 			const yValue = Math.max(1, parseInt(this.props.qset.dimensions.y) - 1)
 			this.setState(Object.assign(this.props.qset.dimensions,{y:yValue}));
 			for (let i = 0; i < this.props.qset.dimensions.x; i++) {
 				this.props.qset.items[0].items[i].pop()
 			}
+			if (yValue == col) {
+				this.goToCell(event, row, yValue - 1)
+			}
 			event.preventDefault()
 		}
+	}
+
+	goToCell(event, row, col) {
+		if (row >= 0 && row < this.props.qset.dimensions.x &&
+				col >= 0 && col < this.props.qset.dimensions.y) {
+			document.getElementsByClassName(`row-${row} col-${col}`)[0].focus()
+		}
+		event.preventDefault()
 	}
 
 	// Render a table for the creator, conditionally name the cells for css
@@ -70,6 +86,11 @@ export default class Table extends React.Component {
 						data={cellData}
 						row={i}
 						column={j}
+						appendColumn={this.appendColumn}
+						removeColumn={this.removeColumn}
+						appendRow={this.appendRow}
+						removeRow={this.removeRow}
+						goToCell={this.goToCell}
 					/>
 				)
 			}
@@ -80,22 +101,7 @@ export default class Table extends React.Component {
 
 	render() {
 	return (
-			<div className="table" onKeyDown={(e) => {
-				// Keyboard controls for table:
-				// Alt + PageUp     = Add Column
-				// Alt + PageDown   = Remove Column
-				// Shift + PageUp   = Add Row
-				// Shift + PageDown = Remove Row
-				if (e.key === 'PageUp' && e.altKey) {
-					this.appendColumn(event)
-				} else if (e.key === 'PageDown' && e.altKey) {
-					this.removeColumn(event)
-				} else if (e.key === 'PageUp' && e.shiftKey) {
-					this.appendRow(event)
-				} else if (e.key === 'PageDown' && e.shiftKey) {
-						this.removeRow(event)
-				}
-			}}>
+			<div className="table" >
 				<form onSubmit={this.props.onSubmit} >
 					<div className="table-elements">
 						<table onBlur={() => this.refs.submitTable.click()}>
