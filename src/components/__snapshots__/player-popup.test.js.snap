@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Popup component Popup component is rendered 1`] = `
+exports[`Popup component Is rendered 1`] = `
 <div
   className="popup"
 >
@@ -24,7 +24,7 @@ exports[`Popup component Popup component is rendered 1`] = `
       </p>
     </div>
     <button
-      onClick={[Function]}
+      onClick={[MockFunction]}
       type="button"
       value="Got it!"
     >

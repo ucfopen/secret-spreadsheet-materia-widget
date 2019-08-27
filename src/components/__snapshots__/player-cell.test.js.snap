@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table Cell component Center aligned cell renders with input 1`] = `
+exports[`Cell component Rendered with user input center aligned 1`] = `
 <td
   className="unanswered centerAlign"
   id={1}
 >
   <input
     className="unanswered"
-    onBlur={[Function]}
+    onBlur={[MockFunction]}
     onChange={[Function]}
     type="text"
     value=""
@@ -15,7 +15,22 @@ exports[`Table Cell component Center aligned cell renders with input 1`] = `
 </td>
 `;
 
-exports[`Table Cell component Center aligned cell renders with text 1`] = `
+exports[`Cell component Rendered with user input left aligned 1`] = `
+<td
+  className="unanswered leftAlign"
+  id={1}
+>
+  <input
+    className="unanswered"
+    onBlur={[MockFunction]}
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+</td>
+`;
+
+exports[`Cell component Rendered without user input center aligned 1`] = `
 <td
   className="centerAlign"
   id={1}
@@ -24,22 +39,7 @@ exports[`Table Cell component Center aligned cell renders with text 1`] = `
 </td>
 `;
 
-exports[`Table Cell component Left aligned cell renders with input 1`] = `
-<td
-  className="unanswered leftAlign"
-  id={1}
->
-  <input
-    className="unanswered"
-    onBlur={[Function]}
-    onChange={[Function]}
-    type="text"
-    value=""
-  />
-</td>
-`;
-
-exports[`Table Cell component Left aligned cell renders with text 1`] = `
+exports[`Cell component Rendered without user input left aligned 1`] = `
 <td
   className="leftAlign"
   id={1}

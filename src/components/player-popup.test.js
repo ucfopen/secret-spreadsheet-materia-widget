@@ -1,5 +1,5 @@
 import React from 'react'
-import Popup from './player-popup.js'
+import Popup from './player-popup'
 import renderer from 'react-test-renderer';
 
 describe('Popup component', () => {
@@ -7,17 +7,14 @@ describe('Popup component', () => {
 		jest.resetModules();
 	});
 
-	test('Popup component is rendered', () => {
-		const mockToggle = () => {
-			return;
-		}
-
+	test('Is rendered', () => {
 		const props = {
-			handlePopupToggle: mockToggle
+			handlePopupToggle: jest.fn()
 		}
 
 		const component = renderer.create(<Popup {... props} />);
 		const tree = component.toJSON();
+
 		expect(tree).toMatchSnapshot();
 	});
 });

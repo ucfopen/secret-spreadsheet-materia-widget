@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Player Player renders with no randomization 1`] = `
+exports[`Player Render called with correct props no randomization 1`] = `
 <PlayerApp
   dimensions={
     Object {
@@ -104,7 +104,7 @@ exports[`Player Player renders with no randomization 1`] = `
 />
 `;
 
-exports[`Player Player renders with randomization 1`] = `
+exports[`Player Render called with correct props with randomization 1`] = `
 <PlayerApp
   dimensions={
     Object {
@@ -206,4 +206,254 @@ exports[`Player Player renders with randomization 1`] = `
   spreadsheet={false}
   title="Test Widget"
 />
+`;
+
+exports[`Player Render with randomization 1`] = `
+<div>
+  <header>
+    <h1>
+      Test Widget
+    </h1>
+  </header>
+  <main>
+    <div
+      className="popup"
+    >
+      <div>
+        <h2>
+          Secret Spreadsheet - How it works:
+        </h2>
+        <div>
+          <img
+            alt="Secret Spreadsheet Instructions"
+            src="assets/img/player-instruction-placeholder.jpg"
+          />
+          <p>
+            Cells of this spreadsheet have been 
+            <strong>
+              intentionally hidden.
+            </strong>
+          </p>
+          <p>
+            Input the hidden data correctly to restore the spreadsheet.
+          </p>
+        </div>
+        <button
+          onClick={[Function]}
+          type="button"
+          value="Got it!"
+        >
+          Got it!
+        </button>
+      </div>
+    </div>
+    <p
+      className="instructions"
+    >
+      Input the 
+      <span>
+        missing data
+      </span>
+       to complete the spreadsheet:
+    </p>
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="table-surround"
+      >
+        <div>
+          <table>
+            <thead />
+            <tbody>
+              <tr
+                id="row0"
+              >
+                <td
+                  className="centerAlign"
+                  id="cell0"
+                >
+                  Show 1
+                </td>
+                <td
+                  className="unanswered centerAlign"
+                  id="cell1"
+                >
+                  <input
+                    className="unanswered"
+                    id="1-input"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  />
+                </td>
+              </tr>
+              <tr
+                id="row1"
+              >
+                <td
+                  className="unanswered centerAlign"
+                  id="cell2"
+                >
+                  <input
+                    className="unanswered"
+                    id="2-input"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  />
+                </td>
+                <td
+                  className="centerAlign"
+                  id="cell3"
+                >
+                  Show 2
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p>
+        You've filled out 
+        0
+         of 
+        0
+         missing cells
+      </p>
+      <input
+        className="filled"
+        type="submit"
+        value="Submit"
+      />
+    </form>
+  </main>
+</div>
+`;
+
+exports[`Player Render without randomization 1`] = `
+<div>
+  <header>
+    <h1>
+      Test Widget
+    </h1>
+  </header>
+  <main>
+    <div
+      className="popup"
+    >
+      <div>
+        <h2>
+          Secret Spreadsheet - How it works:
+        </h2>
+        <div>
+          <img
+            alt="Secret Spreadsheet Instructions"
+            src="assets/img/player-instruction-placeholder.jpg"
+          />
+          <p>
+            Cells of this spreadsheet have been 
+            <strong>
+              intentionally hidden.
+            </strong>
+          </p>
+          <p>
+            Input the hidden data correctly to restore the spreadsheet.
+          </p>
+        </div>
+        <button
+          onClick={[Function]}
+          type="button"
+          value="Got it!"
+        >
+          Got it!
+        </button>
+      </div>
+    </div>
+    <p
+      className="instructions"
+    >
+      Input the 
+      <span>
+        missing data
+      </span>
+       to complete the spreadsheet:
+    </p>
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="table-surround"
+      >
+        <div>
+          <table>
+            <thead />
+            <tbody>
+              <tr
+                id="row0"
+              >
+                <td
+                  className="centerAlign"
+                  id="cell0"
+                >
+                  Show 1
+                </td>
+                <td
+                  className="unanswered centerAlign"
+                  id="cell1"
+                >
+                  <input
+                    className="unanswered"
+                    id="1-input"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  />
+                </td>
+              </tr>
+              <tr
+                id="row1"
+              >
+                <td
+                  className="unanswered centerAlign"
+                  id="cell2"
+                >
+                  <input
+                    className="unanswered"
+                    id="2-input"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    type="text"
+                    value=""
+                  />
+                </td>
+                <td
+                  className="centerAlign"
+                  id="cell3"
+                >
+                  Show 2
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p>
+        You've filled out 
+        0
+         of 
+        0
+         missing cells
+      </p>
+      <input
+        className="filled"
+        type="submit"
+        value="Submit"
+      />
+    </form>
+  </main>
+</div>
 `;
