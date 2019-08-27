@@ -86,7 +86,7 @@ class PlayerTable extends React.Component {
 						<th
 							key={cellID}
 							id={cellID}
-							className={`${this.props.leftAlign ? 'leftAlign':'centerAlign'}${this.props.header ? ' header':''}`}
+							className={`${this.props.leftAlign ? 'leftAlign':'centerAlign'} header`}
 						>
 							{question.questions[0].text}
 						</th>
