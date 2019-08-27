@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PlayerTable component PlayerTable is rendered centered, no header, no spreadsheet 1`] = `
+exports[`PlayerTable component Rendered centered, no header, no labels 1`] = `
 <table>
   <thead />
   <tbody>
@@ -54,7 +54,7 @@ exports[`PlayerTable component PlayerTable is rendered centered, no header, no s
 </table>
 `;
 
-exports[`PlayerTable component PlayerTable is rendered centered, no header, with spreadsheet 1`] = `
+exports[`PlayerTable component Rendered centered, no header, with labels 1`] = `
 <table>
   <thead>
     <tr
@@ -137,7 +137,7 @@ exports[`PlayerTable component PlayerTable is rendered centered, no header, with
 </table>
 `;
 
-exports[`PlayerTable component PlayerTable is rendered centered, with header, no spreadsheet 1`] = `
+exports[`PlayerTable component Rendered centered, with header, no labels 1`] = `
 <table>
   <thead>
     <tr
@@ -185,7 +185,7 @@ exports[`PlayerTable component PlayerTable is rendered centered, with header, no
 </table>
 `;
 
-exports[`PlayerTable component PlayerTable is rendered centered, with header, with spreadsheet 1`] = `
+exports[`PlayerTable component Rendered centered, with header, with labels 1`] = `
 <table>
   <thead>
     <tr
@@ -265,7 +265,7 @@ exports[`PlayerTable component PlayerTable is rendered centered, with header, wi
 </table>
 `;
 
-exports[`PlayerTable component PlayerTable is rendered leftAligned, no header, no spreadsheet 1`] = `
+exports[`PlayerTable component Rendered leftAligned, no header, no labels 1`] = `
 <table>
   <thead />
   <tbody>
@@ -319,7 +319,7 @@ exports[`PlayerTable component PlayerTable is rendered leftAligned, no header, n
 </table>
 `;
 
-exports[`PlayerTable component PlayerTable is rendered leftAligned, no header, with spreadsheet 1`] = `
+exports[`PlayerTable component Rendered leftAligned, no header, with labels 1`] = `
 <table>
   <thead>
     <tr
@@ -402,7 +402,7 @@ exports[`PlayerTable component PlayerTable is rendered leftAligned, no header, w
 </table>
 `;
 
-exports[`PlayerTable component PlayerTable is rendered leftAligned, with header, no spreadsheet 1`] = `
+exports[`PlayerTable component Rendered leftAligned, with header, no labels 1`] = `
 <table>
   <thead>
     <tr
@@ -450,7 +450,7 @@ exports[`PlayerTable component PlayerTable is rendered leftAligned, with header,
 </table>
 `;
 
-exports[`PlayerTable component PlayerTable is rendered leftAligned, with header, with spreadsheet 1`] = `
+exports[`PlayerTable component Rendered leftAligned, with header, with labels 1`] = `
 <table>
   <thead>
     <tr
@@ -530,7 +530,7 @@ exports[`PlayerTable component PlayerTable is rendered leftAligned, with header,
 </table>
 `;
 
-exports[`PlayerTable component PlayerTable is rendered with randomness and a header 1`] = `
+exports[`PlayerTable component Rendered with randomness and a header 1`] = `
 <table>
   <thead>
     <tr
@@ -578,7 +578,7 @@ exports[`PlayerTable component PlayerTable is rendered with randomness and a hea
 </table>
 `;
 
-exports[`PlayerTable component PlayerTable is rendered with randomness and no header 1`] = `
+exports[`PlayerTable component Rendered with randomness and no header 1`] = `
 <table>
   <thead />
   <tbody>
