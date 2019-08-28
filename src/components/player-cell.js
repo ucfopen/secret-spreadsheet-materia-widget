@@ -5,7 +5,8 @@ class Cell extends React.Component {
 		super(props);
 		this.state = {
 			value: '',
-			colorClass: 'unanswered'
+			colorClass: 'unanswered',
+			firstFocus: true
 		}
 		this.handleChange = this.handleChange.bind(this);
 		this.cell = React.createRef();
@@ -15,10 +16,12 @@ class Cell extends React.Component {
 	handleChange(event) {
 		this.setState({
 			value: event.target.value,
-			colorClass: this.state.colorClass
+			colorClass: this.state.colorClass,
+			firstFocus: this.state.firstFocus
 		});
 	}
 
+	// this can be improved
 	componentDidUpdate() {
 		const cellComponent = this.cell.current;
 		const inputComponent = this.input.current;
@@ -26,13 +29,25 @@ class Cell extends React.Component {
 		if (this.state.value !== '' && this.state.colorClass === 'unanswered') {
 			this.setState({
 				value: this.state.value,
-				colorClass: 'answered'
+				colorClass: 'answered',
+				firstFocus: this.state.firstFocus
 			});
 		}
 		else if (this.state.value === '' && this.state.colorClass === 'answered') {
 			this.setState({
 				value: this.state.value,
-				colorClass: 'unanswered'
+				colorClass: 'unanswered',
+				firstFocus: this.state.firstFocus
+			});
+		}
+
+		if (this.props.firstInput && this.props.focus && this.state.firstFocus && inputComponent !== null) {
+			inputComponent.focus();
+
+			this.setState({
+				value: this.state.value,
+				colorClass: this.state.colorClass,
+				firstFocus: false
 			});
 		}
 	}
@@ -50,8 +65,9 @@ class Cell extends React.Component {
 						onBlur={this.props.saveAnswer}
 						className={this.state.colorClass}
 						ref={this.input}
+						placeholder="?"
 					/>
-					: this.props.displayText
+					: <span>{this.props.displayText}</span>
 				}
 			</td>
 		);

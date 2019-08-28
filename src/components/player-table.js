@@ -25,6 +25,7 @@ class PlayerTable extends React.Component {
 		const mainRows = [];
 		let counter = 0;
 		let headerCount = 0;
+		let firstInput = true;
 
 		// generate the table labels (in header) if needed
 		if (this.props.spreadsheet) {
@@ -66,15 +67,15 @@ class PlayerTable extends React.Component {
 					// make the first label generated a th if needed
 					if (i === 0 && this.props.header) {
 						cells.push(
-							<th key={`row-label-${i}`} id={`row-label-${i}`} className="label skinny" >
-								{i}
+							<th key={`row-label-${i+1}`} id={`row-label-${i+1}`} className="label skinny" >
+								{i+1}
 							</th>
 						);
 					}
 					else {
 						cells.push(
-							<td key={`row-label-${i}`} id={`row-label-${i}`} className="label skinny" >
-								{i}
+							<td key={`row-label-${i+1}`} id={`row-label-${i+1}`} className="label skinny" >
+								{i+1}
 							</td>
 						);
 					}
@@ -116,8 +117,14 @@ class PlayerTable extends React.Component {
 						displayText={question.questions[0].text}
 						showInput={showInput}
 						leftAlign={this.props.leftAlign}
+						firstInput={firstInput}
+						focus={this.props.focus}
 					/>
 				);
+
+				if (showInput && firstInput) {
+					firstInput = false;
+				}
 
 				counter++;
 			}
