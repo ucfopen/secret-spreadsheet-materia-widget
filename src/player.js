@@ -150,6 +150,7 @@ class PlayerApp extends React.Component {
 									leftAlign={this.props.leftAlign}
 									header={this.props.header}
 									spreadsheet={this.props.spreadsheet}
+									focus={!this.state.popup}
 								/>
 							</div>
 						</div>

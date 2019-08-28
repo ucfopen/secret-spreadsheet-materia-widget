@@ -1,6 +1,9 @@
 {
 	"name": "Spreadsheet Widget",
 	"qset": {
+		"left": true,
+		"header": false,
+		"spredsheet": true,
 		"version": 1,
 		"data": {
 			"left": false,
