@@ -4,7 +4,8 @@ class Cell extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			value: ''
+			value: '',
+			firstFocus: true
 		}
 		this.handleChange = this.handleChange.bind(this);
 		this.cell = React.createRef();
@@ -37,6 +38,14 @@ class Cell extends React.Component {
 				inputComponent.classList.add('unanswered');
 			}
 		}
+
+		if (this.props.firstInput && this.props.focus && this.state.firstFocus && inputComponent !== null) {
+			inputComponent.focus();
+
+			this.setState({
+				firstFocus: false
+			});
+		}
 	}
 
 	render() {
@@ -52,8 +61,9 @@ class Cell extends React.Component {
 						onBlur={this.props.saveAnswer}
 						className="unanswered"
 						ref={this.input}
+						placeholder="?"
 					/>
-					: this.props.displayText
+					: <span>{this.props.displayText}</span>
 				}
 			</td>
 		);

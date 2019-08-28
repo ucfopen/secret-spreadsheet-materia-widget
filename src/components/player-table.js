@@ -25,6 +25,7 @@ class PlayerTable extends React.Component {
 		const mainRows = [];
 		let counter = 0;
 		let headerCount = 0;
+		let firstInput = true;
 
 		// generate the table labels (in header) if needed
 		if (this.props.spreadsheet) {
@@ -116,8 +117,14 @@ class PlayerTable extends React.Component {
 						displayText={question.questions[0].text}
 						showInput={showInput}
 						leftAlign={this.props.leftAlign}
+						firstInput={firstInput}
+						focus={this.props.focus}
 					/>
 				);
+
+				if (showInput && firstInput) {
+					firstInput = false;
+				}
 
 				counter++;
 			}
