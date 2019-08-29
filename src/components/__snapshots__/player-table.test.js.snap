@@ -11,7 +11,9 @@ exports[`PlayerTable component Rendered centered, no header, no labels 1`] = `
         className="centerAlign"
         id="cell0"
       >
-        Show 1
+        <span>
+          Show 1
+        </span>
       </td>
       <td
         className="unanswered centerAlign"
@@ -22,6 +24,7 @@ exports[`PlayerTable component Rendered centered, no header, no labels 1`] = `
           id="1-input"
           onBlur={[Function]}
           onChange={[Function]}
+          placeholder="?"
           type="text"
           value=""
         />
@@ -39,6 +42,7 @@ exports[`PlayerTable component Rendered centered, no header, no labels 1`] = `
           id="2-input"
           onBlur={[Function]}
           onChange={[Function]}
+          placeholder="?"
           type="text"
           value=""
         />
@@ -47,7 +51,9 @@ exports[`PlayerTable component Rendered centered, no header, no labels 1`] = `
         className="centerAlign"
         id="cell3"
       >
-        Show 2
+        <span>
+          Show 2
+        </span>
       </td>
     </tr>
   </tbody>
@@ -80,15 +86,17 @@ exports[`PlayerTable component Rendered centered, no header, with labels 1`] = `
     >
       <td
         className="label skinny"
-        id="row-label-0"
+        id="row-label-1"
       >
-        0
+        1
       </td>
       <td
         className="centerAlign"
         id="cell0"
       >
-        Show 1
+        <span>
+          Show 1
+        </span>
       </td>
       <td
         className="unanswered centerAlign"
@@ -99,6 +107,7 @@ exports[`PlayerTable component Rendered centered, no header, with labels 1`] = `
           id="1-input"
           onBlur={[Function]}
           onChange={[Function]}
+          placeholder="?"
           type="text"
           value=""
         />
@@ -109,9 +118,9 @@ exports[`PlayerTable component Rendered centered, no header, with labels 1`] = `
     >
       <td
         className="label skinny"
-        id="row-label-1"
+        id="row-label-2"
       >
-        1
+        2
       </td>
       <td
         className="unanswered centerAlign"
@@ -122,6 +131,7 @@ exports[`PlayerTable component Rendered centered, no header, with labels 1`] = `
           id="2-input"
           onBlur={[Function]}
           onChange={[Function]}
+          placeholder="?"
           type="text"
           value=""
         />
@@ -130,7 +140,9 @@ exports[`PlayerTable component Rendered centered, no header, with labels 1`] = `
         className="centerAlign"
         id="cell3"
       >
-        Show 2
+        <span>
+          Show 2
+        </span>
       </td>
     </tr>
   </tbody>
@@ -170,6 +182,7 @@ exports[`PlayerTable component Rendered centered, with header, no labels 1`] = `
           id="2-input"
           onBlur={[Function]}
           onChange={[Function]}
+          placeholder="?"
           type="text"
           value=""
         />
@@ -178,7 +191,9 @@ exports[`PlayerTable component Rendered centered, with header, no labels 1`] = `
         className="centerAlign"
         id="cell3"
       >
-        Show 2
+        <span>
+          Show 2
+        </span>
       </td>
     </tr>
   </tbody>
@@ -213,9 +228,9 @@ exports[`PlayerTable component Rendered centered, with header, with labels 1`] =
     >
       <th
         className="label skinny"
-        id="row-label-0"
+        id="row-label-1"
       >
-        0
+        1
       </th>
       <th
         className="centerAlign header"
@@ -237,9 +252,9 @@ exports[`PlayerTable component Rendered centered, with header, with labels 1`] =
     >
       <td
         className="label skinny"
-        id="row-label-1"
+        id="row-label-2"
       >
-        1
+        2
       </td>
       <td
         className="unanswered centerAlign"
@@ -250,6 +265,7 @@ exports[`PlayerTable component Rendered centered, with header, with labels 1`] =
           id="2-input"
           onBlur={[Function]}
           onChange={[Function]}
+          placeholder="?"
           type="text"
           value=""
         />
@@ -258,7 +274,9 @@ exports[`PlayerTable component Rendered centered, with header, with labels 1`] =
         className="centerAlign"
         id="cell3"
       >
-        Show 2
+        <span>
+          Show 2
+        </span>
       </td>
     </tr>
   </tbody>
@@ -276,7 +294,9 @@ exports[`PlayerTable component Rendered leftAligned, no header, no labels 1`] = 
         className="leftAlign"
         id="cell0"
       >
-        Show 1
+        <span>
+          Show 1
+        </span>
       </td>
       <td
         className="unanswered leftAlign"
@@ -287,6 +307,7 @@ exports[`PlayerTable component Rendered leftAligned, no header, no labels 1`] = 
           id="1-input"
           onBlur={[Function]}
           onChange={[Function]}
+          placeholder="?"
           type="text"
           value=""
         />
@@ -304,6 +325,7 @@ exports[`PlayerTable component Rendered leftAligned, no header, no labels 1`] = 
           id="2-input"
           onBlur={[Function]}
           onChange={[Function]}
+          placeholder="?"
           type="text"
           value=""
         />
@@ -312,7 +334,9 @@ exports[`PlayerTable component Rendered leftAligned, no header, no labels 1`] = 
         className="leftAlign"
         id="cell3"
       >
-        Show 2
+        <span>
+          Show 2
+        </span>
       </td>
     </tr>
   </tbody>
@@ -345,15 +369,17 @@ exports[`PlayerTable component Rendered leftAligned, no header, with labels 1`] 
     >
       <td
         className="label skinny"
-        id="row-label-0"
+        id="row-label-1"
       >
-        0
+        1
       </td>
       <td
         className="leftAlign"
         id="cell0"
       >
-        Show 1
+        <span>
+          Show 1
+        </span>
       </td>
       <td
         className="unanswered leftAlign"
@@ -364,6 +390,7 @@ exports[`PlayerTable component Rendered leftAligned, no header, with labels 1`] 
           id="1-input"
           onBlur={[Function]}
           onChange={[Function]}
+          placeholder="?"
           type="text"
           value=""
         />
@@ -374,9 +401,9 @@ exports[`PlayerTable component Rendered leftAligned, no header, with labels 1`] 
     >
       <td
         className="label skinny"
-        id="row-label-1"
+        id="row-label-2"
       >
-        1
+        2
       </td>
       <td
         className="unanswered leftAlign"
@@ -387,6 +414,7 @@ exports[`PlayerTable component Rendered leftAligned, no header, with labels 1`] 
           id="2-input"
           onBlur={[Function]}
           onChange={[Function]}
+          placeholder="?"
           type="text"
           value=""
         />
@@ -395,7 +423,9 @@ exports[`PlayerTable component Rendered leftAligned, no header, with labels 1`] 
         className="leftAlign"
         id="cell3"
       >
-        Show 2
+        <span>
+          Show 2
+        </span>
       </td>
     </tr>
   </tbody>
@@ -435,6 +465,7 @@ exports[`PlayerTable component Rendered leftAligned, with header, no labels 1`] 
           id="2-input"
           onBlur={[Function]}
           onChange={[Function]}
+          placeholder="?"
           type="text"
           value=""
         />
@@ -443,7 +474,9 @@ exports[`PlayerTable component Rendered leftAligned, with header, no labels 1`] 
         className="leftAlign"
         id="cell3"
       >
-        Show 2
+        <span>
+          Show 2
+        </span>
       </td>
     </tr>
   </tbody>
@@ -478,9 +511,9 @@ exports[`PlayerTable component Rendered leftAligned, with header, with labels 1`
     >
       <th
         className="label skinny"
-        id="row-label-0"
+        id="row-label-1"
       >
-        0
+        1
       </th>
       <th
         className="leftAlign header"
@@ -502,9 +535,9 @@ exports[`PlayerTable component Rendered leftAligned, with header, with labels 1`
     >
       <td
         className="label skinny"
-        id="row-label-1"
+        id="row-label-2"
       >
-        1
+        2
       </td>
       <td
         className="unanswered leftAlign"
@@ -515,6 +548,7 @@ exports[`PlayerTable component Rendered leftAligned, with header, with labels 1`
           id="2-input"
           onBlur={[Function]}
           onChange={[Function]}
+          placeholder="?"
           type="text"
           value=""
         />
@@ -523,7 +557,9 @@ exports[`PlayerTable component Rendered leftAligned, with header, with labels 1`
         className="leftAlign"
         id="cell3"
       >
-        Show 2
+        <span>
+          Show 2
+        </span>
       </td>
     </tr>
   </tbody>
@@ -563,6 +599,7 @@ exports[`PlayerTable component Rendered with randomness and a header 1`] = `
           id="2-input"
           onBlur={[Function]}
           onChange={[Function]}
+          placeholder="?"
           type="text"
           value=""
         />
@@ -571,7 +608,9 @@ exports[`PlayerTable component Rendered with randomness and a header 1`] = `
         className="centerAlign"
         id="cell3"
       >
-        Show 2
+        <span>
+          Show 2
+        </span>
       </td>
     </tr>
   </tbody>
@@ -589,7 +628,9 @@ exports[`PlayerTable component Rendered with randomness and no header 1`] = `
         className="centerAlign"
         id="cell0"
       >
-        Show 1
+        <span>
+          Show 1
+        </span>
       </td>
       <td
         className="unanswered centerAlign"
@@ -600,6 +641,7 @@ exports[`PlayerTable component Rendered with randomness and no header 1`] = `
           id="1-input"
           onBlur={[Function]}
           onChange={[Function]}
+          placeholder="?"
           type="text"
           value=""
         />
@@ -617,6 +659,7 @@ exports[`PlayerTable component Rendered with randomness and no header 1`] = `
           id="2-input"
           onBlur={[Function]}
           onChange={[Function]}
+          placeholder="?"
           type="text"
           value=""
         />
@@ -625,7 +668,9 @@ exports[`PlayerTable component Rendered with randomness and no header 1`] = `
         className="centerAlign"
         id="cell3"
       >
-        Show 2
+        <span>
+          Show 2
+        </span>
       </td>
     </tr>
   </tbody>

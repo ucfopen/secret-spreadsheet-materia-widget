@@ -7,7 +7,9 @@ const genProps = {
 	key: 1,
 	id: 1,
 	saveAnswer: jest.fn(),
-	displayText: 'Testing Text'
+	displayText: 'Testing Text',
+	firstInput: false,
+	focus: false
 };
 
 const makeProps = (showInput, leftAlign) => {
@@ -155,7 +157,37 @@ describe('Cell component', () => {
 		tempComponent.unmount();
 	});
 
-	// note the things that are tested here happen in the previous two tests. This is necessary to stop an endless loop because state is being set
+	test('componentDidUpdate with change focus needed', () => {
+		const props = makeProps(true, false);
+		props.firstInput = true;
+		props.focus = true;
+		const event = {
+			target: {
+				value: ''
+			}
+		};
+		const inputComponent = {
+			focus: jest.fn()
+		};
+
+		const tempComponent = shallow(<Cell {... props} />);
+		tempComponent.setState({
+			value: '',
+			colorClass: 'unanswered',
+			firstFocus: true
+		});
+		const originalValue = tempComponent.state(['value']);
+		const originalClass = tempComponent.state(['colorClass']);
+		tempComponent.instance().input.current = inputComponent;
+
+		tempComponent.instance().componentDidUpdate();
+
+		expect(tempComponent.state(['value'])).toEqual(originalValue);
+		expect(tempComponent.state(['colorClass'])).toEqual(originalClass);
+		expect(tempComponent.state(['firstFocus'])).toEqual(false);
+	});
+
+	// note the things that are tested here happen in the previous three tests. This is necessary to stop an endless loop because state is being set
 	test('componentDidUpdate with no changes needed', () => {
 		const props = makeProps(true, false);
 		const event = {
