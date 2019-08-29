@@ -10,13 +10,19 @@ class PlayerTable extends React.Component {
 	// when a box is deselected, add/overwrite in answers and pass to parent
 	saveAnswer(event) {
 		const newAnswers = this.props.parentAnswers;
+
 		// check if the user answered this with a non blank answer for the first time
 		const fromBlankToFilled = event.target.value !== '' &&
 								  (!this.props.parentAnswers.hasOwnProperty(event.target.id) ||
 								  this.props.parentAnswers[event.target.id] === '');
+
+		// check if the user removed their previous answer and left it blank
 		const fromFilledToBlank = this.props.parentAnswers[event.target.id] !== '' && event.target.value === '';
+
+		// add in the new answer
 		newAnswers[event.target.id] = event.target.value;
 
+		// give the answer list that includes the new answer to the parent
 		this.props.handleNewAnswer(newAnswers, fromBlankToFilled, fromFilledToBlank);
 	}
 
@@ -31,13 +37,14 @@ class PlayerTable extends React.Component {
 		if (this.props.spreadsheet) {
 			const cells = [];
 
-			// add this later when you add the sides
+			// add in the leftmost label (above the row labels)
 			if (this.props.header) {
 				cells.push(
 					<th key="col-label-0" id="col-label-0" className="label skinny" />
 				);
 			}
 
+			// add the labels going across the top for columns
 			for (let i=0;i<this.props.dimensions.y;i++) {
 				const charCode = (i % 26) + 'A'.charCodeAt(0);
 
@@ -103,6 +110,7 @@ class PlayerTable extends React.Component {
 					question.options.blank
 					: this.props.randPositions.has(counter);
 
+				// total number of blank questions for for the question tally
 				if (this.props.randCount === 0 && question.options.blank) {
 					this.props.countBlanks(counter);
 				}
