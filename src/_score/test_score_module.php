@@ -5,7 +5,7 @@
  * @group Score
  * @group SpreadsheetWidget
  */
-class Test_Score_Modules_Spreadsheet extends \Basetest {
+class Test_Score_Modules_SpreadsheetWidget extends \Basetest {
 	protected function _get_qset() {
 		return json_decode('{
 			"items": [
