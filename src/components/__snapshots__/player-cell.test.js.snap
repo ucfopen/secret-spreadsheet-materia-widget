@@ -9,6 +9,7 @@ exports[`Cell component Rendered with user input center aligned 1`] = `
     className="unanswered"
     onBlur={[MockFunction]}
     onChange={[Function]}
+    placeholder="?"
     type="text"
     value=""
   />
@@ -24,6 +25,7 @@ exports[`Cell component Rendered with user input left aligned 1`] = `
     className="unanswered"
     onBlur={[MockFunction]}
     onChange={[Function]}
+    placeholder="?"
     type="text"
     value=""
   />
@@ -35,7 +37,9 @@ exports[`Cell component Rendered without user input center aligned 1`] = `
   className="centerAlign"
   id={1}
 >
-  Testing Text
+  <span>
+    Testing Text
+  </span>
 </td>
 `;
 
@@ -44,6 +48,8 @@ exports[`Cell component Rendered without user input left aligned 1`] = `
   className="leftAlign"
   id={1}
 >
-  Testing Text
+  <span>
+    Testing Text
+  </span>
 </td>
 `;

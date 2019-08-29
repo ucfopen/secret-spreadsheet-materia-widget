@@ -273,7 +273,9 @@ exports[`Player Render with randomization 1`] = `
                   className="centerAlign"
                   id="cell0"
                 >
-                  Show 1
+                  <span>
+                    Show 1
+                  </span>
                 </td>
                 <td
                   className="unanswered centerAlign"
@@ -284,6 +286,7 @@ exports[`Player Render with randomization 1`] = `
                     id="1-input"
                     onBlur={[Function]}
                     onChange={[Function]}
+                    placeholder="?"
                     type="text"
                     value=""
                   />
@@ -301,6 +304,7 @@ exports[`Player Render with randomization 1`] = `
                     id="2-input"
                     onBlur={[Function]}
                     onChange={[Function]}
+                    placeholder="?"
                     type="text"
                     value=""
                   />
@@ -309,7 +313,9 @@ exports[`Player Render with randomization 1`] = `
                   className="centerAlign"
                   id="cell3"
                 >
-                  Show 2
+                  <span>
+                    Show 2
+                  </span>
                 </td>
               </tr>
             </tbody>
@@ -398,7 +404,9 @@ exports[`Player Render without randomization 1`] = `
                   className="centerAlign"
                   id="cell0"
                 >
-                  Show 1
+                  <span>
+                    Show 1
+                  </span>
                 </td>
                 <td
                   className="unanswered centerAlign"
@@ -409,6 +417,7 @@ exports[`Player Render without randomization 1`] = `
                     id="1-input"
                     onBlur={[Function]}
                     onChange={[Function]}
+                    placeholder="?"
                     type="text"
                     value=""
                   />
@@ -426,6 +435,7 @@ exports[`Player Render without randomization 1`] = `
                     id="2-input"
                     onBlur={[Function]}
                     onChange={[Function]}
+                    placeholder="?"
                     type="text"
                     value=""
                   />
@@ -434,7 +444,9 @@ exports[`Player Render without randomization 1`] = `
                   className="centerAlign"
                   id="cell3"
                 >
-                  Show 2
+                  <span>
+                    Show 2
+                  </span>
                 </td>
               </tr>
             </tbody>
