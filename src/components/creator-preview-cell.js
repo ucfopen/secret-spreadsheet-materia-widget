@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 
 class PreviewCell extends React.Component {
 	render() {

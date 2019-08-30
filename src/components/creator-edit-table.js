@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import EditCell from './creator-edit-cell'
 
 class EditTable extends React.Component {

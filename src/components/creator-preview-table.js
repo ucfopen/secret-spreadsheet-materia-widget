@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import PreviewCell from './creator-preview-cell'
 
 class PreviewTable extends React.Component {
