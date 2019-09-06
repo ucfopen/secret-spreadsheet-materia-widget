@@ -20,6 +20,25 @@ class PlayerTable extends React.Component {
 		this.props.handleNewAnswer(newAnswers, fromBlankToFilled, fromFilledToBlank);
 	}
 
+	// converts a decimal number to a base26 letter system, like in excel
+	convertNumberToLetters(number) {
+		if (number < 0) {
+			return 'A';
+		}
+
+		let base = number;
+		let finalString = '';
+
+		do {
+			const calcChar = String.fromCharCode(Math.floor(base % 26) + 'A'.charCodeAt(0));
+
+			finalString = `${finalString}${calcChar}`;
+			base = Math.floor(base / 26);
+		} while (base > 0);
+
+		return finalString;
+	}
+
 	render() {
 		const headRows = [];
 		const mainRows = [];
@@ -39,11 +58,11 @@ class PlayerTable extends React.Component {
 			}
 
 			for (let i=0;i<this.props.dimensions.y;i++) {
-				const charCode = (i % 26) + 'A'.charCodeAt(0);
+				const b26Number = this.convertNumberToLetters(i);
 
 				cells.push(
 					<th key={`col-label-${i+1}`} id={`col-label-${i+1}`} className="label">
-						{String.fromCharCode(charCode)}
+						{b26Number}
 					</th>
 				);
 			}
