@@ -128,11 +128,6 @@ header {
 			background-color: #6f0cac;
 			border: none;
 
-			// remove later; for own sanity w/ firefox
-			&:focus {
-				border: 2px solid blue;
-			}
-
 			&:hover, &:focus {
 				background-color: #3d075f;
 			}
