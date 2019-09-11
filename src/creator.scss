@@ -2,74 +2,11 @@
 
 label {
 	display: block;
-	margin: 10px 5px;
+	margin: auto 5px;
 
 	input {
 		margin-left: 5px;
 	}
-}
-
-input {
-	.table-button {
-		margin-left: 0;
-	}
-
-	&[type=text], &[type=number] {
-		font-size: inherit;
-		font-family: inherit;
-		height: 1.5em;
-	}
-}
-
-.title-container,
-.dimensions-container {
-	height: 5rem;
-
-	.title,
-	.dimensions {
-		left: 35%;
-		top: 2.4rem;
-		position: absolute;
-		width: 15rem;
-		text-align: left;
-	}
-
-	.dimensions {
-		top: 7.5rem;
-	}
-
-	.btn {
-		left: 50%;
-		position: absolute;
-		margin: 20px auto;
-		margin-left: 5rem;
-
-		&:hover, &:focus {
-			background-color: inherit;
-		}
-	}
-}
-
-
-table, td {
-	td {
-		input {
-			&[type=text] {
-				&:hover, &:focus {
-					background-color: inherit;
-				}
-			}
-		}
-	}
-}
-
-table {
-	max-width: 96%;
-}
-
-.lit {
-	border-color: #b944cc;
-	box-shadow: inset 0 0 10px #b944cc;
 }
 
 .popup {
@@ -81,19 +18,188 @@ table {
   right: 0;
   bottom: 0;
   margin: auto;
-  background-color: rgba(0,0,0, 0.5);
-}
-.popup-inner {
-  position: absolute;
-  left: 20%;
-  right: 20%;
-  top: 25%;
-  bottom: auto;
-  margin: auto;
-  border-radius: 20px;
-  background: white;
+	background-color: rgba(0, 0, 0, 0.8);
+	z-index: 9999999;
+
+	.popup-inner {
+		position: absolute;
+		left: 20%;
+		right: 20%;
+		top: 25%;
+		bottom: auto;
+		margin: auto;
+		border-radius: 20px;
+		background: white;
+		font-size: 20px;
+
+		label {
+			margin: 20px 0;
+		}
+
+		.popup-input {
+			margin: auto;
+			width: 25rem;
+			height: 2rem;
+			font-size: 20px;
+		}
+	}
 }
 
-.popup-input {
-	width: 25rem;
+
+.title-bar {
+	height: 4rem;
+	background: green;
+
+	.title-input,
+	.title-text{
+		float: left;
+		margin-top: 20px;
+		margin-left: 15px;
+		margin-right: 15px;
+		font-size: inherit;
+		font-family: inherit;
+		color: white;
+		background: green;
+		font-size: 1.5rem;
+		border: 0px;
+	}
+
+	.edit-title-button {
+		float: left;
+		margin-top: 30px;
+		font-size: 12px;
+		color: white;
+		background: green;
+		text-decoration: underline;
+		border: 0px;
+	}
+
+	.title-input {
+		width:20rem;
+		color: black;
+		background: rgb(201, 255, 210);
+	}
+}
+
+.options-bar {
+	background: white;
+	display: flex;
+	flex-direction: row;
+
+	.options,
+	.style,
+	.text,
+	.header,
+	.randomize {
+		margin: auto 0;
+		padding: 0 1rem;
+		border-style: solid;
+		border-color: lightgray;
+		border-width: 0 0 0 1px;
+		height: 3rem;
+		display: flex;
+		flex-direction: row;
+		white-space: nowrap;
+
+		.active {
+			background: rgb(196, 225, 235);
+		}
+
+		div {
+			display: flex;
+			flex-direction: row;
+			background: rgb(233, 233, 233);
+			height: 40%;
+			margin: auto 0;
+			padding: .3rem;
+			border-radius: 2px;
+
+			svg {
+				margin-left: 3px;
+				color: lightblue;
+			}
+
+			label {
+				margin: 1px 0 0 3px;
+			}
+		}
+	}
+
+	.randomize {
+		input {
+			border-width: 0;
+			background: inherit;
+			font-size: 16px;
+			text-decoration: underline;
+		}
+	}
+
+	.options {
+		height: 40%;
+	}
+}
+
+table {
+	max-width: 100%;
+}
+
+.lit {
+	border-color: #b944cc;
+	box-shadow: inset 0 0 10px #b944cc;
+}
+
+.table-container {
+	justify-content: center;
+	display: flex;
+
+	.table {
+		top: 30%;
+		position: absolute;
+		clear:both;
+		float:left;
+
+
+		.table-elements {
+			position: relative;
+
+			table {
+				margin: 0;
+			}
+
+			.increase-column-button {
+				top: 0;
+				right: 0;
+				bottom: 0;
+				width: 50px;
+				left: 100%;
+				height: 100%;
+				position: absolute;
+			}
+		}
+
+		.increase-row-button {
+			width: 100%;
+			height: 50px;
+		}
+
+		.table-submit-button {
+			margin-top: 1rem;
+		}
+
+		button {
+			background: rgba(255, 255, 255, 0);
+			border-style: dotted;
+			border-color: purple;
+			border-width: 1px;
+			color: purple;
+
+			span {
+				height: 24px;
+			}
+		}
+
+		svg {
+			fill: purple;
+		}
+	}
 }
