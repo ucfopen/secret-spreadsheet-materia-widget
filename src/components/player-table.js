@@ -23,6 +23,10 @@ class PlayerTable extends React.Component {
 
 	// converts a decimal number to a base26 letter system, like in excel
 	convertNumberToLetters(number) {
+		if (typeof number !== 'number') {
+			console.error('Error in convertNumberToLetters: did not recieve a number');
+		}
+
 		if (number < 0) {
 			return 'A';
 		}

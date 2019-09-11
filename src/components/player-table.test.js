@@ -1,7 +1,7 @@
 import React from 'react';
 import PlayerTable from './player-table';
 import renderer from 'react-test-renderer';
-import { mount } from '../enzyme';
+import { mount, shallow } from '../enzyme';
 
 const genProps = () => {
 	return {
@@ -205,7 +205,7 @@ describe('PlayerTable component', () => {
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('onClick function no answer record', () => {
+	test('saveAnswer no answer record', () => {
 		const props = makeProps(false, false, false);
 		const event = {
 			target: {
@@ -227,7 +227,7 @@ describe('PlayerTable component', () => {
 		tempComponent.unmount();
 	});
 
-	test('onClick function with blank answer record', () => {
+	test('saveAnswer with blank answer record', () => {
 		const props = makeProps(false, false, false);
 		props.parentAnswers['1'] = '';
 
@@ -251,7 +251,7 @@ describe('PlayerTable component', () => {
 		tempComponent.unmount();
 	});
 
-	test('onClick function with filled answer record', () => {
+	test('saveAnswer with filled answer record', () => {
 		const props = makeProps(false, false, false);
 		props.parentAnswers['1'] = 'Not Test';
 
@@ -275,7 +275,7 @@ describe('PlayerTable component', () => {
 		tempComponent.unmount();
 	});
 
-	test('onClick function with filled answer record', () => {
+	test('saveAnswer with filled answer record', () => {
 		const props = makeProps(false, false, false);
 		props.parentAnswers['1'] = 'Not Test';
 
@@ -297,5 +297,72 @@ describe('PlayerTable component', () => {
 
 		// cleanup
 		tempComponent.unmount();
+	});
+
+	test('convertNumberToLetters number less than 0', () => {
+		const props = makeProps(false, false, true);
+
+		const tempComponent = shallow(<PlayerTable {... props} />);
+		const result = tempComponent.instance().convertNumberToLetters(-1);
+
+		expect(typeof result).toBe('string');
+		expect(result).toBe('A');
+
+		// cleanup
+		tempComponent.unmount();
+	});
+
+	test('convertNumberToLetters number is 0', () => {
+		const props = makeProps(false, false, true);
+
+		const tempComponent = shallow(<PlayerTable {... props} />);
+		const result = tempComponent.instance().convertNumberToLetters(0);
+
+		expect(typeof result).toBe('string');
+		expect(result).toBe('A');
+
+		// cleanup
+		tempComponent.unmount();
+	});
+
+	test('convertNumberToLetters number is greater than 0', () => {
+		const props = makeProps(false, false, true);
+
+		const tempComponent = shallow(<PlayerTable {... props} />);
+		const result = tempComponent.instance().convertNumberToLetters(1);
+
+		expect(typeof result).toBe('string');
+		expect(result).toBe('B');
+
+		// cleanup
+		tempComponent.unmount();
+	});
+
+	test('convertNumberToLetters number is very large', () => {
+		const props = makeProps(false, false, true);
+
+		const tempComponent = shallow(<PlayerTable {... props} />);
+		const result = tempComponent.instance().convertNumberToLetters(1000000000);
+
+		expect(typeof result).toBe('string');
+		expect(result).toBe('MYTHEGD');
+
+		// cleanup
+		tempComponent.unmount();
+	});
+
+	test("convertNumberToLetters doesn't get a number", () => {
+		const props = makeProps(false, false, true);
+		const realError = console.error;
+		console.error = jest.fn();
+
+		const tempComponent = shallow(<PlayerTable {... props} />);
+		const result = tempComponent.instance().convertNumberToLetters('test');
+
+		expect(console.error).toHaveBeenCalledTimes(1);
+
+		// cleanup
+		tempComponent.unmount();
+		console.error = realError;
 	});
 });
