@@ -56,10 +56,6 @@ describe('Cell component', () => {
 	});
 
 	test('handleChange with nonblank answer', () => {
-		// supress console errors (td inside div from tempComponent is expected error)
-		const originalError = console.error;
-		console.error = jest.fn();
-
 		const props = makeProps(true, false);
 		const event = {
 			target: {
@@ -70,23 +66,20 @@ describe('Cell component', () => {
 		const tempComponent = shallow(<Cell {... props} />);
 		tempComponent.instance().componentDidUpdate = jest.fn();
 		const originalClass = tempComponent.state(['colorClass']);
+		const originalFirstFocus = tempComponent.state(['firstFocus']);
 
 		tempComponent.instance().handleChange(event);
 
 		expect(tempComponent.state(['value'])).toEqual('Test');
 		expect(tempComponent.state(['colorClass'])).toEqual(originalClass);
+		expect(tempComponent.state(['firstFocus'])).toEqual(originalFirstFocus);
 		expect(tempComponent.instance().componentDidUpdate).toHaveBeenCalled();
 
 		// cleanup
 		tempComponent.unmount();
-		console.error = originalError;
 	});
 
 	test('handleChange with blank answer', () => {
-		// supress console errors (td inside div from tempComponent is expected error)
-		const originalError = console.error;
-		console.error = jest.fn();
-
 		const props = makeProps(true, false);
 		const event = {
 			target: {
@@ -97,16 +90,17 @@ describe('Cell component', () => {
 		const tempComponent = shallow(<Cell {... props} />);
 		tempComponent.instance().componentDidUpdate = jest.fn();
 		const originalClass = tempComponent.state(['colorClass']);
+		const originalFirstFocus = tempComponent.state(['firstFocus']);
 
 		tempComponent.instance().handleChange(event);
 
 		expect(tempComponent.state(['value'])).toEqual('');
 		expect(tempComponent.state(['colorClass'])).toEqual(originalClass);
+		expect(tempComponent.state(['firstFocus'])).toEqual(originalFirstFocus);
 		expect(tempComponent.instance().componentDidUpdate).toHaveBeenCalled();
 
 		// cleanup
 		tempComponent.unmount();
-		console.error = originalError;
 	});
 
 	test('componentDidUpdate with nonblank value and unanswered class', () => {
