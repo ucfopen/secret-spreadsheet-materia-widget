@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Intro from './components/creator-intro'
 import Popup from './components/creator-popup'
 import Title from './components/creator-title'
 import Options from './components/creator-options'
@@ -8,14 +7,14 @@ import Table from './components/creator-table'
 
 const materiaCallbacks = {}
 
-class CreatorApp extends React.Component {
+export default class CreatorApp extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			showIntro: props.init,
 			qset: props.qset,
 			title: props.title,
-			showPopup: false,
+			showPopup: props.init,
 		}
 
 		this.state.qset.items[0].items.push([this.cellData('', false)])
@@ -49,12 +48,14 @@ class CreatorApp extends React.Component {
 	}
 
 	showIntro(event) {
-		this.setState({showIntro: true})
+		this.setState({showIntro: true,
+									 showPopup: true})
 		event.preventDefault()
 	}
 
 	editTitle(event) {
-		this.setState({showPopup: true})
+		this.setState({showIntro: false,
+									 showPopup: true})
 		event.preventDefault()
 	}
 
@@ -167,31 +168,22 @@ class CreatorApp extends React.Component {
 	render() {
 		return (
 			<div>
-				{this.state.showIntro ?
-					<Intro
-						onSubmit={this.handleTitleSubmit}
-						onChange={this.handleTitleChange}
-						title={this.state.title}
-					/>
-				: "" }
-
 				{this.state.showPopup ?
 					<Popup
+						showIntro={this.state.showIntro}
 						onSubmit={this.handleTitleSubmit}
 						onChange={this.handleTitleChange}
 						title={this.state.title}
 					/>
 				: "" }
 
-				<div className="title-bar">
-					<Title
-						showIntro={this.showIntro}
-						editTitle={this.editTitle}
-						title={this.state.title}
-						onChange={this.handleTitleChange}
-						onBlur={this.handleTitleBlur}
-					/>
-				</div>
+				<Title
+					showIntro={this.showIntro}
+					editTitle={this.editTitle}
+					title={this.state.title}
+					onChange={this.handleTitleChange}
+					onBlur={this.handleTitleBlur}
+				/>
 
 				<Options
 					qset={this.state.qset}
@@ -212,13 +204,11 @@ class CreatorApp extends React.Component {
 							</ul>
 						</div>
 					</div>
-					<div>
-						<Table
-							cellData={this.cellData}
-							qset={this.state.qset}
-							onSubmit={this.handleTableSubmit}
-						/>
-					</div>
+					<Table
+						cellData={this.cellData}
+						qset={this.state.qset}
+						onSubmit={this.handleTableSubmit}
+					/>
 				</div>
 			</div>
 		)
