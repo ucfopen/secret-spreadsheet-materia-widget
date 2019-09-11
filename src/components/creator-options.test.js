@@ -101,7 +101,7 @@ describe('CreatorOptions component', function() {
     expect(props.useHeader).toReturnTimes(0)
   })
 
-  test('CreatorOptions renders branches when assigning className to #spreadsheet-button', () => {
+  test('CreatorOptions renders branches of classNames', () => {
     const props ={
       qset: {
         spreadsheet: false,
@@ -136,6 +136,15 @@ describe('CreatorOptions component', function() {
 
   test('CreatorOptions with large randomization', () => {
     const event = makeEvent(999)
+
+    const component = shallow(<Options {... props} />)
+    component.instance().handleRandomizationBlur(event);
+    expect(props.qset.randomization).toEqual(1)
+
+  })
+
+  test('CreatorOptions with float as randomization', () => {
+    const event = makeEvent(1.2)
 
     const component = shallow(<Options {... props} />)
     component.instance().handleRandomizationBlur(event);
