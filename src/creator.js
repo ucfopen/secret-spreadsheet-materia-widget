@@ -128,30 +128,34 @@ export default class CreatorApp extends React.Component {
 
 	// Make sure number of rows is 1-10
 	handleXChange(event) {
-		let xValue
-		if (event.target.value < 1) {
-			xValue = 1;
-		} else if (event.target.value > 10) {
-			xValue = 10
-		} else {
-			xValue = event.target.value
+		if (Number.isInteger(event.target.value)) {
+			let xValue
+			if (event.target.value < 1) {
+				xValue = 1;
+			} else if (event.target.value > 10) {
+				xValue = 10
+			} else {
+				xValue = event.target.value
+			}
+			this.setState(Object.assign(this.state.qset.dimensions,{x:xValue}))
+			event.preventDefault()
 		}
-		this.setState(Object.assign(this.state.qset.dimensions,{x:xValue}))
-		event.preventDefault()
 	}
 
 	// Make sure number of columns is 1-10
 	handleYChange(event) {
-		let yValue
-		if (event.target.value < 1) {
-			yValue = 1;
-		} else if (event.target.value > 10) {
-			yValue = 10
-		} else {
-			yValue = event.target.value
+		if (Number.isInteger(event.target.value)) {
+			let yValue
+			if (event.target.value < 1) {
+				yValue = 1;
+			} else if (event.target.value > 10) {
+				yValue = 10
+			} else {
+				yValue = event.target.value
+			}
+			this.setState(Object.assign(this.state.qset.dimensions,{y:yValue}))
+			event.preventDefault()
 		}
-		this.setState(Object.assign(this.state.qset.dimensions,{y:yValue}))
-		event.preventDefault()
 	}
 
 	useSpreadsheet() {
@@ -259,10 +263,8 @@ CreatorApp.defaultProps = {
 
 // Callback when a new widget is being created
 materiaCallbacks.initNewWidget = (instance) => {
-	creatorInstance = ReactDOM.render(
-		<CreatorApp title={'New Spreadsheet Widget'} init={true}/>,
-		document.getElementById('root')
-	)
+	materiaCallbacks.initExistingWidget('New Spreadsheet Widget', instance, undefined, 1)
+	return '1A4'
 }
 
 // Callback when editing an existing widget
@@ -271,6 +273,7 @@ materiaCallbacks.initExistingWidget = (title, instance, _qset, version) => {
 		<CreatorApp title={title} qset={_qset} />,
 		document.getElementById('root')
 	)
+	return '1A4'
 }
 
 // Callback when widget save is clicked
@@ -280,7 +283,7 @@ materiaCallbacks.onSaveClicked = () => {
 }
 
 materiaCallbacks.onSaveComplete = () => {
-	return null
+	return '1A4'
 }
 
 
