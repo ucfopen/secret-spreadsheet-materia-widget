@@ -65,7 +65,8 @@ describe('CreatorApp component', function() {
 		}));
 
 		const callbacks = Materia.CreatorCore.start.mock.calls[0][0];
-    callbacks.initNewWidget(instance)
+    const retVal = callbacks.initNewWidget(instance)
+    expect(retVal).toEqual('1A4')
   })
 
   test('CreatorApp renders materiaCallbacks.initExistingWidget', () => {
@@ -77,22 +78,8 @@ describe('CreatorApp component', function() {
 		}));
 
 		const callbacks = Materia.CreatorCore.start.mock.calls[0][0];
-    callbacks.initExistingWidget('Newt Widget', instance, {}, 1)
-  })
-
-  test('CreatorApp renders materiaCallbacks.onSaveClicked', () => {
-    const CreatorApp = require('./creator').default
-
-    const creatorInstance = {
-      onSaveClicked: jest.fn(),
-    }
-
-    jest.mock('react-dom', () => ({
-			render: mockDomRender
-		}));
-
-		const callbacks = Materia.CreatorCore.start.mock.calls[0][0];
-    callbacks.onSaveClicked()
+    const retVal = callbacks.initExistingWidget('Newt Widget', instance, {}, 1)
+    expect(retVal).toEqual('1A4')
   })
 
   test('CreatorApp renders materiaCallbacks.onSaveComplete', () => {
@@ -103,7 +90,8 @@ describe('CreatorApp component', function() {
 		}));
 
 		const callbacks = Materia.CreatorCore.start.mock.calls[0][0];
-    callbacks.onSaveComplete()
+    const retVal = callbacks.onSaveComplete()
+    expect(retVal).toEqual('1A4')
   })
 
   test('CreatorApp renders base code', () => {
@@ -158,6 +146,7 @@ describe('CreatorApp component', function() {
     const event = genEvent
 
     const component = shallow(<CreatorApp {... props}/>)
+    expect(component.instance().state.showIntro).toBeFalsy()
     component.instance().showIntro(event)
     expect(component.instance().state.showIntro).toBeTruthy()
   })
@@ -168,6 +157,7 @@ describe('CreatorApp component', function() {
     const event = genEvent
 
     const component = shallow(<CreatorApp {... props}/>)
+    expect(component.instance().state.showIntro).toBeTruthy()
     component.instance().editTitle(event)
     expect(component.instance().state.showIntro).toBeFalsy()
   })
@@ -178,6 +168,7 @@ describe('CreatorApp component', function() {
     const event = genEvent
 
     const component = shallow(<CreatorApp {... props}/>)
+    expect(component.instance().state.showIntro).toBeTruthy()
     component.instance().handleTitleSubmit(event)
     expect(component.instance().state.showIntro).toBeFalsy()
   })
@@ -316,6 +307,7 @@ describe('CreatorApp component', function() {
     const event = genEvent
 
     const component = shallow(<CreatorApp {... props}/>)
+    expect(component.instance().state.qset.spreadsheet).toEqual(false)
     component.instance().useSpreadsheet(event)
     expect(component.instance().state.qset.spreadsheet).toEqual(true)
   })
@@ -326,6 +318,7 @@ describe('CreatorApp component', function() {
     const event = genEvent
 
     const component = shallow(<CreatorApp {... props}/>)
+    expect(component.instance().state.qset.spreadsheet).toEqual(true)
     component.instance().useTable(event)
     expect(component.instance().state.qset.spreadsheet).toEqual(false)
   })
@@ -336,6 +329,7 @@ describe('CreatorApp component', function() {
     const event = genEvent
 
     const component = shallow(<CreatorApp {... props}/>)
+    expect(component.instance().state.qset.left).toEqual(false)
     component.instance().useLeftAlign(event)
     expect(component.instance().state.qset.left).toEqual(true)
   })
@@ -346,6 +340,7 @@ describe('CreatorApp component', function() {
     const event = genEvent
 
     const component = shallow(<CreatorApp {... props}/>)
+    expect(component.instance().state.qset.left).toEqual(true)
     component.instance().useCenterAlign(event)
     expect(component.instance().state.qset.left).toEqual(false)
   })
