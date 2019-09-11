@@ -439,494 +439,6 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
 </div>
 `;
 
-exports[`CreatorApp component CreatorApp renders base code 2`] = `
-<div>
-  <div
-    className="popup"
-  >
-    <div
-      className="popup-inner"
-    >
-      <h2
-        className=""
-      >
-        Secret Spreadsheet - How it works:
-      </h2>
-      <div
-        className=""
-      >
-        <img
-          src="assets/img/creator-tutorial.jpg"
-        />
-        <p>
-          You'll create a spreadsheet and choose which cells to hide.
-        </p>
-        <p>
-          Students will attempt to fill in the hidden cells correctly.
-        </p>
-      </div>
-      <label>
-        <strong>
-          Start by giving your Spreadsheet widget a title
-        </strong>
-      </label>
-      <form
-        className="title-container"
-        onSubmit={[Function]}
-      >
-        <input
-          autoFocus={true}
-          className="popup-input"
-          onChange={[Function]}
-          placeholder="My Spreadsheet Widget"
-          required="required"
-          type="text"
-          value="New Spreadsheet Widget"
-        />
-        <input
-          className="popup-submit"
-          type="submit"
-          value="Get Started"
-        />
-      </form>
-    </div>
-  </div>
-  <div
-    className="title-bar"
-  >
-    <span
-      className="title-text"
-    >
-      New Spreadsheet Widget
-    </span>
-    <button
-      className="edit-title-button"
-      onClick={[Function]}
-    >
-      Edit title
-    </button>
-    <button
-      className="help-button"
-      onClick={[Function]}
-      type="button"
-      value="Help"
-    >
-      <img
-        src="./assets/img/question-mark.png"
-      />
-      Help
-    </button>
-  </div>
-  <div>
-    <div
-      className="options-bar"
-    >
-      <div
-        className="options"
-      >
-        <label>
-          OPTIONS
-        </label>
-      </div>
-      <div
-        className="style"
-      >
-        <label>
-          <strong>
-            Style:
-          </strong>
-        </label>
-        <div
-          className="active"
-          id="spreadsheet-button"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          tabIndex={0}
-        >
-          <svg
-            height="20px"
-            id="spreadsheet-checkbox-checked"
-            viewBox="0 0 28 28"
-            width="20px"
-          >
-             
-            <path
-              d="M0 0v28h28V0H0zm24 24H4V4h20v20zm-2-13l-2.828-2.828-6.768 6.982-3.576-3.576L6 14.406l6.404 6.406L22 11z"
-            />
-             
-          </svg>
-          <label>
-            Spreadsheet
-          </label>
-        </div>
-        <div
-          className="inactive"
-          id="table-button"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          tabIndex={0}
-        >
-          <svg
-            height="20px"
-            id="table-checkbox"
-            viewBox="0 0 28 28"
-            width="20px"
-          >
-             
-            <path
-              d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
-            />
-             
-          </svg>
-          <label>
-            Table
-          </label>
-        </div>
-      </div>
-      <div
-        className="text"
-      >
-        <label>
-          <strong>
-            Text:
-          </strong>
-        </label>
-        <div
-          className=""
-          id="left-button"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          tabIndex={0}
-        >
-          <svg
-            height="20px"
-            preserveAspectRatio="xMidYMid meet"
-            version="1.0"
-            viewBox="0 0 344 344"
-            width="20px"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-             
-            <g
-              fill="#000000"
-              stroke="none"
-              transform="translate(0,344) scale(0.1,-0.1)"
-            >
-               
-              <path
-                d="M130 3095 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
-              />
-               
-              <path
-                d="M130 2410 l0 -140 1105 0 1105 0 0 140 0 140 -1105 0 -1105 0 0 -140z"
-              />
-               
-              <path
-                d="M130 1720 l0 -140 1590 0 1590 0 0 140 0 140 -1590 0 -1590 0 0 -140z"
-              />
-               
-              <path
-                d="M130 1030 l0 -140 1105 0 1105 0 0 140 0 140 -1105 0 -1105 0 0 -140z"
-              />
-               
-              <path
-                d="M130 345 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
-              />
-               
-            </g>
-             
-          </svg>
-        </div>
-        <div
-          className="active"
-          id="center-button"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          tabIndex={0}
-        >
-          <svg
-            height="20px"
-            preserveAspectRatio="xMidYMid meet"
-            version="1.0"
-            viewBox="0 0 344 344"
-            width="20px"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-             
-            <g
-              fill="#000000"
-              stroke="none"
-              transform="translate(0,344) scale(0.1,-0.1)"
-            >
-               
-              <path
-                d="M130 3095 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
-              />
-               
-              <path
-                d="M610 2410 l0 -140 1110 0 1110 0 0 140 0 140 -1110 0 -1110 0 0 -140z"
-              />
-               
-              <path
-                d="M130 1720 l0 -140 1590 0 1590 0 0 140 0 140 -1590 0 -1590 0 0 -140z"
-              />
-               
-              <path
-                d="M610 1030 l0 -140 1110 0 1110 0 0 140 0 140 -1110 0 -1110 0 0 -140z"
-              />
-               
-              <path
-                d="M130 345 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
-              />
-               
-            </g>
-             
-          </svg>
-        </div>
-      </div>
-      <div
-        className="header"
-      >
-        <label>
-          <strong>
-            Header:
-          </strong>
-        </label>
-        <div
-          className=""
-          id="header-button"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          tabIndex={0}
-        >
-          <svg
-            color="lightblue"
-            height="20px"
-            id="header-checkbox"
-            viewBox="0 0 28 28"
-            width="20px"
-          >
-             
-            <path
-              d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
-            />
-             
-          </svg>
-          <label>
-            First row is a header row
-          </label>
-        </div>
-      </div>
-      <div
-        className="randomize"
-      >
-        <label>
-          <strong>
-            Randomize:
-          </strong>
-        </label>
-        <div>
-          <label>
-            Randomly hide 
-            <input
-              defaultValue={0}
-              onBlur={[Function]}
-              placeholder={0}
-              type="number"
-            />
-             cell(s)
-          </label>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="table-container"
-  >
-    <div
-      className="table-text"
-    >
-      <label
-        className="what-to-do"
-      >
-        WHAT TO DO
-      </label>
-      <div>
-        <ul>
-          <li>
-            <label>
-              Add rows and columns, then input data in the cells below.
-            </label>
-          </li>
-          <li>
-            <label>
-              Check cells to turn them 
-              <span
-                className="blue-text"
-              >
-                blue
-              </span>
-               - these will be left blank for students to fill out.
-            </label>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div
-      className="table"
-    >
-      <form
-        onSubmit={[Function]}
-      >
-        <div
-          className="table-elements"
-        >
-          <table
-            onBlur={[Function]}
-          >
-            <tbody>
-              <tr>
-                <td
-                  className="center-align  "
-                >
-                  <div
-                    className="cell"
-                    onKeyDown={[Function]}
-                  >
-                    <input
-                      className="row-0 col-0"
-                      onChange={[Function]}
-                      placeholder="A1"
-                      type="text"
-                      value=""
-                    />
-                    <div
-                      className="checkbox"
-                      onClick={[Function]}
-                    >
-                      <input
-                        checked={false}
-                        onChange={[Function]}
-                        onKeyDown={[Function]}
-                        type="checkbox"
-                      />
-                      Hide
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <button
-            hidden={true}
-          />
-          <div
-            className="column-buttons"
-          >
-            <button
-              onClick={[Function]}
-            >
-              <svg
-                height="28"
-                id="svg"
-                version="1.1"
-                viewBox="0 0 400 400"
-                width="28"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-              >
-                <g
-                  id="svgg"
-                >
-                  <path
-                    d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M213.333 160.000 C 213.333 177.778,222.222 186.667,240.000 186.667 C 254.667 186.667,266.667 192.667,266.667 200.000 C 266.667 207.333,254.667 213.333,240.000 213.333 C 222.222 213.333,213.333 222.222,213.333 240.000 C 213.333 254.667,207.333 266.667,200.000 266.667 C 192.667 266.667,186.667 254.667,186.667 240.000 C 186.667 222.222,177.778 213.333,160.000 213.333 C 145.333 213.333,133.333 207.333,133.333 200.000 C 133.333 192.667,145.333 186.667,160.000 186.667 C 177.778 186.667,186.667 177.778,186.667 160.000 C 186.667 145.333,192.667 133.333,200.000 133.333 C 207.333 133.333,213.333 145.333,213.333 160.000 "
-                    id="path0"
-                  />
-                </g>
-              </svg>
-            </button>
-            <button
-              onClick={[Function]}
-            >
-              <svg
-                height="28"
-                id="svg"
-                version="1.1"
-                viewBox="0, 0, 400,400"
-                width="28"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-              >
-                <g
-                  id="svgg"
-                >
-                  <path
-                    d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M280.000 200.000 C 280.000 207.407,244.444 213.333,200.000 213.333 C 155.556 213.333,120.000 207.407,120.000 200.000 C 120.000 192.593,155.556 186.667,200.000 186.667 C 244.444 186.667,280.000 192.593,280.000 200.000 "
-                    id="path0"
-                  />
-                </g>
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div
-          className="row-buttons"
-        >
-          <button
-            onClick={[Function]}
-          >
-            <svg
-              height="28"
-              id="svg"
-              version="1.1"
-              viewBox="0 0 400 400"
-              width="28"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-            >
-              <g
-                id="svgg"
-              >
-                <path
-                  d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M213.333 160.000 C 213.333 177.778,222.222 186.667,240.000 186.667 C 254.667 186.667,266.667 192.667,266.667 200.000 C 266.667 207.333,254.667 213.333,240.000 213.333 C 222.222 213.333,213.333 222.222,213.333 240.000 C 213.333 254.667,207.333 266.667,200.000 266.667 C 192.667 266.667,186.667 254.667,186.667 240.000 C 186.667 222.222,177.778 213.333,160.000 213.333 C 145.333 213.333,133.333 207.333,133.333 200.000 C 133.333 192.667,145.333 186.667,160.000 186.667 C 177.778 186.667,186.667 177.778,186.667 160.000 C 186.667 145.333,192.667 133.333,200.000 133.333 C 207.333 133.333,213.333 145.333,213.333 160.000 "
-                  id="path0"
-                />
-              </g>
-            </svg>
-          </button>
-          <button
-            onClick={[Function]}
-          >
-            <svg
-              height="28"
-              id="svg"
-              version="1.1"
-              viewBox="0, 0, 400,400"
-              width="28"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-            >
-              <g
-                id="svgg"
-              >
-                <path
-                  d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M280.000 200.000 C 280.000 207.407,244.444 213.333,200.000 213.333 C 155.556 213.333,120.000 207.407,120.000 200.000 C 120.000 192.593,155.556 186.667,200.000 186.667 C 244.444 186.667,280.000 192.593,280.000 200.000 "
-                  id="path0"
-                />
-              </g>
-            </svg>
-          </button>
-        </div>
-        <input
-          hidden={true}
-          type="submit"
-        />
-      </form>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`CreatorApp component CreatorApp renders branch code 1`] = `
 <div>
   <div
@@ -1025,21 +537,22 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
           </strong>
         </label>
         <div
-          className="active"
+          className=""
           id="spreadsheet-button"
           onClick={[Function]}
           onKeyDown={[Function]}
           tabIndex={0}
         >
           <svg
+            color="lightblue"
             height="20px"
-            id="spreadsheet-checkbox-checked"
+            id="spreadsheet-checkbox"
             viewBox="0 0 28 28"
             width="20px"
           >
              
             <path
-              d="M0 0v28h28V0H0zm24 24H4V4h20v20zm-2-13l-2.828-2.828-6.768 6.982-3.576-3.576L6 14.406l6.404 6.406L22 11z"
+              d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
             />
              
           </svg>
@@ -1048,7 +561,7 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
           </label>
         </div>
         <div
-          className="inactive"
+          className="active"
           id="table-button"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1056,13 +569,13 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
         >
           <svg
             height="20px"
-            id="table-checkbox"
+            id="table-checkbox-checked"
             viewBox="0 0 28 28"
             width="20px"
           >
              
             <path
-              d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+              d="M0 0v28h28V0H0zm24 24H4V4h20v20zm-2-13l-2.828-2.828-6.768 6.982-3.576-3.576L6 14.406l6.404 6.406L22 11z"
             />
              
           </svg>
@@ -1513,21 +1026,22 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
           </strong>
         </label>
         <div
-          className="active"
+          className=""
           id="spreadsheet-button"
           onClick={[Function]}
           onKeyDown={[Function]}
           tabIndex={0}
         >
           <svg
+            color="lightblue"
             height="20px"
-            id="spreadsheet-checkbox-checked"
+            id="spreadsheet-checkbox"
             viewBox="0 0 28 28"
             width="20px"
           >
              
             <path
-              d="M0 0v28h28V0H0zm24 24H4V4h20v20zm-2-13l-2.828-2.828-6.768 6.982-3.576-3.576L6 14.406l6.404 6.406L22 11z"
+              d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
             />
              
           </svg>
@@ -1536,7 +1050,7 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
           </label>
         </div>
         <div
-          className="inactive"
+          className="active"
           id="table-button"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1544,13 +1058,13 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
         >
           <svg
             height="20px"
-            id="table-checkbox"
+            id="table-checkbox-checked"
             viewBox="0 0 28 28"
             width="20px"
           >
              
             <path
-              d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+              d="M0 0v28h28V0H0zm24 24H4V4h20v20zm-2-13l-2.828-2.828-6.768 6.982-3.576-3.576L6 14.406l6.404 6.406L22 11z"
             />
              
           </svg>

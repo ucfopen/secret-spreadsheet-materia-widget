@@ -6,6 +6,7 @@ import Options from './components/creator-options'
 import Table from './components/creator-table'
 
 const materiaCallbacks = {}
+let creatorInstance
 
 export default class CreatorApp extends React.Component {
 	constructor(props) {
@@ -19,20 +20,6 @@ export default class CreatorApp extends React.Component {
 
 		this.state.qset.items[0].items.push([this.cellData('', false)])
 
-		// Callback when widget save is clicked
-		materiaCallbacks.onSaveClicked = () => {
-			console.log(this.state.qset)
-			if(this.state.title != ''){
-				Materia.CreatorCore.save(this.state.title, this.state.qset, 1)
-			} else {
-				Materia.CreatorCore.cancelSave('This widget has no title!')
-			}
-		}
-
-		materiaCallbacks.onSaveComplete = () => {
-			return null
-		}
-
 		this.showIntro = this.showIntro.bind(this)
 		this.editTitle = this.editTitle.bind(this)
 		this.handleTitleSubmit = this.handleTitleSubmit.bind(this)
@@ -44,7 +31,17 @@ export default class CreatorApp extends React.Component {
     this.useTable = this.useTable.bind(this)
     this.useLeftAlign = this.useLeftAlign.bind(this)
     this.useCenterAlign = this.useCenterAlign.bind(this)
-    this.useHeader = this.useHeader.bind(this)
+		this.useHeader = this.useHeader.bind(this)
+		this.onSaveClicked = this.onSaveClicked.bind(this)
+	}
+
+	// Callback when widget save is clicked
+	onSaveClicked(){
+		if(this.state.title != ''){
+			Materia.CreatorCore.save(this.state.title, this.state.qset, 1)
+		} else {
+			Materia.CreatorCore.cancelSave('This widget has no title!')
+		}
 	}
 
 	showIntro(event) {
@@ -74,7 +71,7 @@ export default class CreatorApp extends React.Component {
 		event.preventDefault()
 	}
 
-	// Save the submitted spreadsheet of data into the qset, preview the table
+	// Save the submitted spreadsheet of data into the qset
 	handleTableSubmit(event) {
 		this.state.qset.items[0].items = []
 		for (let i = 0; i < this.state.qset.dimensions.x; i++) {
@@ -229,7 +226,7 @@ CreatorApp.defaultProps = {
 
 // Callback when a new widget is being created
 materiaCallbacks.initNewWidget = (instance) => {
-	ReactDOM.render(
+	creatorInstance = ReactDOM.render(
 		<CreatorApp title={'New Spreadsheet Widget'} init={true}/>,
 		document.getElementById('root')
 	)
@@ -237,11 +234,22 @@ materiaCallbacks.initNewWidget = (instance) => {
 
 // Callback when editing an existing widget
 materiaCallbacks.initExistingWidget = (title, instance, _qset, version) => {
-	ReactDOM.render(
+	creatorInstance = ReactDOM.render(
 		<CreatorApp title={title} qset={_qset} />,
 		document.getElementById('root')
 	)
 }
 
-// Tell materia we're ready and give it a reference to our callbacks
+// Callback when widget save is clicked
+materiaCallbacks.onSaveClicked = () => {
+	// proxy to the class instance method
+	creatorInstance.onSaveClicked()
+}
+
+materiaCallbacks.onSaveComplete = () => {
+	return null
+}
+
+
+// Tell materia we're ready and give it2 a reference to our callbacks
 Materia.CreatorCore.start(materiaCallbacks)
