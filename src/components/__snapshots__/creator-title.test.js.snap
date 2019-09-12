@@ -11,13 +11,11 @@ exports[`CreatorTitle component CreatorTitle renders title 1`] = `
   </span>
   <button
     className="edit-title-button"
-    onClick={[MockFunction]}
   >
     Edit title
   </button>
   <button
     className="help-button"
-    onClick={[MockFunction]}
     type="button"
     value="Help"
   >
