@@ -15,7 +15,8 @@ export default class CreatorApp extends React.Component {
 			showIntro: props.init,
 			qset: props.qset,
 			title: props.title,
-			showPopup: props.init,
+			showPopup: false,
+			showKeyControls: false
 		}
 
 		this.state.qset.items[0].items.push([this.cellData('', false)])
@@ -92,6 +93,19 @@ export default class CreatorApp extends React.Component {
 		event.preventDefault()
 	}
 
+	toggleKeyboardInst() {
+		if (this.state.showKeyControls) {
+			this.setState({
+				showKeyControls: false
+			})
+		}
+		else {
+			this.setState({
+				showKeyControls: true
+			})
+		}
+	}
+
 	cellData(value, check) {
 		return {
 			'materiaType': 'question',
@@ -144,22 +158,22 @@ export default class CreatorApp extends React.Component {
 	}
 
 	useSpreadsheet() {
-    this.setState(Object.assign(this.state.qset,{spreadsheet:true}))
-  }
+		this.setState(Object.assign(this.state.qset,{spreadsheet:true}))
+	}
 
-  useTable() {
-    this.setState(Object.assign(this.state.qset,{spreadsheet:false}))
-  }
+	useTable() {
+		this.setState(Object.assign(this.state.qset,{spreadsheet:false}))
+	}
 
-  useLeftAlign() {
-    this.setState(Object.assign(this.state.qset,{left:true}))
-  }
+	useLeftAlign() {
+		this.setState(Object.assign(this.state.qset,{left:true}))
+	}
 
-  useCenterAlign() {
-    this.setState(Object.assign(this.state.qset,{left:false}))
-  }
+	useCenterAlign() {
+		this.setState(Object.assign(this.state.qset,{left:false}))
+	}
 
-  useHeader() {
+	useHeader() {
 		this.setState(Object.assign(this.state.qset,{header:!this.state.qset.header}))
 		for (let i = 0; i < this.state.qset.dimensions.y; i++) {
 			this.setState(Object.assign(this.state.qset.items[0].items[0][i].options, {blank: false}))
@@ -195,14 +209,25 @@ export default class CreatorApp extends React.Component {
 
 				<div className="table-container">
 					<div className="table-text">
-						<label className="what-to-do">WHAT TO DO</label>
-						<div>
-							<ul>
-								<li><label>Add rows and columns, then input data in the cells below.</label></li>
-								<li><label>Check cells to turn them <span className="blue-text">blue</span> - these will be left blank for students to fill out.</label></li>
-							</ul>
-						</div>
+						<h2 className="what-to-do">WHAT TO DO</h2>
+						<ul>
+							<li>Add rows and columns, then input data in the cells below.</li>
+							<li>Check cells to turn them <span className="blue-text">blue</span> - these will be left blank for students to fill out.</li>
+							<li onClick={this.toggleKeyboardInst} ><span>Keyboard controls</span>
+								{this.state.showKeyControls ?
+									(<ul>
+										<li>Alt + PageUp = Add Column</li>
+										<li>Alt + PageDown = Remove Column</li>
+										<li>Shift + PageUp = Add Row</li>
+										<li>Shift + PageDown = Remove Row</li>
+										<li>Ctrl/Command + Arrow = Move Cell</li>
+									</ul>) :
+									(null)
+								}
+							</li>
+						</ul>
 					</div>
+
 					<Table
 						cellData={this.cellData}
 						qset={this.state.qset}

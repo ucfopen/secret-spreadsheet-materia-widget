@@ -1,16 +1,16 @@
 {
 	"name": "Spreadsheet Widget",
 	"qset": {
-		"left": true,
-		"header": false,
-		"spredsheet": true,
 		"version": 1,
 		"data": {
+			"left": false,
+			"header": true,
+			"spreadsheet": true,
 			"dimensions": {
 				"x": 2,
 				"y": 2
 			},
-			"randomization": 2,
+			"randomization": 1,
 			"items": [
 				{
 					"items": [
@@ -21,13 +21,13 @@
 								"type": "QA",
 								"questions": [
 									{
-										"text": "Show 1"
+										"text": "Title 1"
 									}
 								],
 								"answers": [
 									{
 										"id": null,
-										"text": "Show 1",
+										"text": "Title 1",
 										"value": 100
 									}
 								],
@@ -41,13 +41,13 @@
 								"type": "QA",
 								"questions": [
 									{
-										"text": "Hide 1"
+										"text": "Title 2"
 									}
 								],
 								"answers": [
 									{
 										"id": null,
-										"text": "Hide 1",
+										"text": "Title 2",
 										"value": 100
 									}
 								],
@@ -63,13 +63,13 @@
 								"type": "QA",
 								"questions": [
 									{
-										"text": "Hide 2"
+										"text": "Answerable 1"
 									}
 								],
 								"answers": [
 									{
 										"id": null,
-										"text": "Hide 2",
+										"text": "Answerable 1",
 										"value": 100
 									}
 								],
@@ -83,13 +83,13 @@
 								"type": "QA",
 								"questions": [
 									{
-										"text": "Show 2"
+										"text": "Answerable 2"
 									}
 								],
 								"answers": [
 									{
 										"id": null,
-										"text": "Show 2",
+										"text": "Answerable 2",
 										"value": 100
 									}
 								],

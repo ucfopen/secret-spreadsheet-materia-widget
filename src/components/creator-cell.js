@@ -17,8 +17,8 @@ export default class Cell extends React.Component {
 
 	render() {
 		return (
-			<td className={`${this.props.className} ${this.props.data && this.props.data.options.blank ? "hidden" : ""}`}>
-				<div className="cell" onKeyDown={(e) => {
+			<td className={`${this.props.className} ${this.props.data && this.props.data.options.blank ? "hidden" : ""} tableCell`}>
+				<div onKeyDown={(e) => {
 					// Keyboard controls for table:
 					// Alt + PageUp         = Add Column
 					// Alt + PageDown       = Remove Column
@@ -43,9 +43,24 @@ export default class Cell extends React.Component {
 						this.props.focusOnCell(this.props.row, this.props.column + 1)
 					}
 				}}>
-					<input ref={el => {this.props.refsArray[this.props.row][this.props.column] = el}} className={`row-${this.props.row} col-${this.props.column}`} type="text" value={this.props.data && this.props.data.questions[0].text} onChange={this.handleTextboxChange} placeholder={`${String.fromCharCode(this.props.row + 65)}${this.props.column + 1}`}/>
-					<div className="checkbox" onClick={this.handleCheckboxToggle}>
-						<input type="checkbox" onKeyDown={(e) => {if (e.key === 'Enter') {this.handleCheckboxToggle()}}} onChange={() => {}} checked={this.props.data && this.props.data.options.blank}/>
+					<input
+						className={`row-${this.props.row} col-${this.props.column}`}
+						type="text"
+						value={this.props.data && this.props.data.questions[0].text}
+						onChange={this.handleTextboxChange}
+						placeholder={`${String.fromCharCode(this.props.row + 65)}${this.props.column + 1}`}
+					/>
+
+					<div
+						className="checkbox"
+						onClick={this.handleCheckboxToggle}
+					>
+						<input
+							type="checkbox"
+							onKeyDown={(e) => {if (e.key === 'Enter') {this.handleCheckboxToggle()}}}
+							onChange={() => {}}
+							checked={this.props.data && this.props.data.options.blank}
+						/>
 						Hide
 					</div>
 				</div>

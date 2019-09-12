@@ -27,96 +27,102 @@ label {
 	}
 }
 
+input[type='submit'], button, .hoverable {
+	&:hover {
+		cursor: pointer;
+	}
+
+	label:hover {
+		cursor: pointer;
+	}
+}
+
 .popup {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
 	background-color: rgba(0, 0, 0, 0.6);
 	z-index: 69696969;
 	overflow: auto;
+}
 
-	.popup-inner {
-		width: 40rem;
-		margin: 5rem auto;
-		background: white;
-		font-size: 20px;
-		text-align: center;
-		overflow: hidden;
+.popup-inner {
+	width: 40rem;
+	margin: 5rem auto;
+	background: white;
+	font-size: 20px;
+	text-align: center;
+	overflow: hidden;
+	justify-items: center;
+	align-items: center;
 
+	div {
+		background-color: rgba(0, 0, 0, 0.07);
+		width: 85%;
+		height: 50%;
+		border: none;
+		border-radius: 4px;
+		display: grid;
+		grid-column-gap: 15px;
 		justify-items: center;
 		align-items: center;
+		text-align: left;
+		margin: 0 auto;
 
-		.popup-hidden {
-			display: none;
+		img {
+			grid-area: 1 / 1 / span 1 / span 2;
+			height: 100px;
+			width: auto;
+			background: url(/assets/tutorial.jpg);
+			width: 20rem;
+			height: auto;
+			margin: 10px;
 		}
 
-		div {
-			background-color: rgba(0, 0, 0, 0.07);
-			width: 85%;
-			height: 50%;
-			border: none;
-			border-radius: 4px;
-			display: grid;
-			grid-column-gap: 15px;
-			justify-items: center;
-			align-items: center;
-			text-align: left;
-			margin: 0 auto;
-
-			img {
-				grid-area: 1 / 1 / span 1 / span 2;
-				height: 100px;
-				width: auto;
-				background: url(/assets/tutorial.jpg);
-				width: 20rem;
-				height: auto;
-				margin: 10px;
-			}
-
-			p {
-				margin: 0 8px;
-				margin-bottom: 20px;
-			}
-
+		p {
+			margin: 0 8px;
+			margin-bottom: 20px;
 		}
 
-		h2 {
-			font-size: 26px;
-			margin-top: 30px;
-			color: green;
-		}
+	}
 
-		label {
-			margin: 20px;
-			margin-bottom: 0;
-		}
+	h2 {
+		font-size: 26px;
+		margin-top: 30px;
+		color: green;
+	}
 
-		.popup-input {
-			margin: 20px;
-			padding-left: 5px;
-			width: 25rem;
-			height: 2rem;
-			font-size: 20px;
-			border-style: solid;
-			border-color: purple;
-			border-width: 1px;
-		}
+	label {
+		margin: 20px;
+		margin-bottom: 0;
+	}
 
-		.popup-submit {
-			margin: 20px;
-			width: 20%;
-			padding-top: .5rem;
-			padding-bottom: .5rem;
-			font-size: 20px;
-			color: white;
-			border-width: 0;
-			background: purple;
-		}
+	.popup-input {
+		margin: 20px;
+		padding-left: 5px;
+		width: 25rem;
+		height: 2rem;
+		font-size: 20px;
+		border-style: solid;
+		border-color: purple;
+		border-width: 1px;
+	}
+
+	.popup-submit {
+		margin: 20px;
+		margin-top: 10px;
+		width: 20%;
+		padding-top: .5rem;
+		padding-bottom: .5rem;
+		font-size: 20px;
+		color: white;
+		border-width: 0;
+		background: purple;
 	}
 }
 
@@ -144,7 +150,7 @@ label {
 	.edit-title-button {
 		float: left;
 		margin-top: 25px;
-		font-size: 12px;
+		font-size: 14px;
 		color: white;
 		background: green;
 		text-decoration: underline;
@@ -165,6 +171,13 @@ label {
 		position: absolute;
 		right: 15px;
 		top: 30px;
+		font-size: 14px;
+
+		img {
+			margin: 2px 4px 2px 0;
+			width: 16px;
+			height: auto;
+		}
 	}
 }
 
@@ -175,240 +188,255 @@ label {
 	overflow: auto;
 	justify-content: center;
 
-	.options,
-	.style,
-	.text,
-	.header,
-	.randomize {
-		margin: auto 0;
-		padding: 0 1rem;
-		border-style: solid;
-		border-color: lightgray;
-		border-width: 0 0 0 1px;
-		height: 3rem;
+	h2 {
+		font-size: 20px;
+	}
+
+	h3 {
+		font-size: 18px;
+	}
+}
+
+.options,
+.style,
+.text,
+.header,
+.randomize {
+	margin: auto 0;
+	padding: 0 1rem;
+	border-style: solid;
+	border-color: lightgray;
+	border-width: 0 0 0 1px;
+	height: 3rem;
+	display: flex;
+	flex-direction: row;
+	white-space: nowrap;
+	align-items: center;
+
+	input {
+		&[type=number] {
+			width: 2em;
+			text-align: center;
+		}
+	}
+
+	.active {
+		background: rgba(173, 216, 230, 0.5);
+	}
+
+	div {
 		display: flex;
 		flex-direction: row;
-		white-space: nowrap;
-
-		input {
-			&[type=number] {
-				width: 2em;
-				text-align: center;
-			}
-		}
-		.active {
-			background: rgba(173, 216, 230, 0.5);
-		}
-
-		div {
-			display: flex;
-			flex-direction: row;
-			background: rgb(233, 233, 233);
-			height: 40%;
-			margin: auto 0;
-			padding: .3rem;
-			border-radius: 2px;
-			cursor: pointer;
-
-			svg {
-				margin-left: 3px;
-				color: rgba(173, 216, 230, 0.5);
-				cursor: pointer;
-			}
-
-			label {
-				margin-left: 3px;
-				cursor: pointer;
-			}
-		}
-	}
-
-	.randomize {
-		input {
-			border-width: 0;
-			background: inherit;
-			font-size: 16px;
-			text-decoration: underline;
-		}
-	}
-
-	.options {
+		background: rgb(233, 233, 233);
 		height: 40%;
-		border-width: 0;
+		margin: auto 0;
+		padding: .3rem;
+		border-radius: 2px;
+
+		svg {
+			margin-left: 3px;
+			color: rgba(173, 216, 230, 0.5);
+		}
+
+		label {
+			margin-left: 3px;
+		}
 	}
+}
+
+.randomize {
+	input {
+		border-width: 0;
+		background: inherit;
+		font-size: 16px;
+		text-decoration: underline;
+	}
+}
+
+.options {
+	height: 40%;
+	border-width: 0;
+}
+
+.table-text {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 14px;
+
+	.what-to-do {
+		padding: 20px;
+		border-style: solid;
+		border-color: lightgray;
+		border-width: 0 1px 0 0;
+	}
+
+	li + li {
+		margin-top: 10px;
+	}
+
+	span {
+		color: blue;
+		cursor: pointer;
+		text-decoration: underline;
+	}
+
+	h2 {
+		font-size: inherit;
+	}
+}
+
+.blue-text {
+	padding: 2px 5px;
+	color: rgb(1, 56, 75);
+	background: rgba(173, 216, 230, 0.5);
 }
 
 .table-container {
 	top: 20px;
-	font-family: 'Roboto Mono', sans-serif;
 	justify-content: center;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+}
 
-	.table-text {
+.table {
+	font-family: 'Roboto Mono', sans-serif;
+	top: 10px;
+	position: relative;
+	clear:both;
+	float:left;
+	padding-right: 50px;
+
+
+	.delete-cell,
+	.empty-cell {
+		width: 2%;
+		border-width: 0;
+		opacity: 0;
+	}
+
+	.delete-button {
+		font-size: 20px;
+	}
+
+	.row-buttons {
+		width: 100%;
+		height: 50px;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
-		overflow: hidden;
-		white-space: nowrap;
-		font-size: 14px;
 
-		.what-to-do {
-			padding: 20px;
-			border-style: solid;
-			border-color: lightgray;
-			border-width: 0 1px 0 0;
+		button {
+			width: 49%;
+			border-style: dotted;
+			border-color: purple;
+			border-width: 1px;
+		}
+	}
+
+	svg {
+		fill: purple;
+	}
+}
+
+.table-elements {
+	position: relative;
+
+	table {
+		margin: 0;
+		border-width: 0;
+		border-collapse: collapse;
+
+		.header-cell {
+			background-color: #e7e8e7;
+
+			.checkbox {
+				visibility: hidden;
+			}
 		}
 
-		ul {
-			li + li {
-				margin-top: 10px;
+		.center-align {
+			input {
+				text-align: center;
+			}
+		}
 
-				.blue-text {
-					padding: 2px 5px;
-					color: rgb(1, 56, 75);
-					background: rgba(173, 216, 230, 0.5);
-				}
+		.hidden {
+			background: rgba(173, 216, 230, 0.5);
+		}
+	}
+
+	.column-buttons {
+		bottom: 0;
+		left: 100%;
+		width: 50px;
+		height: 100%;
+		position: absolute;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		button {
+			height: 49%;
+			border-style: dotted;
+			border-color: purple;
+			border-width: 1px;
+			margin: auto;
+		}
+	}
+}
+
+.tableCell {
+	max-width: 100%;
+	word-break: break-all;
+	border: 1px solid black;
+
+	div {
+		display:flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+
+		input {
+			&[type=text] {
+				margin: 10px;
+				margin-right: 2px;
+				resize: horizontal;
+				font-size: inherit;
+				font-family: inherit;
+				width: 80%;
+				height: 2em;
+				border: none;
+				background-color: rgba(255, 255, 255, 0);
+			}
+		}
+
+		.checkbox {
+			padding: 10px 0 15px 0;
+			width: 34px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			font-size: 10px;
+			overflow: visible;
+
+			&:hover {
+				background: rgba(173, 216, 230, 0.5);
 			}
 		}
 	}
 
-	.table {
-		top: 10px;
-		position: relative;
-		clear:both;
-		float:left;
-		padding-right: 50px;
-
-
-		.delete-cell,
-		.empty-cell {
-			width: 2%;
-			border-width: 0;
-			opacity: 0;
-		}
-
-		.delete-button {
-			font-size: 20px;
-		}
-
-		.table-elements {
-			position: relative;
-
-			table {
-				margin: 0;
-				border-width: 0;
-				border-collapse: collapse;
-
-				.header-cell {
-					background-color: #e7e8e7;
-
-					.checkbox {
-						visibility: hidden;
-					}
-				}
-
-				.center-align {
-					input {
-						text-align: center;
-					}
-				}
-
-				.hidden {
-					background: rgba(173, 216, 230, 0.5);
-				}
-
-				td {
-					max-width: 100%;
-					word-break: break-all;
-					border: 1px solid black;
-
-					div {
-						display:flex;
-						flex-direction: row;
-						align-items: center;
-						justify-content: center;
-						overflow: hidden;
-
-						input {
-							&[type=text] {
-								margin: 10px;
-								margin-right: 2px;
-								resize: horizontal;
-								font-size: inherit;
-								font-family: inherit;
-								width: 80%;
-								height: 2em;
-								border: none;
-								background-color: rgba(255, 255, 255, 0);
-							}
-						}
-
-						.checkbox {
-							padding: 10px 0 15px 0;
-							width: 34px;
-							display: flex;
-							flex-direction: column;
-							align-items: center;
-							justify-content: center;
-							font-size: 10px;
-							overflow: visible;
-
-							&:hover {
-								background: rgba(173, 216, 230, 0.5);
-							}
-						}
-					}
-
-					label {
-						font-size: 12px;
-					}
-				}
-			}
-
-			.column-buttons {
-				bottom: 0;
-				left: 100%;
-				width: 50px;
-				height: 100%;
-				position: absolute;
-
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-
-				button {
-					height: 49%;
-					border-style: dotted;
-					border-color: purple;
-					border-width: 1px;
-					margin: auto;
-				}
-			}
-		}
-
-		.row-buttons {
-			width: 100%;
-			height: 50px;
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: center;
-
-			button {
-				width: 49%;
-				border-style: dotted;
-				border-color: purple;
-				border-width: 1px;
-			}
-		}
-
-		svg {
-			fill: purple;
-		}
+	label {
+		font-size: 12px;
 	}
 }
