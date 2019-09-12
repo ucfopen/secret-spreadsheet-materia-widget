@@ -8,16 +8,16 @@ export default class Cell extends React.Component {
 	}
 
 	handleCheckboxToggle(event) {
-		this.setState(Object.assign(this.props.data.options, {blank: !this.props.data.options.blank}))
+		this.setState(Object.assign(this.props.data.options, { blank: !this.props.data.options.blank }))
 	}
 
 	handleTextboxChange(event) {
-		this.setState(Object.assign(this.props.data.questions[0], {text: event.target.value}))
+		this.setState(Object.assign(this.props.data.questions[0], { text: event.target.value }))
 	}
 
 	render() {
 		return (
-			<td className={`${this.props.className} ${this.props.data && this.props.data.options.blank ? "hidden" : ""} tableCell`}>
+			<td	className={`${this.props.className} ${this.props.data && this.props.data.options.blank ? "hidden" : ""} tableCell`}>
 				<div onKeyDown={(e) => {
 					// Keyboard controls for table:
 					// Alt + PageUp         = Add Column
@@ -44,6 +44,7 @@ export default class Cell extends React.Component {
 					}
 				}}>
 					<input
+						ref={el => { this.props.refsArray[this.props.row][this.props.column] = el }}
 						className={`row-${this.props.row} col-${this.props.column}`}
 						type="text"
 						value={this.props.data && this.props.data.questions[0].text}
@@ -57,8 +58,8 @@ export default class Cell extends React.Component {
 					>
 						<input
 							type="checkbox"
-							onKeyDown={(e) => {if (e.key === 'Enter') {this.handleCheckboxToggle()}}}
-							onChange={() => {}}
+							onKeyDown={(e) => { if (e.key === 'Enter') { this.handleCheckboxToggle() } }}
+							onChange={() => { }}
 							checked={this.props.data && this.props.data.options.blank}
 						/>
 						Hide
