@@ -102,8 +102,8 @@ input[type='submit'], button, .hoverable {
 	}
 
 	form {
-		margin: auto;
-		width: 80%;
+		margin: 10px auto 30px;
+		width: 85%;
 		display: grid;
 		grid: 1fr 1fr / 2fr 1fr;
 		jusitfy-items: center;
@@ -111,20 +111,19 @@ input[type='submit'], button, .hoverable {
 		justify-content: center;
 		align-content: center;
 		grid-row-gap: 10px;
-		margin-bottom: 30px;
 
 		label {
 			margin: auto;
 			text-align: center;
-			font-size: 16px;
+			font-size: 18px;
 			grid-row: 1 / 1;
-			grid-column: 1 / 3;
+			grid-column: 1 / 4;
 		}
 	}
 
 	.popup-input {
 		padding-left: 5px;
-		width: 22rem;
+		width: 25rem;
 		height: 2rem;
 		font-size: 20px;
 		border-style: solid;
