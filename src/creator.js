@@ -204,8 +204,6 @@ export default class CreatorApp extends React.Component {
 					showIntro={this.showIntro}
 					editTitle={this.editTitle}
 					title={this.state.title}
-					onChange={this.handleTitleChange}
-					onBlur={this.handleTitleBlur}
 				/>
 
 				<Options

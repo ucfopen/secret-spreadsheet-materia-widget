@@ -1,6 +1,7 @@
 import React from 'react';
 import Title from './creator-title';
 import renderer from 'react-test-renderer';
+import { shallow } from '../enzyme'
 
 describe('CreatorTitle component', function() {
 
@@ -11,15 +12,35 @@ describe('CreatorTitle component', function() {
   test('CreatorTitle renders title', () => {
 		const props = {
       title: 'mock-title',
-      showIntro: jest.fn(),
-      editTitle: jest.fn(),
-      onChange: jest.fn(),
-      onBlur: jest.fn(),
     }
 
 		const component = renderer.create(<Title {... props}/>);
 		let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+
+  })
+
+  test('CreatorTitle renders title', () => {
+		const props = {
+      title: 'jock-bible',
+      showIntro: jest.fn(),
+    }
+
+    const component = shallow(<Title {... props}/>);
+    component.find('.help-button').simulate('Click')
+    expect(props.showIntro).toBeCalled()
+
+  })
+
+  test('CreatorTitle renders title', () => {
+		const props = {
+      title: 'rock-rifle',
+      editTitle: jest.fn(),
+    }
+
+    const component = shallow(<Title {... props}/>);
+    component.find('.edit-title-button').simulate('Click')
+    expect(props.editTitle).toBeCalled()
 
   })
 
