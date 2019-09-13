@@ -9,7 +9,6 @@ class Cell extends React.Component {
 			firstFocus: true
 		}
 		this.handleChange = this.handleChange.bind(this);
-		this.cell = React.createRef();
 		this.input = React.createRef();
 	}
 
@@ -24,9 +23,6 @@ class Cell extends React.Component {
 
 	// this can be improved
 	componentDidUpdate() {
-		const cellComponent = this.cell.current;
-		const inputComponent = this.input.current;
-
 		if (this.state.value !== '' && this.state.colorClass === 'unanswered') {
 			this.setState({
 				value: this.state.value,
@@ -43,8 +39,8 @@ class Cell extends React.Component {
 		}
 
 		// will only focus on the first render after the popup is closed; and will only work on the first input
-		if (this.props.firstInput && this.props.focus && this.state.firstFocus && inputComponent !== null) {
-			inputComponent.focus();
+		if (this.props.firstInput && this.props.focus && this.state.firstFocus && this.input.current !== null) {
+			this.input.current.focus();
 
 			this.setState({
 				value: this.state.value,
@@ -57,7 +53,7 @@ class Cell extends React.Component {
 	render() {
 		// test if it should display an input box or if it should show the text
 		return(
-			<td id={this.props.id} className={`${this.props.showInput ? `${this.state.colorClass} `:''}${this.props.leftAlign ? 'leftAlign':'centerAlign'}`} ref={this.cell}>
+			<td id={this.props.id} className={`${this.props.showInput ? `${this.state.colorClass} `:''}${this.props.leftAlign ? 'leftAlign':'centerAlign'}`} >
 				{ this.props.showInput ?
 					<input
 						type="text"
