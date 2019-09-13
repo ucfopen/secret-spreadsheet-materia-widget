@@ -14,7 +14,7 @@ export default class Intro extends React.Component {
 					</div>
 
 					<form className="title-container" onSubmit={this.props.onSubmit}>
-						<label for="intro-popup"><strong>Start by giving your Spreadsheet widget a title</strong></label>
+						<label htmlFor="intro-popup"><strong>Start by giving your Spreadsheet widget a title</strong></label>
 
 						<input
 							id="intro-popup"
