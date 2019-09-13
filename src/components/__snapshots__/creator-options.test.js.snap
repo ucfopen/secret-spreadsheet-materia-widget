@@ -1,0 +1,226 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] = `
+<div>
+  <div
+    className="options-bar"
+  >
+    <div
+      className="options"
+    >
+      <label>
+        OPTIONS
+      </label>
+    </div>
+    <div
+      className="style"
+    >
+      <label>
+        <strong>
+          Style:
+        </strong>
+      </label>
+      <div
+        className="active"
+        id="spreadsheet-button"
+        onClick={[MockFunction]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+      >
+        <svg
+          height="20px"
+          id="spreadsheet-checkbox-checked"
+          viewBox="0 0 28 28"
+          width="20px"
+        >
+           
+          <path
+            d="M0 0v28h28V0H0zm24 24H4V4h20v20zm-2-13l-2.828-2.828-6.768 6.982-3.576-3.576L6 14.406l6.404 6.406L22 11z"
+          />
+           
+        </svg>
+        <label>
+          Spreadsheet
+        </label>
+      </div>
+      <div
+        className="inactive"
+        id="table-button"
+        onClick={[MockFunction]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+      >
+        <svg
+          height="20px"
+          id="table-checkbox"
+          viewBox="0 0 28 28"
+          width="20px"
+        >
+           
+          <path
+            d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+          />
+           
+        </svg>
+        <label>
+          Table
+        </label>
+      </div>
+    </div>
+    <div
+      className="text"
+    >
+      <label>
+        <strong>
+          Text:
+        </strong>
+      </label>
+      <div
+        className="active"
+        id="left-button"
+        onClick={[MockFunction]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+      >
+        <svg
+          height="20px"
+          preserveAspectRatio="xMidYMid meet"
+          version="1.0"
+          viewBox="0 0 344 344"
+          width="20px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+           
+          <g
+            fill="#000000"
+            stroke="none"
+            transform="translate(0,344) scale(0.1,-0.1)"
+          >
+             
+            <path
+              d="M130 3095 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
+            />
+             
+            <path
+              d="M130 2410 l0 -140 1105 0 1105 0 0 140 0 140 -1105 0 -1105 0 0 -140z"
+            />
+             
+            <path
+              d="M130 1720 l0 -140 1590 0 1590 0 0 140 0 140 -1590 0 -1590 0 0 -140z"
+            />
+             
+            <path
+              d="M130 1030 l0 -140 1105 0 1105 0 0 140 0 140 -1105 0 -1105 0 0 -140z"
+            />
+             
+            <path
+              d="M130 345 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
+            />
+             
+          </g>
+           
+        </svg>
+      </div>
+      <div
+        className=""
+        id="center-button"
+        onClick={[MockFunction]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+      >
+        <svg
+          height="20px"
+          preserveAspectRatio="xMidYMid meet"
+          version="1.0"
+          viewBox="0 0 344 344"
+          width="20px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+           
+          <g
+            fill="#000000"
+            stroke="none"
+            transform="translate(0,344) scale(0.1,-0.1)"
+          >
+             
+            <path
+              d="M130 3095 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
+            />
+             
+            <path
+              d="M610 2410 l0 -140 1110 0 1110 0 0 140 0 140 -1110 0 -1110 0 0 -140z"
+            />
+             
+            <path
+              d="M130 1720 l0 -140 1590 0 1590 0 0 140 0 140 -1590 0 -1590 0 0 -140z"
+            />
+             
+            <path
+              d="M610 1030 l0 -140 1110 0 1110 0 0 140 0 140 -1110 0 -1110 0 0 -140z"
+            />
+             
+            <path
+              d="M130 345 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
+            />
+             
+          </g>
+           
+        </svg>
+      </div>
+    </div>
+    <div
+      className="header"
+    >
+      <label>
+        <strong>
+          Header:
+        </strong>
+      </label>
+      <div
+        className="active"
+        id="header-button"
+        onClick={[MockFunction]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+      >
+        <svg
+          height="20px"
+          id="header-checkbox-checked"
+          viewBox="0 0 28 28"
+          width="20px"
+        >
+           
+          <path
+            d="M0 0v28h28V0H0zm24 24H4V4h20v20zm-2-13l-2.828-2.828-6.768 6.982-3.576-3.576L6 14.406l6.404 6.406L22 11z"
+          />
+           
+        </svg>
+        <label>
+          First row is a header row
+        </label>
+      </div>
+    </div>
+    <div
+      className="randomize"
+    >
+      <label>
+        <strong>
+          Randomize:
+        </strong>
+      </label>
+      <div>
+        <label>
+          Randomly hide 
+          <input
+            defaultValue={1}
+            onBlur={[Function]}
+            placeholder={0}
+            type="number"
+          />
+           cell(s)
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;

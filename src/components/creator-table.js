@@ -9,11 +9,13 @@ export default class Table extends React.Component {
 		this.appendColumn = this.appendColumn.bind(this)
 		this.removeColumn = this.removeColumn.bind(this)
 		this.renderTable = this.renderTable.bind(this)
-		this.goToCell = this.goToCell.bind(this)
+		this.focusOnCell = this.focusOnCell.bind(this)
+		this.submitTable = React.createRef()
+		this.refsArray = []
 	}
 
 	// Add a row to the table, limited to 10 rows
-	appendRow(event) {
+	appendRow() {
 		const xValue = Math.min(10, parseInt(this.props.qset.dimensions.x) + 1)
 		this.setState(Object.assign(this.props.qset.dimensions,{x:xValue}));
 		const cellsArray = []
@@ -21,53 +23,57 @@ export default class Table extends React.Component {
 			cellsArray.push(this.props.cellData('', false))
 		}
 		this.props.qset.items[0].items.push(cellsArray)
-		event.preventDefault()
 	}
 
 	// Remove the last row of the table until only 1 row remains
-	removeRow(event, row, col) {
-		if(this.props.qset.dimensions.x > 1) {
+	removeRow(row, col) {
+		if (this.props.qset.dimensions.x > 1) {
 			const xValue = parseInt(this.props.qset.dimensions.x) - 1
 			this.setState(Object.assign(this.props.qset.dimensions,{x:xValue}));
 			this.props.qset.items[0].items.pop()
+			const arr = this.refsArray.slice(0)
+			arr.splice(xValue, 1)
+			this.refsArray = arr
 			if (xValue == row) {
-				this.goToCell(event, xValue - 1, col)
+				this.focusOnCell(xValue - 1, col)
 			}
-			event.preventDefault()
 		}
 	}
 
 	// Add a column to the table, limited to 10 rows
-	appendColumn(event) {
+	appendColumn() {
 		const yValue = Math.min(10, parseInt(this.props.qset.dimensions.y) + 1)
 		this.setState(Object.assign(this.props.qset.dimensions,{y:yValue}));
 		for (let i = 0; i < this.props.qset.dimensions.x; i++) {
 			this.props.qset.items[0].items[i].push(this.props.cellData('', false))
 		}
-		event.preventDefault()
 	}
 
 	// Remove the last column of the table until only 1 column remains
-	removeColumn(event, row, col) {
-		if(this.props.qset.dimensions.y > 1) {
+	removeColumn(row, col) {
+		if (this.props.qset.dimensions.y > 1) {
 			const yValue = Math.max(1, parseInt(this.props.qset.dimensions.y) - 1)
 			this.setState(Object.assign(this.props.qset.dimensions,{y:yValue}));
+			const tempRefsArr = []
 			for (let i = 0; i < this.props.qset.dimensions.x; i++) {
 				this.props.qset.items[0].items[i].pop()
+				tempRefsArr[i] = []
+				for (let j = 0; j < yValue; j++) {
+					tempRefsArr[i].push(this.refsArray[i][j])
+				}
 			}
+			this.refsArray = tempRefsArr
 			if (yValue == col) {
-				this.goToCell(event, row, yValue - 1)
+				this.focusOnCell(row, yValue - 1)
 			}
-			event.preventDefault()
 		}
 	}
 
-	goToCell(event, row, col) {
+	focusOnCell(row, col) {
 		if (row >= 0 && row < this.props.qset.dimensions.x &&
 				col >= 0 && col < this.props.qset.dimensions.y) {
-			document.getElementsByClassName(`row-${row} col-${col}`)[0].focus()
+			this.refsArray[row][col].focus()
 		}
-		event.preventDefault()
 	}
 
 	// Render a table for the creator, conditionally name the cells for css
@@ -75,6 +81,9 @@ export default class Table extends React.Component {
 		const table = []
 		for (let i = 0; i < this.props.qset.dimensions.x; i++) {
 			const row = []
+			if (this.refsArray[i] === undefined) {
+				this.refsArray[i] = []
+			}
 			for (let j = 0; j < this.props.qset.dimensions.y; j++) {
 				// Make sure data exist, use shortened variable name for readability
 				const cellData = (this.props.qset && this.props.qset.items[0].items[i] && this.props.qset.items[0].items[i][j]) || (this.props.qset && this.props.qset.items[0].items[i] && this.props.qset.items[0].items[i][j])
@@ -89,7 +98,8 @@ export default class Table extends React.Component {
 						removeColumn={this.removeColumn}
 						appendRow={this.appendRow}
 						removeRow={this.removeRow}
-						goToCell={this.goToCell}
+						focusOnCell={this.focusOnCell}
+						refsArray={this.refsArray}
 					/>
 				)
 			}
@@ -99,11 +109,11 @@ export default class Table extends React.Component {
 	}
 
 	render() {
-	return (
+		return (
 			<div className="table" >
 				<form onSubmit={this.props.onSubmit} >
 					<div className="table-elements">
-						<table onBlur={() => this.refs.submitTable.click()}>
+						<table onBlur={() => this.submitTable.current.click()}>
 							<tbody>
 								{this.renderTable()}
 							</tbody>
@@ -120,7 +130,7 @@ export default class Table extends React.Component {
 						<button onClick={this.removeRow}><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" id="svg" version="1.1" width="28" height="28" viewBox="0, 0, 400,400"><g id="svgg"><path id="path0" d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M280.000 200.000 C 280.000 207.407,244.444 213.333,200.000 213.333 C 155.556 213.333,120.000 207.407,120.000 200.000 C 120.000 192.593,155.556 186.667,200.000 186.667 C 244.444 186.667,280.000 192.593,280.000 200.000 "/></g></svg></button>
 					</div>
 
-					<input ref='submitTable' type="submit" hidden/>
+					<input ref={this.submitTable} type="submit" hidden/>
 				</form>
 			</div>
 		)

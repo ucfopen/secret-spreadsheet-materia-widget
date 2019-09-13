@@ -26,21 +26,21 @@ export default class Cell extends React.Component {
 					// Shift + PageDown     = Remove Row
 					// Ctrl/Command + Arrow = Move Cell
 					if (e.key === 'PageUp' && e.altKey) {
-						this.props.appendColumn(event)
+						this.props.appendColumn()
 					} else if (e.key === 'PageDown' && e.altKey) {
-						this.props.removeColumn(event, this.props.row, this.props.column)
+						this.props.removeColumn(this.props.row, this.props.column)
 					} else if (e.key === 'PageUp' && e.shiftKey) {
-						this.props.appendRow(event)
+						this.props.appendRow()
 					} else if (e.key === 'PageDown' && e.shiftKey) {
-						this.props.removeRow(event, this.props.row, this.props.column)
+						this.props.removeRow(this.props.row, this.props.column)
 					} else if (e.key === 'ArrowUp' && (e.ctrlKey || e.metaKey)) {
-						this.props.goToCell(event, this.props.row - 1, this.props.column)
+						this.props.focusOnCell(this.props.row - 1, this.props.column)
 					} else if (e.key === 'ArrowDown' && (e.ctrlKey || e.metaKey)) {
-						this.props.goToCell(event, this.props.row + 1, this.props.column)
+						this.props.focusOnCell(this.props.row + 1, this.props.column)
 					} else if (e.key === 'ArrowLeft' && (e.ctrlKey || e.metaKey)) {
-						this.props.goToCell(event, this.props.row, this.props.column - 1)
+						this.props.focusOnCell(this.props.row, this.props.column - 1)
 					} else if (e.key === 'ArrowRight' && (e.ctrlKey || e.metaKey)) {
-						this.props.goToCell(event, this.props.row, this.props.column + 1)
+						this.props.focusOnCell(this.props.row, this.props.column + 1)
 					}
 				}}>
 					<input

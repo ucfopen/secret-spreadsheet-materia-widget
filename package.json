@@ -6,17 +6,39 @@
 	"dependencies": {
 		"@babel/preset-react": "^7.0.0",
 		"materia-widget-development-kit": "^2.4.2",
-		"react": "^16.9.0",
+		"react": "16.9.0",
+		"react-bootstrap": "^1.0.0-beta.11",
 		"react-dom": "^16.9.0",
-		"react-test-renderer": "^16.9.0"
+		"react-test-renderer": "^16.9.0",
+		"jest": "^24.9",
+		"enzyme": "^3.10.0",
+		"enzyme-adapter-react-16": "^1.12.1"
 	},
 	"scripts": {
 		"start": "webpack-dev-server",
 		"build": "webpack -p",
-		"build-dev": "webpack"
+		"build-dev": "webpack",
+		"test": "jest"
+	},
+	"jest": {
+		"coverageReporters": [
+			"text",
+			"lcov"
+		],
+		"coverageThreshold": {
+			"global": {
+				"branches": 100,
+				"functions": 100,
+				"lines": 100,
+				"statements": 100
+			}
+		}
 	},
 	"author": "University of Central Florida, Center for Distributed Learning",
 	"description": "",
 	"license": "AGPL-3.0",
-	"version": "1.1.0"
+	"version": "1.1.0",
+	"devDependencies": {
+		"@testing-library/jest-dom": "^4.1.0"
+	}
 }

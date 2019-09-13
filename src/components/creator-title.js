@@ -3,7 +3,7 @@ import React from 'react'
 export default class Title extends React.Component {
 	render() {
 		return (
-			<div className="title-container">
+			<div className="title-bar">
 				<span className="title-text">{this.props.title}</span>
 
 				<button className="edit-title-button" onClick={this.props.editTitle}>Edit title</button>
