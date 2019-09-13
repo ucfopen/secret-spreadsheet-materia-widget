@@ -9,14 +9,16 @@ export default class Options extends React.Component {
 
 	// Make sure the value for number of randomization is within bounds
 	handleRandomizationBlur(event) {
-    event.target.value = parseInt(event.target.value)
-    if (event.target.value <= 0) {
-      this.props.qset.randomization = event.target.value = 0
-    } else if (event.target.value > (this.props.qset.dimensions.x * this.props.qset.dimensions.y)) {
-      this.props.qset.randomization = event.target.value = this.props.qset.dimensions.x * this.props.qset.dimensions.y
-    } else {
-      this.props.qset.randomization = event.target.value
-    }
+		event.target.value = parseInt(event.target.value)
+		if (event.target.value <= 0) {
+			this.props.qset.randomization = event.target.value = 0
+		}
+		else if (event.target.value > (this.props.qset.dimensions.x * this.props.qset.dimensions.y)) {
+			this.props.qset.randomization = event.target.value = this.props.qset.dimensions.x * this.props.qset.dimensions.y
+		}
+		else {
+			this.props.qset.randomization = event.target.value
+		}
 	}
 
 	render() {
@@ -103,7 +105,7 @@ export default class Options extends React.Component {
 					<h3>Randomize:</h3>
 
 					<label>
-						Randomly hide <input type="number" placeholder={0} defaultValue={this.props.qset.randomization} onBlur={this.handleRandomizationBlur}/> cell(s)
+						Randomly hide <input type="number" placeholder={0} defaultValue={this.props.qset.randomization} onChange={this.handleRandomizationBlur}/> cell(s)
 					</label>
 				</div>
 
