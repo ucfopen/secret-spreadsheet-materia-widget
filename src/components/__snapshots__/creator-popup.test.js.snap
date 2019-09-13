@@ -7,36 +7,21 @@ exports[`CreatorPopup component CreatorPopup renders popup 1`] = `
   <div
     className="popup-inner"
   >
-    <h2
-      className="popup-hidden"
-    >
-      Secret Spreadsheet - How it works:
-    </h2>
-    <div
-      className="popup-hidden"
-    >
-      <img
-        src="assets/img/creator-tutorial.jpg"
-      />
-      <p>
-        You'll create a spreadsheet and choose which cells to hide.
-      </p>
-      <p>
-        Students will attempt to fill in the hidden cells correctly.
-      </p>
-    </div>
-    <label>
-      <strong>
-        Give your Spreadsheet widget a title
-      </strong>
-    </label>
     <form
       className="title-container"
       onSubmit={[MockFunction]}
     >
+      <label
+        htmlFor="name-popup"
+      >
+        <strong>
+          Give your Spreadsheet widget a title
+        </strong>
+      </label>
       <input
         autoFocus={true}
         className="popup-input"
+        id="name-popup"
         onChange={[MockFunction]}
         placeholder="My Spreadsheet Widget"
         required="required"
@@ -46,7 +31,7 @@ exports[`CreatorPopup component CreatorPopup renders popup 1`] = `
       <input
         className="popup-submit"
         type="submit"
-        value="Get Started"
+        value="Done"
       />
     </form>
   </div>
@@ -60,36 +45,21 @@ exports[`CreatorPopup component CreatorPopup renders popup with intro 1`] = `
   <div
     className="popup-inner"
   >
-    <h2
-      className=""
-    >
-      Secret Spreadsheet - How it works:
-    </h2>
-    <div
-      className=""
-    >
-      <img
-        src="assets/img/creator-tutorial.jpg"
-      />
-      <p>
-        You'll create a spreadsheet and choose which cells to hide.
-      </p>
-      <p>
-        Students will attempt to fill in the hidden cells correctly.
-      </p>
-    </div>
-    <label>
-      <strong>
-        Start by giving your Spreadsheet widget a title
-      </strong>
-    </label>
     <form
       className="title-container"
       onSubmit={[MockFunction]}
     >
+      <label
+        htmlFor="name-popup"
+      >
+        <strong>
+          Give your Spreadsheet widget a title
+        </strong>
+      </label>
       <input
         autoFocus={true}
         className="popup-input"
+        id="name-popup"
         onChange={[MockFunction]}
         placeholder="My Spreadsheet Widget"
         required="required"
@@ -99,7 +69,7 @@ exports[`CreatorPopup component CreatorPopup renders popup with intro 1`] = `
       <input
         className="popup-submit"
         type="submit"
-        value="Get Started"
+        value="Done"
       />
     </form>
   </div>

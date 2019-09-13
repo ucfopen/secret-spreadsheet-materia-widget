@@ -35,7 +35,7 @@ export default class Options extends React.Component {
 						tabIndex={0}
 						onKeyDown={(e) => {if (e.key === 'Enter') {this.props.useSpreadsheet()}}}
 						onClick={this.props.useSpreadsheet}
-						className={`${this.props.qset.spreadsheet ? "active" : ""} hoverable`}>
+						className={`${this.props.qset.spreadsheet ? "active " : ""}hoverable`}>
 							{!this.props.qset.spreadsheet ?
 								<svg id="spreadsheet-checkbox" viewBox="0 0 28 28" width="20px" height="20px" color="lightblue"> <path d="M0 0v28h28V0H0zm24 24H4V4h20v20z"></path> </svg>
 							:
@@ -64,6 +64,7 @@ export default class Options extends React.Component {
 					<h3>Text:</h3>
 
 					<div
+						id="left"
 						tabIndex={0}
 						onKeyDown={(e) => {if (e.key === 'Enter') {this.props.useLeftAlign()}}}
 						onClick={this.props.useLeftAlign}
@@ -73,6 +74,7 @@ export default class Options extends React.Component {
 					</div>
 
 					<div
+						id="center"
 						tabIndex={0}
 						onKeyDown={(e) => {if (e.key === 'Enter') {this.props.useCenterAlign()}}}
 						onClick={this.props.useCenterAlign}
