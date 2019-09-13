@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreatorPopup component CreatorPopup renders popup 1`] = `
+<div
+  className="popup"
+>
+  <div
+    className="popup-inner"
+  >
+    <h2
+      className="popup-hidden"
+    >
+      Secret Spreadsheet - How it works:
+    </h2>
+    <div
+      className="popup-hidden"
+    >
+      <img
+        src="assets/img/creator-tutorial.jpg"
+      />
+      <p>
+        You'll create a spreadsheet and choose which cells to hide.
+      </p>
+      <p>
+        Students will attempt to fill in the hidden cells correctly.
+      </p>
+    </div>
+    <label>
+      <strong>
+        Give your Spreadsheet widget a title
+      </strong>
+    </label>
+    <form
+      className="title-container"
+      onSubmit={[MockFunction]}
+    >
+      <input
+        autoFocus={true}
+        className="popup-input"
+        onChange={[MockFunction]}
+        placeholder="My Spreadsheet Widget"
+        required="required"
+        type="text"
+        value="tock-mitle"
+      />
+      <input
+        className="popup-submit"
+        type="submit"
+        value="Get Started"
+      />
+    </form>
+  </div>
+</div>
+`;
+
+exports[`CreatorPopup component CreatorPopup renders popup with intro 1`] = `
+<div
+  className="popup"
+>
+  <div
+    className="popup-inner"
+  >
+    <h2
+      className=""
+    >
+      Secret Spreadsheet - How it works:
+    </h2>
+    <div
+      className=""
+    >
+      <img
+        src="assets/img/creator-tutorial.jpg"
+      />
+      <p>
+        You'll create a spreadsheet and choose which cells to hide.
+      </p>
+      <p>
+        Students will attempt to fill in the hidden cells correctly.
+      </p>
+    </div>
+    <label>
+      <strong>
+        Start by giving your Spreadsheet widget a title
+      </strong>
+    </label>
+    <form
+      className="title-container"
+      onSubmit={[MockFunction]}
+    >
+      <input
+        autoFocus={true}
+        className="popup-input"
+        onChange={[MockFunction]}
+        placeholder="My Spreadsheet Widget"
+        required="required"
+        type="text"
+        value="mock-title"
+      />
+      <input
+        className="popup-submit"
+        type="submit"
+        value="Get Started"
+      />
+    </form>
+  </div>
+</div>
+`;

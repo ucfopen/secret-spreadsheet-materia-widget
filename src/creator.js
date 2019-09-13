@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Intro from './components/creator-intro'
 import Popup from './components/creator-popup'
 import Title from './components/creator-title'
 import Options from './components/creator-options'
 import Table from './components/creator-table'
+import Intro from './components/creator-intro'
 
 const materiaCallbacks = {}
 
-class CreatorApp extends React.Component {
+export default class CreatorApp extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -51,12 +51,14 @@ class CreatorApp extends React.Component {
 	}
 
 	showIntro(event) {
-		this.setState({showIntro: true})
+		this.setState({showIntro: true,
+									 showPopup: false})
 		event.preventDefault()
 	}
 
 	editTitle(event) {
-		this.setState({showPopup: true})
+		this.setState({showIntro: false,
+									 showPopup: true})
 		event.preventDefault()
 	}
 
@@ -198,15 +200,13 @@ class CreatorApp extends React.Component {
 					/>
 				: "" }
 
-				<div className="title-bar">
-					<Title
-						showIntro={this.showIntro}
-						editTitle={this.editTitle}
-						title={this.state.title}
-						onChange={this.handleTitleChange}
-						onBlur={this.handleTitleBlur}
-					/>
-				</div>
+				<Title
+					showIntro={this.showIntro}
+					editTitle={this.editTitle}
+					title={this.state.title}
+					onChange={this.handleTitleChange}
+					onBlur={this.handleTitleBlur}
+				/>
 
 				<Options
 					qset={this.state.qset}
