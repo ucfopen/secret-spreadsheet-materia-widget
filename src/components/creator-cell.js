@@ -18,7 +18,7 @@ export default class Cell extends React.Component {
 	render() {
 		return (
 			<td className={`${this.props.className} ${this.props.data && this.props.data.options.blank ? "hidden" : ""} tableCell`}>
-				<div onKeyDown={(e) => {
+				<div className="cell" onKeyDown={(e) => {
 					// Keyboard controls for table:
 					// Alt + PageUp         = Add Column
 					// Alt + PageDown       = Remove Column

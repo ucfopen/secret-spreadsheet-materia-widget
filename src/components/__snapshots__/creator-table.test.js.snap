@@ -14,7 +14,7 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
         <tbody>
           <tr>
             <td
-              className="center-align  "
+              className="center-align   tableCell"
             >
               <div
                 className="cell"
@@ -44,9 +44,6 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
           </tr>
         </tbody>
       </table>
-      <button
-        hidden={true}
-      />
       <div
         className="column-buttons"
       >
@@ -166,7 +163,7 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
         <tbody>
           <tr>
             <td
-              className=" header-cell "
+              className=" header-cell  tableCell"
             >
               <div
                 className="cell"
@@ -196,9 +193,6 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
           </tr>
         </tbody>
       </table>
-      <button
-        hidden={true}
-      />
       <div
         className="column-buttons"
       >

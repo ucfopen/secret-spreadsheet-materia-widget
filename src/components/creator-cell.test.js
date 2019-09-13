@@ -21,11 +21,11 @@ const makeProps = () => {
 
 describe('CreatorCell component', function() {
 
-  beforeEach(() => {
+	beforeEach(() => {
 		jest.resetModules()
 	})
 
-  test('CreatorCell calls appendColumn', () => {
+	test('CreatorCell calls appendColumn', () => {
 		const props = {
 			appendColumn: jest.fn(),
 		}

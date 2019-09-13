@@ -72,6 +72,7 @@ export default class Table extends React.Component {
 	focusOnCell(row, col) {
 		if (row >= 0 && row < this.props.qset.dimensions.x &&
 				col >= 0 && col < this.props.qset.dimensions.y) {
+			console.log(this.refsArray);
 			this.refsArray[row][col].focus()
 		}
 	}

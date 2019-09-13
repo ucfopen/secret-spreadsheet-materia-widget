@@ -2,7 +2,7 @@
 
 exports[`CreatorCell component CreatorCell renders basic cell 1`] = `
 <td
-  className="undefined hidden"
+  className="undefined hidden tableCell"
 >
   <div
     className="cell"
