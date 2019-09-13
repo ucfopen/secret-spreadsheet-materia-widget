@@ -35,6 +35,7 @@ export default class CreatorApp extends React.Component {
 		this.useCenterAlign = this.useCenterAlign.bind(this)
 		this.useHeader = this.useHeader.bind(this)
 		this.onSaveClicked = this.onSaveClicked.bind(this)
+		this.toggleKeyboardInst = this.toggleKeyboardInst.bind(this)
 	}
 
 	// Callback when widget save is clicked
@@ -261,14 +262,14 @@ CreatorApp.defaultProps = {
 
 // Callback when a new widget is being created
 materiaCallbacks.initNewWidget = (instance) => {
-	materiaCallbacks.initExistingWidget('New Spreadsheet Widget', instance, undefined, 1)
+	materiaCallbacks.initExistingWidget('New Spreadsheet Widget', instance, undefined, 1, true)
 	return '1A4'
 }
 
 // Callback when editing an existing widget
-materiaCallbacks.initExistingWidget = (title, instance, _qset, version) => {
+materiaCallbacks.initExistingWidget = (title, instance, _qset, version, newWidget=false) => {
 	creatorInstance = ReactDOM.render(
-		<CreatorApp title={title} qset={_qset} />,
+		<CreatorApp title={title} qset={_qset} init={newWidget} />,
 		document.getElementById('root')
 	)
 	return '1A4'
