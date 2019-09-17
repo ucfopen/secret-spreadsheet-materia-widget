@@ -15,7 +15,7 @@ export default class CreatorApp extends React.Component {
 			showIntro: props.init,
 			qset: props.qset,
 			title: props.title,
-			showPopup: false,
+			showPopup: props.init,
 			showKeyControls: false
 		}
 
@@ -128,34 +128,30 @@ export default class CreatorApp extends React.Component {
 
 	// Make sure number of rows is 1-10
 	handleXChange(event) {
-		if (Number.isInteger(event.target.value)) {
-			let xValue
-			if (event.target.value < 1) {
-				xValue = 1;
-			} else if (event.target.value > 10) {
-				xValue = 10
-			} else {
-				xValue = event.target.value
-			}
-			this.setState(Object.assign(this.state.qset.dimensions,{x:xValue}))
-			event.preventDefault()
+		let xValue
+		if (event.target.value < 1) {
+			xValue = 1;
+		} else if (event.target.value > 10) {
+			xValue = 10
+		} else {
+			xValue = event.target.value
 		}
+		this.setState(Object.assign(this.state.qset.dimensions,{x:xValue}))
+		event.preventDefault()
 	}
 
 	// Make sure number of columns is 1-10
 	handleYChange(event) {
-		if (Number.isInteger(event.target.value)) {
-			let yValue
-			if (event.target.value < 1) {
-				yValue = 1;
-			} else if (event.target.value > 10) {
-				yValue = 10
-			} else {
-				yValue = event.target.value
-			}
-			this.setState(Object.assign(this.state.qset.dimensions,{y:yValue}))
-			event.preventDefault()
+		let yValue
+		if (event.target.value < 1) {
+			yValue = 1;
+		} else if (event.target.value > 10) {
+			yValue = 10
+		} else {
+			yValue = event.target.value
 		}
+		this.setState(Object.assign(this.state.qset.dimensions,{y:yValue}))
+		event.preventDefault()
 	}
 
 	useSpreadsheet() {
@@ -184,16 +180,9 @@ export default class CreatorApp extends React.Component {
 	render() {
 		return (
 			<div>
-				{this.state.showIntro ?
-					<Intro
-						onSubmit={this.handleTitleSubmit}
-						onChange={this.handleTitleChange}
-						title={this.state.title}
-					/>
-				: "" }
-
 				{this.state.showPopup ?
 					<Popup
+						showIntro={this.state.showIntro}
 						onSubmit={this.handleTitleSubmit}
 						onChange={this.handleTitleChange}
 						title={this.state.title}
@@ -278,6 +267,7 @@ materiaCallbacks.initExistingWidget = (title, instance, _qset, version, newWidge
 materiaCallbacks.onSaveClicked = () => {
 	// proxy to the class instance method
 	creatorInstance.onSaveClicked()
+	return '1A4'
 }
 
 materiaCallbacks.onSaveComplete = () => {

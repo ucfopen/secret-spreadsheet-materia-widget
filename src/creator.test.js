@@ -82,6 +82,21 @@ describe('CreatorApp component', function() {
     expect(retVal).toEqual('1A4')
   })
 
+  test('CreatorApp renders materiaCallbacks.onSaveClicked', () => {
+    const CreatorApp = require('./creator').default
+    const props = {}
+
+    jest.mock('react-dom', () => ({
+			render: mockDomRender
+    }));
+
+    global.creatorInstance = shallow(<CreatorApp {... props}/>).instance()
+
+		const callbacks = Materia.CreatorCore.start.mock.calls[0][0];
+    const retVal = callbacks.onSaveClicked()
+    expect(retVal).toEqual('1A4')
+  })
+
   test('CreatorApp renders materiaCallbacks.onSaveComplete', () => {
     require('./creator')
 
@@ -215,6 +230,19 @@ describe('CreatorApp component', function() {
     const component = shallow(<CreatorApp {... props}/>)
     component.instance().handleTableSubmit(event)
     expect(component.instance().state.qset.items[0].items[0][0].options.blank).toEqual(false)
+  })
+
+  test('CreatorApp calls toggleKeyboardInst', () => {
+    const CreatorApp = require('./creator').default
+    const props = makeProps()
+
+    const component = shallow(<CreatorApp {... props}/>)
+    expect(component.instance().state.showKeyControls).toEqual(false)
+    component.instance().toggleKeyboardInst()
+    expect(component.instance().state.showKeyControls).toEqual(true)
+    component.instance().toggleKeyboardInst()
+    expect(component.instance().state.showKeyControls).toEqual(false)
+
   })
 
   test('CreatorApp calls handleXChange with negative x value', () => {

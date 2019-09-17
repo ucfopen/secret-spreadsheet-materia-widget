@@ -191,4 +191,15 @@ describe('CreatorCell component', function() {
 		component.find({type: 'text'}).simulate('change', {target: {value: 'Test'}});
 		expect(props.data.questions[0].text).toEqual('Test')
 	})
+
+
+  test('CreatorTable calls table onBlur', () => {
+    const props = makeProps()
+
+    const component = mount(<Cell {... props}/>)
+
+    component.find({type:'text'}).simulate('blur')
+    expect(props.onSubmit).toBeCalled()
+
+  })
 })

@@ -288,7 +288,7 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
           className="table-elements"
         >
           <table
-            onBlur={[Function]}
+            id="tablet"
           >
             <tbody>
               <tr>
@@ -301,6 +301,7 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
                   >
                     <input
                       className="row-0 col-0"
+                      onBlur={[Function]}
                       onChange={[Function]}
                       placeholder="A1"
                       type="text"
@@ -323,6 +324,9 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
               </tr>
             </tbody>
           </table>
+          <button
+            hidden={true}
+          />
           <div
             className="column-buttons"
           >
@@ -767,7 +771,7 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
           className="table-elements"
         >
           <table
-            onBlur={[Function]}
+            id="tablet"
           >
             <tbody>
               <tr>
@@ -780,6 +784,7 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
                   >
                     <input
                       className="row-0 col-0"
+                      onBlur={[Function]}
                       onChange={[Function]}
                       placeholder="A1"
                       type="text"
@@ -802,6 +807,9 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
               </tr>
             </tbody>
           </table>
+          <button
+            hidden={true}
+          />
           <div
             className="column-buttons"
           >
@@ -1246,7 +1254,7 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
           className="table-elements"
         >
           <table
-            onBlur={[Function]}
+            id="tablet"
           >
             <tbody>
               <tr>
@@ -1259,6 +1267,7 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
                   >
                     <input
                       className="row-0 col-0"
+                      onBlur={[Function]}
                       onChange={[Function]}
                       placeholder="A1"
                       type="text"
@@ -1281,6 +1290,9 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
               </tr>
             </tbody>
           </table>
+          <button
+            hidden={true}
+          />
           <div
             className="column-buttons"
           >
