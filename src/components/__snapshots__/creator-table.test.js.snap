@@ -9,7 +9,7 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
       className="table-elements"
     >
       <table
-        onBlur={[Function]}
+        id="tablet"
       >
         <tbody>
           <tr>
@@ -22,6 +22,7 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
               >
                 <input
                   className="row-0 col-0"
+                  onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="A1"
                   type="text"
@@ -44,6 +45,9 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
           </tr>
         </tbody>
       </table>
+      <button
+        hidden={true}
+      />
       <div
         className="column-buttons"
       >
@@ -158,7 +162,7 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
       className="table-elements"
     >
       <table
-        onBlur={[Function]}
+        id="tablet"
       >
         <tbody>
           <tr>
@@ -171,6 +175,7 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
               >
                 <input
                   className="row-0 col-0"
+                  onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="A1"
                   type="text"
@@ -193,6 +198,9 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
           </tr>
         </tbody>
       </table>
+      <button
+        hidden={true}
+      />
       <div
         className="column-buttons"
       >
