@@ -4,7 +4,6 @@ import Popup from './components/creator-popup'
 import Title from './components/creator-title'
 import Options from './components/creator-options'
 import Table from './components/creator-table'
-import Intro from './components/creator-intro'
 
 const materiaCallbacks = {}
 let creatorInstance
