@@ -1,7 +1,7 @@
 import React from 'react'
 import Cell from './creator-cell'
 import renderer from 'react-test-renderer'
-import { shallow } from '../enzyme'
+import { shallow, mount } from '../enzyme'
 
 const makeProps = () => {
 	return {
@@ -193,13 +193,5 @@ describe('CreatorCell component', function() {
 	})
 
 
-  test('CreatorTable calls table onBlur', () => {
-    const props = makeProps()
 
-    const component = mount(<Cell {... props}/>)
-
-    component.find({type:'text'}).simulate('blur')
-    expect(props.onSubmit).toBeCalled()
-
-  })
 })

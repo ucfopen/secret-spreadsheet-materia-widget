@@ -213,6 +213,4 @@ describe('CreatorTable component', function() {
 
   })
 
-
-
 })

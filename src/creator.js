@@ -25,7 +25,6 @@ export default class CreatorApp extends React.Component {
 		this.editTitle = this.editTitle.bind(this)
 		this.handleTitleSubmit = this.handleTitleSubmit.bind(this)
 		this.handleTitleChange = this.handleTitleChange.bind(this)
-		this.handleTableSubmit = this.handleTableSubmit.bind(this)
 		this.handleXChange = this.handleXChange.bind(this)
 		this.handleYChange = this.handleYChange.bind(this)
 		this.useSpreadsheet = this.useSpreadsheet.bind(this)
@@ -48,7 +47,7 @@ export default class CreatorApp extends React.Component {
 
 	showIntro(event) {
 		this.setState({showIntro: true,
-									 showPopup: false})
+									 showPopup: true})
 		event.preventDefault()
 	}
 
@@ -73,26 +72,6 @@ export default class CreatorApp extends React.Component {
 		event.preventDefault()
 	}
 
-	// Save the submitted spreadsheet of data into the qset
-	handleTableSubmit(event) {
-		this.state.qset.items[0].items = []
-		for (let i = 0; i < this.state.qset.dimensions.x; i++) {
-			const cellsArray = []
-			// Incrementing by 2 to account for both the checkbox and text input
-			for (let j = 0; j < this.state.qset.dimensions.y * 2; j += 2) {
-				if (i == 0 && this.state.qset.header) {
-					event.target[i * this.state.qset.dimensions.y * 2 + j + 1].checked = false
-				}
-				const value = event.target[i * this.state.qset.dimensions.y * 2 + j].value
-				const check = event.target[i * this.state.qset.dimensions.y * 2 + j + 1].checked
-				cellsArray.push(
-					this.cellData(value, check)
-				)
-			}
-			this.state.qset.items[0].items.push(cellsArray)
-		}
-		event.preventDefault()
-	}
 
 	toggleKeyboardInst() {
 		if (this.state.showKeyControls) {
@@ -228,7 +207,6 @@ export default class CreatorApp extends React.Component {
 					<Table
 						cellData={this.cellData}
 						qset={this.state.qset}
-						onSubmit={this.handleTableSubmit}
 					/>
 				</div>
 			</div>
@@ -251,6 +229,7 @@ CreatorApp.defaultProps = {
 // Callback when a new widget is being created
 materiaCallbacks.initNewWidget = (instance) => {
 	materiaCallbacks.initExistingWidget('New Spreadsheet Widget', instance, undefined, 1, true)
+
 	return '1A4'
 }
 
@@ -275,5 +254,5 @@ materiaCallbacks.onSaveComplete = () => {
 }
 
 
-// Tell materia we're ready and give it2 a reference to our callbacks
+// Tell materia we're ready and give it a reference to our callbacks
 Materia.CreatorCore.start(materiaCallbacks)
