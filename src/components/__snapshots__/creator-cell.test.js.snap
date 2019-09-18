@@ -10,7 +10,6 @@ exports[`CreatorCell component CreatorCell renders basic cell 1`] = `
   >
     <input
       className="row-0 col-0"
-      onBlur={[Function]}
       onChange={[Function]}
       placeholder="A1"
       type="text"

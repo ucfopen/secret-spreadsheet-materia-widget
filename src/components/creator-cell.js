@@ -44,7 +44,6 @@ export default class Cell extends React.Component {
 					}
 				}}>
 					<input
-						onBlur={() => this.props.submitTable.current.click()}
 					  ref={el => {this.props.refsArray[this.props.row][this.props.column] = el}}
 						className={`row-${this.props.row} col-${this.props.column}`}
 						type="text"
