@@ -5,53 +5,55 @@ class Cell extends React.Component {
 		super(props);
 		this.state = {
 			value: '',
+			colorClass: 'unanswered',
 			firstFocus: true
 		}
 		this.handleChange = this.handleChange.bind(this);
-		this.cell = React.createRef();
 		this.input = React.createRef();
 	}
 
+	// controlled component function
 	handleChange(event) {
 		this.setState({
-			value: event.target.value
+			value: event.target.value,
+			colorClass: this.state.colorClass,
+			firstFocus: this.state.firstFocus
 		});
 	}
 
+	// this can be improved
 	componentDidUpdate() {
-		const cellComponent = this.cell.current;
-		const inputComponent = this.input.current;
-
-		if (this.props.showInput) {
-			if (this.state.value !== '') {
-				cellComponent.classList.remove('unanswered');
-				cellComponent.classList.add('answered');
-
-				inputComponent.classList.remove('unanswered');
-				inputComponent.classList.add('answered');
-			}
-			else {
-				cellComponent.classList.remove('answered');
-				cellComponent.classList.add('unanswered');
-
-				inputComponent.classList.remove('answered');
-				inputComponent.classList.add('unanswered');
-			}
+		if (this.state.value !== '' && this.state.colorClass === 'unanswered') {
+			this.setState({
+				value: this.state.value,
+				colorClass: 'answered',
+				firstFocus: this.state.firstFocus
+			});
+		}
+		else if (this.state.value === '' && this.state.colorClass === 'answered') {
+			this.setState({
+				value: this.state.value,
+				colorClass: 'unanswered',
+				firstFocus: this.state.firstFocus
+			});
 		}
 
-		if (this.props.firstInput && this.props.focus && this.state.firstFocus && inputComponent !== null) {
-			inputComponent.focus();
+		// will only focus on the first render after the popup is closed; and will only work on the first input
+		if (this.props.firstInput && this.props.focus && this.state.firstFocus && this.input.current !== null) {
+			this.input.current.focus();
 
 			this.setState({
+				value: this.state.value,
+				colorClass: this.state.colorClass,
 				firstFocus: false
 			});
 		}
 	}
 
 	render() {
-		// test if it should display an input box or if it should show some text
+		// test if it should display an input box or if it should show the text
 		return(
-			<td id={this.props.id} className={`${this.props.showInput ? 'unanswered ':''}${this.props.leftAlign ? 'leftAlign':'centerAlign'}`} ref={this.cell}>
+			<td id={this.props.id} className={`${this.props.showInput ? `${this.state.colorClass} `:''}${this.props.leftAlign ? 'leftAlign':'centerAlign'}`} >
 				{ this.props.showInput ?
 					<input
 						type="text"
@@ -59,7 +61,7 @@ class Cell extends React.Component {
 						value={this.state.value}
 						onChange={this.handleChange}
 						onBlur={this.props.saveAnswer}
-						className="unanswered"
+						className={this.state.colorClass}
 						ref={this.input}
 						placeholder="?"
 					/>
