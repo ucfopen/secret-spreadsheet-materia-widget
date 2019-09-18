@@ -67,6 +67,10 @@ exports[`PlayerTable component Rendered centered, no header, with labels 1`] = `
       id="column-labels"
     >
       <th
+        className="label skinny"
+        id="col-label-0"
+      />
+      <th
         className="label"
         id="col-label-1"
       >
@@ -349,6 +353,10 @@ exports[`PlayerTable component Rendered leftAligned, no header, with labels 1`] 
     <tr
       id="column-labels"
     >
+      <th
+        className="label skinny"
+        id="col-label-0"
+      />
       <th
         className="label"
         id="col-label-1"
