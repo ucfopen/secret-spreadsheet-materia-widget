@@ -56,11 +56,9 @@ class PlayerTable extends React.Component {
 			const cells = [];
 
 			// add in the leftmost label (above the row labels)
-			if (this.props.header) {
-				cells.push(
-					<th key="col-label-0" id="col-label-0" className="label skinny" />
-				);
-			}
+			cells.push(
+				<th key="col-label-0" id="col-label-0" className="label skinny" />
+			);
 
 			for (let i=0;i<this.props.dimensions.y;i++) {
 				const b26Number = this.convertNumberToLetters(i);
