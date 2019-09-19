@@ -1,0 +1,686 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayerTable component Rendered centered, no header, no labels 1`] = `
+<table>
+  <thead />
+  <tbody>
+    <tr
+      id="row0"
+    >
+      <td
+        className="centerAlign"
+        id="cell0"
+      >
+        <span>
+          Show 1
+        </span>
+      </td>
+      <td
+        className="unanswered centerAlign"
+        id="cell1"
+      >
+        <input
+          className="unanswered"
+          id="1-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="?"
+          type="text"
+          value=""
+        />
+      </td>
+    </tr>
+    <tr
+      id="row1"
+    >
+      <td
+        className="unanswered centerAlign"
+        id="cell2"
+      >
+        <input
+          className="unanswered"
+          id="2-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="?"
+          type="text"
+          value=""
+        />
+      </td>
+      <td
+        className="centerAlign"
+        id="cell3"
+      >
+        <span>
+          Show 2
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`PlayerTable component Rendered centered, no header, with labels 1`] = `
+<table>
+  <thead>
+    <tr
+      id="column-labels"
+    >
+      <th
+        className="label skinny"
+        id="col-label-0"
+      />
+      <th
+        className="label"
+        id="col-label-1"
+      >
+        A
+      </th>
+      <th
+        className="label"
+        id="col-label-2"
+      >
+        B
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      id="row0"
+    >
+      <td
+        className="label skinny"
+        id="row-label-1"
+      >
+        1
+      </td>
+      <td
+        className="centerAlign"
+        id="cell0"
+      >
+        <span>
+          Show 1
+        </span>
+      </td>
+      <td
+        className="unanswered centerAlign"
+        id="cell1"
+      >
+        <input
+          className="unanswered"
+          id="1-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="?"
+          type="text"
+          value=""
+        />
+      </td>
+    </tr>
+    <tr
+      id="row1"
+    >
+      <td
+        className="label skinny"
+        id="row-label-2"
+      >
+        2
+      </td>
+      <td
+        className="unanswered centerAlign"
+        id="cell2"
+      >
+        <input
+          className="unanswered"
+          id="2-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="?"
+          type="text"
+          value=""
+        />
+      </td>
+      <td
+        className="centerAlign"
+        id="cell3"
+      >
+        <span>
+          Show 2
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`PlayerTable component Rendered centered, with header, no labels 1`] = `
+<table>
+  <thead>
+    <tr
+      id="row0"
+    >
+      <th
+        className="centerAlign header"
+        id="cell0"
+      >
+        Show 1
+      </th>
+      <th
+        className="centerAlign header"
+        id="cell1"
+      >
+        Hide 1
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      id="row1"
+    >
+      <td
+        className="unanswered centerAlign"
+        id="cell2"
+      >
+        <input
+          className="unanswered"
+          id="2-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="?"
+          type="text"
+          value=""
+        />
+      </td>
+      <td
+        className="centerAlign"
+        id="cell3"
+      >
+        <span>
+          Show 2
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`PlayerTable component Rendered centered, with header, with labels 1`] = `
+<table>
+  <thead>
+    <tr
+      id="column-labels"
+    >
+      <th
+        className="label skinny"
+        id="col-label-0"
+      />
+      <th
+        className="label"
+        id="col-label-1"
+      >
+        A
+      </th>
+      <th
+        className="label"
+        id="col-label-2"
+      >
+        B
+      </th>
+    </tr>
+    <tr
+      id="row0"
+    >
+      <th
+        className="label skinny"
+        id="row-label-1"
+      >
+        1
+      </th>
+      <th
+        className="centerAlign header"
+        id="cell0"
+      >
+        Show 1
+      </th>
+      <th
+        className="centerAlign header"
+        id="cell1"
+      >
+        Hide 1
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      id="row1"
+    >
+      <td
+        className="label skinny"
+        id="row-label-2"
+      >
+        2
+      </td>
+      <td
+        className="unanswered centerAlign"
+        id="cell2"
+      >
+        <input
+          className="unanswered"
+          id="2-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="?"
+          type="text"
+          value=""
+        />
+      </td>
+      <td
+        className="centerAlign"
+        id="cell3"
+      >
+        <span>
+          Show 2
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`PlayerTable component Rendered leftAligned, no header, no labels 1`] = `
+<table>
+  <thead />
+  <tbody>
+    <tr
+      id="row0"
+    >
+      <td
+        className="leftAlign"
+        id="cell0"
+      >
+        <span>
+          Show 1
+        </span>
+      </td>
+      <td
+        className="unanswered leftAlign"
+        id="cell1"
+      >
+        <input
+          className="unanswered"
+          id="1-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="?"
+          type="text"
+          value=""
+        />
+      </td>
+    </tr>
+    <tr
+      id="row1"
+    >
+      <td
+        className="unanswered leftAlign"
+        id="cell2"
+      >
+        <input
+          className="unanswered"
+          id="2-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="?"
+          type="text"
+          value=""
+        />
+      </td>
+      <td
+        className="leftAlign"
+        id="cell3"
+      >
+        <span>
+          Show 2
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`PlayerTable component Rendered leftAligned, no header, with labels 1`] = `
+<table>
+  <thead>
+    <tr
+      id="column-labels"
+    >
+      <th
+        className="label skinny"
+        id="col-label-0"
+      />
+      <th
+        className="label"
+        id="col-label-1"
+      >
+        A
+      </th>
+      <th
+        className="label"
+        id="col-label-2"
+      >
+        B
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      id="row0"
+    >
+      <td
+        className="label skinny"
+        id="row-label-1"
+      >
+        1
+      </td>
+      <td
+        className="leftAlign"
+        id="cell0"
+      >
+        <span>
+          Show 1
+        </span>
+      </td>
+      <td
+        className="unanswered leftAlign"
+        id="cell1"
+      >
+        <input
+          className="unanswered"
+          id="1-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="?"
+          type="text"
+          value=""
+        />
+      </td>
+    </tr>
+    <tr
+      id="row1"
+    >
+      <td
+        className="label skinny"
+        id="row-label-2"
+      >
+        2
+      </td>
+      <td
+        className="unanswered leftAlign"
+        id="cell2"
+      >
+        <input
+          className="unanswered"
+          id="2-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="?"
+          type="text"
+          value=""
+        />
+      </td>
+      <td
+        className="leftAlign"
+        id="cell3"
+      >
+        <span>
+          Show 2
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`PlayerTable component Rendered leftAligned, with header, no labels 1`] = `
+<table>
+  <thead>
+    <tr
+      id="row0"
+    >
+      <th
+        className="leftAlign header"
+        id="cell0"
+      >
+        Show 1
+      </th>
+      <th
+        className="leftAlign header"
+        id="cell1"
+      >
+        Hide 1
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      id="row1"
+    >
+      <td
+        className="unanswered leftAlign"
+        id="cell2"
+      >
+        <input
+          className="unanswered"
+          id="2-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="?"
+          type="text"
+          value=""
+        />
+      </td>
+      <td
+        className="leftAlign"
+        id="cell3"
+      >
+        <span>
+          Show 2
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`PlayerTable component Rendered leftAligned, with header, with labels 1`] = `
+<table>
+  <thead>
+    <tr
+      id="column-labels"
+    >
+      <th
+        className="label skinny"
+        id="col-label-0"
+      />
+      <th
+        className="label"
+        id="col-label-1"
+      >
+        A
+      </th>
+      <th
+        className="label"
+        id="col-label-2"
+      >
+        B
+      </th>
+    </tr>
+    <tr
+      id="row0"
+    >
+      <th
+        className="label skinny"
+        id="row-label-1"
+      >
+        1
+      </th>
+      <th
+        className="leftAlign header"
+        id="cell0"
+      >
+        Show 1
+      </th>
+      <th
+        className="leftAlign header"
+        id="cell1"
+      >
+        Hide 1
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      id="row1"
+    >
+      <td
+        className="label skinny"
+        id="row-label-2"
+      >
+        2
+      </td>
+      <td
+        className="unanswered leftAlign"
+        id="cell2"
+      >
+        <input
+          className="unanswered"
+          id="2-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="?"
+          type="text"
+          value=""
+        />
+      </td>
+      <td
+        className="leftAlign"
+        id="cell3"
+      >
+        <span>
+          Show 2
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`PlayerTable component Rendered with randomness and a header 1`] = `
+<table>
+  <thead>
+    <tr
+      id="row0"
+    >
+      <th
+        className="centerAlign header"
+        id="cell0"
+      >
+        Show 1
+      </th>
+      <th
+        className="centerAlign header"
+        id="cell1"
+      >
+        Hide 1
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      id="row1"
+    >
+      <td
+        className="unanswered centerAlign"
+        id="cell2"
+      >
+        <input
+          className="unanswered"
+          id="2-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="?"
+          type="text"
+          value=""
+        />
+      </td>
+      <td
+        className="centerAlign"
+        id="cell3"
+      >
+        <span>
+          Show 2
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`PlayerTable component Rendered with randomness and no header 1`] = `
+<table>
+  <thead />
+  <tbody>
+    <tr
+      id="row0"
+    >
+      <td
+        className="centerAlign"
+        id="cell0"
+      >
+        <span>
+          Show 1
+        </span>
+      </td>
+      <td
+        className="unanswered centerAlign"
+        id="cell1"
+      >
+        <input
+          className="unanswered"
+          id="1-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="?"
+          type="text"
+          value=""
+        />
+      </td>
+    </tr>
+    <tr
+      id="row1"
+    >
+      <td
+        className="unanswered centerAlign"
+        id="cell2"
+      >
+        <input
+          className="unanswered"
+          id="2-input"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="?"
+          type="text"
+          value=""
+        />
+      </td>
+      <td
+        className="centerAlign"
+        id="cell3"
+      >
+        <span>
+          Show 2
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
