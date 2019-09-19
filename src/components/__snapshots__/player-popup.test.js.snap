@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popup component Is rendered 1`] = `
+<div
+  className="popup"
+>
+  <div>
+    <h2>
+      Secret Spreadsheet - How it works:
+    </h2>
+    <div>
+      <img
+        alt="Secret Spreadsheet Instructions"
+        src="assets/img/player-instruction-placeholder.jpg"
+      />
+      <p>
+        Cells of this spreadsheet have been 
+        <strong>
+          intentionally hidden.
+        </strong>
+      </p>
+      <p>
+        Input the hidden data correctly to restore the spreadsheet.
+      </p>
+    </div>
+    <button
+      onClick={[MockFunction]}
+      type="button"
+      value="Got it!"
+    >
+      Got it!
+    </button>
+  </div>
+</div>
+`;

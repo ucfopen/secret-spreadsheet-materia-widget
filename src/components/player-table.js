@@ -10,6 +10,7 @@ class PlayerTable extends React.Component {
 	// when a box is deselected, add/overwrite in answers and pass to parent
 	saveAnswer(event) {
 		const newAnswers = this.props.parentAnswers;
+
 		// check if the user answered this with a non blank answer for the first time
 		const fromBlankToFilled = event.target.value !== '' &&
 								  (!this.props.parentAnswers.hasOwnProperty(event.target.id) ||
@@ -22,6 +23,10 @@ class PlayerTable extends React.Component {
 
 	// converts a decimal number to a base26 letter system, like in excel
 	convertNumberToLetters(number) {
+		if (typeof number !== 'number') {
+			console.error('Error in convertNumberToLetters: did not recieve a number');
+		}
+
 		if (number < 0) {
 			return 'A';
 		}
@@ -50,12 +55,10 @@ class PlayerTable extends React.Component {
 		if (this.props.spreadsheet) {
 			const cells = [];
 
-			// add this later when you add the sides
-			if (this.props.header) {
-				cells.push(
-					<th key="col-label-0" id="col-label-0" className="label skinny" />
-				);
-			}
+			// add in the leftmost label (above the row labels)
+			cells.push(
+				<th key="col-label-0" id="col-label-0" className="label skinny" />
+			);
 
 			for (let i=0;i<this.props.dimensions.y;i++) {
 				const b26Number = this.convertNumberToLetters(i);
@@ -106,7 +109,7 @@ class PlayerTable extends React.Component {
 						<th
 							key={cellID}
 							id={cellID}
-							className={`${this.props.leftAlign ? 'leftAlign':'centerAlign'}${this.props.header ? ' header':''}`}
+							className={`${this.props.leftAlign ? 'leftAlign':'centerAlign'} header`}
 						>
 							{question.questions[0].text}
 						</th>
@@ -122,6 +125,7 @@ class PlayerTable extends React.Component {
 					question.options.blank
 					: this.props.randPositions.has(counter);
 
+				// total number of blank questions for for the question tally
 				if (this.props.randCount === 0 && question.options.blank) {
 					this.props.countBlanks(counter);
 				}
