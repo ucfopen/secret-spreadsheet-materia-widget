@@ -206,7 +206,6 @@ exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] =
     <label>
       Randomly hide 
       <input
-        defaultValue={1}
         onChange={[Function]}
         placeholder={0}
         type="number"

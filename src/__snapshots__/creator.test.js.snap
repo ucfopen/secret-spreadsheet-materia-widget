@@ -235,7 +235,6 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
       <label>
         Randomly hide 
         <input
-          defaultValue={0}
           onChange={[Function]}
           placeholder={0}
           type="number"
@@ -720,7 +719,6 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
       <label>
         Randomly hide 
         <input
-          defaultValue={0}
           onChange={[Function]}
           placeholder={0}
           type="number"
@@ -1205,7 +1203,6 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
       <label>
         Randomly hide 
         <input
-          defaultValue={0}
           onChange={[Function]}
           placeholder={0}
           type="number"
