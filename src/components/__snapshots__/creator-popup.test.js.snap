@@ -16,7 +16,7 @@ exports[`CreatorPopup component CreatorPopup renders popup 1`] = `
       className="popup-hidden"
     >
       <img
-        src="assets/img/creator-tutorial.jpg"
+        src="assets/img/player-instruction-placeholder.jpg"
       />
       <p>
         You'll create a spreadsheet and choose which cells to hide.
@@ -72,7 +72,7 @@ exports[`CreatorPopup component CreatorPopup renders popup with intro 1`] = `
       className=""
     >
       <img
-        src="assets/img/creator-tutorial.jpg"
+        src="assets/img/player-instruction-placeholder.jpg"
       />
       <p>
         You'll create a spreadsheet and choose which cells to hide.

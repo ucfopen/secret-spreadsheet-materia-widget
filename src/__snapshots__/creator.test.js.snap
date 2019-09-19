@@ -448,7 +448,7 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
         className=""
       >
         <img
-          src="assets/img/creator-tutorial.jpg"
+          src="assets/img/player-instruction-placeholder.jpg"
         />
         <p>
           You'll create a spreadsheet and choose which cells to hide.
@@ -932,7 +932,7 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
         className=""
       >
         <img
-          src="assets/img/creator-tutorial.jpg"
+          src="assets/img/player-instruction-placeholder.jpg"
         />
         <p>
           You'll create a spreadsheet and choose which cells to hide.
