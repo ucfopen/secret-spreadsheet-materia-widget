@@ -129,7 +129,7 @@ class PlayerApp extends React.Component {
 			<div>
 				<header>
 					<h1>{this.props.title}</h1>
-					{this.state.popup ? null:<button type="button" value="Help" onClick={this.handlePopupToggle}><img src="./assets/img/question-mark.png" />Help</button>}
+					{this.state.popup ? null:<button type="button" value="Help" onClick={this.handlePopupToggle}><img src="./assets/img/question-mark.svg" />Help</button>}
 				</header>
 
 				<main>
