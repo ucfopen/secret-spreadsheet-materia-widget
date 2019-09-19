@@ -10,9 +10,11 @@ export default class Options extends React.Component {
 	// Make sure the value for number of randomization is within bounds
 	handleRandomizationChange(event) {
 		event.target.value = parseInt(event.target.value)
+		// Lower limit is 0 (no randomization)
 		if (event.target.value <= 0) {
 			this.setState(Object.assign(this.props.qset,{randomization:0}));
 		}
+		// Upper limit changes depending on whether header row is enabled
 		else if (event.target.value > ((!this.props.qset.header ? this.props.qset.dimensions.x : (this.props.qset.dimensions.x - 1) ) * this.props.qset.dimensions.y)) {
 			this.setState(Object.assign(this.props.qset,{randomization:((!this.props.qset.header ? this.props.qset.dimensions.x : (this.props.qset.dimensions.x - 1) ) * this.props.qset.dimensions.y)}));
 		}
@@ -107,7 +109,7 @@ export default class Options extends React.Component {
 					<h3>Randomize:</h3>
 
 					<label>
-						Randomly hide <input type="number" placeholder={0} defaultValue={this.props.qset.randomization} value={this.props.qset.randomization} onChange={this.handleRandomizationChange}/> cell(s)
+						Randomly hide <input type="number" placeholder={0} value={this.props.qset.randomization} onChange={this.handleRandomizationChange}/> cell(s)
 					</label>
 				</div>
 

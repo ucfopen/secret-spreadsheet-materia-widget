@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import Cell from './creator-cell'
 
 export default class Table extends React.Component {
@@ -11,6 +10,7 @@ export default class Table extends React.Component {
 		this.removeColumn = this.removeColumn.bind(this)
 		this.renderTable = this.renderTable.bind(this)
 		this.focusOnCell = this.focusOnCell.bind(this)
+		// Used when placing focus on cells
 		this.refsArray = []
 	}
 
@@ -18,10 +18,13 @@ export default class Table extends React.Component {
 	appendRow() {
 		const xValue = Math.min(10, parseInt(this.props.qset.dimensions.x) + 1)
 		this.setState(Object.assign(this.props.qset.dimensions,{x:xValue}));
+
+		// Fill the cells in the row with empty cell data
 		const cellsArray = []
 		for (let i = 0; i < this.props.qset.dimensions.y; i++) {
 			cellsArray.push(this.props.cellData('', false))
 		}
+
 		this.props.qset.items[0].items.push(cellsArray)
 	}
 
@@ -29,11 +32,17 @@ export default class Table extends React.Component {
 	removeRow(row, col) {
 		if (this.props.qset.dimensions.x > 1) {
 			const xValue = parseInt(this.props.qset.dimensions.x) - 1
+
+			// If focus is currently in the row being removed, focus on a previous row
 			if (xValue == row) {
 				this.focusOnCell(xValue - 1, col)
 			}
+
 			this.setState(Object.assign(this.props.qset.dimensions,{x:xValue}));
+
 			this.props.qset.items[0].items.pop()
+
+			// Also remove the row from refsArray
 			const arr = this.refsArray.slice(0)
 			arr.splice(xValue, 1)
 			this.refsArray = arr
@@ -44,6 +53,8 @@ export default class Table extends React.Component {
 	appendColumn() {
 		const yValue = Math.min(10, parseInt(this.props.qset.dimensions.y) + 1)
 		this.setState(Object.assign(this.props.qset.dimensions,{y:yValue}));
+
+		// Fill the cells in the column with empty cell data
 		for (let i = 0; i < this.props.qset.dimensions.x; i++) {
 			this.props.qset.items[0].items[i].push(this.props.cellData('', false))
 		}
@@ -53,19 +64,25 @@ export default class Table extends React.Component {
 	removeColumn(row, col) {
 		if (this.props.qset.dimensions.y > 1) {
 			const yValue = Math.max(1, parseInt(this.props.qset.dimensions.y) - 1)
+
+			// If focus is currently in the column being removed, focus on a previous column
 			if (yValue == col) {
 				this.focusOnCell(row, yValue - 1)
 			}
+
 			this.setState(Object.assign(this.props.qset.dimensions,{y:yValue}));
 			for (let i = 0; i < this.props.qset.dimensions.x; i++) {
 				this.props.qset.items[0].items[i].pop()
 			}
+
+			// Remove column from refsArray
 			for (let i = this.props.qset.dimensions.x - 1; i >= 0; i--) {
 				this.refsArray[i].splice(this.props.qset.dimensions.y, 1)
 			}
 		}
 	}
 
+	// return value for testing
 	focusOnCell(row, col) {
 		if (row >= 0 && row < this.props.qset.dimensions.x &&
 				col >= 0 && col < this.props.qset.dimensions.y) {
@@ -74,10 +91,9 @@ export default class Table extends React.Component {
 		} else {
 			return 0
 		}
-
 	}
 
-	// Render a table for the creator, conditionally name the cells for css
+	// Render a table for the creator
 	renderTable() {
 		const table = []
 		for (let i = 0; i < this.props.qset.dimensions.x; i++) {
@@ -90,6 +106,7 @@ export default class Table extends React.Component {
 				const cellData = (this.props.qset && this.props.qset.items[0].items[i] && this.props.qset.items[0].items[i][j])
 				row.push(
 					<Cell
+						// conditionally name the cells for css
 						className={`${this.props.qset.left ? '' : 'center-align'} ${i == 0 && this.props.qset.header ? 'header-cell' : ''}`}
 						key={`${i} - ${j}`}
 						data={cellData}

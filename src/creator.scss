@@ -47,13 +47,11 @@ input[type='submit'], button, .hoverable {
 	bottom: 0;
 	margin: auto;
 	background-color: rgba(0, 0, 0, 0.6);
-	z-index: 69696969;
+	z-index: 45;
 	overflow: auto;
 }
 
-.popup-hidden {
-	display: none !important;
-}
+
 
 .popup-inner {
 	width: 40rem;
@@ -64,6 +62,10 @@ input[type='submit'], button, .hoverable {
 	overflow: hidden;
 	justify-items: center;
 	align-items: center;
+
+	.popup-hidden {
+		display: none;
+	}
 
 	div {
 		background-color: rgba(0, 0, 0, 0.07);
