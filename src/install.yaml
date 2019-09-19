@@ -19,11 +19,15 @@ score:
   score_module: SpreadsheetWidget
 meta_data:
   features:
+    - Customizable
     - Scorable
-    - Custom
   supported_data:
     - Question/Answer
   about: >
-    Widget to test out creation and filling in of spreadsheets.
+    In Spreadsheet, fill in the blanks in
+    the spreadsheet. The blanks can be
+    randomly generated or preselected.
   excerpt: >
-    Spreadsheet creation and testing.
+    Students are provided with a
+    spreadsheet that is missing some
+    information and must fill in the gaps.
