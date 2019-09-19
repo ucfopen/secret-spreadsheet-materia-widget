@@ -1,11 +1,13 @@
 {
-	"name": "Spreadsheet",
+	"name": "@ucfopen/spreadsheet",
 	"materia": {
-		"cleanName": "spreadsheet-widget"
+		"cleanName": "spreadsheet"
 	},
 	"dependencies": {
+		"materia-widget-development-kit": "^2.4.2"
+	},
+	"devDependencies": {
 		"@babel/preset-react": "^7.0.0",
-		"materia-widget-development-kit": "^2.4.2",
 		"react": "16.9.0",
 		"react-dom": "^16.9.0",
 		"react-test-renderer": "^16.9.0",
@@ -17,7 +19,9 @@
 		"start": "webpack-dev-server",
 		"build": "webpack -p",
 		"build-dev": "webpack",
-		"test": "jest"
+		"test": "jest",
+		"test": "TZ='America/New_York' jest --verbose",
+		"test-ci": "TZ='America/New_York' CI=true jest --ci --useStderr --coverage --coverageReporters text-summary cobertura"
 	},
 	"jest": {
 		"coverageReporters": [
@@ -34,7 +38,7 @@
 		}
 	},
 	"author": "University of Central Florida, Center for Distributed Learning",
-	"description": "",
+	"description": "Spreadsheet is a Materia Widget that has students fill in the blanks of a spreadsheet.",
 	"license": "AGPL-3.0",
-	"version": "1.1.0"
+	"version": "1.0.0"
 }
