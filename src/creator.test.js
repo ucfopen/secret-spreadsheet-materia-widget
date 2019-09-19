@@ -10,14 +10,14 @@ const genEvent = {
   preventDefault: jest.fn(),
 }
 
-const makeProps = (init = true, left = false, header = false, spreadsheet = false) => {
+const makeProps = (init = true, left = false, header = false, spreadsheet = false, randomization = 0) => {
   return {
     title: 'New Spreadsheet Widget',
     qset: {
       'left': left,
       'header': header,
       'spreadsheet': spreadsheet,
-      'randomization': 0,
+      'randomization': randomization,
       'dimensions': {'x': 1, 'y': 1},
       'items': [{'items': []}]
     },
@@ -37,12 +37,9 @@ describe('CreatorApp component', function() {
         cancelSave: jest.fn(),
       }
     }
-
-    global.creatorInstance = {
-      onSaveClicked: jest.fn(),
-    }
-
   })
+
+  enzyme.configure({ adapter: new Adapter() })
 
   test('CreatorApp calls CreatorCore start', () => {
     require('./creator')
@@ -86,27 +83,21 @@ describe('CreatorApp component', function() {
     expect(retVal).toEqual('1A4')
   })
 
-  // creatorInstance is undefined
-  /*
   test('CreatorApp calls materiaCallbacks.onSaveClicked', () => {
-    const CreatorApp = require('./creator').default
-    console.log(CreatorApp)
-    console.log(global)
-    const props = {}
-
-    CreatorApp.creatorInstance = {
-      onSaveClicked: jest.fn(),
-    }
+    require('./creator').default
 
     jest.mock('react-dom', () => ({
-			render: mockDomRender
+			render: jest.fn().mockReturnValue({onSaveClicked: jest.fn()})
     }));
 
+    const mockOnSaveClicked = require('react-dom').render().onSaveClicked
+
     const callbacks = Materia.CreatorCore.start.mock.calls[0][0];
-    const retVal = callbacks.onSaveClicked()
-    expect(retVal).toEqual('1A4')
+    callbacks.initExistingWidget('', {}, {}, 1)
+    expect(mockOnSaveClicked).not.toHaveBeenCalled()
+    callbacks.onSaveClicked()
+    expect(mockOnSaveClicked).toHaveBeenCalled()
   })
-*/
 
   test('CreatorApp calls materiaCallbacks.onSaveComplete', () => {
     require('./creator')
@@ -144,7 +135,7 @@ describe('CreatorApp component', function() {
     expect(tree).toMatchSnapshot()
   })
 
-  enzyme.configure({ adapter: new Adapter() })
+
   test('CreatorApp calls onSaveClicked - save', () => {
     const CreatorApp = require('./creator').default
     const props = makeProps()
@@ -364,6 +355,48 @@ describe('CreatorApp component', function() {
     expect(component.instance().state.qset.header).toEqual(true)
     component.instance().useHeader(event)
     expect(component.instance().state.qset.header).toEqual(false)
+  })
+
+  test('CreatorApp toggles on header to lower upper limit on randomization number', () => {
+    const CreatorApp = require('./creator').default
+    const props = makeProps(true, false, false, false, 1)
+    const event = genEvent
+
+    const component = shallow(<CreatorApp {... props}/>)
+    expect(component.instance().state.qset.randomization).toEqual(1)
+    component.instance().useHeader(event)
+    expect(component.instance().state.qset.header).toEqual(true)
+    expect(component.instance().state.qset.randomization).toEqual(0)
+  })
+
+  test('CreatorApp toggles keyboard control with onClick', () => {
+    const CreatorApp = require('./creator').default
+    const props = makeProps()
+
+    const component = shallow(<CreatorApp {... props}/>)
+
+    component.find('.keyboard-controls-div').simulate('Click')
+    expect(component.instance().state.showKeyControls).toEqual(true)
+  })
+
+  test('CreatorApp toggles keyboard control with Enter keyPress', () => {
+    const CreatorApp = require('./creator').default
+    const props = makeProps()
+
+    const component = shallow(<CreatorApp {... props}/>)
+
+    component.find('.keyboard-controls-spam').simulate('keypress', {key: 'Enter'})
+    expect(component.instance().state.showKeyControls).toEqual(true)
+  })
+
+  test('CreatorApp toggles keyboard control with non-Enter keyPress', () => {
+    const CreatorApp = require('./creator').default
+    const props = makeProps()
+
+    const component = shallow(<CreatorApp {... props}/>)
+
+    component.find('.keyboard-controls-spam').simulate('keypress', {key: 'a'})
+    expect(component.instance().state.showKeyControls).toEqual(false)
   })
 
 })

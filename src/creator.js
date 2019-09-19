@@ -154,6 +154,9 @@ export default class CreatorApp extends React.Component {
 		for (let i = 0; i < this.state.qset.dimensions.y; i++) {
 			this.setState(Object.assign(this.state.qset.items[0].items[0][i].options, {blank: false}))
 		}
+		if (this.props.qset.randomization > ((!this.props.qset.header ? this.props.qset.dimensions.x : (this.props.qset.dimensions.x - 1) ) * this.props.qset.dimensions.y)) {
+			this.setState(Object.assign(this.state.qset, {randomization: (this.props.qset.dimensions.x - 1)  * this.props.qset.dimensions.y}))
+		}
 	}
 
 	render() {
@@ -189,7 +192,7 @@ export default class CreatorApp extends React.Component {
 						<ul>
 							<li>Add rows and columns, then input data in the cells below.</li>
 							<li>Check cells to turn them <span className="blue-text">blue</span> - these will be left blank for students to fill out.</li>
-							<li onClick={this.toggleKeyboardInst} ><span tabIndex={0} onKeyPress={(e)=>{if(e.key === 'Enter'){this.toggleKeyboardInst()}}}>Keyboard controls</span>
+							<li onClick={this.toggleKeyboardInst} className="keyboard-controls-div"><span tabIndex={0} onKeyPress={(e)=>{if(e.key === 'Enter'){this.toggleKeyboardInst()}}} className="keyboard-controls-spam">Keyboard controls</span>
 								{this.state.showKeyControls ?
 									(<ul>
 										<li>Alt + PageUp = Add Column</li>
@@ -246,7 +249,6 @@ materiaCallbacks.initExistingWidget = (title, instance, _qset, version, newWidge
 materiaCallbacks.onSaveClicked = () => {
 	// proxy to the class instance method
 	creatorInstance.onSaveClicked()
-	return '1A4'
 }
 
 materiaCallbacks.onSaveComplete = () => {

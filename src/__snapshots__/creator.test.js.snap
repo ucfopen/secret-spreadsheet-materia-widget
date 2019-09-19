@@ -239,6 +239,7 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
           onChange={[Function]}
           placeholder={0}
           type="number"
+          value={0}
         />
          cell(s)
       </label>
@@ -269,9 +270,14 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
            - these will be left blank for students to fill out.
         </li>
         <li
+          className="keyboard-controls-div"
           onClick={[Function]}
         >
-          <span>
+          <span
+            className="keyboard-controls-spam"
+            onKeyPress={[Function]}
+            tabIndex={0}
+          >
             Keyboard controls
           </span>
         </li>
@@ -718,6 +724,7 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
           onChange={[Function]}
           placeholder={0}
           type="number"
+          value={0}
         />
          cell(s)
       </label>
@@ -748,9 +755,14 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
            - these will be left blank for students to fill out.
         </li>
         <li
+          className="keyboard-controls-div"
           onClick={[Function]}
         >
-          <span>
+          <span
+            className="keyboard-controls-spam"
+            onKeyPress={[Function]}
+            tabIndex={0}
+          >
             Keyboard controls
           </span>
         </li>
@@ -775,7 +787,7 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
                   <input
                     className="row-0 col-0"
                     onChange={[Function]}
-                    placeholder="A1"
+                    placeholder=""
                     type="text"
                     value=""
                   />
@@ -1197,6 +1209,7 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
           onChange={[Function]}
           placeholder={0}
           type="number"
+          value={0}
         />
          cell(s)
       </label>
@@ -1227,9 +1240,14 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
            - these will be left blank for students to fill out.
         </li>
         <li
+          className="keyboard-controls-div"
           onClick={[Function]}
         >
-          <span>
+          <span
+            className="keyboard-controls-spam"
+            onKeyPress={[Function]}
+            tabIndex={0}
+          >
             Keyboard controls
           </span>
         </li>
@@ -1254,7 +1272,7 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
                   <input
                     className="row-0 col-0"
                     onChange={[Function]}
-                    placeholder="A1"
+                    placeholder=""
                     type="text"
                     value=""
                   />

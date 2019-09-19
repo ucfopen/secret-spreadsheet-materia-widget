@@ -120,17 +120,17 @@ describe('CreatorOptions component', function() {
 		const event = makeEvent(-1)
 
 		const component = shallow(<Options {... props} />)
-		component.instance().handleRandomizationBlur(event);
+		component.instance().handleRandomizationChange(event);
 		expect(props.qset.randomization).toEqual(0)
 
 	})
 
-	test('CreatorOptions with normal randomization', () => {
+	test('CreatorOptions with normal randomization with header', () => {
 		const event = makeEvent(1)
 
 		const component = shallow(<Options {... props} />)
-		component.instance().handleRandomizationBlur(event);
-		expect(props.qset.randomization).toEqual(1)
+		component.instance().handleRandomizationChange(event);
+		expect(props.qset.randomization).toEqual(0)
 
 	})
 
@@ -138,16 +138,44 @@ describe('CreatorOptions component', function() {
 		const event = makeEvent(999)
 
 		const component = shallow(<Options {... props} />)
-		component.instance().handleRandomizationBlur(event);
+		component.instance().handleRandomizationChange(event);
+		expect(props.qset.randomization).toEqual(0)
+
+	})
+
+	test('CreatorOptions with float as randomization with header', () => {
+		const event = makeEvent(0.5)
+
+		const component = shallow(<Options {... props} />)
+		component.instance().handleRandomizationChange(event);
+		expect(props.qset.randomization).toEqual(0)
+
+	})
+
+	test('CreatorOptions with normal randomization without header', () => {
+		const event = makeEvent(1)
+		props.qset.header = false
+
+		const component = shallow(<Options {... props} />)
+		component.instance().handleRandomizationChange(event);
 		expect(props.qset.randomization).toEqual(1)
 
 	})
 
-	test('CreatorOptions with float as randomization', () => {
+	test('CreatorOptions with large randomization without header', () => {
+		const event = makeEvent(999)
+
+		const component = shallow(<Options {... props} />)
+		component.instance().handleRandomizationChange(event);
+		expect(props.qset.randomization).toEqual(1)
+
+	})
+
+	test('CreatorOptions with float as randomization without header', () => {
 		const event = makeEvent(1.2)
 
 		const component = shallow(<Options {... props} />)
-		component.instance().handleRandomizationBlur(event);
+		component.instance().handleRandomizationChange(event);
 		expect(props.qset.randomization).toEqual(1)
 
 	})
