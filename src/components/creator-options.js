@@ -4,20 +4,20 @@ export default class Options extends React.Component {
 
 	constructor(props) {
 		super(props)
-		this.handleRandomizationBlur = this.handleRandomizationBlur.bind(this)
+		this.handleRandomizationChange = this.handleRandomizationChange.bind(this)
 	}
 
 	// Make sure the value for number of randomization is within bounds
-	handleRandomizationBlur(event) {
+	handleRandomizationChange(event) {
 		event.target.value = parseInt(event.target.value)
 		if (event.target.value <= 0) {
-			this.props.qset.randomization = event.target.value = 0
+			this.setState(Object.assign(this.props.qset,{randomization:0}));
 		}
-		else if (event.target.value > (this.props.qset.dimensions.x * this.props.qset.dimensions.y)) {
-			this.props.qset.randomization = event.target.value = this.props.qset.dimensions.x * this.props.qset.dimensions.y
+		else if (event.target.value > ((!this.props.qset.header ? this.props.qset.dimensions.x : (this.props.qset.dimensions.x - 1) ) * this.props.qset.dimensions.y)) {
+			this.setState(Object.assign(this.props.qset,{randomization:((!this.props.qset.header ? this.props.qset.dimensions.x : (this.props.qset.dimensions.x - 1) ) * this.props.qset.dimensions.y)}));
 		}
 		else {
-			this.props.qset.randomization = event.target.value
+			this.setState(Object.assign(this.props.qset,{randomization:event.target.value}));
 		}
 	}
 
@@ -107,7 +107,7 @@ export default class Options extends React.Component {
 					<h3>Randomize:</h3>
 
 					<label>
-						Randomly hide <input type="number" placeholder={0} defaultValue={this.props.qset.randomization} onChange={this.handleRandomizationBlur}/> cell(s)
+						Randomly hide <input type="number" placeholder={0} defaultValue={this.props.qset.randomization} value={this.props.qset.randomization} onChange={this.handleRandomizationChange}/> cell(s)
 					</label>
 				</div>
 
