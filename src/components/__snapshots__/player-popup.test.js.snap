@@ -20,7 +20,11 @@ exports[`Popup component Is rendered 1`] = `
         </strong>
       </p>
       <p>
-        Input the hidden data correctly to restore the spreadsheet.
+        Input the hidden data correctly 
+        <strong>
+          (capitalization matters!)
+        </strong>
+         to restore the spreadsheet.
       </p>
     </div>
     <button
