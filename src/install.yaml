@@ -1,8 +1,8 @@
 general:
   name: Spreadsheet Widget
   group: Materia
-  height: 500
-  width: 750
+  height: 550
+  width: 850
   in_catalog: Yes
   is_editable: Yes
   is_playable: Yes
