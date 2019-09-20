@@ -13,6 +13,7 @@ export default class Cell extends React.Component {
 
 	handleTextboxChange(event) {
 		this.setState(Object.assign(this.props.data.questions[0], {text: event.target.value}))
+		this.setState(Object.assign(this.props.data.answers[0], {text: event.target.value}))
 	}
 
 	render() {
@@ -44,7 +45,7 @@ export default class Cell extends React.Component {
 					}
 				}}>
 					<input
-					  ref={el => {this.props.refsArray[this.props.row][this.props.column] = el}}
+						ref={el => {this.props.refsArray[this.props.row][this.props.column] = el}}
 						className={`row-${this.props.row} col-${this.props.column}`}
 						type="text"
 						value={this.props.data && this.props.data.questions[0].text}
