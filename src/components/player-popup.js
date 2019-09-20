@@ -11,7 +11,7 @@ const Popup = props => {
 
 					<p>Cells of this spreadsheet have been <strong>intentionally hidden.</strong></p>
 
-					<p>Input the hidden data correctly to restore the spreadsheet.</p>
+					<p>Input the hidden data correctly <strong>(capitalization matters!)</strong> to restore the spreadsheet.</p>
 				</div>
 
 				<button type="button" value="Got it!" onClick={props.handlePopupToggle}>
