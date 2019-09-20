@@ -52,7 +52,7 @@
 									}
 								],
 								"options": {
-									"blank": true
+									"blank": false
 								}
 							}
 						],
