@@ -40,7 +40,6 @@ export default class CreatorApp extends React.Component {
 	onSaveClicked() {
 		if (this.state.title != '') {
 			Materia.CreatorCore.save(this.state.title, this.state.qset, 1)
-			console.log(this.state.qset);
 		} else {
 			Materia.CreatorCore.cancelSave('This widget has no title!')
 		}
