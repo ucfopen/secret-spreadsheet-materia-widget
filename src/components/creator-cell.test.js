@@ -12,6 +12,9 @@ const makeProps = () => {
 			questions: [{
 				text: '',
 			}],
+			answers: [{
+				text: ''
+			}]
 		},
 		refsArray: [[]],
 		row: 0,
@@ -190,6 +193,7 @@ describe('CreatorCell component', function() {
 		const component = shallow(<Cell {... props}/>)
 		component.find({type: 'text'}).simulate('change', {target: {value: 'Test'}});
 		expect(props.data.questions[0].text).toEqual('Test')
+		expect(props.data.answers[0].text).toEqual('Test')
 	})
 
 
