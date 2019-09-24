@@ -23,6 +23,9 @@ const entries = {
 	],
 	'guides/player.temp.html': [
 		path.join(srcPath, '_guides', 'player.md')
+	],
+	'guides/creator.temp.html': [
+		path.join(srcPath, '_guides', 'creator.md')
 	]
 }
 
