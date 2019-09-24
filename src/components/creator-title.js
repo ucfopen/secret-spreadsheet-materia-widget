@@ -12,7 +12,7 @@ const Title = props => {
 				type="button" value="Help"
 				onClick={props.showIntro}
 			>
-				<img src="./assets/img/question-mark.png" />Help
+				<img src="./assets/img/question-mark.svg" />Help
 			</button>
 		</div>
 	)
