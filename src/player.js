@@ -98,6 +98,7 @@ class PlayerApp extends React.Component {
 		}
 	}
 
+	// decides if it should show the question popup or not
 	handleQuestionToggle() {
 		if (this.state.showQuestion) {
 			this.setState({
