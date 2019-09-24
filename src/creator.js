@@ -16,7 +16,8 @@ export default class CreatorApp extends React.Component {
 			qset: props.qset,
 			title: props.title,
 			showPopup: props.init,
-			showKeyControls: false
+			showKeyControls: false,
+			showInstruction: true,
 		}
 
 		this.state.qset.items[0].items.push([this.cellData('', false)])
@@ -34,6 +35,7 @@ export default class CreatorApp extends React.Component {
 		this.useHeader = this.useHeader.bind(this)
 		this.onSaveClicked = this.onSaveClicked.bind(this)
 		this.toggleKeyboardInst = this.toggleKeyboardInst.bind(this)
+		this.toggleInstruction = this.toggleInstruction.bind(this)
 	}
 
 	// Callback when widget save is clicked
@@ -169,6 +171,10 @@ export default class CreatorApp extends React.Component {
 		}
 	}
 
+	toggleInstruction() {
+		this.setState({showInstruction: !this.state.showInstruction})
+	}
+
 	render() {
 		return (
 			<div>
@@ -194,12 +200,13 @@ export default class CreatorApp extends React.Component {
 					useLeftAlign={this.useLeftAlign}
 					useCenterAlign={this.useCenterAlign}
 					useHeader={this.useHeader}
+					toggleInstruction={this.toggleInstruction}
 				/>
 
 				<div className="table-container">
-					<div className="table-text">
-						<h2 className="what-to-do">WHAT TO DO</h2>
-						<ul>
+					<div className={`table-text ${this.state.showInstruction ? "" : "hidden-instruction"}`}>
+						<h2>WHAT TO DO</h2>
+						<ul className="what-to-do">
 							<li>Add rows and columns, then input data in the cells below.</li>
 							<li>Check cells to turn them <span className="blue-text">blue</span> - these will be left blank for students to fill out.</li>
 							<li onClick={this.toggleKeyboardInst} className="keyboard-controls-div"><span tabIndex={0} onKeyPress={(e) => { if (e.key === 'Enter') { this.toggleKeyboardInst() } }} className="keyboard-controls-spam">Keyboard controls</span>

@@ -82,17 +82,14 @@ input[type='submit'], button, .hoverable {
 
 		img {
 			grid-area: 1 / 1 / span 1 / span 2;
-			height: 100px;
-			width: auto;
-			background: url(/assets/tutorial.jpg);
-			width: 20rem;
-			height: auto;
+			width: 100%;
 			margin: 10px;
 		}
 
 		p {
 			margin: 0 8px;
 			margin-bottom: 20px;
+			text-align: center;
 		}
 	}
 
@@ -211,15 +208,19 @@ input[type='submit'], button, .hoverable {
 	background: rgba(245, 245, 245, 0.5);
 	display: flex;
 	flex-direction: row;
-	overflow: auto;
+	overflow-x: hidden;
+	overflow-y: hidden;
 	justify-content: center;
+	min-width: auto;
+	height: 3.5vw;
 
 	h2 {
-		font-size: 20px;
+		font-size: 1.4vw;
 	}
 
 	h3 {
-		font-size: 18px;
+		font-size: 1.2vw;
+		margin: 0 .1vw;
 	}
 }
 
@@ -227,13 +228,14 @@ input[type='submit'], button, .hoverable {
 .style,
 .text,
 .header,
-.randomize {
+.randomize,
+.instructions {
 	margin: auto 0;
-	padding: 0 1rem;
+	padding: 0 1vw;
 	border-style: solid;
 	border-color: lightgray;
 	border-width: 0 0 0 1px;
-	height: 3rem;
+	height: 3vw;
 	display: flex;
 	flex-direction: row;
 	white-space: nowrap;
@@ -254,18 +256,21 @@ input[type='submit'], button, .hoverable {
 		display: flex;
 		flex-direction: row;
 		background: rgb(233, 233, 233);
-		height: 40%;
+		height: auto;
 		margin: auto 0;
 		padding: .3rem;
 		border-radius: 2px;
 
 		svg {
-			margin-left: 3px;
+			height: 1.5vw;
+			margin: 0 1px;
 			color: rgba(173, 216, 230, 0.5);
 		}
 
 		label {
+			height: 1.5vw;
 			margin-left: 3px;
+			font-size: 1.2vw;
 		}
 	}
 }
@@ -274,7 +279,7 @@ input[type='submit'], button, .hoverable {
 	input {
 		border-width: 0;
 		background: inherit;
-		font-size: 16px;
+		font-size: 1.2vw;
 		text-decoration: underline;
 	}
 }
@@ -284,6 +289,47 @@ input[type='submit'], button, .hoverable {
 	border-width: 0;
 }
 
+@media screen and (min-width: 1400px) {
+	.options-bar {
+		height: 49px;
+
+		h2 {
+			font-size: 19.6px;
+		}
+
+		h3 {
+			font-size: 16.8px;
+			margin: 0 1.4px;
+		}
+	}
+
+  .options,
+	.style,
+	.text,
+	.header,
+	.randomize,
+	.instructions {
+		padding: 0 14px;
+		height: 42px;
+
+		div {
+			svg {
+				height: 21px;
+			}
+
+			label {
+				height: 21px;
+				font-size: 16.8px;
+			}
+		}
+	}
+	.randomize {
+		input {
+			font-size: 16.8px;
+		}
+	}
+}
+
 .table-text {
 	display: flex;
 	flex-direction: row;
@@ -291,13 +337,17 @@ input[type='submit'], button, .hoverable {
 	justify-content: center;
 	overflow: hidden;
 	white-space: nowrap;
-	font-size: 14px;
+	font-size: 1.4vw;
+	border: 1px black solid;
+	padding: 0px 10px;
+	margin: 10px 0;
 
 	.what-to-do {
-		padding: 20px;
+		margin: 1.6vw;
 		border-style: solid;
 		border-color: lightgray;
-		border-width: 0 1px 0 0;
+		border-width: 0 0 0 1px;
+		min-width: 10vw;
 	}
 
 	li + li {
@@ -315,6 +365,16 @@ input[type='submit'], button, .hoverable {
 	}
 }
 
+@media screen and (min-width: 1200px) {
+  .table-text {
+		 font-size: 16.8px;
+
+		 .what-to-do {
+			margin: 19.2px;
+		 }
+  }
+}
+
 .blue-text {
 	padding: 2px 5px;
 	color: rgb(1, 56, 75);
@@ -328,6 +388,19 @@ input[type='submit'], button, .hoverable {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+
+	svg,
+	h2 {
+		cursor: pointer;
+	}
+
+	p {
+		float: right;
+	}
+}
+
+.hidden-instruction {
+	display: none;
 }
 
 .table {
@@ -359,10 +432,19 @@ input[type='submit'], button, .hoverable {
 		justify-content: center;
 
 		button {
-			width: 49%;
+			width: 50%;
 			border-style: dotted;
 			border-color: purple;
 			border-width: 1px;
+			margin: 1px;
+			align-items: center;
+			justify-content: center;
+			padding: 0;
+			display:flex;
+
+			svg {
+				width: 4vh;
+			}
 		}
 	}
 
@@ -411,11 +493,16 @@ input[type='submit'], button, .hoverable {
 		justify-content: center;
 
 		button {
-			height: 49%;
+			height: 50%;
 			border-style: dotted;
 			border-color: purple;
 			border-width: 1px;
-			margin: auto;
+			margin: 1px;
+			padding: 0;
+
+			svg {
+				width: 4vh;
+			}
 		}
 	}
 }
