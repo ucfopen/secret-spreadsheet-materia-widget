@@ -2,7 +2,7 @@ import React from 'react';
 
 const Popup = props => {
 	return(
-		<div className="popup">
+		<div className="popup help">
 			<div>
 				<h2>Secret Spreadsheet - How it works:</h2>
 
