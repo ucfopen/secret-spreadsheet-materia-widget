@@ -103,13 +103,13 @@ export default class Table extends React.Component {
 			}
 			for (let j = 0; j < this.props.qset.dimensions.y; j++) {
 				// Make sure data exist, use shortened variable name for readability
-				const cellData = (this.props.qset && this.props.qset.items[0].items[i] && this.props.qset.items[0].items[i][j])
+				const innerData = (this.props.qset && this.props.qset.items[0].items[i] && this.props.qset.items[0].items[i][j])
 				row.push(
 					<Cell
 						// conditionally name the cells for css
 						className={`${this.props.qset.left ? '' : 'center-align'} ${i == 0 && this.props.qset.header ? 'header-cell' : ''}`}
 						key={`${i} - ${j}`}
-						data={cellData}
+						data={innerData}
 						useSpreadsheet={this.props.qset.spreadsheet}
 						row={i}
 						column={j}
