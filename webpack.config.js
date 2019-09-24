@@ -1,5 +1,6 @@
 const path = require('path')
 const srcPath = path.join(__dirname, 'src') + path.sep
+const outputPath = path.join(__dirname, 'build') + path.sep
 const widgetWebpack = require('materia-widget-development-kit/webpack-widget')
 
 const rules = widgetWebpack.getDefaultRules()
@@ -19,8 +20,19 @@ const entries = {
 	'creator.css': [
 		path.join(srcPath, 'creator.html'),
 		path.join(srcPath, 'creator.scss')
+	],
+	'guides/player.temp.html': [
+		path.join(srcPath, '_guides', 'player.md')
 	]
 }
+
+const customCopy = copy.concat([
+	{
+		from: path.join(srcPath, '_guides', 'assets'),
+		to: path.join(outputPath, 'guides', 'assets'),
+		toType: 'dir'
+	}
+])
 
 const customReactLoader = {
 	test: /\.js$/,
@@ -34,13 +46,15 @@ const customRules = [
 	rules.loadHTMLAndReplaceMateriaScripts,
 	rules.loadAndPrefixCSS,
 	rules.loadAndPrefixSASS,
+	rules.loadAndCompileMarkdown,
+	rules.copyImages,
 	customReactLoader
 ]
 
 const options = {
 	entries: entries,
 	moduleRules: customRules,
-	copyList: copy
+	copyList: customCopy
 }
 
 const buildConfig = widgetWebpack.getLegacyWidgetBuildConfig(options)
