@@ -2,12 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PlayerTable from './components/player-table';
 import Popup from './components/player-popup';
+import Question from './components/player-question';
 
 class PlayerApp extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			popup: true,
+			question: this.props.entryQuestion !== '',
+			showQuestion: true,
 			answered: 0
 		}
 		this.answers = {};
@@ -18,6 +21,7 @@ class PlayerApp extends React.Component {
 		this.handlePopupToggle = this.handlePopupToggle.bind(this);
 		this.randomize = this.randomize.bind(this);
 		this.countBlanks = this.countBlanks.bind(this);
+		this.handleQuestionToggle = this.handleQuestionToggle.bind(this);
 	}
 
 	// check if question has been answered. If it is, submit the answer, or submit blank
@@ -83,12 +87,26 @@ class PlayerApp extends React.Component {
 	handlePopupToggle() {
 		if (this.state.popup) {
 			this.setState({
-				popup: false
+				popup: false,
+				question: true
 			});
 		}
 		else {
 			this.setState({
 				popup: true
+			});
+		}
+	}
+
+	handleQuestionToggle() {
+		if (this.state.showQuestion) {
+			this.setState({
+				showQuestion: false
+			});
+		}
+		else {
+			this.setState({
+				showQuestion: true
 			});
 		}
 	}
@@ -135,6 +153,14 @@ class PlayerApp extends React.Component {
 				<main>
 					{this.state.popup ? <Popup handlePopupToggle={this.handlePopupToggle} />:null}
 
+					{(this.state.question && this.state.showQuestion) ?
+						<Question
+							handleQuestionToggle={this.handleQuestionToggle}
+							entryQuestion={this.props.entryQuestion}
+							questionBody={this.props.questionBody}
+						/>:
+						null}
+
 					<p className="instructions">Input the <span>missing data</span> to complete the spreadsheet:</p>
 
 					<form onSubmit={this.handleSubmit}>
@@ -157,6 +183,8 @@ class PlayerApp extends React.Component {
 						</div>
 
 						<p>You've filled out {this.state.answered} of {this.blankPositions.size} missing cells</p>
+
+						{this.state.question ? <p className="link" onClick={this.handleQuestionToggle}>View Question</p>:null}
 
 						<input
 							type="submit"
@@ -183,6 +211,8 @@ Materia.Engine.start({
 				leftAlign={qset.left}
 				header={qset.header}
 				spreadsheet={qset.spreadsheet}
+				entryQuestion={qset.entryQuestion}
+				questionBody={qset.questionBody}
 			/>,
 			document.getElementById('root')
 		);
