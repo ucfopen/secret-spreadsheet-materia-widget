@@ -14,6 +14,7 @@ files:
   player: player.html
   creator: creator.html
   flash_version: 0
+  player_guide: guides/player.html
 score:
   is_scorable: Yes
   score_module: SpreadsheetWidget
