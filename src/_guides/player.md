@@ -4,6 +4,12 @@ Students must fill in the blanks on a spreadsheet. The blanks can be either rand
 
 ![player screen](assets/player.png)
 
+1. Widget Title
+2. Help Button
+3. Filled in Answer
+4. Answer Counter
+5. Submit Button
+
 ## Details
 
 ### Filling in the blanks
