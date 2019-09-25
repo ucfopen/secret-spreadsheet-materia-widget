@@ -2,7 +2,15 @@
 
 Students must fill in the blanks on a spreadsheet. The blanks can be either randomized or fixed.
 
-![creator screen](assets/creator.png)
+![Example Creator Screen](assets/creator.png)
+
+1. Editable Widget Title
+2. Help Button
+3. Options Bar
+4. Title Cells
+5. Hidden Cell
+6. Shown Cell
+7. Buttons to expand/shrink the table
 
 ## Details
 
