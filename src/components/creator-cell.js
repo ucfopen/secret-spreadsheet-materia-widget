@@ -9,6 +9,7 @@ export default class Cell extends React.Component {
 
 	handleCheckboxToggle(event) {
 		this.setState(Object.assign(this.props.data.options, {blank: !this.props.data.options.blank}))
+		this.props.resetRandomization()
 	}
 
 	handleTextboxChange(event) {
@@ -18,7 +19,7 @@ export default class Cell extends React.Component {
 
 	render() {
 		return (
-			<td className={`${this.props.className} ${this.props.data && this.props.data.options.blank ? "hidden" : ""} tableCell`}>
+			<td className={`${this.props.className} ${this.props.data && this.props.data.options.blank ? "hidden-cell" : ""} tableCell`}>
 				<div className="cell" onKeyDown={(e) => {
 					// Keyboard controls for table:
 					// Alt + PageUp         = Add Column

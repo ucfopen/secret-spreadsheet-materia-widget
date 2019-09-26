@@ -4,6 +4,7 @@ import Popup from './components/creator-popup'
 import Title from './components/creator-title'
 import Options from './components/creator-options'
 import Table from './components/creator-table'
+import ResizableTextarea from './components/creator-resizable-textarea'
 
 const materiaCallbacks = {}
 let creatorInstance
@@ -18,6 +19,10 @@ export default class CreatorApp extends React.Component {
 			showPopup: props.init,
 			showKeyControls: false,
 			showInstruction: true,
+			showQuestion: props.qset.question !== '',
+			rows: 1,
+			minRows: 1,
+			maxRows: 3,
 		}
 
 		this.state.qset.items[0].items.push([this.cellData('', false)])
@@ -33,9 +38,13 @@ export default class CreatorApp extends React.Component {
 		this.useLeftAlign = this.useLeftAlign.bind(this)
 		this.useCenterAlign = this.useCenterAlign.bind(this)
 		this.useHeader = this.useHeader.bind(this)
+		this.useQuestion = this.useQuestion.bind(this)
+		this.handleQuestionChange = this.handleQuestionChange.bind(this)
 		this.onSaveClicked = this.onSaveClicked.bind(this)
 		this.toggleKeyboardInst = this.toggleKeyboardInst.bind(this)
 		this.toggleInstruction = this.toggleInstruction.bind(this)
+		this.resetCheckbox = this.resetCheckbox.bind(this)
+		this.resetRandomization = this.resetRandomization.bind(this)
 	}
 
 	// Callback when widget save is clicked
@@ -171,8 +180,51 @@ export default class CreatorApp extends React.Component {
 		}
 	}
 
+	useQuestion(event) {
+		this.setState({showQuestion: !this.state.showQuestion})
+		event.preventDefault()
+	}
+
+	handleQuestionChange(event) {
+
+		const textareaLineHeight = 24;
+		const { minRows, maxRows } = this.state;
+
+		const previousRows = event.target.rows;
+		event.target.rows = minRows;
+
+		const currentRows = ~~(event.target.scrollHeight / textareaLineHeight);
+
+		if (currentRows === previousRows) {
+			event.target.rows = currentRows;
+		}
+
+		if (currentRows >= maxRows) {
+			event.target.rows = maxRows;
+			event.target.scrollTop = event.target.scrollHeight;
+		}
+
+		this.setState(Object.assign(this.state.qset, { question: event.target.value }))
+
+		this.setState({
+			rows: currentRows < maxRows ? currentRows : maxRows,
+		});
+	}
+
 	toggleInstruction() {
 		this.setState({showInstruction: !this.state.showInstruction})
+	}
+
+	resetCheckbox() {
+		for (let i = 0; i < this.state.qset.dimensions.x; i++) {
+			for (let j = 0; j < this.state.qset.dimensions.y; j++) {
+				this.setState(Object.assign(this.state.qset.items[0].items[i][j].options, { blank: false }))
+			}
+		}
+	}
+
+	resetRandomization() {
+		this.setState(Object.assign(this.state.qset, { randomization: 0 }))
 	}
 
 	render() {
@@ -200,11 +252,17 @@ export default class CreatorApp extends React.Component {
 					useLeftAlign={this.useLeftAlign}
 					useCenterAlign={this.useCenterAlign}
 					useHeader={this.useHeader}
+					showInstruction={this.state.showInstruction}
+					showQuestion={this.state.showQuestion}
+					useQuestion={this.useQuestion}
+					handleQuestionChange={this.handleQuestionChange}
 					toggleInstruction={this.toggleInstruction}
+					resetCheckbox={this.resetCheckbox}
 				/>
 
+
 				<div className="table-container">
-					<div className={`table-text ${this.state.showInstruction ? "" : "hidden-instruction"}`}>
+					<div className={`table-text ${this.state.showInstruction ? "" : "instruction-hidden"}`}>
 						<h2>WHAT TO DO</h2>
 						<ul className="what-to-do">
 							<li>Add rows and columns, then input data in the cells below.</li>
@@ -224,9 +282,17 @@ export default class CreatorApp extends React.Component {
 						</ul>
 					</div>
 
+					<ResizableTextarea
+						rows={this.state.rows}
+						showQuestion={this.state.showQuestion}
+						qset={this.state.qset}
+						handleQuestionChange={this.handleQuestionChange}
+					/>
+
 					<Table
 						cellData={this.cellData}
 						qset={this.state.qset}
+						resetRandomization={this.resetRandomization}
 					/>
 				</div>
 			</div>
@@ -241,6 +307,7 @@ CreatorApp.defaultProps = {
 		'header': false,
 		'spreadsheet': true,
 		'randomization': 0,
+		'question': '',
 		'dimensions': { 'x': 1, 'y': 1 },
 		'items': [{ 'items': [] }]
 	},

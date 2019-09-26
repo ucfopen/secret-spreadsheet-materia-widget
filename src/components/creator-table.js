@@ -111,6 +111,7 @@ export default class Table extends React.Component {
 						key={`${i} - ${j}`}
 						data={innerData}
 						useSpreadsheet={this.props.qset.spreadsheet}
+						resetRandomization={this.props.resetRandomization}
 						row={i}
 						column={j}
 						appendColumn={this.appendColumn}
