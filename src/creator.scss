@@ -206,31 +206,38 @@ input[type='submit'], button, .hoverable {
 }
 
 .options-bar {
-	background: rgba(245, 245, 245, 0.5);
 	display: flex;
-	flex-direction: row;
-	overflow-x: hidden;
-	overflow-y: hidden;
+	flex-direction: column;
 	justify-content: center;
-	min-width: auto;
-	height: 3.5vw;
 
-	h2 {
-		font-size: 1.4vw;
-	}
+	.upper-options-bar,
+	.randomize {
+		background: rgba(245, 245, 245, 0.5);
+		display: flex;
+		flex-direction: row;
+		overflow-x: hidden;
+		overflow-y: hidden;
+		justify-content: center;
+		min-width: auto;
+		height: 3.5vw;
 
-	h3 {
-		font-size: 1.2vw;
-		margin: 0 .1vw;
+		h2 {
+			font-size: 1.4vw;
+		}
+
+		h3 {
+			font-size: 1.2vw;
+			margin: 0 .1vw;
+		}
 	}
 }
-
 .options,
 .style,
 .text,
 .header,
 .randomize,
-.instructions {
+.instructions,
+.question {
 	margin: auto 0;
 	padding: 0 1vw;
 	border-style: solid;
@@ -244,7 +251,7 @@ input[type='submit'], button, .hoverable {
 
 	input {
 		&[type=number] {
-			width: 2em;
+			width: 3vw;
 			text-align: center;
 		}
 	}
@@ -261,9 +268,11 @@ input[type='submit'], button, .hoverable {
 		margin: auto 0;
 		padding: .3rem;
 		border-radius: 2px;
+		cursor: pointer;
 
 		svg {
 			height: 1.5vw;
+			width: auto;
 			margin: 0 1px;
 			color: rgba(173, 216, 230, 0.5);
 		}
@@ -277,58 +286,29 @@ input[type='submit'], button, .hoverable {
 }
 
 .randomize {
+	border-width: 0;
+	justify-content: center;
+	border-style: solid;
+	border-color: lightgray;
+	border-width: 1px 0 0 0;
+
+
 	input {
 		border-width: 0;
 		background: inherit;
 		font-size: 1.2vw;
 		text-decoration: underline;
 	}
+
+	h3 {
+		font-size: 1.2vw;
+		margin: 0 .1vw;
+	}
 }
 
 .options {
 	height: 40%;
 	border-width: 0;
-}
-
-@media screen and (min-width: 1400px) {
-	.options-bar {
-		height: 49px;
-
-		h2 {
-			font-size: 19.6px;
-		}
-
-		h3 {
-			font-size: 16.8px;
-			margin: 0 1.4px;
-		}
-	}
-
-  .options,
-	.style,
-	.text,
-	.header,
-	.randomize,
-	.instructions {
-		padding: 0 14px;
-		height: 42px;
-
-		div {
-			svg {
-				height: 21px;
-			}
-
-			label {
-				height: 21px;
-				font-size: 16.8px;
-			}
-		}
-	}
-	.randomize {
-		input {
-			font-size: 16.8px;
-		}
-	}
 }
 
 .table-text {
@@ -366,16 +346,6 @@ input[type='submit'], button, .hoverable {
 	}
 }
 
-@media screen and (min-width: 1200px) {
-  .table-text {
-		 font-size: 16.8px;
-
-		 .what-to-do {
-			margin: 19.2px;
-		 }
-  }
-}
-
 .blue-text {
 	padding: 2px 5px;
 	color: rgb(1, 56, 75);
@@ -390,17 +360,97 @@ input[type='submit'], button, .hoverable {
 	align-items: center;
 	justify-content: center;
 
-	svg,
-	h2 {
-		cursor: pointer;
-	}
-
 	p {
 		float: right;
 	}
 }
 
-.hidden-instruction {
+.instruction-hidden {
+	display: none;
+}
+
+.question-text {
+	padding-left: 5px;
+	width: 1000px;
+	font-size: 20px;
+	line-height: 24px;
+	border-style: solid;
+	border-color: purple;
+	border-width: 1px;
+	min-height: auto;
+	max-height: 50vh;
+	overflow: auto;
+	resize: none;
+}
+
+@media screen and (min-width: 1200px) {
+	.options-bar {
+		.upper-options-bar,
+		.randomize {
+			height: 42px;
+
+			h2 {
+				font-size: 16.8px;
+			}
+
+			h3 {
+				font-size: 14.4px;
+				margin: 0 1.2px;
+			}
+		}
+	}
+	.options,
+	.style,
+	.text,
+	.header,
+	.randomize,
+	.instructions,
+	.question {
+		padding: 0 12px;
+		height: 36px;
+
+		input {
+			&[type=number] {
+				width: 36px;
+			}
+		}
+
+
+		div {
+
+			svg {
+				height: 18px;
+			}
+
+			label {
+				height: 18px;
+				font-size: 14.4px;
+			}
+		}
+	}
+
+	.randomize {
+		input {
+			font-size: 14.4px;
+		}
+
+		h3 {
+			font-size: 14.4px;
+			margin: 0 1.2px;
+		}
+	}
+
+	.table-text {
+		font-size: 16.8px;
+
+		.what-to-do {
+			margin: 19.2px;
+			min-width: 120px;
+		}
+	}
+}
+
+.question-hidden {
 	display: none;
 }
 
@@ -444,7 +494,7 @@ input[type='submit'], button, .hoverable {
 			display:flex;
 
 			svg {
-				width: 4vh;
+				width: 25px;
 			}
 		}
 	}
@@ -476,7 +526,7 @@ input[type='submit'], button, .hoverable {
 			}
 		}
 
-		.hidden {
+		.hidden-cell {
 			background: rgba(173, 216, 230, 0.5);
 		}
 	}
@@ -500,9 +550,11 @@ input[type='submit'], button, .hoverable {
 			border-width: 1px;
 			margin: 1px;
 			padding: 0;
+			display: flex;
+			flex-direction: row;
 
 			svg {
-				width: 4vh;
+				width: 25px;
 			}
 		}
 	}
