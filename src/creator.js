@@ -23,6 +23,7 @@ export default class CreatorApp extends React.Component {
 			rows: 1,
 			minRows: 1,
 			maxRows: 3,
+			numHidden: 0,
 		}
 
 		this.state.qset.items[0].items.push([this.cellData('', false)])
@@ -49,10 +50,29 @@ export default class CreatorApp extends React.Component {
 
 	// Callback when widget save is clicked
 	onSaveClicked() {
-		if (this.state.title != '') {
-			Materia.CreatorCore.save(this.state.title, this.state.qset, 1)
+		let minimumOneCellHidden = false
+		if (this.state.qset.randomization > 0) {
+			minimumOneCellHidden = true
 		} else {
+			for (let i = 0; i < this.state.qset.dimensions.x; i++) {
+				for (let j = 0; j < this.state.qset.dimensions.y; j++) {
+					if (this.state.qset.items[0].items[i][j].options.blank) {
+						minimumOneCellHidden = true
+						break
+					}
+				}
+				if (minimumOneCellHidden) {
+					break
+				}
+			}
+		}
+
+		if (!minimumOneCellHidden) {
+			Materia.CreatorCore.cancelSave('At least one cell must be hidden!')
+		} else if (this.state.title == '') {
 			Materia.CreatorCore.cancelSave('This widget has no title!')
+		} else {
+			Materia.CreatorCore.save(this.state.title, this.state.qset, 1)
 		}
 	}
 
@@ -182,11 +202,11 @@ export default class CreatorApp extends React.Component {
 
 	useQuestion(event) {
 		this.setState({showQuestion: !this.state.showQuestion})
+		this.setState(Object.assign(this.state.qset, { question: '' }))
 		event.preventDefault()
 	}
 
 	handleQuestionChange(event) {
-
 		const textareaLineHeight = 24;
 		const { minRows, maxRows } = this.state;
 
@@ -263,6 +283,12 @@ export default class CreatorApp extends React.Component {
 
 				<div className="table-container">
 					<div className={`table-text ${this.state.showInstruction ? "" : "instruction-hidden"}`}>
+						<span
+							className="close"
+							onClick={this.toggleInstruction}
+							onKeyDown={(e) => {if (e.key === 'Enter') {this.toggleInstruction()}}}
+							>&times;
+						</span>
 						<h2>WHAT TO DO</h2>
 						<ul className="what-to-do">
 							<li>Add rows and columns, then input data in the cells below.</li>
