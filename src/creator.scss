@@ -322,6 +322,7 @@ input[type='submit'], button, .hoverable {
 	border: 1px black solid;
 	padding: 0px 10px;
 	margin: 10px 0;
+	position: relative;
 
 	.what-to-do {
 		margin: 1.6vw;
@@ -335,10 +336,26 @@ input[type='submit'], button, .hoverable {
 		margin-top: 10px;
 	}
 
-	span:not(.blue-text) {
+	span:not(.blue-text, .close) {
 		color: blue;
 		cursor: pointer;
 		text-decoration: underline;
+	}
+
+	.close {
+		color: rgb(0, 0, 0);
+		position: absolute;
+		top: .1rem;
+		right: .5rem;
+		font-size: 1.5rem;
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	.close:hover{
+		color: rgb(231, 231, 231);
+		text-decoration: none;
+		cursor: pointer;
 	}
 
 	h2 {
@@ -371,7 +388,7 @@ input[type='submit'], button, .hoverable {
 
 .question-text {
 	padding-left: 5px;
-	width: 1000px;
+	width: 80vw;
 	font-size: 20px;
 	line-height: 24px;
 	border-style: solid;
@@ -380,7 +397,7 @@ input[type='submit'], button, .hoverable {
 	min-height: auto;
 	max-height: 50vh;
 	overflow: auto;
-	resize: none;
+	resize: both;
 }
 
 @media screen and (min-width: 1200px) {
@@ -442,6 +459,9 @@ input[type='submit'], button, .hoverable {
 
 	.table-text {
 		font-size: 16.8px;
+		display: flex;
+
+
 
 		.what-to-do {
 			margin: 19.2px;
@@ -550,8 +570,10 @@ input[type='submit'], button, .hoverable {
 			border-width: 1px;
 			margin: 1px;
 			padding: 0;
-			display: flex;
-			flex-direction: row;
+
+			.button-name-hidden {
+				display:none;
+			}
 
 			svg {
 				width: 25px;

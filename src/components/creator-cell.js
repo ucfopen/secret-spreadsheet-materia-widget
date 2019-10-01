@@ -12,6 +12,7 @@ export default class Cell extends React.Component {
 		this.props.resetRandomization()
 	}
 
+
 	handleTextboxChange(event) {
 		this.setState(Object.assign(this.props.data.questions[0], {text: event.target.value}))
 		this.setState(Object.assign(this.props.data.answers[0], {text: event.target.value}))
@@ -51,7 +52,7 @@ export default class Cell extends React.Component {
 						type="text"
 						value={this.props.data && this.props.data.questions[0].text}
 						onChange={this.handleTextboxChange}
-						placeholder={this.props.useSpreadsheet ? `${String.fromCharCode(this.props.row + 65)}${this.props.column + 1}` : ''}
+						placeholder={this.props.qset.spreadsheet ? `${String.fromCharCode(this.props.row + 65)}${this.props.column + 1}` : ''}
 					/>
 
 					<div
