@@ -2,7 +2,7 @@
 
 exports[`CreatorCell component CreatorCell renders basic cell 1`] = `
 <td
-  className="undefined hidden tableCell"
+  className="undefined hidden-cell tableCell"
 >
   <div
     className="cell"
@@ -11,7 +11,7 @@ exports[`CreatorCell component CreatorCell renders basic cell 1`] = `
     <input
       className="row-0 col-0"
       onChange={[Function]}
-      placeholder=""
+      placeholder="A1"
       type="text"
       value=""
     />

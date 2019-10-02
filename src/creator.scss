@@ -382,10 +382,6 @@ input[type='submit'], button, .hoverable {
 	}
 }
 
-.instruction-hidden {
-	display: none;
-}
-
 .question-text {
 	padding-left: 5px;
 	width: 80vw;
@@ -461,13 +457,15 @@ input[type='submit'], button, .hoverable {
 		font-size: 16.8px;
 		display: flex;
 
-
-
 		.what-to-do {
 			margin: 19.2px;
 			min-width: 120px;
 		}
 	}
+}
+
+.instruction-hidden {
+	display: none;
 }
 
 .question-hidden {

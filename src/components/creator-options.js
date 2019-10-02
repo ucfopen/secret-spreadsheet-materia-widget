@@ -36,6 +36,7 @@ export default class Options extends React.Component {
 						<h3>Style:</h3>
 
 						<div
+							id="spreadsheet"
 							tabIndex={0}
 							onKeyDown={(e) => {if (e.key === 'Enter') {this.props.useSpreadsheet()}}}
 							onClick={this.props.useSpreadsheet}
@@ -49,6 +50,7 @@ export default class Options extends React.Component {
 						</div>
 
 						<div
+							id="table"
 							tabIndex={0}
 							onKeyDown={(e) => {if (e.key === 'Enter') {this.props.useTable()}}}
 							onClick={this.props.useTable}
@@ -67,6 +69,7 @@ export default class Options extends React.Component {
 						<h3>Text:</h3>
 
 						<div
+							id="left"
 							tabIndex={0}
 							onKeyDown={(e) => {if (e.key === 'Enter') {this.props.useLeftAlign()}}}
 							onClick={this.props.useLeftAlign}
@@ -76,6 +79,7 @@ export default class Options extends React.Component {
 						</div>
 
 						<div
+							id="center"
 							tabIndex={0}
 							onKeyDown={(e) => {if (e.key === 'Enter') {this.props.useCenterAlign()}}}
 							onClick={this.props.useCenterAlign}
@@ -89,6 +93,7 @@ export default class Options extends React.Component {
 						<h3>Header:</h3>
 
 						<div
+							id="header"
 							tabIndex={0}
 							onKeyDown={(e) => {if (e.key === 'Enter') {this.props.useHeader()}}}
 							onClick={this.props.useHeader}
@@ -106,6 +111,7 @@ export default class Options extends React.Component {
 					<div className="instructions">
 						<h3>Instructions:</h3>
 						<div
+							id="instructions"
 							tabIndex={0}
 							className={`${this.props.showInstruction ? "active" : ""} hoverable`}
 							onClick={this.props.toggleInstruction}
@@ -125,6 +131,7 @@ export default class Options extends React.Component {
 						<h3>Question Text:</h3>
 
 						<div
+							id="question"
 							tabIndex={0}
 							onKeyDown={(e) => {if (e.key === 'Enter') {this.props.useQuestion()}}}
 							onClick={this.props.useQuestion}
