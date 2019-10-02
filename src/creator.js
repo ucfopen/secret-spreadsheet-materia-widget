@@ -20,13 +20,12 @@ export default class CreatorApp extends React.Component {
 			showKeyControls: false,
 			showInstruction: true,
 			showQuestion: props.qset.question !== '',
-			showDescription: props.qset.description !== '',
 			questionRows: 1,
 			minQuestionRows: 1,
 			maxQuestionRows: 2,
 			descriptionRows: 2,
 			minDescriptionRows: 2,
-			maxDescriptionRows: 3,
+			maxDescriptionRows: 4,
 			numHidden: 0,
 			hideCellsRandomly: true,
 		}
@@ -235,7 +234,7 @@ export default class CreatorApp extends React.Component {
 	}
 
 	handleDescriptionChange(event) {
-		const textareaLineHeight = 24;
+		const textareaLineHeight = 20;
 		const { minDescriptionRows, maxDescriptionRows } = this.state;
 
 		const previousRows = event.target.rows;
@@ -354,6 +353,7 @@ export default class CreatorApp extends React.Component {
 						showQuestion={this.state.showQuestion}
 						qset={this.state.qset}
 						handleQuestionChange={this.handleQuestionChange}
+						handleDescriptionChange={this.handleDescriptionChange}
 					/>
 
 					<Table
