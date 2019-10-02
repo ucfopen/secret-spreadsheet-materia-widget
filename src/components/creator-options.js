@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default class Options extends React.Component {
-
 	constructor(props) {
 		super(props)
 		this.handleRandomizationChange = this.handleRandomizationChange.bind(this)
@@ -32,7 +31,6 @@ export default class Options extends React.Component {
 
 					<div className="style">
 						<h3>Style:</h3>
-
 						<div
 							id="spreadsheet"
 							tabIndex={0}
@@ -46,7 +44,6 @@ export default class Options extends React.Component {
 								}
 								<label htmlFor="spreadsheet">Spreadsheet</label>
 						</div>
-
 						<div
 							id="table"
 							tabIndex={0}
@@ -65,7 +62,6 @@ export default class Options extends React.Component {
 
 					<div className="text">
 						<h3>Text:</h3>
-
 						<div
 							id="left"
 							tabIndex={0}
@@ -75,7 +71,6 @@ export default class Options extends React.Component {
 						>
 							<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="20px" height="20px" viewBox="0 0 344 344" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0,344) scale(0.1,-0.1)" fill="#000000" stroke="none"> <path d="M130 3095 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"/> <path d="M130 2410 l0 -140 1105 0 1105 0 0 140 0 140 -1105 0 -1105 0 0 -140z"/> <path d="M130 1720 l0 -140 1590 0 1590 0 0 140 0 140 -1590 0 -1590 0 0 -140z"/> <path d="M130 1030 l0 -140 1105 0 1105 0 0 140 0 140 -1105 0 -1105 0 0 -140z"/> <path d="M130 345 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"/> </g> </svg>
 						</div>
-
 						<div
 							id="center"
 							tabIndex={0}
@@ -89,7 +84,6 @@ export default class Options extends React.Component {
 
 					<div className="header">
 						<h3>Header:</h3>
-
 						<div
 							id="header"
 							tabIndex={0}
@@ -127,7 +121,6 @@ export default class Options extends React.Component {
 
 					<div className="question">
 						<h3>Question Text:</h3>
-
 						<div
 							id="question"
 							tabIndex={0}
@@ -142,6 +135,7 @@ export default class Options extends React.Component {
 							}
 						</div>
 					</div>
+
 				</div>
 
 				<div className="randomize">
@@ -160,6 +154,7 @@ export default class Options extends React.Component {
 						</label>
 					</div>
 				</div>
+
 			</div>
 		)
 	}

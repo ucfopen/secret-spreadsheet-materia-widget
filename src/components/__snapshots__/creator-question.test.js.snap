@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreatorQuestion component CreatorQuestion renders question and description textareas 1`] = `
+<div>
+  <div
+    className=""
+  >
+    <textarea
+      className="question-text"
+      onChange={[MockFunction]}
+      placeholder="Question Text"
+      rows={1}
+      type="text"
+      value="What is love?"
+    />
+  </div>
+  <div
+    className=""
+  >
+    <textarea
+      className="description-text"
+      onChange={[MockFunction]}
+      placeholder="Description Text"
+      rows={1}
+      type="text"
+    />
+  </div>
+</div>
+`;

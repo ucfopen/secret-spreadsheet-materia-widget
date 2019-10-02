@@ -4,7 +4,7 @@ import Popup from './components/creator-popup'
 import Title from './components/creator-title'
 import Options from './components/creator-options'
 import Table from './components/creator-table'
-import ResizableTextarea from './components/creator-resizable-textarea'
+import Question from './components/creator-question'
 
 const materiaCallbacks = {}
 let creatorInstance
@@ -79,21 +79,19 @@ export default class CreatorApp extends React.Component {
 	}
 
 	// Display intro popup instead of normal popup
-	showIntro(event) {
+	showIntro() {
 		this.setState({
 			showIntro: true,
 			showPopup: true
 		})
-		event.preventDefault()
 	}
 
 	// Display normal popup instead of intro popup
-	editTitle(event) {
+	editTitle() {
 		this.setState({
 			showIntro: false,
 			showPopup: true
 		})
-		event.preventDefault()
 	}
 
 	// A title for the new widget is submitted in the popup
@@ -109,7 +107,6 @@ export default class CreatorApp extends React.Component {
 	// Save title
 	handleTitleChange(event) {
 		this.setState({ title: event.target.value })
-		event.preventDefault()
 	}
 
 	// Shows keyboard controlls guide
@@ -157,7 +154,6 @@ export default class CreatorApp extends React.Component {
 			xValue = event.target.value
 		}
 		this.setState(Object.assign(this.state.qset.dimensions, { x: xValue }))
-		event.preventDefault()
 	}
 
 	// Make sure number of columns is 1-10
@@ -171,7 +167,6 @@ export default class CreatorApp extends React.Component {
 			yValue = event.target.value
 		}
 		this.setState(Object.assign(this.state.qset.dimensions, { y: yValue }))
-		event.preventDefault()
 	}
 
 	useSpreadsheet() {
@@ -202,12 +197,14 @@ export default class CreatorApp extends React.Component {
 		}
 	}
 
-	useQuestion(event) {
+	// Display textarea for question and description text
+	useQuestion() {
 		this.setState({showQuestion: !this.state.showQuestion})
 		this.setState(Object.assign(this.state.qset, { question: '' }))
-		event.preventDefault()
 	}
 
+	// Resizable textarea for question text. Automatically adjusts based
+	// on lines of text entered (up to a certain point)
 	handleQuestionChange(event) {
 		const textareaLineHeight = 24;
 		const { minQuestionRows, maxQuestionRows } = this.state;
@@ -215,12 +212,15 @@ export default class CreatorApp extends React.Component {
 		const previousRows = event.target.rows;
 		event.target.rows = minQuestionRows;
 
+		// total number of lines of text
 		const currentRows = ~~(event.target.scrollHeight / textareaLineHeight);
 
+		// no change in textarea size
 		if (currentRows === previousRows) {
 			event.target.rows = currentRows;
 		}
 
+		// textarea size restricted to maxQuestionRows defined in constructor
 		if (currentRows >= maxQuestionRows) {
 			event.target.rows = maxQuestionRows;
 			event.target.scrollTop = event.target.scrollHeight;
@@ -240,12 +240,15 @@ export default class CreatorApp extends React.Component {
 		const previousRows = event.target.rows;
 		event.target.rows = minDescriptionRows;
 
+		// total number of lines of text
 		const currentRows = ~~(event.target.scrollHeight / textareaLineHeight);
 
+		// no change in textarea size
 		if (currentRows === previousRows) {
 			event.target.rows = currentRows;
 		}
 
+		// textarea size restricted to maxQuestionRows defined in constructor
 		if (currentRows >= maxDescriptionRows) {
 			event.target.rows = maxDescriptionRows;
 			event.target.scrollTop = event.target.scrollHeight;
@@ -262,8 +265,11 @@ export default class CreatorApp extends React.Component {
 		this.setState({showInstruction: !this.state.showInstruction})
 	}
 
+	// toggles between randomly vs manually hiding cells.
 	toggleHideCellMethod() {
 		this.setState({hideCellsRandomly: !this.state.hideCellsRandomly})
+
+		// resets each other
 		if (!this.state.hideCellsRandomly) {
 			this.resetRandomization()
 		} else {
@@ -347,7 +353,7 @@ export default class CreatorApp extends React.Component {
 						</ul>
 					</div>
 
-					<ResizableTextarea
+					<Question
 						questionRows={this.state.questionRows}
 						descriptionRows={this.state.descriptionRows}
 						showQuestion={this.state.showQuestion}

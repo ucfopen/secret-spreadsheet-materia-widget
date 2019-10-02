@@ -11,7 +11,7 @@ export default class Cell extends React.Component {
 		this.setState(Object.assign(this.props.data.options, {blank: !this.props.data.options.blank}))
 	}
 
-
+	// Store the text as both question and answer in the qset
 	handleTextboxChange(event) {
 		this.setState(Object.assign(this.props.data.questions[0], {text: event.target.value}))
 		this.setState(Object.assign(this.props.data.answers[0], {text: event.target.value}))
