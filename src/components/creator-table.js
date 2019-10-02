@@ -111,7 +111,6 @@ export default class Table extends React.Component {
 						key={`${i} - ${j}`}
 						data={cellData}
 						qset={this.props.qset}
-						resetRandomization={this.props.resetRandomization}
 						row={i}
 						column={j}
 						appendColumn={this.appendColumn}
@@ -120,6 +119,8 @@ export default class Table extends React.Component {
 						removeRow={this.removeRow}
 						focusOnCell={this.focusOnCell}
 						refsArray={this.refsArray}
+						hideCellsRandomly={this.props.hideCellsRandomly}
+
 					/>
 				)
 			}
