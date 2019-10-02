@@ -20,7 +20,7 @@ exports[`CreatorTitle component CreatorTitle renders title 1`] = `
     value="Help"
   >
     <img
-      src="./assets/img/question-mark.png"
+      src="./assets/img/question-mark.svg"
     />
     Help
   </button>

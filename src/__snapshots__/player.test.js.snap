@@ -226,7 +226,7 @@ exports[`Player Render with randomization 1`] = `
         <div>
           <img
             alt="Secret Spreadsheet Instructions"
-            src="assets/img/player-instruction-placeholder.jpg"
+            src="assets/img/helper-pic.svg"
           />
           <p>
             Cells of this spreadsheet have been 
@@ -361,7 +361,7 @@ exports[`Player Render without randomization 1`] = `
         <div>
           <img
             alt="Secret Spreadsheet Instructions"
-            src="assets/img/player-instruction-placeholder.jpg"
+            src="assets/img/helper-pic.svg"
           />
           <p>
             Cells of this spreadsheet have been 
