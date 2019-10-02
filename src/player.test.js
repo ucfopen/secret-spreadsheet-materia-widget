@@ -15,8 +15,8 @@ const qset = () => {
 			"y": 2
 		},
 		"randomization": 0,
-		"entryQuestion": "Test Question",
-		"questionBody": "Test question body",
+		"question": "Test Question",
+		"description": "Test question body",
 		"items": [
 			{
 				"items": [
@@ -120,8 +120,8 @@ const genProps = () => {
 		leftAlign: tempQset.left,
 		header: tempQset.header,
 		spreadsheet: tempQset.spreadsheet,
-		entryQuestion: tempQset.entryQuestion,
-		questionBody: tempQset.questionBody
+		question: tempQset.question,
+		description: tempQset.description
 	};
 };
 
@@ -231,7 +231,7 @@ describe('Player', () => {
 
 		const start = Materia.Engine.start.mock.calls[0][0].start;
 		const newQset = qset();
-		newQset.questionBody = '';
+		newQset.description = '';
 		start({name: 'Test Widget'}, newQset);
 		const playerComponent = mockDomRender.mock.calls[0][0];
 
@@ -248,8 +248,8 @@ describe('Player', () => {
 
 		const start = Materia.Engine.start.mock.calls[0][0].start;
 		const newQset = qset();
-		newQset.entryQuestion = '';
-		newQset.questionBody = '';
+		newQset.question = '';
+		newQset.description = '';
 		start({name: 'Test Widget'}, newQset);
 		const playerComponent = mockDomRender.mock.calls[0][0];
 

@@ -2,13 +2,13 @@
 
 exports[`Player Render called with correct props no randomization 1`] = `
 <PlayerApp
+  description="Test question body"
   dimensions={
     Object {
       "x": 2,
       "y": 2,
     }
   }
-  entryQuestion="Test Question"
   header={false}
   leftAlign={false}
   qset={
@@ -99,7 +99,7 @@ exports[`Player Render called with correct props no randomization 1`] = `
       ],
     ]
   }
-  questionBody="Test question body"
+  question="Test Question"
   randCount={0}
   spreadsheet={false}
   title="Test Widget"
@@ -108,13 +108,13 @@ exports[`Player Render called with correct props no randomization 1`] = `
 
 exports[`Player Render called with correct props with randomization 1`] = `
 <PlayerApp
+  description="Test question body"
   dimensions={
     Object {
       "x": 2,
       "y": 2,
     }
   }
-  entryQuestion="Test Question"
   header={false}
   leftAlign={false}
   qset={
@@ -205,7 +205,7 @@ exports[`Player Render called with correct props with randomization 1`] = `
       ],
     ]
   }
-  questionBody="Test question body"
+  question="Test Question"
   randCount={2}
   spreadsheet={false}
   title="Test Widget"

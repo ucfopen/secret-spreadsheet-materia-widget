@@ -9,7 +9,7 @@ class PlayerApp extends React.Component {
 		super(props);
 		this.state = {
 			popup: true,
-			question: this.props.entryQuestion !== '',
+			question: this.props.question !== '',
 			showQuestion: true,
 			answered: 0
 		}
@@ -157,8 +157,8 @@ class PlayerApp extends React.Component {
 					{(this.state.question && this.state.showQuestion) ?
 						<Question
 							handleQuestionToggle={this.handleQuestionToggle}
-							entryQuestion={this.props.entryQuestion}
-							questionBody={this.props.questionBody}
+							question={this.props.question}
+							description={this.props.description}
 						/>:
 						null}
 
@@ -212,8 +212,8 @@ Materia.Engine.start({
 				leftAlign={qset.left}
 				header={qset.header}
 				spreadsheet={qset.spreadsheet}
-				entryQuestion={qset.entryQuestion}
-				questionBody={qset.questionBody}
+				question={qset.question}
+				description={qset.description}
 			/>,
 			document.getElementById('root')
 		);

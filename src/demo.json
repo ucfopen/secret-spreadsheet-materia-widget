@@ -11,8 +11,8 @@
 				"y": 2
 			},
 			"randomization": 1,
-			"entryQuestion": "Fill in the blank cell.",
-			"questionBody": "It shouldn't be too difficult.",
+			"question": "Fill in the blank cell.",
+			"description": "It shouldn't be too difficult.",
 			"items": [
 				{
 					"items": [

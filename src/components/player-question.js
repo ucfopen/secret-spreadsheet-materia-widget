@@ -4,9 +4,9 @@ const Question = props => {
 	return (
 		<div className="popup question">
 			<div>
-				<p className="mainQuestion">{props.entryQuestion}</p>
+				<p className="mainQuestion">{props.question}</p>
 
-				{props.questionBody !== '' ? <p>{props.questionBody}</p>:null}
+				{props.description !== '' ? <p>{props.description}</p>:null}
 
 				<button type="button" value="Next" onClick={props.handleQuestionToggle}>
 						Next
