@@ -17,11 +17,9 @@ export default class Options extends React.Component {
 		// Upper limit changes depending on whether header row is enabled
 		else if (event.target.value > ((!this.props.qset.header ? this.props.qset.dimensions.x : (this.props.qset.dimensions.x - 1) ) * this.props.qset.dimensions.y)) {
 			this.setState(Object.assign(this.props.qset,{randomization:((!this.props.qset.header ? this.props.qset.dimensions.x : (this.props.qset.dimensions.x - 1) ) * this.props.qset.dimensions.y)}));
-			this.props.resetCheckbox()
 		}
 		else {
 			this.setState(Object.assign(this.props.qset,{randomization:event.target.value}));
-			this.props.resetCheckbox()
 		}
 	}
 
@@ -147,10 +145,18 @@ export default class Options extends React.Component {
 				</div>
 
 				<div className="randomize">
-					<h3>Randomize:</h3>
-					<div>
+					<div className={`${this.props.hideCellsRandomly ? 'active' : ''}`}>
 						<label>
-							Randomly hide <input type="number" placeholder={0} value={this.props.qset.randomization} onChange={this.handleRandomizationChange}/> cells.　Mutually exclusive with hiding specific cells by checkboxes
+							Manually hide cells with checkboxes
+						</label>
+					</div>
+					<label className="switch" htmlFor="hide-method-toggle" >
+						<input type="checkbox" id="hide-method-toggle" onClick={this.props.toggleHideCellMethod}></input>
+						<span className="slider"></span>
+					</label>
+					<div className={`${this.props.hideCellsRandomly ? '' : 'active'}`}>
+						<label>
+							Randomly hide <input readOnly={this.props.hideCellsRandomly} type="number" placeholder={0} value={this.props.qset.randomization} onChange={this.handleRandomizationChange}/> cells.
 						</label>
 					</div>
 				</div>

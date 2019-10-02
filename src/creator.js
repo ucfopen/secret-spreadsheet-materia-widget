@@ -20,10 +20,15 @@ export default class CreatorApp extends React.Component {
 			showKeyControls: false,
 			showInstruction: true,
 			showQuestion: props.qset.question !== '',
-			rows: 1,
-			minRows: 1,
-			maxRows: 3,
+			showDescription: props.qset.description !== '',
+			questionRows: 1,
+			minQuestionRows: 1,
+			maxQuestionRows: 2,
+			descriptionRows: 2,
+			minDescriptionRows: 2,
+			maxDescriptionRows: 3,
 			numHidden: 0,
+			hideCellsRandomly: true,
 		}
 
 		this.state.qset.items[0].items.push([this.cellData('', false)])
@@ -41,9 +46,11 @@ export default class CreatorApp extends React.Component {
 		this.useHeader = this.useHeader.bind(this)
 		this.useQuestion = this.useQuestion.bind(this)
 		this.handleQuestionChange = this.handleQuestionChange.bind(this)
+		this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
 		this.onSaveClicked = this.onSaveClicked.bind(this)
 		this.toggleKeyboardInst = this.toggleKeyboardInst.bind(this)
 		this.toggleInstruction = this.toggleInstruction.bind(this)
+		this.toggleHideCellMethod = this.toggleHideCellMethod.bind(this)
 		this.resetCheckbox = this.resetCheckbox.bind(this)
 		this.resetRandomization = this.resetRandomization.bind(this)
 	}
@@ -204,10 +211,10 @@ export default class CreatorApp extends React.Component {
 
 	handleQuestionChange(event) {
 		const textareaLineHeight = 24;
-		const { minRows, maxRows } = this.state;
+		const { minQuestionRows, maxQuestionRows } = this.state;
 
 		const previousRows = event.target.rows;
-		event.target.rows = minRows;
+		event.target.rows = minQuestionRows;
 
 		const currentRows = ~~(event.target.scrollHeight / textareaLineHeight);
 
@@ -215,20 +222,54 @@ export default class CreatorApp extends React.Component {
 			event.target.rows = currentRows;
 		}
 
-		if (currentRows >= maxRows) {
-			event.target.rows = maxRows;
+		if (currentRows >= maxQuestionRows) {
+			event.target.rows = maxQuestionRows;
 			event.target.scrollTop = event.target.scrollHeight;
 		}
 
 		this.setState(Object.assign(this.state.qset, { question: event.target.value }))
 
 		this.setState({
-			rows: currentRows < maxRows ? currentRows : maxRows,
+			questionRows: currentRows < maxQuestionRows ? currentRows : maxQuestionRows,
+		});
+	}
+
+	handleDescriptionChange(event) {
+		const textareaLineHeight = 24;
+		const { minDescriptionRows, maxDescriptionRows } = this.state;
+
+		const previousRows = event.target.rows;
+		event.target.rows = minDescriptionRows;
+
+		const currentRows = ~~(event.target.scrollHeight / textareaLineHeight);
+
+		if (currentRows === previousRows) {
+			event.target.rows = currentRows;
+		}
+
+		if (currentRows >= maxDescriptionRows) {
+			event.target.rows = maxDescriptionRows;
+			event.target.scrollTop = event.target.scrollHeight;
+		}
+
+		this.setState(Object.assign(this.state.qset, { description: event.target.value }))
+
+		this.setState({
+			descriptionRows: currentRows < maxDescriptionRows ? currentRows : maxDescriptionRows,
 		});
 	}
 
 	toggleInstruction() {
 		this.setState({showInstruction: !this.state.showInstruction})
+	}
+
+	toggleHideCellMethod() {
+		this.setState({hideCellsRandomly: !this.state.hideCellsRandomly})
+		if (!this.state.hideCellsRandomly) {
+			this.resetRandomization()
+		} else {
+			this.resetCheckbox()
+		}
 	}
 
 	resetCheckbox() {
@@ -273,7 +314,8 @@ export default class CreatorApp extends React.Component {
 					useQuestion={this.useQuestion}
 					handleQuestionChange={this.handleQuestionChange}
 					toggleInstruction={this.toggleInstruction}
-					resetCheckbox={this.resetCheckbox}
+					hideCellsRandomly={this.state.hideCellsRandomly}
+					toggleHideCellMethod={this.toggleHideCellMethod}
 				/>
 
 
@@ -289,7 +331,8 @@ export default class CreatorApp extends React.Component {
 						<h2>WHAT TO DO</h2>
 						<ul className="what-to-do">
 							<li>Add rows and columns, then input data in the cells below.</li>
-							<li>Check cells to turn them <span className="blue-text">blue</span> - these will be left blank for students to fill out.</li>
+							<li className={`${this.state.hideCellsRandomly ? '' : 'list-item-hidden'}`}>Check cells to turn them <span className="blue-text">blue</span> - these will be left blank for students to fill out.</li>
+							<li className={`${this.state.hideCellsRandomly ? 'list-item-hidden' : ''}`}>The widget will automatically hide the given number of cells</li>
 							<li onClick={this.toggleKeyboardInst} className="keyboard-controls-div"><span tabIndex={0} onKeyPress={(e) => { if (e.key === 'Enter') { this.toggleKeyboardInst() } }} className="keyboard-controls-spam">Keyboard controls</span>
 								{this.state.showKeyControls ?
 									(<ul>
@@ -306,7 +349,8 @@ export default class CreatorApp extends React.Component {
 					</div>
 
 					<ResizableTextarea
-						rows={this.state.rows}
+						questionRows={this.state.questionRows}
+						descriptionRows={this.state.descriptionRows}
 						showQuestion={this.state.showQuestion}
 						qset={this.state.qset}
 						handleQuestionChange={this.handleQuestionChange}
@@ -315,7 +359,7 @@ export default class CreatorApp extends React.Component {
 					<Table
 						cellData={this.cellData}
 						qset={this.state.qset}
-						resetRandomization={this.resetRandomization}
+						hideCellsRandomly={this.state.hideCellsRandomly}
 					/>
 				</div>
 			</div>
@@ -331,6 +375,7 @@ CreatorApp.defaultProps = {
 		'spreadsheet': true,
 		'randomization': 0,
 		'question': '',
+		'description': '',
 		'dimensions': { 'x': 1, 'y': 1 },
 		'items': [{ 'items': [] }]
 	},

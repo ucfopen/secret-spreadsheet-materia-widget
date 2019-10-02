@@ -9,7 +9,6 @@ export default class Cell extends React.Component {
 
 	handleCheckboxToggle(event) {
 		this.setState(Object.assign(this.props.data.options, {blank: !this.props.data.options.blank}))
-		this.props.resetRandomization()
 	}
 
 
@@ -56,7 +55,7 @@ export default class Cell extends React.Component {
 					/>
 
 					<div
-						className="checkbox"
+						className={`${this.props.hideCellsRandomly ? '' : 'checkbox-hidden'} checkbox`}
 						onClick={this.handleCheckboxToggle}
 					>
 						<input
