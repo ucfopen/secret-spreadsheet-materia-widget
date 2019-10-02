@@ -16,7 +16,7 @@ exports[`CreatorCell component CreatorCell renders basic cell 1`] = `
       value=""
     />
     <div
-      className="checkbox"
+      className="checkbox-hidden checkbox"
       onClick={[Function]}
     >
       <input

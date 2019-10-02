@@ -25,7 +25,7 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
                 value=""
               />
               <div
-                className="checkbox"
+                className="checkbox-hidden checkbox"
                 onClick={[Function]}
               >
                 <input
@@ -181,7 +181,7 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
                 value=""
               />
               <div
-                className="checkbox"
+                className="checkbox-hidden checkbox"
                 onClick={[Function]}
               >
                 <input
