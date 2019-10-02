@@ -50,7 +50,7 @@ export default class Cell extends React.Component {
 						ref={el => {this.props.refsArray[this.props.row][this.props.column] = el}}
 						className={`row-${this.props.row} col-${this.props.column}`}
 						type="text"
-						value={this.props.data && this.props.data.questions[0].text}
+						value={this.props.data && this.props.data.questions && this.props.data.questions[0] && this.props.data.questions[0].text}
 						onChange={this.handleTextboxChange}
 						placeholder={this.props.qset.spreadsheet ? `${String.fromCharCode(this.props.row + 65)}${this.props.column + 1}` : ''}
 					/>

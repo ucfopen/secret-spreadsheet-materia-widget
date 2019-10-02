@@ -51,11 +51,9 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
         onClick={[Function]}
       >
         <svg
-          height="28"
           id="svg"
           version="1.1"
           viewBox="0 0 400 400"
-          width="28"
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
         >
@@ -68,16 +66,19 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
             />
           </g>
         </svg>
+        <div
+          className="button-name-hidden"
+        >
+          Col
+        </div>
       </button>
       <button
         onClick={[Function]}
       >
         <svg
-          height="28"
           id="svg"
           version="1.1"
           viewBox="0, 0, 400,400"
-          width="28"
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
         >
@@ -90,6 +91,11 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
             />
           </g>
         </svg>
+        <div
+          className="button-name-hidden"
+        >
+          Col
+        </div>
       </button>
     </div>
   </div>
@@ -100,11 +106,9 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
       onClick={[Function]}
     >
       <svg
-        height="28"
         id="svg"
         version="1.1"
         viewBox="0 0 400 400"
-        width="28"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
       >
@@ -117,16 +121,17 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
           />
         </g>
       </svg>
+      <div>
+        Row
+      </div>
     </button>
     <button
       onClick={[Function]}
     >
       <svg
-        height="28"
         id="svg"
         version="1.1"
         viewBox="0, 0, 400,400"
-        width="28"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
       >
@@ -139,6 +144,9 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
           />
         </g>
       </svg>
+      <div>
+        Row
+      </div>
     </button>
   </div>
   <input
@@ -199,11 +207,9 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
         onClick={[Function]}
       >
         <svg
-          height="28"
           id="svg"
           version="1.1"
           viewBox="0 0 400 400"
-          width="28"
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
         >
@@ -216,16 +222,19 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
             />
           </g>
         </svg>
+        <div
+          className="button-name-hidden"
+        >
+          Col
+        </div>
       </button>
       <button
         onClick={[Function]}
       >
         <svg
-          height="28"
           id="svg"
           version="1.1"
           viewBox="0, 0, 400,400"
-          width="28"
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
         >
@@ -238,6 +247,11 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
             />
           </g>
         </svg>
+        <div
+          className="button-name-hidden"
+        >
+          Col
+        </div>
       </button>
     </div>
   </div>
@@ -248,11 +262,9 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
       onClick={[Function]}
     >
       <svg
-        height="28"
         id="svg"
         version="1.1"
         viewBox="0 0 400 400"
-        width="28"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
       >
@@ -265,16 +277,17 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
           />
         </g>
       </svg>
+      <div>
+        Row
+      </div>
     </button>
     <button
       onClick={[Function]}
     >
       <svg
-        height="28"
         id="svg"
         version="1.1"
         viewBox="0, 0, 400,400"
-        width="28"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
       >
@@ -287,6 +300,9 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
           />
         </g>
       </svg>
+      <div>
+        Row
+      </div>
     </button>
   </div>
   <input

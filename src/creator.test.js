@@ -10,7 +10,7 @@ const genEvent = {
   preventDefault: jest.fn(),
 }
 
-const makeProps = (init = true, left = false, header = false, spreadsheet = false, randomization = 0) => {
+const makeProps = (init = true, left = false, header = false, spreadsheet = false, randomization = 0, blank = false) => {
   return {
     title: 'New Spreadsheet Widget',
     qset: {
@@ -19,7 +19,13 @@ const makeProps = (init = true, left = false, header = false, spreadsheet = fals
       'spreadsheet': spreadsheet,
       'randomization': randomization,
       'dimensions': {'x': 1, 'y': 1},
-      'items': [{'items': []}]
+      'items': [{
+        'items': [[{
+          'options': {
+            'blank': blank
+          }
+        }]]
+      }]
     },
     init: init,
   }
@@ -99,6 +105,22 @@ describe('CreatorApp component', function() {
     expect(mockOnSaveClicked).toHaveBeenCalled()
   })
 
+  test('CreatorApp calls materiaCallbacks.onSaveClicked', () => {
+    require('./creator').default
+
+    jest.mock('react-dom', () => ({
+			render: jest.fn().mockReturnValue({onSaveClicked: jest.fn()})
+    }));
+
+    const mockOnSaveClicked = require('react-dom').render().onSaveClicked
+
+    const callbacks = Materia.CreatorCore.start.mock.calls[0][0];
+    callbacks.initExistingWidget('', {}, { randomization:1 }, 1)
+    expect(mockOnSaveClicked).not.toHaveBeenCalled()
+    callbacks.onSaveClicked()
+    expect(mockOnSaveClicked).toHaveBeenCalled()
+  })
+
   test('CreatorApp calls materiaCallbacks.onSaveComplete', () => {
     require('./creator')
 
@@ -136,21 +158,37 @@ describe('CreatorApp component', function() {
   })
 
 
-  test('CreatorApp calls onSaveClicked - save', () => {
+  test('CreatorApp calls onSaveClicked - save with randomization hidden', () => {
     const CreatorApp = require('./creator').default
-    const props = makeProps()
-    const event = genEvent
+    const props = makeProps(true, false, false, false, 1)
 
     const component = shallow(<CreatorApp {... props}/>)
     component.instance().onSaveClicked()
     expect(Materia.CreatorCore.save).toBeCalled()
   })
 
-  test('CreatorApp calls onSaveClicked - cancelSave', () => {
+  test('CreatorApp calls onSaveClicked - save with checkbox hidden', () => {
+    const CreatorApp = require('./creator').default
+    const props = makeProps(true, false, false, false, 0, true)
+
+    const component = shallow(<CreatorApp {... props}/>)
+    component.instance().onSaveClicked()
+    expect(Materia.CreatorCore.save).toBeCalled()
+  })
+
+  test('CreatorApp calls onSaveClicked - cancelSave because no cell hidden', () => {
     const CreatorApp = require('./creator').default
     const props = makeProps()
+
+    const component = shallow(<CreatorApp {... props}/>)
+    component.instance().onSaveClicked()
+    expect(Materia.CreatorCore.cancelSave).toBeCalled()
+  })
+
+  test('CreatorApp calls onSaveClicked - cancelSave because empty title', () => {
+    const CreatorApp = require('./creator').default
+    const props = makeProps(true, false, false, false, 0, true)
     props.title = ''
-    const event = genEvent
 
     const component = shallow(<CreatorApp {... props}/>)
     component.instance().onSaveClicked()
@@ -369,6 +407,61 @@ describe('CreatorApp component', function() {
     expect(component.instance().state.qset.randomization).toEqual(0)
   })
 
+  test('CreatorApp calls useQuestion toggle', () => {
+    const CreatorApp = require('./creator').default
+    const props = makeProps()
+    const event = genEvent
+
+    const component = shallow(<CreatorApp {... props}/>)
+    component.instance().useQuestion(event)
+    expect(component.instance().state.showQuestion).toEqual(false)
+    component.instance().useQuestion(event)
+    expect(component.instance().state.showQuestion).toEqual(true)
+  })
+
+  test('CreatorApp calls handleQuestionChange', () => {
+    const CreatorApp = require('./creator').default
+    const props = makeProps()
+    const event = {
+      ...genEvent,
+      target: {
+        value: "How Can Mirrors Be Real If Our Eyes Aren't Real?"
+      }
+    }
+
+    const component = shallow(<CreatorApp {... props}/>)
+    component.instance().handleQuestionChange(event)
+    expect(component.instance().state.qset.question).toEqual("How Can Mirrors Be Real If Our Eyes Aren't Real?")
+  })
+
+  test('CreatorApp calls handleQuestionChange', () => {
+    const CreatorApp = require('./creator').default
+    const props = makeProps()
+    const event = {
+      ...genEvent,
+      target: {
+        value: "How Can Mirrors Be Real If Our Eyes Aren't Real?",
+        rows: 3,
+        scrollHeight: 72,
+      },
+    }
+
+    const component = shallow(<CreatorApp {... props}/>)
+    component.instance().handleQuestionChange(event)
+    expect(component.instance().state.qset.question).toEqual("How Can Mirrors Be Real If Our Eyes Aren't Real?")
+  })
+
+  test('CreatorApp calls toggleInstruction toggle', () => {
+    const CreatorApp = require('./creator').default
+    const props = makeProps()
+
+    const component = shallow(<CreatorApp {... props}/>)
+    component.instance().toggleInstruction()
+    expect(component.instance().state.showInstruction).toEqual(false)
+    component.instance().toggleInstruction()
+    expect(component.instance().state.showInstruction).toEqual(true)
+  })
+
   test('CreatorApp toggles keyboard control with onClick', () => {
     const CreatorApp = require('./creator').default
     const props = makeProps()
@@ -397,6 +490,46 @@ describe('CreatorApp component', function() {
 
     component.find('.keyboard-controls-spam').simulate('keypress', {key: 'a'})
     expect(component.instance().state.showKeyControls).toEqual(false)
+  })
+
+  test('CreatorApp calls resetCheckbox toggle', () => {
+    const CreatorApp = require('./creator').default
+    const props = makeProps(true, false, false, false, 0, true)
+
+    const component = shallow(<CreatorApp {... props}/>)
+    expect(component.instance().state.qset.items[0].items[0][0].options.blank).toBeTruthy()
+    component.instance().resetCheckbox()
+    expect(component.instance().state.qset.items[0].items[0][0].options.blank).toBeFalsy()
+  })
+
+  test('CreatorApp calls resetRandomization toggle', () => {
+    const CreatorApp = require('./creator').default
+    const props = makeProps(true, false, false, false, 1)
+
+    const component = shallow(<CreatorApp {... props}/>)
+    expect(component.instance().state.qset.randomization).toEqual(1)
+    component.instance().resetRandomization()
+    expect(component.instance().state.qset.randomization).toEqual(0)
+  })
+
+  test('CreatorApp calls toggleInstruction with Enter key', () => {
+    const CreatorApp = require('./creator').default
+    const props = makeProps(true, false, false, false, 1)
+
+    const component = shallow(<CreatorApp {... props}/>)
+    expect(component.instance().state.showInstruction).toEqual(true)
+    component.find('.close').simulate('keypress', {key: 'Enter'})
+    expect(component.instance().state.showInstruction).toEqual(false)
+  })
+
+  test('CreatorApp fails to call toggleInstruction with other key', () => {
+    const CreatorApp = require('./creator').default
+    const props = makeProps(true, false, false, false, 1)
+
+    const component = shallow(<CreatorApp {... props}/>)
+    expect(component.instance().state.showInstruction).toEqual(true)
+    component.find('.close').simulate('keypress', {key: 'a'})
+    expect(component.instance().state.showInstruction).toEqual(true)
   })
 
 })

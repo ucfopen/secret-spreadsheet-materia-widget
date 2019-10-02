@@ -19,6 +19,9 @@ const props ={
 	useLeftAlign: jest.fn(),
 	useCenterAlign: jest.fn(),
 	useHeader: jest.fn(),
+	toggleInstruction: jest.fn(),
+	useQuestion: jest.fn(),
+	resetCheckbox: jest.fn(),
 }
 
 const makeEvent = value => {
@@ -99,6 +102,30 @@ describe('CreatorOptions component', function() {
 		const component = shallow(<Options {... props}/>)
 		component.find('#header').simulate('keyDown', {key: 'a'})
 		expect(props.useHeader).toReturnTimes(0)
+	})
+
+	test('CreatorOptions calls useHeader onKeyDown', () => {
+		const component = shallow(<Options {... props}/>)
+		component.find('#instructions').simulate('keyDown', {key: 'Enter'})
+		expect(props.toggleInstruction).toReturnTimes(1)
+	})
+
+	test('CreatorOptions does not call useHeader with wrong key', () => {
+		const component = shallow(<Options {... props}/>)
+		component.find('#instructions').simulate('keyDown', {key: 'a'})
+		expect(props.toggleInstruction).toReturnTimes(0)
+	})
+
+	test('CreatorOptions calls useHeader onKeyDown', () => {
+		const component = shallow(<Options {... props}/>)
+		component.find('#question').simulate('keyDown', {key: 'Enter'})
+		expect(props.useQuestion).toReturnTimes(1)
+	})
+
+	test('CreatorOptions does not call useHeader with wrong key', () => {
+		const component = shallow(<Options {... props}/>)
+		component.find('#question').simulate('keyDown', {key: 'a'})
+		expect(props.useQuestion).toReturnTimes(0)
 	})
 
 	test('CreatorOptions renders branches of classNames', () => {

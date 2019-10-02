@@ -58,11 +58,7 @@ export default class CreatorApp extends React.Component {
 				for (let j = 0; j < this.state.qset.dimensions.y; j++) {
 					if (this.state.qset.items[0].items[i][j].options.blank) {
 						minimumOneCellHidden = true
-						break
 					}
-				}
-				if (minimumOneCellHidden) {
-					break
 				}
 			}
 		}
@@ -284,9 +280,10 @@ export default class CreatorApp extends React.Component {
 				<div className="table-container">
 					<div className={`table-text ${this.state.showInstruction ? "" : "instruction-hidden"}`}>
 						<span
+							tabIndex={0}
 							className="close"
 							onClick={this.toggleInstruction}
-							onKeyDown={(e) => {if (e.key === 'Enter') {this.toggleInstruction()}}}
+							onKeyPress={(e) => {if (e.key === 'Enter') {this.toggleInstruction()}}}
 							>&times;
 						</span>
 						<h2>WHAT TO DO</h2>
