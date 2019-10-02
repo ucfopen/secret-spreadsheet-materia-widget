@@ -10,8 +10,8 @@ describe('Question component', () => {
 	test('Is rendered with question body', () => {
 		const props = {
 			handleQuestionToggle: jest.fn(),
-			entryQuestion: 'Test entry question',
-			questionBody: 'Test question body'
+			question: 'Test entry question',
+			description: 'Test question body'
 		}
 
 		const component = renderer.create(<Question {... props} />);
@@ -23,8 +23,8 @@ describe('Question component', () => {
 	test('Is rendered without question body', () => {
 		const props = {
 			handleQuestionToggle: jest.fn(),
-			entryQuestion: 'Test entry question',
-			questionBody: ''
+			question: 'Test entry question',
+			description: ''
 		}
 
 		const component = renderer.create(<Question {... props} />);
