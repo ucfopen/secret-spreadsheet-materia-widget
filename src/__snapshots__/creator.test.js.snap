@@ -295,19 +295,39 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
     <div
       className="randomize"
     >
-      <h3>
-        Randomize:
-      </h3>
-      <div>
+      <div
+        className="active"
+      >
+        <label>
+          Manually hide cells with checkboxes
+        </label>
+      </div>
+      <label
+        className="switch"
+        htmlFor="hide-method-toggle"
+      >
+        <input
+          id="hide-method-toggle"
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <span
+          className="slider"
+        />
+      </label>
+      <div
+        className=""
+      >
         <label>
           Randomly hide 
           <input
             onChange={[Function]}
             placeholder={0}
+            readOnly={true}
             type="number"
             value={0}
           />
-           cells.　Mutually exclusive with hiding specific cells by checkboxes
+           cells.
         </label>
       </div>
     </div>
@@ -335,7 +355,9 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
         <li>
           Add rows and columns, then input data in the cells below.
         </li>
-        <li>
+        <li
+          className=""
+        >
           Check cells to turn them 
           <span
             className="blue-text"
@@ -343,6 +365,11 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
             blue
           </span>
            - these will be left blank for students to fill out.
+        </li>
+        <li
+          className="list-item-hidden"
+        >
+          The widget will automatically hide the given number of cells
         </li>
         <li
           className="keyboard-controls-div"
@@ -358,17 +385,31 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
         </li>
       </ul>
     </div>
-    <div
-      className="question-hidden"
-    >
-      <textarea
-        className="question-text"
-        onChange={[Function]}
-        placeholder="Question Text"
-        rows={1}
-        type="text"
-        value=""
-      />
+    <div>
+      <div
+        className="question-hidden"
+      >
+        <textarea
+          className="question-text"
+          onChange={[Function]}
+          placeholder="Question Text"
+          rows={1}
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="description-hidden"
+      >
+        <textarea
+          className="description-text"
+          onChange={[Function]}
+          placeholder="Description Text"
+          rows={2}
+          type="text"
+          value=""
+        />
+      </div>
     </div>
     <div
       className="table"
@@ -394,7 +435,7 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
                     value=""
                   />
                   <div
-                    className="checkbox"
+                    className=" checkbox"
                     onClick={[Function]}
                   >
                     <input
@@ -874,19 +915,39 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
     <div
       className="randomize"
     >
-      <h3>
-        Randomize:
-      </h3>
-      <div>
+      <div
+        className="active"
+      >
+        <label>
+          Manually hide cells with checkboxes
+        </label>
+      </div>
+      <label
+        className="switch"
+        htmlFor="hide-method-toggle"
+      >
+        <input
+          id="hide-method-toggle"
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <span
+          className="slider"
+        />
+      </label>
+      <div
+        className=""
+      >
         <label>
           Randomly hide 
           <input
             onChange={[Function]}
             placeholder={0}
+            readOnly={true}
             type="number"
             value={0}
           />
-           cells.　Mutually exclusive with hiding specific cells by checkboxes
+           cells.
         </label>
       </div>
     </div>
@@ -914,7 +975,9 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
         <li>
           Add rows and columns, then input data in the cells below.
         </li>
-        <li>
+        <li
+          className=""
+        >
           Check cells to turn them 
           <span
             className="blue-text"
@@ -922,6 +985,11 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
             blue
           </span>
            - these will be left blank for students to fill out.
+        </li>
+        <li
+          className="list-item-hidden"
+        >
+          The widget will automatically hide the given number of cells
         </li>
         <li
           className="keyboard-controls-div"
@@ -937,16 +1005,29 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
         </li>
       </ul>
     </div>
-    <div
-      className=""
-    >
-      <textarea
-        className="question-text"
-        onChange={[Function]}
-        placeholder="Question Text"
-        rows={1}
-        type="text"
-      />
+    <div>
+      <div
+        className=""
+      >
+        <textarea
+          className="question-text"
+          onChange={[Function]}
+          placeholder="Question Text"
+          rows={1}
+          type="text"
+        />
+      </div>
+      <div
+        className=""
+      >
+        <textarea
+          className="description-text"
+          onChange={[Function]}
+          placeholder="Description Text"
+          rows={2}
+          type="text"
+        />
+      </div>
     </div>
     <div
       className="table"
@@ -971,7 +1052,7 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
                     type="text"
                   />
                   <div
-                    className="checkbox"
+                    className=" checkbox"
                     onClick={[Function]}
                   >
                     <input
@@ -1451,19 +1532,39 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
     <div
       className="randomize"
     >
-      <h3>
-        Randomize:
-      </h3>
-      <div>
+      <div
+        className="active"
+      >
+        <label>
+          Manually hide cells with checkboxes
+        </label>
+      </div>
+      <label
+        className="switch"
+        htmlFor="hide-method-toggle"
+      >
+        <input
+          id="hide-method-toggle"
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <span
+          className="slider"
+        />
+      </label>
+      <div
+        className=""
+      >
         <label>
           Randomly hide 
           <input
             onChange={[Function]}
             placeholder={0}
+            readOnly={true}
             type="number"
             value={0}
           />
-           cells.　Mutually exclusive with hiding specific cells by checkboxes
+           cells.
         </label>
       </div>
     </div>
@@ -1491,7 +1592,9 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
         <li>
           Add rows and columns, then input data in the cells below.
         </li>
-        <li>
+        <li
+          className=""
+        >
           Check cells to turn them 
           <span
             className="blue-text"
@@ -1499,6 +1602,11 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
             blue
           </span>
            - these will be left blank for students to fill out.
+        </li>
+        <li
+          className="list-item-hidden"
+        >
+          The widget will automatically hide the given number of cells
         </li>
         <li
           className="keyboard-controls-div"
@@ -1514,16 +1622,29 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
         </li>
       </ul>
     </div>
-    <div
-      className=""
-    >
-      <textarea
-        className="question-text"
-        onChange={[Function]}
-        placeholder="Question Text"
-        rows={1}
-        type="text"
-      />
+    <div>
+      <div
+        className=""
+      >
+        <textarea
+          className="question-text"
+          onChange={[Function]}
+          placeholder="Question Text"
+          rows={1}
+          type="text"
+        />
+      </div>
+      <div
+        className=""
+      >
+        <textarea
+          className="description-text"
+          onChange={[Function]}
+          placeholder="Description Text"
+          rows={2}
+          type="text"
+        />
+      </div>
     </div>
     <div
       className="table"
@@ -1548,7 +1669,7 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
                     type="text"
                   />
                   <div
-                    className="checkbox"
+                    className=" checkbox"
                     onClick={[Function]}
                   >
                     <input

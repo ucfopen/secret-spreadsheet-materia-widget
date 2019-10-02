@@ -266,10 +266,28 @@ exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] =
   <div
     className="randomize"
   >
-    <h3>
-      Randomize:
-    </h3>
-    <div>
+    <div
+      className=""
+    >
+      <label>
+        Manually hide cells with checkboxes
+      </label>
+    </div>
+    <label
+      className="switch"
+      htmlFor="hide-method-toggle"
+    >
+      <input
+        id="hide-method-toggle"
+        type="checkbox"
+      />
+      <span
+        className="slider"
+      />
+    </label>
+    <div
+      className="active"
+    >
       <label>
         Randomly hide 
         <input
@@ -278,7 +296,7 @@ exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] =
           type="number"
           value={1}
         />
-         cells.　Mutually exclusive with hiding specific cells by checkboxes
+         cells.
       </label>
     </div>
   </div>
