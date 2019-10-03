@@ -1,7 +1,7 @@
 import React from 'react';
 import Cell from './player-cell'
 import renderer from 'react-test-renderer';
-import { shallow } from '../enzyme';
+import { shallow, mount } from '../enzyme';
 
 const genProps = {
 	key: 1,
@@ -9,7 +9,8 @@ const genProps = {
 	saveAnswer: jest.fn(),
 	displayText: 'Testing Text',
 	firstInput: false,
-	focus: false
+	focus: false,
+	exitQuestion: false
 };
 
 const makeProps = (showInput, leftAlign) => {
@@ -151,7 +152,7 @@ describe('Cell component', () => {
 		tempComponent.unmount();
 	});
 
-	test('componentDidUpdate with change focus needed', () => {
+	test('componentDidUpdate with change focus needed no question', () => {
 		const props = makeProps(true, false);
 		props.firstInput = true;
 		props.focus = true;
@@ -178,7 +179,44 @@ describe('Cell component', () => {
 
 		expect(tempComponent.state(['value'])).toEqual(originalValue);
 		expect(tempComponent.state(['colorClass'])).toEqual(originalClass);
+		expect(tempComponent.state(['firstFocus'])).toEqual(true);
+
+		// cleanup
+		tempComponent.unmount();
+	});
+
+	test('componentDidUpdate with change focus needed with question', () => {
+		const props = makeProps(true, false);
+		props.firstInput = true;
+		props.focus = true;
+		props.exitQuestion = true;
+		const event = {
+			target: {
+				value: ''
+			}
+		};
+		const inputComponent = {
+			focus: jest.fn()
+		};
+
+		const tempComponent = shallow(<Cell {... props} />);
+		tempComponent.setState({
+			value: '',
+			colorClass: 'unanswered',
+			firstFocus: true
+		});
+		const originalValue = tempComponent.state(['value']);
+		const originalClass = tempComponent.state(['colorClass']);
+		tempComponent.instance().input.current = inputComponent;
+
+		tempComponent.instance().componentDidUpdate();
+
+		expect(tempComponent.state(['value'])).toEqual(originalValue);
+		expect(tempComponent.state(['colorClass'])).toEqual(originalClass);
 		expect(tempComponent.state(['firstFocus'])).toEqual(false);
+
+		// cleanup
+		tempComponent.unmount();
 	});
 
 	// note the things that are tested here happen in the previous three tests. This is necessary to stop an endless loop because state is being set
