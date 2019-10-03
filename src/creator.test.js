@@ -505,36 +505,6 @@ describe('CreatorApp component', function() {
 		expect(component.instance().state.hideCellsRandomly).toEqual(true)
 	})
 
-	test('CreatorApp toggles keyboard control with onClick', () => {
-		const CreatorApp = require('./creator').default
-		const props = makeProps()
-
-		const component = shallow(<CreatorApp {... props}/>)
-
-		component.find('.keyboard-controls-div').simulate('Click')
-		expect(component.instance().state.showKeyControls).toEqual(true)
-	})
-
-	test('CreatorApp toggles keyboard control with Enter keyPress', () => {
-		const CreatorApp = require('./creator').default
-		const props = makeProps()
-
-		const component = shallow(<CreatorApp {... props}/>)
-
-		component.find('.keyboard-controls-spam').simulate('keypress', {key: 'Enter'})
-		expect(component.instance().state.showKeyControls).toEqual(true)
-	})
-
-	test('CreatorApp toggles keyboard control with non-Enter keyPress', () => {
-		const CreatorApp = require('./creator').default
-		const props = makeProps()
-
-		const component = shallow(<CreatorApp {... props}/>)
-
-		component.find('.keyboard-controls-spam').simulate('keypress', {key: 'a'})
-		expect(component.instance().state.showKeyControls).toEqual(false)
-	})
-
 	test('CreatorApp calls resetCheckbox toggle', () => {
 		const CreatorApp = require('./creator').default
 		const props = makeProps(true, false, false, false, 0, true)
@@ -553,26 +523,6 @@ describe('CreatorApp component', function() {
 		expect(component.instance().state.qset.randomization).toEqual(1)
 		component.instance().resetRandomization()
 		expect(component.instance().state.qset.randomization).toEqual(0)
-	})
-
-	test('CreatorApp calls toggleInstruction with Enter key', () => {
-		const CreatorApp = require('./creator').default
-		const props = makeProps(true, false, false, false, 1)
-
-		const component = shallow(<CreatorApp {... props}/>)
-		expect(component.instance().state.showInstruction).toEqual(true)
-		component.find('.close').simulate('keypress', {key: 'Enter'})
-		expect(component.instance().state.showInstruction).toEqual(false)
-	})
-
-	test('CreatorApp fails to call toggleInstruction with other key', () => {
-		const CreatorApp = require('./creator').default
-		const props = makeProps(true, false, false, false, 1)
-
-		const component = shallow(<CreatorApp {... props}/>)
-		expect(component.instance().state.showInstruction).toEqual(true)
-		component.find('.close').simulate('keypress', {key: 'a'})
-		expect(component.instance().state.showInstruction).toEqual(true)
 	})
 
 })

@@ -145,7 +145,7 @@ export default class Options extends React.Component {
 						</label>
 					</div>
 					<label className="switch" htmlFor="hide-method-toggle" >
-						<input type="checkbox" id="hide-method-toggle" onClick={this.props.toggleHideCellMethod}></input>
+						<input type="checkbox" id="hide-method-toggle" onClick={this.props.toggleHideCellMethod} onKeyPress={(e) => {if (e.key == 'Enter') {this.props.toggleHideCellMethod()}}}></input>
 						<span className="slider"></span>
 					</label>
 					<div className={`${this.props.hideCellsRandomly ? '' : 'active'}`}>

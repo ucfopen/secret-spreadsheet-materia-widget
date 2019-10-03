@@ -309,6 +309,7 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
         <input
           id="hide-method-toggle"
           onClick={[Function]}
+          onKeyPress={[Function]}
           type="checkbox"
         />
         <span
@@ -382,6 +383,7 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
           >
             Keyboard controls
           </span>
+          
         </li>
       </ul>
     </div>
@@ -927,6 +929,7 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
         <input
           id="hide-method-toggle"
           onClick={[Function]}
+          onKeyPress={[Function]}
           type="checkbox"
         />
         <span
@@ -1000,6 +1003,7 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
           >
             Keyboard controls
           </span>
+          
         </li>
       </ul>
     </div>
@@ -1542,6 +1546,7 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
         <input
           id="hide-method-toggle"
           onClick={[Function]}
+          onKeyPress={[Function]}
           type="checkbox"
         />
         <span
@@ -1615,6 +1620,7 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
           >
             Keyboard controls
           </span>
+          
         </li>
       </ul>
     </div>
