@@ -10,7 +10,7 @@ class PlayerApp extends React.Component {
 		this.state = {
 			popup: true,
 			question: this.props.question !== '',
-			showQuestion: true,
+			showQuestion: false,
 			answered: 0
 		}
 		this.answers = {};
@@ -88,7 +88,7 @@ class PlayerApp extends React.Component {
 		if (this.state.popup) {
 			this.setState({
 				popup: false,
-				question: true
+				showQuestion: true
 			});
 		}
 		else {
@@ -144,6 +144,8 @@ class PlayerApp extends React.Component {
 			this.randomize();
 		}
 
+		console.log(this.state);
+
 		return(
 			<div>
 				<header>
@@ -179,6 +181,7 @@ class PlayerApp extends React.Component {
 									header={this.props.header}
 									spreadsheet={this.props.spreadsheet}
 									focus={!this.state.popup}
+									exitQuestion={!this.state.showQuestion}
 								/>
 							</div>
 						</div>
