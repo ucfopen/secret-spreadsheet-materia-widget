@@ -142,6 +142,7 @@ class PlayerTable extends React.Component {
 						leftAlign={this.props.leftAlign}
 						firstInput={firstInput}
 						focus={this.props.focus}
+						exitQuestion={this.props.exitQuestion}
 					/>
 				);
 

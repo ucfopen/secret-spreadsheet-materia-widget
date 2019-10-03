@@ -39,14 +39,16 @@ class Cell extends React.Component {
 		}
 
 		// will only focus on the first render after the popup is closed; and will only work on the first input
-		if (this.props.firstInput && this.props.focus && this.state.firstFocus && this.input.current !== null) {
+		if (this.props.firstInput && this.state.firstFocus && this.input.current !== null && this.props.focus) {
 			this.input.current.focus();
 
-			this.setState({
-				value: this.state.value,
-				colorClass: this.state.colorClass,
-				firstFocus: false
-			});
+			if (this.props.showQuestion) {
+				this.setState({
+					value: this.state.value,
+					colorClass: this.state.colorClass,
+					firstFocus: false
+				});
+			}
 		}
 	}
 
