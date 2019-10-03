@@ -200,7 +200,7 @@ export default class CreatorApp extends React.Component {
 	// Display textarea for question and description text
 	useQuestion() {
 		this.setState({showQuestion: !this.state.showQuestion})
-		this.setState(Object.assign(this.state.qset, { question: '' }))
+		this.setState(Object.assign(this.state.qset, { question: '', description: '' }))
 	}
 
 	// Resizable textarea for question text. Automatically adjusts based
@@ -317,7 +317,6 @@ export default class CreatorApp extends React.Component {
 					showInstruction={this.state.showInstruction}
 					showQuestion={this.state.showQuestion}
 					useQuestion={this.useQuestion}
-					handleQuestionChange={this.handleQuestionChange}
 					toggleInstruction={this.toggleInstruction}
 					hideCellsRandomly={this.state.hideCellsRandomly}
 					toggleHideCellMethod={this.toggleHideCellMethod}
