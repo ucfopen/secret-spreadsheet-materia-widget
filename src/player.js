@@ -144,8 +144,6 @@ class PlayerApp extends React.Component {
 			this.randomize();
 		}
 
-		console.log(this.state);
-
 		return(
 			<div>
 				<header>
