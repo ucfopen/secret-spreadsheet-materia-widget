@@ -4,6 +4,7 @@ import Popup from './components/creator-popup'
 import Title from './components/creator-title'
 import Options from './components/creator-options'
 import Table from './components/creator-table'
+import Question from './components/creator-question'
 
 const materiaCallbacks = {}
 let creatorInstance
@@ -16,7 +17,17 @@ export default class CreatorApp extends React.Component {
 			qset: props.qset,
 			title: props.title,
 			showPopup: props.init,
-			showKeyControls: false
+			showKeyControls: false,
+			showInstruction: true,
+			showQuestion: props.qset.question !== '',
+			questionRows: 1,
+			minQuestionRows: 1,
+			maxQuestionRows: 2,
+			descriptionRows: 2,
+			minDescriptionRows: 2,
+			maxDescriptionRows: 4,
+			numHidden: 0,
+			hideCellsRandomly: true,
 		}
 
 		this.state.qset.items[0].items.push([this.cellData('', false)])
@@ -32,35 +43,55 @@ export default class CreatorApp extends React.Component {
 		this.useLeftAlign = this.useLeftAlign.bind(this)
 		this.useCenterAlign = this.useCenterAlign.bind(this)
 		this.useHeader = this.useHeader.bind(this)
+		this.useQuestion = this.useQuestion.bind(this)
+		this.handleQuestionChange = this.handleQuestionChange.bind(this)
+		this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
 		this.onSaveClicked = this.onSaveClicked.bind(this)
 		this.toggleKeyboardInst = this.toggleKeyboardInst.bind(this)
+		this.toggleInstruction = this.toggleInstruction.bind(this)
+		this.toggleHideCellMethod = this.toggleHideCellMethod.bind(this)
+		this.resetCheckbox = this.resetCheckbox.bind(this)
+		this.resetRandomization = this.resetRandomization.bind(this)
 	}
 
 	// Callback when widget save is clicked
 	onSaveClicked() {
-		if (this.state.title != '') {
-			Materia.CreatorCore.save(this.state.title, this.state.qset, 1)
+		let minimumOneCellHidden = false
+		if (this.state.qset.randomization > 0) {
+			minimumOneCellHidden = true
 		} else {
+			for (let i = 0; i < this.state.qset.dimensions.x; i++) {
+				for (let j = 0; j < this.state.qset.dimensions.y; j++) {
+					if (this.state.qset.items[0].items[i][j].options.blank) {
+						minimumOneCellHidden = true
+					}
+				}
+			}
+		}
+
+		if (!minimumOneCellHidden) {
+			Materia.CreatorCore.cancelSave('At least one cell must be hidden!')
+		} else if (this.state.title == '') {
 			Materia.CreatorCore.cancelSave('This widget has no title!')
+		} else {
+			Materia.CreatorCore.save(this.state.title, this.state.qset, 1)
 		}
 	}
 
 	// Display intro popup instead of normal popup
-	showIntro(event) {
+	showIntro() {
 		this.setState({
 			showIntro: true,
 			showPopup: true
 		})
-		event.preventDefault()
 	}
 
 	// Display normal popup instead of intro popup
-	editTitle(event) {
+	editTitle() {
 		this.setState({
 			showIntro: false,
 			showPopup: true
 		})
-		event.preventDefault()
 	}
 
 	// A title for the new widget is submitted in the popup
@@ -76,7 +107,6 @@ export default class CreatorApp extends React.Component {
 	// Save title
 	handleTitleChange(event) {
 		this.setState({ title: event.target.value })
-		event.preventDefault()
 	}
 
 	// Shows keyboard controlls guide
@@ -124,7 +154,6 @@ export default class CreatorApp extends React.Component {
 			xValue = event.target.value
 		}
 		this.setState(Object.assign(this.state.qset.dimensions, { x: xValue }))
-		event.preventDefault()
 	}
 
 	// Make sure number of columns is 1-10
@@ -138,7 +167,6 @@ export default class CreatorApp extends React.Component {
 			yValue = event.target.value
 		}
 		this.setState(Object.assign(this.state.qset.dimensions, { y: yValue }))
-		event.preventDefault()
 	}
 
 	useSpreadsheet() {
@@ -169,6 +197,98 @@ export default class CreatorApp extends React.Component {
 		}
 	}
 
+	// Display textarea for question and description text
+	useQuestion() {
+		this.setState({showQuestion: !this.state.showQuestion})
+		this.setState(Object.assign(this.state.qset, { question: '', description: '' }))
+	}
+
+	// Resizable textarea for question text. Automatically adjusts based
+	// on lines of text entered (up to a certain point)
+	handleQuestionChange(event) {
+		const textareaLineHeight = 24;
+		const { minQuestionRows, maxQuestionRows } = this.state;
+
+		const previousRows = event.target.rows;
+		event.target.rows = minQuestionRows;
+
+		// total number of lines of text
+		const currentRows = ~~(event.target.scrollHeight / textareaLineHeight);
+
+		// no change in textarea size
+		if (currentRows === previousRows) {
+			event.target.rows = currentRows;
+		}
+
+		// textarea size restricted to maxQuestionRows defined in constructor
+		if (currentRows >= maxQuestionRows) {
+			event.target.rows = maxQuestionRows;
+			event.target.scrollTop = event.target.scrollHeight;
+		}
+
+		this.setState(Object.assign(this.state.qset, { question: event.target.value }))
+
+		this.setState({
+			questionRows: currentRows < maxQuestionRows ? currentRows : maxQuestionRows,
+		});
+	}
+
+	handleDescriptionChange(event) {
+		const textareaLineHeight = 20;
+		const { minDescriptionRows, maxDescriptionRows } = this.state;
+
+		const previousRows = event.target.rows;
+		event.target.rows = minDescriptionRows;
+
+		// total number of lines of text
+		const currentRows = ~~(event.target.scrollHeight / textareaLineHeight);
+
+		// no change in textarea size
+		if (currentRows === previousRows) {
+			event.target.rows = currentRows;
+		}
+
+		// textarea size restricted to maxQuestionRows defined in constructor
+		if (currentRows >= maxDescriptionRows) {
+			event.target.rows = maxDescriptionRows;
+			event.target.scrollTop = event.target.scrollHeight;
+		}
+
+		this.setState(Object.assign(this.state.qset, { description: event.target.value }))
+
+		this.setState({
+			descriptionRows: currentRows < maxDescriptionRows ? currentRows : maxDescriptionRows,
+		});
+	}
+
+	toggleInstruction() {
+		this.setState({showInstruction: !this.state.showInstruction})
+	}
+
+	// toggles between randomly vs manually hiding cells.
+	toggleHideCellMethod() {
+		this.setState({hideCellsRandomly: !this.state.hideCellsRandomly})
+
+		// resets each other
+		if (!this.state.hideCellsRandomly) {
+			this.resetRandomization()
+		} else {
+			this.resetCheckbox()
+		}
+	}
+
+	resetCheckbox() {
+		for (let i = 0; i < this.state.qset.dimensions.x; i++) {
+			for (let j = 0; j < this.state.qset.dimensions.y; j++) {
+				this.setState(Object.assign(this.state.qset.items[0].items[i][j].options, { blank: false }))
+			}
+		}
+	}
+
+	resetRandomization() {
+		this.setState(Object.assign(this.state.qset, { randomization: 0 }))
+	}
+
 	render() {
 		return (
 			<div>
@@ -194,14 +314,29 @@ export default class CreatorApp extends React.Component {
 					useLeftAlign={this.useLeftAlign}
 					useCenterAlign={this.useCenterAlign}
 					useHeader={this.useHeader}
+					showInstruction={this.state.showInstruction}
+					showQuestion={this.state.showQuestion}
+					useQuestion={this.useQuestion}
+					toggleInstruction={this.toggleInstruction}
+					hideCellsRandomly={this.state.hideCellsRandomly}
+					toggleHideCellMethod={this.toggleHideCellMethod}
 				/>
 
+
 				<div className="table-container">
-					<div className="table-text">
-						<h2 className="what-to-do">WHAT TO DO</h2>
-						<ul>
+					<div className={`table-text ${this.state.showInstruction ? "" : "instruction-hidden"}`}>
+						<span
+							tabIndex={0}
+							className="close"
+							onClick={this.toggleInstruction}
+							onKeyPress={(e) => {if (e.key === 'Enter') {this.toggleInstruction()}}}
+							>&times;
+						</span>
+						<h2>WHAT TO DO</h2>
+						<ul className="what-to-do">
 							<li>Add rows and columns, then input data in the cells below.</li>
-							<li>Check cells to turn them <span className="blue-text">blue</span> - these will be left blank for students to fill out.</li>
+							<li className={`${this.state.hideCellsRandomly ? '' : 'list-item-hidden'}`}>Check cells to turn them <span className="blue-text">blue</span> - these will be left blank for students to fill out.</li>
+							<li className={`${this.state.hideCellsRandomly ? 'list-item-hidden' : ''}`}>The widget will automatically hide the given number of cells</li>
 							<li onClick={this.toggleKeyboardInst} className="keyboard-controls-div"><span tabIndex={0} onKeyPress={(e) => { if (e.key === 'Enter') { this.toggleKeyboardInst() } }} className="keyboard-controls-spam">Keyboard controls</span>
 								{this.state.showKeyControls ?
 									(<ul>
@@ -217,9 +352,19 @@ export default class CreatorApp extends React.Component {
 						</ul>
 					</div>
 
+					<Question
+						questionRows={this.state.questionRows}
+						descriptionRows={this.state.descriptionRows}
+						showQuestion={this.state.showQuestion}
+						qset={this.state.qset}
+						handleQuestionChange={this.handleQuestionChange}
+						handleDescriptionChange={this.handleDescriptionChange}
+					/>
+
 					<Table
 						cellData={this.cellData}
 						qset={this.state.qset}
+						hideCellsRandomly={this.state.hideCellsRandomly}
 					/>
 				</div>
 			</div>
@@ -234,6 +379,8 @@ CreatorApp.defaultProps = {
 		'header': false,
 		'spreadsheet': true,
 		'randomization': 0,
+		'question': '',
+		'description': '',
 		'dimensions': { 'x': 1, 'y': 1 },
 		'items': [{ 'items': [] }]
 	},

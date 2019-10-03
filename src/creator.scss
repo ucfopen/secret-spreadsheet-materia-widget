@@ -15,7 +15,6 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 	background: rgb(255, 255, 255);
-
 }
 
 label {
@@ -27,7 +26,9 @@ label {
 	}
 }
 
-input[type='submit'], button, .hoverable {
+input[type='submit'],
+button,
+.hoverable {
 	&:hover {
 		cursor: pointer;
 	}
@@ -50,8 +51,6 @@ input[type='submit'], button, .hoverable {
 	z-index: 45;
 	overflow: auto;
 }
-
-
 
 .popup-inner {
 	width: 45rem;
@@ -83,14 +82,14 @@ input[type='submit'], button, .hoverable {
 
 		img {
 			grid-area: 1 / 1 / span 1 / span 2;
-			width: auto;
-			height: 100px;
+			width: 100%;
 			margin: 10px;
 		}
 
 		p {
 			margin: 0 8px;
 			margin-bottom: 20px;
+			text-align: center;
 		}
 	}
 
@@ -110,7 +109,6 @@ input[type='submit'], button, .hoverable {
 		width: 85%;
 		display: grid;
 		grid: 1fr 1fr / 2fr 1fr;
-		jusitfy-items: center;
 		align-items: center;
 		justify-content: center;
 		align-content: center;
@@ -149,7 +147,6 @@ input[type='submit'], button, .hoverable {
 		grid-column: 3 / 3;
 	}
 }
-
 
 .title-bar {
 	height: 4rem;
@@ -206,32 +203,44 @@ input[type='submit'], button, .hoverable {
 }
 
 .options-bar {
-	background: rgba(245, 245, 245, 0.5);
 	display: flex;
-	flex-direction: row;
-	overflow: auto;
+	flex-direction: column;
 	justify-content: center;
 
-	h2 {
-		font-size: 20px;
-	}
+	.upper-options-bar,
+	.randomize {
+		background: rgba(245, 245, 245, 0.5);
+		display: flex;
+		flex-direction: row;
+		overflow-x: hidden;
+		overflow-y: hidden;
+		justify-content: center;
+		min-width: auto;
+		height: 3.5vw;
 
-	h3 {
-		font-size: 18px;
+		h2 {
+			font-size: 1.4vw;
+		}
+
+		h3 {
+			font-size: 1.2vw;
+			margin: 0 .1vw;
+		}
 	}
 }
-
 .options,
 .style,
 .text,
 .header,
-.randomize {
+.randomize,
+.instructions,
+.question {
 	margin: auto 0;
-	padding: 0 1rem;
+	padding: 0 1vw;
 	border-style: solid;
 	border-color: lightgray;
 	border-width: 0 0 0 1px;
-	height: 3rem;
+	height: 3vw;
 	display: flex;
 	flex-direction: row;
 	white-space: nowrap;
@@ -239,7 +248,7 @@ input[type='submit'], button, .hoverable {
 
 	input {
 		&[type=number] {
-			width: 2em;
+			width: 3vw;
 			text-align: center;
 		}
 	}
@@ -252,28 +261,45 @@ input[type='submit'], button, .hoverable {
 		display: flex;
 		flex-direction: row;
 		background: rgb(233, 233, 233);
-		height: 40%;
+		height: auto;
 		margin: auto 0;
 		padding: .3rem;
 		border-radius: 2px;
+		cursor: pointer;
 
 		svg {
-			margin-left: 3px;
+			height: 1.5vw;
+			width: auto;
+			margin: 0 1px;
 			color: rgba(173, 216, 230, 0.5);
 		}
 
 		label {
+			height: 1.5vw;
 			margin-left: 3px;
+			font-size: 1.2vw;
+			cursor: pointer;
 		}
 	}
 }
 
 .randomize {
+	border-width: 0;
+	justify-content: center;
+	border-style: solid;
+	border-color: lightgray;
+	border-width: 1px 0 0 0;
+
 	input {
 		border-width: 0;
 		background: inherit;
-		font-size: 16px;
+		font-size: 1.2vw;
 		text-decoration: underline;
+	}
+
+	h3 {
+		font-size: 1.2vw;
+		margin: 0 .1vw;
 	}
 }
 
@@ -289,23 +315,49 @@ input[type='submit'], button, .hoverable {
 	justify-content: center;
 	overflow: hidden;
 	white-space: nowrap;
-	font-size: 14px;
+	font-size: 1.4vw;
+	border: 1px black solid;
+	padding: 0px 10px;
+	margin: 10px 0;
+	position: relative;
 
 	.what-to-do {
-		padding: 20px;
+		width: 50vw;
+		margin: 1.6vw;
 		border-style: solid;
 		border-color: lightgray;
-		border-width: 0 1px 0 0;
+		border-width: 0 0 0 1px;
+		min-width: 10vw;
+
+		.list-item-hidden {
+			display: none;
+		}
 	}
 
 	li + li {
 		margin-top: 10px;
 	}
 
-	span:not(.blue-text) {
+	span:not(.blue-text):not(.close) {
 		color: blue;
 		cursor: pointer;
 		text-decoration: underline;
+	}
+
+	.close {
+		color: rgb(0, 0, 0);
+		position: absolute;
+		top: .1rem;
+		right: .5rem;
+		font-size: 1.5rem;
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	.close:hover{
+		color: rgb(231, 231, 231);
+		text-decoration: none;
+		cursor: pointer;
 	}
 
 	h2 {
@@ -326,6 +378,31 @@ input[type='submit'], button, .hoverable {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+
+	p {
+		float: right;
+	}
+}
+
+.question-text,
+.description-text {
+	margin-top: 10px;
+	padding-left: 5px;
+	width: 80vw;
+	font-size: 20px;
+	line-height: 24px;
+	border-style: solid;
+	border-color: purple;
+	border-width: 1px;
+	min-height: auto;
+	max-height: 50vh;
+	overflow: auto;
+	resize: both;
+}
+
+.description-text {
+	font-size: 16px;
+	line-height: 20px;
 }
 
 .table {
@@ -335,7 +412,6 @@ input[type='submit'], button, .hoverable {
 	clear:both;
 	float:left;
 	padding-right: 50px;
-
 
 	.delete-cell,
 	.empty-cell {
@@ -357,10 +433,19 @@ input[type='submit'], button, .hoverable {
 		justify-content: center;
 
 		button {
-			width: 49%;
+			width: 50%;
 			border-style: dotted;
 			border-color: purple;
 			border-width: 1px;
+			margin: 1px;
+			align-items: center;
+			justify-content: center;
+			padding: 0;
+			display:flex;
+
+			svg {
+				width: 25px;
+			}
 		}
 	}
 
@@ -391,7 +476,7 @@ input[type='submit'], button, .hoverable {
 			}
 		}
 
-		.hidden {
+		.hidden-cell {
 			background: rgba(173, 216, 230, 0.5);
 		}
 	}
@@ -409,11 +494,20 @@ input[type='submit'], button, .hoverable {
 		justify-content: center;
 
 		button {
-			height: 49%;
+			height: 50%;
 			border-style: dotted;
 			border-color: purple;
 			border-width: 1px;
-			margin: auto;
+			margin: 1px;
+			padding: 0;
+
+			.button-name-hidden {
+				display:none;
+			}
+
+			svg {
+				width: 25px;
+			}
 		}
 	}
 }
@@ -458,9 +552,148 @@ input[type='submit'], button, .hoverable {
 				background: rgba(173, 216, 230, 0.5);
 			}
 		}
+
+		.checkbox-hidden {
+			visibility: hidden;
+		}
 	}
 
 	label {
 		font-size: 12px;
 	}
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 4.4vw;
+	height: 1.5vw;
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgb(138, 138, 138);
+	-webkit-transition: .4s;
+	transition: .4s;
+	border-radius: 34px;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: .8vw;
+	width: .8vw;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+	border-radius: 50%;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(2.9vw);
+	-ms-transform: translateX(2.9vw);
+	transform: translateX(2.9vw);
+}
+
+@media screen and (min-width: 1200px) {
+	.switch {
+		width: 52.8px;
+		height: 18px;
+	}
+
+	.slider:before {
+		width: 9.6px;
+		height: 9.6px;
+	}
+
+	input:checked + .slider:before {
+		-webkit-transform: translateX(34.8px);
+		-ms-transform: translateX(34.8px);
+		transform: translateX(34.8px);
+	}
+
+	.options-bar {
+		.upper-options-bar,
+		.randomize {
+			height: 42px;
+
+			h2 {
+				font-size: 16.8px;
+			}
+
+			h3 {
+				font-size: 14.4px;
+				margin: 0 1.2px;
+			}
+		}
+	}
+
+	.options,
+	.style,
+	.text,
+	.header,
+	.randomize,
+	.instructions,
+	.question {
+		padding: 0 12px;
+		height: 36px;
+
+		input {
+			&[type=number] {
+				width: 36px;
+			}
+		}
+
+		div {
+			svg {
+				height: 18px;
+			}
+
+			label {
+				height: 18px;
+				font-size: 14.4px;
+			}
+		}
+	}
+
+	.randomize {
+		input {
+			font-size: 14.4px;
+		}
+
+		h3 {
+			font-size: 14.4px;
+			margin: 0 1.2px;
+		}
+	}
+
+	.table-text {
+		font-size: 16.8px;
+		display: flex;
+
+		.what-to-do {
+			width: 600px;
+			margin: 19.2px;
+			min-width: 120px;
+		}
+	}
+}
+
+.instruction-hidden,
+.question-hidden,
+.description-hidden {
+	display: none;
 }

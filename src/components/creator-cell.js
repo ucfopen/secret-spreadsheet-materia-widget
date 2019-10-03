@@ -11,6 +11,7 @@ export default class Cell extends React.Component {
 		this.setState(Object.assign(this.props.data.options, {blank: !this.props.data.options.blank}))
 	}
 
+	// Store the text as both question and answer in the qset
 	handleTextboxChange(event) {
 		this.setState(Object.assign(this.props.data.questions[0], {text: event.target.value}))
 		this.setState(Object.assign(this.props.data.answers[0], {text: event.target.value}))
@@ -18,7 +19,7 @@ export default class Cell extends React.Component {
 
 	render() {
 		return (
-			<td className={`${this.props.className} ${this.props.data && this.props.data.options.blank ? "hidden" : ""} tableCell`}>
+			<td className={`${this.props.className} ${this.props.data && this.props.data.options.blank ? "hidden-cell" : ""} tableCell`}>
 				<div className="cell" onKeyDown={(e) => {
 					// Keyboard controls for table:
 					// Alt + PageUp         = Add Column
@@ -48,13 +49,13 @@ export default class Cell extends React.Component {
 						ref={el => {this.props.refsArray[this.props.row][this.props.column] = el}}
 						className={`row-${this.props.row} col-${this.props.column}`}
 						type="text"
-						value={this.props.data && this.props.data.questions[0].text}
+						value={this.props.data && this.props.data.questions && this.props.data.questions[0] && this.props.data.questions[0].text}
 						onChange={this.handleTextboxChange}
-						placeholder={this.props.useSpreadsheet ? `${String.fromCharCode(this.props.row + 65)}${this.props.column + 1}` : ''}
+						placeholder={this.props.qset.spreadsheet ? `${String.fromCharCode(this.props.row + 65)}${this.props.column + 1}` : ''}
 					/>
 
 					<div
-						className="checkbox"
+						className={`${this.props.hideCellsRandomly ? '' : 'checkbox-hidden'} checkbox`}
 						onClick={this.handleCheckboxToggle}
 					>
 						<input
