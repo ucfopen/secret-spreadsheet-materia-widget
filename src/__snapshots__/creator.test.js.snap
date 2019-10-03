@@ -385,10 +385,10 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
         </li>
       </ul>
     </div>
-    <div>
-      <div
-        className="question-hidden"
-      >
+    <div
+      className="question-hidden"
+    >
+      <div>
         <textarea
           className="question-text"
           onChange={[Function]}
@@ -398,9 +398,7 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
           value=""
         />
       </div>
-      <div
-        className="description-hidden"
-      >
+      <div>
         <textarea
           className="description-text"
           onChange={[Function]}
@@ -1005,10 +1003,10 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
         </li>
       </ul>
     </div>
-    <div>
-      <div
-        className=""
-      >
+    <div
+      className=""
+    >
+      <div>
         <textarea
           className="question-text"
           onChange={[Function]}
@@ -1017,9 +1015,7 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
           type="text"
         />
       </div>
-      <div
-        className=""
-      >
+      <div>
         <textarea
           className="description-text"
           onChange={[Function]}
@@ -1622,10 +1618,10 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
         </li>
       </ul>
     </div>
-    <div>
-      <div
-        className=""
-      >
+    <div
+      className=""
+    >
+      <div>
         <textarea
           className="question-text"
           onChange={[Function]}
@@ -1634,9 +1630,7 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
           type="text"
         />
       </div>
-      <div
-        className=""
-      >
+      <div>
         <textarea
           className="description-text"
           onChange={[Function]}

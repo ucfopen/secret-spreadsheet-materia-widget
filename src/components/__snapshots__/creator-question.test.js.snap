@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CreatorQuestion component CreatorQuestion renders question and description textareas 1`] = `
-<div>
-  <div
-    className=""
-  >
+exports[`CreatorQuestion component CreatorQuestion renders question and description textareas with showQuestion = false 1`] = `
+<div
+  className="question-hidden"
+>
+  <div>
     <textarea
       className="question-text"
       onChange={[MockFunction]}
@@ -14,15 +14,41 @@ exports[`CreatorQuestion component CreatorQuestion renders question and descript
       value="What is love?"
     />
   </div>
-  <div
-    className=""
-  >
+  <div>
     <textarea
       className="description-text"
       onChange={[MockFunction]}
       placeholder="Description Text"
       rows={1}
       type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`CreatorQuestion component CreatorQuestion renders question and description textareas with showQuestion = true 1`] = `
+<div
+  className=""
+>
+  <div>
+    <textarea
+      className="question-text"
+      onChange={[MockFunction]}
+      placeholder="Question Text"
+      rows={1}
+      type="text"
+      value="What is love?"
+    />
+  </div>
+  <div>
+    <textarea
+      className="description-text"
+      onChange={[MockFunction]}
+      placeholder="Description Text"
+      rows={1}
+      type="text"
+      value=""
     />
   </div>
 </div>
