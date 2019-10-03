@@ -11,7 +11,7 @@ exports[`CreatorQuestion component CreatorQuestion renders question and descript
       placeholder="Question Text"
       rows={1}
       type="text"
-      value="What is love?"
+      value="When September ends"
     />
   </div>
   <div>
@@ -21,7 +21,7 @@ exports[`CreatorQuestion component CreatorQuestion renders question and descript
       placeholder="Description Text"
       rows={1}
       type="text"
-      value=""
+      value="CANT WAKE UP"
     />
   </div>
 </div>
@@ -38,7 +38,7 @@ exports[`CreatorQuestion component CreatorQuestion renders question and descript
       placeholder="Question Text"
       rows={1}
       type="text"
-      value="What is love?"
+      value="Wake me up"
     />
   </div>
   <div>
@@ -48,7 +48,7 @@ exports[`CreatorQuestion component CreatorQuestion renders question and descript
       placeholder="Description Text"
       rows={1}
       type="text"
-      value=""
+      value="Wake me up inside"
     />
   </div>
 </div>
