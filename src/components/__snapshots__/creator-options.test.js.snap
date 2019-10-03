@@ -279,6 +279,7 @@ exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] =
     >
       <input
         id="hide-method-toggle"
+        onKeyPress={[Function]}
         type="checkbox"
       />
       <span

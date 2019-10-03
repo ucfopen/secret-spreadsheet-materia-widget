@@ -5,6 +5,8 @@ import Title from './components/creator-title'
 import Options from './components/creator-options'
 import Table from './components/creator-table'
 import Question from './components/creator-question'
+import Instruction from './components/creator-instruction'
+
 
 const materiaCallbacks = {}
 let creatorInstance
@@ -324,33 +326,13 @@ export default class CreatorApp extends React.Component {
 
 
 				<div className="table-container">
-					<div className={`table-text ${this.state.showInstruction ? "" : "instruction-hidden"}`}>
-						<span
-							tabIndex={0}
-							className="close"
-							onClick={this.toggleInstruction}
-							onKeyPress={(e) => {if (e.key === 'Enter') {this.toggleInstruction()}}}
-							>&times;
-						</span>
-						<h2>WHAT TO DO</h2>
-						<ul className="what-to-do">
-							<li>Add rows and columns, then input data in the cells below.</li>
-							<li className={`${this.state.hideCellsRandomly ? '' : 'list-item-hidden'}`}>Check cells to turn them <span className="blue-text">blue</span> - these will be left blank for students to fill out.</li>
-							<li className={`${this.state.hideCellsRandomly ? 'list-item-hidden' : ''}`}>The widget will automatically hide the given number of cells</li>
-							<li onClick={this.toggleKeyboardInst} className="keyboard-controls-div"><span tabIndex={0} onKeyPress={(e) => { if (e.key === 'Enter') { this.toggleKeyboardInst() } }} className="keyboard-controls-spam">Keyboard controls</span>
-								{this.state.showKeyControls ?
-									(<ul>
-										<li>Alt + PageUp = Add Column</li>
-										<li>Alt + PageDown = Remove Column</li>
-										<li>Shift + PageUp = Add Row</li>
-										<li>Shift + PageDown = Remove Row</li>
-										<li>Ctrl/Command + Arrow = Move Cell</li>
-									</ul>) :
-									(null)
-								}
-							</li>
-						</ul>
-					</div>
+					<Instruction
+						showInstruction={this.state.showInstruction}
+						toggleInstruction={this.toggleInstruction}
+						hideCellsRandomly={this.state.hideCellsRandomly}
+						toggleKeyboardInst={this.toggleKeyboardInst}
+						showKeyControls={this.state.showKeyControls}
+					/>
 
 					<Question
 						questionRows={this.state.questionRows}
