@@ -372,7 +372,6 @@ CreatorApp.defaultProps = {
 materiaCallbacks.initNewWidget = (instance) => {
 	materiaCallbacks.initExistingWidget('New Spreadsheet Widget', instance, undefined, 1, true)
 	// return value for testing
-	return '1A4'
 }
 
 // Callback when editing an existing widget

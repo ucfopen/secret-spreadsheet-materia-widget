@@ -72,8 +72,9 @@ describe('CreatorApp component', function() {
 		}));
 
 		const callbacks = Materia.CreatorCore.start.mock.calls[0][0];
-		const retVal = callbacks.initNewWidget(instance)
-		expect(retVal).toEqual('1A4')
+		callbacks.initExistingWidget = jest.fn()
+		callbacks.initNewWidget(instance)
+		expect(callbacks.initExistingWidget).toBeCalled()
 	})
 
 	test('CreatorApp calls materiaCallbacks.initExistingWidget', () => {

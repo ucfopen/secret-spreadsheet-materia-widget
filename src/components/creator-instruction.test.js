@@ -4,24 +4,24 @@ import renderer from 'react-test-renderer'
 import { shallow } from '../enzyme'
 
 const makeProps = () => {
-  return({
-    toggleInstruction: jest.fn(),
-    toggleKeyboardInst: jest.fn(),
-  })
+	return({
+		toggleInstruction: jest.fn(),
+		toggleKeyboardInst: jest.fn(),
+	})
 }
 
 describe('CreatorInstruction component', function() {
 
 	beforeEach(() => {
 		jest.resetModules()
-  })
+	})
 
-  test('CreatorInstruction toggles keyboard control with onClick', () => {
+	test('CreatorInstruction toggles keyboard control with onClick', () => {
 		const props = makeProps()
 
-    const component = renderer.create(<Instruction {... props}/>)
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot()
+		const component = renderer.create(<Instruction {... props}/>)
+		let tree = component.toJSON();
+		expect(tree).toMatchSnapshot()
 	})
 
 	test('CreatorInstruction toggles keyboard control with onClick', () => {
@@ -60,7 +60,7 @@ describe('CreatorInstruction component', function() {
 		expect(props.toggleInstruction).toBeCalled()
 	})
 
-  test('CreatorInstruction fails to call toggleInstruction with non-Enter keyPress', () => {
+	test('CreatorInstruction fails to call toggleInstruction with non-Enter keyPress', () => {
 		const props = makeProps()
 
 		const component = shallow(<Instruction {... props}/>)
