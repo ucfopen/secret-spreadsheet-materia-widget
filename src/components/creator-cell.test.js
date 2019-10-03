@@ -13,12 +13,28 @@ const makeProps = () => {
 				text: '',
 			}],
 			answers: [{
-				text: ''
-			}]
+				text: '',
+			}],
 		},
+		qset: {
+			left: false,
+			header: false,
+			spreadsheet: true,
+			randomization: 0,
+			question: '',
+			dimensions: { 'x': 1, 'y': 1 },
+			items: [{ 'items': [] }]
+		},
+		appendColumn:jest.fn(),
+		removeColumn:jest.fn(),
+		appendRow:jest.fn(),
+		removeRow:jest.fn(),
+		focusOnCell:jest.fn(),
+		resetRandomization:jest.fn(),
 		refsArray: [[]],
 		row: 0,
 		column: 0,
+
 	}
 }
 
@@ -29,81 +45,63 @@ describe('CreatorCell component', function() {
 	})
 
 	test('CreatorCell calls appendColumn', () => {
-		const props = {
-			appendColumn: jest.fn(),
-		}
+		const props = makeProps()
 		const component = shallow(<Cell {... props}/>)
 		component.find('.cell').simulate('keyDown', {altKey: true, key: 'PageUp'})
 		expect(props.appendColumn).toBeCalled()
 	})
 
 	test('CreatorCell does not call appendColumn with wrong key', () => {
-		const props = {
-			appendColumn: jest.fn(),
-		}
+		const props = makeProps()
 		const component = shallow(<Cell {... props}/>)
 		component.find('.cell').simulate('keyDown', {altKey: true, key: 'a'})
 		expect(props.appendColumn).not.toBeCalled()
 	})
 
 	test('CreatorCell calls removeColumn', () => {
-		const props = {
-			removeColumn: jest.fn(),
-		}
+		const props = makeProps()
 		const component = shallow(<Cell {... props}/>)
 		component.find('.cell').simulate('keyDown', {altKey: true, key: 'PageDown'})
 		expect(props.removeColumn).toBeCalled()
 	})
 
 	test('CreatorCell does not call removeColumn with wrong key', () => {
-		const props = {
-			removeColumn: jest.fn(),
-		}
+		const props = makeProps()
 		const component = shallow(<Cell {... props}/>)
 		component.find('.cell').simulate('keyDown', {altKey: true, key: 'a'})
 		expect(props.removeColumn).not.toBeCalled()
 	})
 
 	test('CreatorCell calls appendRow', () => {
-		const props = {
-			appendRow: jest.fn(),
-		}
+		const props = makeProps()
 		const component = shallow(<Cell {... props}/>)
 		component.find('.cell').simulate('keyDown', {shiftKey: true, key: 'PageUp'})
 		expect(props.appendRow).toBeCalled()
 	})
 
 	test('CreatorCell does not call appendRow with wrong key', () => {
-		const props = {
-			appendRow: jest.fn(),
-		}
+		const props = makeProps()
 		const component = shallow(<Cell {... props}/>)
 		component.find('.cell').simulate('keyDown', {shiftKey: true, key: 'a'})
 		expect(props.appendRow).not.toBeCalled()
 	})
 
 	test('CreatorCell calls removeRow', () => {
-		const props = {
-			removeRow: jest.fn(),
-		}
+		const props = makeProps()
 		const component = shallow(<Cell {... props}/>)
 		component.find('.cell').simulate('keyDown', {shiftKey: true, key: 'PageDown'})
 		expect(props.removeRow).toBeCalled()
 	})
 
 	test('CreatorCell does not call removeRow with wrong key', () => {
-		const props = {
-			removeRow: jest.fn(),
-		}
+		const props = makeProps()
 		const component = shallow(<Cell {... props}/>)
 		component.find('.cell').simulate('keyDown', {shiftKey: true, key: 'a'})
 		expect(props.removeRow).not.toBeCalled()
 	})
 
 	test('CreatorCell calls focusOnCell to cell above', () => {
-		const props = {
-			focusOnCell: jest.fn(),
-		}
+		const props = makeProps()
 		const component = shallow(<Cell {... props}/>)
 		component.find('.cell').simulate('keyDown', {ctrlKey: true, key: 'ArrowUp'} )
 		expect(props.focusOnCell).toReturnTimes(1)
@@ -112,9 +110,7 @@ describe('CreatorCell component', function() {
 	})
 
 	test('CreatorCell calls focusOnCell to cell below', () => {
-		const props = {
-			focusOnCell: jest.fn(),
-		}
+		const props = makeProps()
 		const component = shallow(<Cell {... props}/>)
 		component.find('.cell').simulate('keyDown', {ctrlKey: true, key: 'ArrowDown'} )
 		expect(props.focusOnCell).toReturnTimes(1)
@@ -123,9 +119,7 @@ describe('CreatorCell component', function() {
 	})
 
 	test('CreatorCell calls focusOnCell to cell on the left', () => {
-		const props = {
-			focusOnCell: jest.fn(),
-		}
+		const props = makeProps()
 		const component = shallow(<Cell {... props}/>)
 		component.find('.cell').simulate('keyDown', {ctrlKey: true, key: 'ArrowLeft'} )
 		expect(props.focusOnCell).toReturnTimes(1)
@@ -134,9 +128,7 @@ describe('CreatorCell component', function() {
 	})
 
 	test('CreatorCell calls focusOnCell to cell on the right', () => {
-		const props = {
-			focusOnCell: jest.fn(),
-		}
+		const props = makeProps()
 		const component = shallow(<Cell {... props}/>)
 		component.find('.cell').simulate('keyDown', {ctrlKey: true, key: 'ArrowRight'} )
 		expect(props.focusOnCell).toReturnTimes(1)
@@ -145,9 +137,7 @@ describe('CreatorCell component', function() {
 	})
 
 	test('CreatorCell does not call focusOnCell with wrong key', () => {
-		const props = {
-			focusOnCell: jest.fn(),
-		}
+		const props = makeProps()
 		const component = shallow(<Cell {... props}/>)
 		component.find('.cell').simulate('keyDown', {shiftKey: true, key: 'ArrowRight'} )
 		expect(props.focusOnCell).toReturnTimes(0)
@@ -184,6 +174,7 @@ describe('CreatorCell component', function() {
 	test('CreatorCell calls checkbox onChange which does nothing', () => {
 		const props = makeProps()
 		const component = shallow(<Cell {... props}/>)
+		expect(props.data.options.blank).toBeTruthy()
 		component.find({type: 'checkbox'}).simulate('change', {target: {checked: false}})
 		expect(props.data.options.blank).toBeTruthy()
 	})
@@ -193,7 +184,6 @@ describe('CreatorCell component', function() {
 		const component = shallow(<Cell {... props}/>)
 		component.find({type: 'text'}).simulate('change', {target: {value: 'Test'}});
 		expect(props.data.questions[0].text).toEqual('Test')
-		expect(props.data.answers[0].text).toEqual('Test')
 	})
 
 
