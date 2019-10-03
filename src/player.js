@@ -11,6 +11,7 @@ class PlayerApp extends React.Component {
 			popup: true,
 			question: this.props.question !== '',
 			showQuestion: false,
+			first: true,
 			answered: 0
 		}
 		this.answers = {};
@@ -85,10 +86,16 @@ class PlayerApp extends React.Component {
 
 	// decides if it should show popup or not
 	handlePopupToggle() {
-		if (this.state.popup) {
+		if (this.state.popup && this.state.first) {
 			this.setState({
 				popup: false,
-				showQuestion: true
+				showQuestion: true,
+				first: false
+			});
+		}
+		else if (this.state.popup) {
+			this.setState({
+				popup: false
 			});
 		}
 		else {
