@@ -104,7 +104,7 @@ class PlayerTable extends React.Component {
 				}
 
 				// make the first row of user created content a header if needed
-				if (this.props.header && headerCount < (this.props.dimensions.x )) {
+				if (this.props.header && headerCount < (this.props.dimensions.y)) {
 					cells.push(
 						<th
 							key={cellID}
