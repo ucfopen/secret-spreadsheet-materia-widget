@@ -15,6 +15,8 @@ const qset = () => {
 			"y": 2
 		},
 		"randomization": 0,
+		"question": "Test Question",
+		"description": "Test question body",
 		"items": [
 			{
 				"items": [
@@ -117,7 +119,9 @@ const genProps = () => {
 		randCount: tempQset.randomization,
 		leftAlign: tempQset.left,
 		header: tempQset.header,
-		spreadsheet: tempQset.spreadsheet
+		spreadsheet: tempQset.spreadsheet,
+		question: tempQset.question,
+		description: tempQset.description
 	};
 };
 
@@ -187,6 +191,8 @@ describe('Player', () => {
 		expect(mockDomRender.mock.calls[0][0]).toMatchSnapshot();
 	});
 
+	// can't test rendering with randomization because it is changed every time
+	// randomization function test will ensure the randomization is working
 	test('Render without randomization', () => {
 		require('./player');
 		jest.mock('react-dom', () => ({
@@ -202,7 +208,22 @@ describe('Player', () => {
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Render with randomization', () => {
+	test('Render with question and body', () => {
+		require('./player');
+		jest.mock('react-dom', () => ({
+			render: mockDomRender
+		}));
+
+		const start = Materia.Engine.start.mock.calls[0][0].start;
+		start({name: 'Test Widget'}, qset());
+		const playerComponent = mockDomRender.mock.calls[0][0];
+
+		const component = renderer.create(playerComponent);
+		const tree = component.toJSON();
+		expect(tree).toMatchSnapshot();
+	});
+
+	test('Render with question and no body', () => {
 		require('./player');
 		jest.mock('react-dom', () => ({
 			render: mockDomRender
@@ -210,8 +231,26 @@ describe('Player', () => {
 
 		const start = Materia.Engine.start.mock.calls[0][0].start;
 		const newQset = qset();
-		newQset.randomization = 2;
-		start({name: 'Test Widget'}, qset());
+		newQset.description = '';
+		start({name: 'Test Widget'}, newQset);
+		const playerComponent = mockDomRender.mock.calls[0][0];
+
+		const component = renderer.create(playerComponent);
+		const tree = component.toJSON();
+		expect(tree).toMatchSnapshot();
+	});
+
+	test('Render with no question', () => {
+		require('./player');
+		jest.mock('react-dom', () => ({
+			render: mockDomRender
+		}));
+
+		const start = Materia.Engine.start.mock.calls[0][0].start;
+		const newQset = qset();
+		newQset.question = '';
+		newQset.description = '';
+		start({name: 'Test Widget'}, newQset);
 		const playerComponent = mockDomRender.mock.calls[0][0];
 
 		const component = renderer.create(playerComponent);
@@ -381,6 +420,36 @@ describe('Player', () => {
 		mockPlayer.instance().handlePopupToggle();
 
 		expect(mockPlayer.state(['popup'])).toBeTruthy();
+
+		// cleanup
+		mockPlayer.unmount();
+	});
+
+	test('handleQuestionToggle is toggled off', () => {
+		const mockPlayer = makeNewPlayer();
+
+		mockPlayer.setState({
+			question: true,
+			showQuestion: true
+		});
+		mockPlayer.instance().handleQuestionToggle();
+
+		expect(mockPlayer.state(['showQuestion'])).toBeFalsy();
+
+		// cleanup
+		mockPlayer.unmount();
+	});
+
+	test('handleQuestionToggle is toggled on', () => {
+		const mockPlayer = makeNewPlayer();
+
+		mockPlayer.setState({
+			question: true,
+			showQuestion: false
+		});
+		mockPlayer.instance().handleQuestionToggle();
+
+		expect(mockPlayer.state(['showQuestion'])).toBeTruthy();
 
 		// cleanup
 		mockPlayer.unmount();

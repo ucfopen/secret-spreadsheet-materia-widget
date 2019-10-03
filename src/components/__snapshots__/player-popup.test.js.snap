@@ -2,7 +2,7 @@
 
 exports[`Popup component Is rendered 1`] = `
 <div
-  className="popup"
+  className="popup help"
 >
   <div>
     <h2>

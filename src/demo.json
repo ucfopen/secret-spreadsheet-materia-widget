@@ -11,6 +11,8 @@
 				"y": 2
 			},
 			"randomization": 1,
+			"question": "Fill in the blank cell.",
+			"description": "It shouldn't be too difficult.",
 			"items": [
 				{
 					"items": [
