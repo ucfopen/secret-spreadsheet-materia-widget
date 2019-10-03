@@ -390,27 +390,6 @@ exports[`Player Render with question and body 1`] = `
         </button>
       </div>
     </div>
-    <div
-      className="popup question"
-    >
-      <div>
-        <p
-          className="mainQuestion"
-        >
-          Test Question
-        </p>
-        <p>
-          Test question body
-        </p>
-        <button
-          onClick={[Function]}
-          type="button"
-          value="Next"
-        >
-          Next
-        </button>
-      </div>
-    </div>
     <p
       className="instructions"
     >
@@ -552,24 +531,6 @@ exports[`Player Render with question and no body 1`] = `
         </button>
       </div>
     </div>
-    <div
-      className="popup question"
-    >
-      <div>
-        <p
-          className="mainQuestion"
-        >
-          Test Question
-        </p>
-        <button
-          onClick={[Function]}
-          type="button"
-          value="Next"
-        >
-          Next
-        </button>
-      </div>
-    </div>
     <p
       className="instructions"
     >
@@ -708,27 +669,6 @@ exports[`Player Render without randomization 1`] = `
           value="Got it!"
         >
           Got it!
-        </button>
-      </div>
-    </div>
-    <div
-      className="popup question"
-    >
-      <div>
-        <p
-          className="mainQuestion"
-        >
-          Test Question
-        </p>
-        <p>
-          Test question body
-        </p>
-        <button
-          onClick={[Function]}
-          type="button"
-          value="Next"
-        >
-          Next
         </button>
       </div>
     </div>

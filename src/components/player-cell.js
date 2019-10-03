@@ -42,7 +42,7 @@ class Cell extends React.Component {
 		if (this.props.firstInput && this.state.firstFocus && this.input.current !== null && this.props.focus) {
 			this.input.current.focus();
 
-			if (this.props.showQuestion) {
+			if (this.props.exitQuestion) {
 				this.setState({
 					value: this.state.value,
 					colorClass: this.state.colorClass,
