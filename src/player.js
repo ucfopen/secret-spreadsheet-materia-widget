@@ -85,6 +85,9 @@ class PlayerApp extends React.Component {
 	}
 
 	// decides if it should show popup or not
+	// showQuestion only matters if there is a user created question
+	// will show both popups on first open then only show selected popup on
+	// button press
 	handlePopupToggle() {
 		if (this.state.popup && this.state.first) {
 			this.setState({
