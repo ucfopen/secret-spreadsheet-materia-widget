@@ -22,7 +22,7 @@ First, give your widget a name (this can be changed later). Then select the opti
 2. Center or left align text
 3. Make the first row a header
 
-Then add in rows and columns to the spreadsheet and fill in the cells with the information. You can check a cell to hide it from the student. If you want to make the cells randomly hidden instead, enter the number of cells you want hidden in the options bar. You can still check the cells you want hidden, but the player will disregard it.
+Then add in rows and columns to the spreadsheet and fill in the cells with the information. You can check a cell to hide it from the student. If you want to make the cells randomly hidden instead, enter the number of cells you want hidden in the options bar.
 
 ### Playing
 
