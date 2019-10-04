@@ -1,5 +1,6 @@
 import React from 'react';
 
+// popup containing instructions on how to use the wdget
 const Popup = props => {
 	return(
 		<div className="popup help">
