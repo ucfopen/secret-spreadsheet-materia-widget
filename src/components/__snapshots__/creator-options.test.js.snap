@@ -198,6 +198,37 @@ exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] =
       </div>
     </div>
     <div
+      className="question"
+    >
+      <h3>
+        Question Text:
+      </h3>
+      <div
+        className=" hoverable"
+        id="question"
+        onClick={[MockFunction]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+      >
+        <svg
+          color="lightblue"
+          height="20px"
+          viewBox="0 0 28 28"
+          width="20px"
+        >
+           
+          <path
+            d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+          />
+           
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    className="lower-options-bar"
+  >
+    <div
       className="instructions"
     >
       <h3>
@@ -236,70 +267,50 @@ exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] =
       </div>
     </div>
     <div
-      className="question"
+      className="randomize"
     >
-      <h3>
-        Question Text:
-      </h3>
       <div
-        className=" hoverable"
-        id="question"
-        onClick={[MockFunction]}
-        onKeyDown={[Function]}
-        tabIndex={0}
+        className="active"
       >
-        <svg
-          color="lightblue"
-          height="20px"
-          viewBox="0 0 28 28"
-          width="20px"
-        >
-           
-          <path
-            d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+        <label>
+          Manually hide cells with checkboxes
+        </label>
+      </div>
+      <label
+        className="switch"
+        htmlFor="hide-method-toggle"
+      >
+        <input
+          checked={false}
+          id="hide-method-toggle"
+          onClick={[MockFunction]}
+          onKeyPress={[Function]}
+          tabIndex={0}
+          type="checkbox"
+        />
+        <span
+          className="slider"
+        />
+      </label>
+      <div
+        className=""
+      >
+        <label>
+          Randomly hide 
+          <input
+            onChange={[Function]}
+            placeholder={0}
+            readOnly={true}
+            type="number"
+            value={1}
           />
-           
-        </svg>
+           cells.
+        </label>
       </div>
     </div>
-  </div>
-  <div
-    className="randomize"
-  >
     <div
-      className=""
-    >
-      <label>
-        Manually hide cells with checkboxes
-      </label>
-    </div>
-    <label
-      className="switch"
-      htmlFor="hide-method-toggle"
-    >
-      <input
-        id="hide-method-toggle"
-        onKeyPress={[Function]}
-        type="checkbox"
-      />
-      <span
-        className="slider"
-      />
-    </label>
-    <div
-      className="active"
-    >
-      <label>
-        Randomly hide 
-        <input
-          onChange={[Function]}
-          placeholder={0}
-          type="number"
-          value={1}
-        />
-         cells.
-      </label>
-    </div>
+      className="empty-element"
+    />
   </div>
 </div>
 `;

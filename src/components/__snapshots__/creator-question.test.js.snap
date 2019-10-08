@@ -6,9 +6,9 @@ exports[`CreatorQuestion component CreatorQuestion renders question and descript
 >
   <div>
     <textarea
-      className="question-text"
+      className="question-header"
       onChange={[MockFunction]}
-      placeholder="Question Text"
+      placeholder="Question Header"
       rows={1}
       type="text"
       value="When September ends"
@@ -16,9 +16,9 @@ exports[`CreatorQuestion component CreatorQuestion renders question and descript
   </div>
   <div>
     <textarea
-      className="description-text"
+      className="question-text"
       onChange={[MockFunction]}
-      placeholder="Description Text"
+      placeholder="Question Text"
       rows={1}
       type="text"
       value="CANT WAKE UP"
@@ -33,9 +33,9 @@ exports[`CreatorQuestion component CreatorQuestion renders question and descript
 >
   <div>
     <textarea
-      className="question-text"
+      className="question-header"
       onChange={[MockFunction]}
-      placeholder="Question Text"
+      placeholder="Question Header"
       rows={1}
       type="text"
       value="Wake me up"
@@ -43,9 +43,9 @@ exports[`CreatorQuestion component CreatorQuestion renders question and descript
   </div>
   <div>
     <textarea
-      className="description-text"
+      className="question-text"
       onChange={[MockFunction]}
-      placeholder="Description Text"
+      placeholder="Question Text"
       rows={1}
       type="text"
       value="Wake me up inside"

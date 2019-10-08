@@ -29,7 +29,7 @@ export default class CreatorApp extends React.Component {
 			minDescriptionRows: 2,
 			maxDescriptionRows: 4,
 			numHidden: 0,
-			hideCellsRandomly: true,
+			hideCellsRandomly: props.qset.randomization == 0,
 		}
 
 		this.state.qset.items[0].items.push([this.cellData('', false)])
@@ -149,7 +149,7 @@ export default class CreatorApp extends React.Component {
 	handleXChange(event) {
 		let xValue
 		if (event.target.value < 1) {
-			xValue = 1;
+			xValue = 1
 		} else if (event.target.value > 10) {
 			xValue = 10
 		} else {
@@ -162,7 +162,7 @@ export default class CreatorApp extends React.Component {
 	handleYChange(event) {
 		let yValue
 		if (event.target.value < 1) {
-			yValue = 1;
+			yValue = 1
 		} else if (event.target.value > 10) {
 			yValue = 10
 		} else {
@@ -208,59 +208,59 @@ export default class CreatorApp extends React.Component {
 	// Resizable textarea for question text. Automatically adjusts based
 	// on lines of text entered (up to a certain point)
 	handleQuestionChange(event) {
-		const textareaLineHeight = 24;
-		const { minQuestionRows, maxQuestionRows } = this.state;
+		const textareaLineHeight = 24
+		const { minQuestionRows, maxQuestionRows } = this.state
 
-		const previousRows = event.target.rows;
-		event.target.rows = minQuestionRows;
+		const previousRows = event.target.rows
+		event.target.rows = minQuestionRows
 
 		// total number of lines of text
-		const currentRows = ~~(event.target.scrollHeight / textareaLineHeight);
+		const currentRows = ~~(event.target.scrollHeight / textareaLineHeight)
 
 		// no change in textarea size
 		if (currentRows === previousRows) {
-			event.target.rows = currentRows;
+			event.target.rows = currentRows
 		}
 
 		// textarea size restricted to maxQuestionRows defined in constructor
 		if (currentRows >= maxQuestionRows) {
-			event.target.rows = maxQuestionRows;
-			event.target.scrollTop = event.target.scrollHeight;
+			event.target.rows = maxQuestionRows
+			event.target.scrollTop = event.target.scrollHeight
 		}
 
 		this.setState(Object.assign(this.state.qset, { question: event.target.value }))
 
 		this.setState({
 			questionRows: currentRows < maxQuestionRows ? currentRows : maxQuestionRows,
-		});
+		})
 	}
 
 	handleDescriptionChange(event) {
-		const textareaLineHeight = 20;
-		const { minDescriptionRows, maxDescriptionRows } = this.state;
+		const textareaLineHeight = 20
+		const { minDescriptionRows, maxDescriptionRows } = this.state
 
-		const previousRows = event.target.rows;
-		event.target.rows = minDescriptionRows;
+		const previousRows = event.target.rows
+		event.target.rows = minDescriptionRows
 
 		// total number of lines of text
-		const currentRows = ~~(event.target.scrollHeight / textareaLineHeight);
+		const currentRows = ~~(event.target.scrollHeight / textareaLineHeight)
 
 		// no change in textarea size
 		if (currentRows === previousRows) {
-			event.target.rows = currentRows;
+			event.target.rows = currentRows
 		}
 
 		// textarea size restricted to maxQuestionRows defined in constructor
 		if (currentRows >= maxDescriptionRows) {
-			event.target.rows = maxDescriptionRows;
-			event.target.scrollTop = event.target.scrollHeight;
+			event.target.rows = maxDescriptionRows
+			event.target.scrollTop = event.target.scrollHeight
 		}
 
 		this.setState(Object.assign(this.state.qset, { description: event.target.value }))
 
 		this.setState({
 			descriptionRows: currentRows < maxDescriptionRows ? currentRows : maxDescriptionRows,
-		});
+		})
 	}
 
 	toggleInstruction() {

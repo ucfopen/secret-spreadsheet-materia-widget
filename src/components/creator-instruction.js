@@ -8,7 +8,7 @@ const Instruction = props => {
 				className="close"
 				onClick={props.toggleInstruction}
 				onKeyPress={(e) => {if (e.key === 'Enter') {props.toggleInstruction()}}}
-				>&times;
+				>x
 			</span>
 			<h2>WHAT TO DO</h2>
 			<ul className="what-to-do">

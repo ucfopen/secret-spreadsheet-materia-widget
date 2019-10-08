@@ -1,6 +1,6 @@
-import React from 'react';
-import Question from './creator-question';
-import renderer from 'react-test-renderer';
+import React from 'react'
+import Question from './creator-question'
+import renderer from 'react-test-renderer'
 
 describe('CreatorQuestion component', function() {
 
@@ -21,9 +21,9 @@ describe('CreatorQuestion component', function() {
 			handleDescriptionChange: jest.fn(),
 		}
 
-		const component = renderer.create(<Question {... props}/>);
-		let tree = component.toJSON();
-		expect(tree).toMatchSnapshot();
+		const component = renderer.create(<Question {... props}/>)
+		let tree = component.toJSON()
+		expect(tree).toMatchSnapshot()
 
 	})
 
@@ -40,9 +40,9 @@ describe('CreatorQuestion component', function() {
 			handleDescriptionChange: jest.fn(),
 		}
 
-		const component = renderer.create(<Question {... props}/>);
-		let tree = component.toJSON();
-		expect(tree).toMatchSnapshot();
+		const component = renderer.create(<Question {... props}/>)
+		let tree = component.toJSON()
+		expect(tree).toMatchSnapshot()
 
   })
 

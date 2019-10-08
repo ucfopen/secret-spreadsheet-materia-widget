@@ -17,9 +17,9 @@ describe('CreatorPopup component', function() {
 			onChange: jest.fn(),
 		}
 
-		const component = renderer.create(<Popup {... props}/>);
-		let tree = component.toJSON();
-		expect(tree).toMatchSnapshot();
+		const component = renderer.create(<Popup {... props}/>)
+		let tree = component.toJSON()
+		expect(tree).toMatchSnapshot()
 
 	})
 
@@ -31,9 +31,9 @@ describe('CreatorPopup component', function() {
 			onChange: jest.fn(),
 		}
 
-		const component = renderer.create(<Popup {... props}/>);
-		let tree = component.toJSON();
-		expect(tree).toMatchSnapshot();
+		const component = renderer.create(<Popup {... props}/>)
+		let tree = component.toJSON()
+		expect(tree).toMatchSnapshot()
 
 	})
 

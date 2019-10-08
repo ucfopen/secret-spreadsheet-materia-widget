@@ -3,10 +3,11 @@ import Instruction from './creator-instruction'
 import renderer from 'react-test-renderer'
 import { shallow } from '../enzyme'
 
-const makeProps = () => {
+const makeProps = (showKeyControls = false) => {
 	return({
 		toggleInstruction: jest.fn(),
 		toggleKeyboardInst: jest.fn(),
+		showKeyControls: showKeyControls,
 	})
 }
 
@@ -16,11 +17,19 @@ describe('CreatorInstruction component', function() {
 		jest.resetModules()
 	})
 
-	test('CreatorInstruction toggles keyboard control with onClick', () => {
+	test('CreatorInstruction renders basic component with key controls', () => {
+		const props = makeProps(true)
+
+		const component = renderer.create(<Instruction {... props}/>)
+		let tree = component.toJSON()
+		expect(tree).toMatchSnapshot()
+	})
+
+	test('CreatorInstruction renders basic component without key controls', () => {
 		const props = makeProps()
 
 		const component = renderer.create(<Instruction {... props}/>)
-		let tree = component.toJSON();
+		let tree = component.toJSON()
 		expect(tree).toMatchSnapshot()
 	})
 
