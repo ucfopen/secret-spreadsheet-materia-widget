@@ -1,6 +1,6 @@
-import React from 'react';
-import Title from './creator-title';
-import renderer from 'react-test-renderer';
+import React from 'react'
+import Title from './creator-title'
+import renderer from 'react-test-renderer'
 import { shallow } from '../enzyme'
 
 describe('CreatorTitle component', function() {
@@ -14,9 +14,9 @@ describe('CreatorTitle component', function() {
 			title: 'mock-title',
 		}
 
-		const component = renderer.create(<Title {... props}/>);
-		let tree = component.toJSON();
-		expect(tree).toMatchSnapshot();
+		const component = renderer.create(<Title {... props}/>)
+		let tree = component.toJSON()
+		expect(tree).toMatchSnapshot()
 
 	})
 
@@ -26,7 +26,7 @@ describe('CreatorTitle component', function() {
 			showIntro: jest.fn(),
 		}
 
-		const component = shallow(<Title {... props}/>);
+		const component = shallow(<Title {... props}/>)
 		component.find('.help-button').simulate('Click')
 		expect(props.showIntro).toBeCalled()
 
@@ -38,7 +38,7 @@ describe('CreatorTitle component', function() {
 			editTitle: jest.fn(),
 		}
 
-		const component = shallow(<Title {... props}/>);
+		const component = shallow(<Title {... props}/>)
 		component.find('.edit-title-button').simulate('Click')
 		expect(props.editTitle).toBeCalled()
 

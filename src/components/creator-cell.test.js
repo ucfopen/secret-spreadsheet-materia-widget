@@ -182,7 +182,7 @@ describe('CreatorCell component', function() {
 	test('CreatorCell tests text field input', () => {
 		const props = makeProps()
 		const component = shallow(<Cell {... props}/>)
-		component.find({type: 'text'}).simulate('change', {target: {value: 'Test'}});
+		component.find({type: 'text'}).simulate('change', {target: {value: 'Test'}})
 		expect(props.data.questions[0].text).toEqual('Test')
 	})
 

@@ -5,6 +5,8 @@ import Title from './components/creator-title'
 import Options from './components/creator-options'
 import Table from './components/creator-table'
 import Question from './components/creator-question'
+import Instruction from './components/creator-instruction'
+
 
 const materiaCallbacks = {}
 let creatorInstance
@@ -27,7 +29,7 @@ export default class CreatorApp extends React.Component {
 			minDescriptionRows: 2,
 			maxDescriptionRows: 4,
 			numHidden: 0,
-			hideCellsRandomly: true,
+			hideCellsRandomly: props.qset.randomization == 0,
 		}
 
 		this.state.qset.items[0].items.push([this.cellData('', false)])
@@ -147,7 +149,7 @@ export default class CreatorApp extends React.Component {
 	handleXChange(event) {
 		let xValue
 		if (event.target.value < 1) {
-			xValue = 1;
+			xValue = 1
 		} else if (event.target.value > 10) {
 			xValue = 10
 		} else {
@@ -160,7 +162,7 @@ export default class CreatorApp extends React.Component {
 	handleYChange(event) {
 		let yValue
 		if (event.target.value < 1) {
-			yValue = 1;
+			yValue = 1
 		} else if (event.target.value > 10) {
 			yValue = 10
 		} else {
@@ -206,59 +208,59 @@ export default class CreatorApp extends React.Component {
 	// Resizable textarea for question text. Automatically adjusts based
 	// on lines of text entered (up to a certain point)
 	handleQuestionChange(event) {
-		const textareaLineHeight = 24;
-		const { minQuestionRows, maxQuestionRows } = this.state;
+		const textareaLineHeight = 24
+		const { minQuestionRows, maxQuestionRows } = this.state
 
-		const previousRows = event.target.rows;
-		event.target.rows = minQuestionRows;
+		const previousRows = event.target.rows
+		event.target.rows = minQuestionRows
 
 		// total number of lines of text
-		const currentRows = ~~(event.target.scrollHeight / textareaLineHeight);
+		const currentRows = ~~(event.target.scrollHeight / textareaLineHeight)
 
 		// no change in textarea size
 		if (currentRows === previousRows) {
-			event.target.rows = currentRows;
+			event.target.rows = currentRows
 		}
 
 		// textarea size restricted to maxQuestionRows defined in constructor
 		if (currentRows >= maxQuestionRows) {
-			event.target.rows = maxQuestionRows;
-			event.target.scrollTop = event.target.scrollHeight;
+			event.target.rows = maxQuestionRows
+			event.target.scrollTop = event.target.scrollHeight
 		}
 
 		this.setState(Object.assign(this.state.qset, { question: event.target.value }))
 
 		this.setState({
 			questionRows: currentRows < maxQuestionRows ? currentRows : maxQuestionRows,
-		});
+		})
 	}
 
 	handleDescriptionChange(event) {
-		const textareaLineHeight = 20;
-		const { minDescriptionRows, maxDescriptionRows } = this.state;
+		const textareaLineHeight = 20
+		const { minDescriptionRows, maxDescriptionRows } = this.state
 
-		const previousRows = event.target.rows;
-		event.target.rows = minDescriptionRows;
+		const previousRows = event.target.rows
+		event.target.rows = minDescriptionRows
 
 		// total number of lines of text
-		const currentRows = ~~(event.target.scrollHeight / textareaLineHeight);
+		const currentRows = ~~(event.target.scrollHeight / textareaLineHeight)
 
 		// no change in textarea size
 		if (currentRows === previousRows) {
-			event.target.rows = currentRows;
+			event.target.rows = currentRows
 		}
 
 		// textarea size restricted to maxQuestionRows defined in constructor
 		if (currentRows >= maxDescriptionRows) {
-			event.target.rows = maxDescriptionRows;
-			event.target.scrollTop = event.target.scrollHeight;
+			event.target.rows = maxDescriptionRows
+			event.target.scrollTop = event.target.scrollHeight
 		}
 
 		this.setState(Object.assign(this.state.qset, { description: event.target.value }))
 
 		this.setState({
 			descriptionRows: currentRows < maxDescriptionRows ? currentRows : maxDescriptionRows,
-		});
+		})
 	}
 
 	toggleInstruction() {
@@ -324,33 +326,13 @@ export default class CreatorApp extends React.Component {
 
 
 				<div className="table-container">
-					<div className={`table-text ${this.state.showInstruction ? "" : "instruction-hidden"}`}>
-						<span
-							tabIndex={0}
-							className="close"
-							onClick={this.toggleInstruction}
-							onKeyPress={(e) => {if (e.key === 'Enter') {this.toggleInstruction()}}}
-							>&times;
-						</span>
-						<h2>WHAT TO DO</h2>
-						<ul className="what-to-do">
-							<li>Add rows and columns, then input data in the cells below.</li>
-							<li className={`${this.state.hideCellsRandomly ? '' : 'list-item-hidden'}`}>Check cells to turn them <span className="blue-text">blue</span> - these will be left blank for students to fill out.</li>
-							<li className={`${this.state.hideCellsRandomly ? 'list-item-hidden' : ''}`}>The widget will automatically hide the given number of cells</li>
-							<li onClick={this.toggleKeyboardInst} className="keyboard-controls-div"><span tabIndex={0} onKeyPress={(e) => { if (e.key === 'Enter') { this.toggleKeyboardInst() } }} className="keyboard-controls-spam">Keyboard controls</span>
-								{this.state.showKeyControls ?
-									(<ul>
-										<li>Alt + PageUp = Add Column</li>
-										<li>Alt + PageDown = Remove Column</li>
-										<li>Shift + PageUp = Add Row</li>
-										<li>Shift + PageDown = Remove Row</li>
-										<li>Ctrl/Command + Arrow = Move Cell</li>
-									</ul>) :
-									(null)
-								}
-							</li>
-						</ul>
-					</div>
+					<Instruction
+						showInstruction={this.state.showInstruction}
+						toggleInstruction={this.toggleInstruction}
+						hideCellsRandomly={this.state.hideCellsRandomly}
+						toggleKeyboardInst={this.toggleKeyboardInst}
+						showKeyControls={this.state.showKeyControls}
+					/>
 
 					<Question
 						questionRows={this.state.questionRows}
@@ -390,7 +372,6 @@ CreatorApp.defaultProps = {
 materiaCallbacks.initNewWidget = (instance) => {
 	materiaCallbacks.initExistingWidget('New Spreadsheet Widget', instance, undefined, 1, true)
 	// return value for testing
-	return '1A4'
 }
 
 // Callback when editing an existing widget
