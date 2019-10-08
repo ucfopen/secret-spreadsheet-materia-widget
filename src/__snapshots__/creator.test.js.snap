@@ -227,6 +227,37 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
         </div>
       </div>
       <div
+        className="question"
+      >
+        <h3>
+          Question Text:
+        </h3>
+        <div
+          className=" hoverable"
+          id="question"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          tabIndex={0}
+        >
+          <svg
+            color="lightblue"
+            height="20px"
+            viewBox="0 0 28 28"
+            width="20px"
+          >
+             
+            <path
+              d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+            />
+             
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="lower-options-bar"
+    >
+      <div
         className="instructions"
       >
         <h3>
@@ -265,72 +296,50 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
         </div>
       </div>
       <div
-        className="question"
+        className="randomize"
       >
-        <h3>
-          Question Text:
-        </h3>
         <div
-          className=" hoverable"
-          id="question"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          tabIndex={0}
+          className="active"
         >
-          <svg
-            color="lightblue"
-            height="20px"
-            viewBox="0 0 28 28"
-            width="20px"
-          >
-             
-            <path
-              d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+          <label>
+            Manually hide cells with checkboxes
+          </label>
+        </div>
+        <label
+          className="switch"
+          htmlFor="hide-method-toggle"
+        >
+          <input
+            checked={false}
+            id="hide-method-toggle"
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            tabIndex={0}
+            type="checkbox"
+          />
+          <span
+            className="slider"
+          />
+        </label>
+        <div
+          className=""
+        >
+          <label>
+            Randomly hide 
+            <input
+              onChange={[Function]}
+              placeholder={0}
+              readOnly={true}
+              type="number"
+              value={0}
             />
-             
-          </svg>
+             cells.
+          </label>
         </div>
       </div>
-    </div>
-    <div
-      className="randomize"
-    >
       <div
-        className="active"
-      >
-        <label>
-          Manually hide cells with checkboxes
-        </label>
-      </div>
-      <label
-        className="switch"
-        htmlFor="hide-method-toggle"
-      >
-        <input
-          id="hide-method-toggle"
-          onClick={[Function]}
-          onKeyPress={[Function]}
-          type="checkbox"
-        />
-        <span
-          className="slider"
-        />
-      </label>
-      <div
-        className=""
-      >
-        <label>
-          Randomly hide 
-          <input
-            onChange={[Function]}
-            placeholder={0}
-            readOnly={true}
-            type="number"
-            value={0}
-          />
-           cells.
-        </label>
-      </div>
+        className="empty-element"
+      />
     </div>
   </div>
   <div
@@ -345,7 +354,7 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
         onKeyPress={[Function]}
         tabIndex={0}
       >
-        ×
+        x
       </span>
       <h2>
         WHAT TO DO
@@ -392,9 +401,9 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
     >
       <div>
         <textarea
-          className="question-text"
+          className="question-header"
           onChange={[Function]}
-          placeholder="Question Text"
+          placeholder="Question Header"
           rows={1}
           type="text"
           value=""
@@ -402,9 +411,9 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
       </div>
       <div>
         <textarea
-          className="description-text"
+          className="question-text"
           onChange={[Function]}
-          placeholder="Description Text"
+          placeholder="Question Text"
           rows={2}
           type="text"
           value=""
@@ -848,6 +857,36 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
         </div>
       </div>
       <div
+        className="question"
+      >
+        <h3>
+          Question Text:
+        </h3>
+        <div
+          className="active hoverable"
+          id="question"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          tabIndex={0}
+        >
+          <svg
+            height="20px"
+            viewBox="0 0 28 28"
+            width="20px"
+          >
+             
+            <path
+              d="M0 0v28h28V0H0zm24 24H4V4h20v20zm-2-13l-2.828-2.828-6.768 6.982-3.576-3.576L6 14.406l6.404 6.406L22 11z"
+            />
+             
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="lower-options-bar"
+    >
+      <div
         className="instructions"
       >
         <h3>
@@ -886,71 +925,50 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
         </div>
       </div>
       <div
-        className="question"
+        className="randomize"
       >
-        <h3>
-          Question Text:
-        </h3>
         <div
-          className="active hoverable"
-          id="question"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          tabIndex={0}
+          className="active"
         >
-          <svg
-            height="20px"
-            viewBox="0 0 28 28"
-            width="20px"
-          >
-             
-            <path
-              d="M0 0v28h28V0H0zm24 24H4V4h20v20zm-2-13l-2.828-2.828-6.768 6.982-3.576-3.576L6 14.406l6.404 6.406L22 11z"
+          <label>
+            Manually hide cells with checkboxes
+          </label>
+        </div>
+        <label
+          className="switch"
+          htmlFor="hide-method-toggle"
+        >
+          <input
+            checked={false}
+            id="hide-method-toggle"
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            tabIndex={0}
+            type="checkbox"
+          />
+          <span
+            className="slider"
+          />
+        </label>
+        <div
+          className=""
+        >
+          <label>
+            Randomly hide 
+            <input
+              onChange={[Function]}
+              placeholder={0}
+              readOnly={true}
+              type="number"
+              value={0}
             />
-             
-          </svg>
+             cells.
+          </label>
         </div>
       </div>
-    </div>
-    <div
-      className="randomize"
-    >
       <div
-        className="active"
-      >
-        <label>
-          Manually hide cells with checkboxes
-        </label>
-      </div>
-      <label
-        className="switch"
-        htmlFor="hide-method-toggle"
-      >
-        <input
-          id="hide-method-toggle"
-          onClick={[Function]}
-          onKeyPress={[Function]}
-          type="checkbox"
-        />
-        <span
-          className="slider"
-        />
-      </label>
-      <div
-        className=""
-      >
-        <label>
-          Randomly hide 
-          <input
-            onChange={[Function]}
-            placeholder={0}
-            readOnly={true}
-            type="number"
-            value={0}
-          />
-           cells.
-        </label>
-      </div>
+        className="empty-element"
+      />
     </div>
   </div>
   <div
@@ -965,7 +983,7 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
         onKeyPress={[Function]}
         tabIndex={0}
       >
-        ×
+        x
       </span>
       <h2>
         WHAT TO DO
@@ -1012,18 +1030,18 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
     >
       <div>
         <textarea
-          className="question-text"
+          className="question-header"
           onChange={[Function]}
-          placeholder="Question Text"
+          placeholder="Question Header"
           rows={1}
           type="text"
         />
       </div>
       <div>
         <textarea
-          className="description-text"
+          className="question-text"
           onChange={[Function]}
-          placeholder="Description Text"
+          placeholder="Question Text"
           rows={2}
           type="text"
         />
@@ -1465,6 +1483,36 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
         </div>
       </div>
       <div
+        className="question"
+      >
+        <h3>
+          Question Text:
+        </h3>
+        <div
+          className="active hoverable"
+          id="question"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          tabIndex={0}
+        >
+          <svg
+            height="20px"
+            viewBox="0 0 28 28"
+            width="20px"
+          >
+             
+            <path
+              d="M0 0v28h28V0H0zm24 24H4V4h20v20zm-2-13l-2.828-2.828-6.768 6.982-3.576-3.576L6 14.406l6.404 6.406L22 11z"
+            />
+             
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="lower-options-bar"
+    >
+      <div
         className="instructions"
       >
         <h3>
@@ -1503,71 +1551,50 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
         </div>
       </div>
       <div
-        className="question"
+        className="randomize"
       >
-        <h3>
-          Question Text:
-        </h3>
         <div
-          className="active hoverable"
-          id="question"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          tabIndex={0}
+          className="active"
         >
-          <svg
-            height="20px"
-            viewBox="0 0 28 28"
-            width="20px"
-          >
-             
-            <path
-              d="M0 0v28h28V0H0zm24 24H4V4h20v20zm-2-13l-2.828-2.828-6.768 6.982-3.576-3.576L6 14.406l6.404 6.406L22 11z"
+          <label>
+            Manually hide cells with checkboxes
+          </label>
+        </div>
+        <label
+          className="switch"
+          htmlFor="hide-method-toggle"
+        >
+          <input
+            checked={false}
+            id="hide-method-toggle"
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            tabIndex={0}
+            type="checkbox"
+          />
+          <span
+            className="slider"
+          />
+        </label>
+        <div
+          className=""
+        >
+          <label>
+            Randomly hide 
+            <input
+              onChange={[Function]}
+              placeholder={0}
+              readOnly={true}
+              type="number"
+              value={0}
             />
-             
-          </svg>
+             cells.
+          </label>
         </div>
       </div>
-    </div>
-    <div
-      className="randomize"
-    >
       <div
-        className="active"
-      >
-        <label>
-          Manually hide cells with checkboxes
-        </label>
-      </div>
-      <label
-        className="switch"
-        htmlFor="hide-method-toggle"
-      >
-        <input
-          id="hide-method-toggle"
-          onClick={[Function]}
-          onKeyPress={[Function]}
-          type="checkbox"
-        />
-        <span
-          className="slider"
-        />
-      </label>
-      <div
-        className=""
-      >
-        <label>
-          Randomly hide 
-          <input
-            onChange={[Function]}
-            placeholder={0}
-            readOnly={true}
-            type="number"
-            value={0}
-          />
-           cells.
-        </label>
-      </div>
+        className="empty-element"
+      />
     </div>
   </div>
   <div
@@ -1582,7 +1609,7 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
         onKeyPress={[Function]}
         tabIndex={0}
       >
-        ×
+        x
       </span>
       <h2>
         WHAT TO DO
@@ -1629,18 +1656,18 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
     >
       <div>
         <textarea
-          className="question-text"
+          className="question-header"
           onChange={[Function]}
-          placeholder="Question Text"
+          placeholder="Question Header"
           rows={1}
           type="text"
         />
       </div>
       <div>
         <textarea
-          className="description-text"
+          className="question-text"
           onChange={[Function]}
-          placeholder="Description Text"
+          placeholder="Question Text"
           rows={2}
           type="text"
         />

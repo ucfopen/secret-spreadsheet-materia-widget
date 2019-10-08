@@ -17,7 +17,7 @@ export default class Table extends React.Component {
 	// Add a row to the table, limited to 10 rows
 	appendRow() {
 		const xValue = Math.min(10, parseInt(this.props.qset.dimensions.x) + 1)
-		this.setState(Object.assign(this.props.qset.dimensions,{x:xValue}));
+		this.setState(Object.assign(this.props.qset.dimensions,{x:xValue}))
 
 		// Fill the cells in the row with empty cell data
 		const cellsArray = []
@@ -38,7 +38,7 @@ export default class Table extends React.Component {
 				this.focusOnCell(xValue - 1, col)
 			}
 
-			this.setState(Object.assign(this.props.qset.dimensions,{x:xValue}));
+			this.setState(Object.assign(this.props.qset.dimensions,{x:xValue}))
 
 			this.props.qset.items[0].items.pop()
 
@@ -52,7 +52,7 @@ export default class Table extends React.Component {
 	// Add a column to the table, limited to 10 rows
 	appendColumn() {
 		const yValue = Math.min(10, parseInt(this.props.qset.dimensions.y) + 1)
-		this.setState(Object.assign(this.props.qset.dimensions,{y:yValue}));
+		this.setState(Object.assign(this.props.qset.dimensions,{y:yValue}))
 
 		// Fill the cells in the column with empty cell data
 		for (let i = 0; i < this.props.qset.dimensions.x; i++) {
@@ -70,7 +70,7 @@ export default class Table extends React.Component {
 				this.focusOnCell(row, yValue - 1)
 			}
 
-			this.setState(Object.assign(this.props.qset.dimensions,{y:yValue}));
+			this.setState(Object.assign(this.props.qset.dimensions,{y:yValue}))
 			for (let i = 0; i < this.props.qset.dimensions.x; i++) {
 				this.props.qset.items[0].items[i].pop()
 			}

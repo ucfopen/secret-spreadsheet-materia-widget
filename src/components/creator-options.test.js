@@ -22,6 +22,8 @@ const props ={
 	toggleInstruction: jest.fn(),
 	useQuestion: jest.fn(),
 	resetCheckbox: jest.fn(),
+	toggleHideCellMethod: jest.fn(),
+	hideCellsRandomly: true,
 }
 
 const makeEvent = value => {
@@ -40,8 +42,8 @@ describe('CreatorOptions component', function() {
 	})
 
 	test('CreatorOptions renders basic options bar', () => {
-		const tree = renderer.create(<Options {... props}/>).toJSON();
-		expect(tree).toMatchSnapshot();
+		const tree = renderer.create(<Options {... props}/>).toJSON()
+		expect(tree).toMatchSnapshot()
 	})
 
 	test('CreatorOptions calls useSpreadsheet onKeyDown', () => {
@@ -147,7 +149,7 @@ describe('CreatorOptions component', function() {
 		const event = makeEvent(-1)
 
 		const component = shallow(<Options {... props} />)
-		component.instance().handleRandomizationChange(event);
+		component.instance().handleRandomizationChange(event)
 		expect(props.qset.randomization).toEqual(0)
 
 	})
@@ -156,7 +158,7 @@ describe('CreatorOptions component', function() {
 		const event = makeEvent(1)
 
 		const component = shallow(<Options {... props} />)
-		component.instance().handleRandomizationChange(event);
+		component.instance().handleRandomizationChange(event)
 		expect(props.qset.randomization).toEqual(0)
 
 	})
@@ -165,7 +167,7 @@ describe('CreatorOptions component', function() {
 		const event = makeEvent(999)
 
 		const component = shallow(<Options {... props} />)
-		component.instance().handleRandomizationChange(event);
+		component.instance().handleRandomizationChange(event)
 		expect(props.qset.randomization).toEqual(0)
 
 	})
@@ -174,7 +176,7 @@ describe('CreatorOptions component', function() {
 		const event = makeEvent(0.5)
 
 		const component = shallow(<Options {... props} />)
-		component.instance().handleRandomizationChange(event);
+		component.instance().handleRandomizationChange(event)
 		expect(props.qset.randomization).toEqual(0)
 
 	})
@@ -184,7 +186,7 @@ describe('CreatorOptions component', function() {
 		props.qset.header = false
 
 		const component = shallow(<Options {... props} />)
-		component.instance().handleRandomizationChange(event);
+		component.instance().handleRandomizationChange(event)
 		expect(props.qset.randomization).toEqual(1)
 
 	})
@@ -193,7 +195,7 @@ describe('CreatorOptions component', function() {
 		const event = makeEvent(999)
 
 		const component = shallow(<Options {... props} />)
-		component.instance().handleRandomizationChange(event);
+		component.instance().handleRandomizationChange(event)
 		expect(props.qset.randomization).toEqual(1)
 
 	})
@@ -202,8 +204,22 @@ describe('CreatorOptions component', function() {
 		const event = makeEvent(1.2)
 
 		const component = shallow(<Options {... props} />)
-		component.instance().handleRandomizationChange(event);
+		component.instance().handleRandomizationChange(event)
 		expect(props.qset.randomization).toEqual(1)
+
+	})
+
+	test('CreatorOptions calls toggleHideCellMethod with Enter', () => {
+		const component = shallow(<Options {... props} />)
+		component.find('#hide-method-toggle').simulate('keyPress', {key: 'Enter'})
+		expect(props.toggleHideCellMethod).toBeCalled()
+
+	})
+
+	test('CreatorOptions does not call toggleHideCellMethod with non-Enter key', () => {
+		const component = shallow(<Options {... props} />)
+		component.find('#hide-method-toggle').simulate('keyPress', {key: 'a'})
+		expect(props.toggleHideCellMethod).not.toBeCalled()
 
 	})
 
