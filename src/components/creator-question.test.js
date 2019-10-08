@@ -1,6 +1,6 @@
-import React from 'react';
-import Question from './creator-question';
-import renderer from 'react-test-renderer';
+import React from 'react'
+import Question from './creator-question'
+import renderer from 'react-test-renderer'
 
 describe('CreatorQuestion component', function() {
 
@@ -11,8 +11,8 @@ describe('CreatorQuestion component', function() {
   test('CreatorQuestion renders question and description textareas with showQuestion = true', () => {
 		const props = {
 			qset: {
-				question: 'What is love?',
-				description: '',
+				question: 'Wake me up',
+				description: 'Wake me up inside',
 			},
 			showQuestion: true,
 			questionRows: 1,
@@ -21,17 +21,17 @@ describe('CreatorQuestion component', function() {
 			handleDescriptionChange: jest.fn(),
 		}
 
-		const component = renderer.create(<Question {... props}/>);
-		let tree = component.toJSON();
-		expect(tree).toMatchSnapshot();
+		const component = renderer.create(<Question {... props}/>)
+		let tree = component.toJSON()
+		expect(tree).toMatchSnapshot()
 
 	})
 
 	test('CreatorQuestion renders question and description textareas with showQuestion = false', () => {
 		const props = {
 			qset: {
-				question: 'What is love?',
-				description: '',
+				question: 'When September ends',
+				description: 'CANT WAKE UP',
 			},
 			showQuestion: false,
 			questionRows: 1,
@@ -40,9 +40,9 @@ describe('CreatorQuestion component', function() {
 			handleDescriptionChange: jest.fn(),
 		}
 
-		const component = renderer.create(<Question {... props}/>);
-		let tree = component.toJSON();
-		expect(tree).toMatchSnapshot();
+		const component = renderer.create(<Question {... props}/>)
+		let tree = component.toJSON()
+		expect(tree).toMatchSnapshot()
 
   })
 

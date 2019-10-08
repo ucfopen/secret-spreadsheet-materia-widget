@@ -1,10 +1,10 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { shallow, mount } from 'enzyme'
-import * as enzyme from 'enzyme';
+import * as enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 
-const mockDomRender = jest.fn();
+const mockDomRender = jest.fn()
 
 const genEvent = {
 	preventDefault: jest.fn(),
@@ -55,7 +55,7 @@ describe('CreatorApp component', function() {
 
 	test('CreatorApp calls materiaCallbacks functions', () => {
 		require('./creator')
-		const callbacks = Materia.CreatorCore.start.mock.calls[0][0];
+		const callbacks = Materia.CreatorCore.start.mock.calls[0][0]
 
 		expect(callbacks).toHaveProperty('initNewWidget', expect.any(Function))
 		expect(callbacks).toHaveProperty('initExistingWidget', expect.any(Function))
@@ -69,11 +69,12 @@ describe('CreatorApp component', function() {
 
 		jest.mock('react-dom', () => ({
 			render: mockDomRender
-		}));
+		}))
 
-		const callbacks = Materia.CreatorCore.start.mock.calls[0][0];
-		const retVal = callbacks.initNewWidget(instance)
-		expect(retVal).toEqual('1A4')
+		const callbacks = Materia.CreatorCore.start.mock.calls[0][0]
+		callbacks.initExistingWidget = jest.fn()
+		callbacks.initNewWidget(instance)
+		expect(callbacks.initExistingWidget).toBeCalled()
 	})
 
 	test('CreatorApp calls materiaCallbacks.initExistingWidget', () => {
@@ -82,9 +83,9 @@ describe('CreatorApp component', function() {
 
 		jest.mock('react-dom', () => ({
 			render: mockDomRender
-		}));
+		}))
 
-		const callbacks = Materia.CreatorCore.start.mock.calls[0][0];
+		const callbacks = Materia.CreatorCore.start.mock.calls[0][0]
 		const retVal = callbacks.initExistingWidget('Newt Widget', instance, {}, 1)
 		expect(retVal).toEqual('1A4')
 	})
@@ -94,11 +95,11 @@ describe('CreatorApp component', function() {
 
 		jest.mock('react-dom', () => ({
 			render: jest.fn().mockReturnValue({onSaveClicked: jest.fn()})
-		}));
+		}))
 
 		const mockOnSaveClicked = require('react-dom').render().onSaveClicked
 
-		const callbacks = Materia.CreatorCore.start.mock.calls[0][0];
+		const callbacks = Materia.CreatorCore.start.mock.calls[0][0]
 		callbacks.initExistingWidget('', {}, {}, 1)
 		expect(mockOnSaveClicked).not.toHaveBeenCalled()
 		callbacks.onSaveClicked()
@@ -110,11 +111,11 @@ describe('CreatorApp component', function() {
 
 		jest.mock('react-dom', () => ({
 			render: jest.fn().mockReturnValue({onSaveClicked: jest.fn()})
-		}));
+		}))
 
 		const mockOnSaveClicked = require('react-dom').render().onSaveClicked
 
-		const callbacks = Materia.CreatorCore.start.mock.calls[0][0];
+		const callbacks = Materia.CreatorCore.start.mock.calls[0][0]
 		callbacks.initExistingWidget('', {}, { randomization:1 }, 1)
 		expect(mockOnSaveClicked).not.toHaveBeenCalled()
 		callbacks.onSaveClicked()
@@ -126,9 +127,9 @@ describe('CreatorApp component', function() {
 
 		jest.mock('react-dom', () => ({
 			render: mockDomRender
-		}));
+		}))
 
-		const callbacks = Materia.CreatorCore.start.mock.calls[0][0];
+		const callbacks = Materia.CreatorCore.start.mock.calls[0][0]
 		const retVal = callbacks.onSaveComplete()
 		expect(retVal).toEqual('1A4')
 	})
@@ -505,36 +506,6 @@ describe('CreatorApp component', function() {
 		expect(component.instance().state.hideCellsRandomly).toEqual(true)
 	})
 
-	test('CreatorApp toggles keyboard control with onClick', () => {
-		const CreatorApp = require('./creator').default
-		const props = makeProps()
-
-		const component = shallow(<CreatorApp {... props}/>)
-
-		component.find('.keyboard-controls-div').simulate('Click')
-		expect(component.instance().state.showKeyControls).toEqual(true)
-	})
-
-	test('CreatorApp toggles keyboard control with Enter keyPress', () => {
-		const CreatorApp = require('./creator').default
-		const props = makeProps()
-
-		const component = shallow(<CreatorApp {... props}/>)
-
-		component.find('.keyboard-controls-spam').simulate('keypress', {key: 'Enter'})
-		expect(component.instance().state.showKeyControls).toEqual(true)
-	})
-
-	test('CreatorApp toggles keyboard control with non-Enter keyPress', () => {
-		const CreatorApp = require('./creator').default
-		const props = makeProps()
-
-		const component = shallow(<CreatorApp {... props}/>)
-
-		component.find('.keyboard-controls-spam').simulate('keypress', {key: 'a'})
-		expect(component.instance().state.showKeyControls).toEqual(false)
-	})
-
 	test('CreatorApp calls resetCheckbox toggle', () => {
 		const CreatorApp = require('./creator').default
 		const props = makeProps(true, false, false, false, 0, true)
@@ -553,26 +524,6 @@ describe('CreatorApp component', function() {
 		expect(component.instance().state.qset.randomization).toEqual(1)
 		component.instance().resetRandomization()
 		expect(component.instance().state.qset.randomization).toEqual(0)
-	})
-
-	test('CreatorApp calls toggleInstruction with Enter key', () => {
-		const CreatorApp = require('./creator').default
-		const props = makeProps(true, false, false, false, 1)
-
-		const component = shallow(<CreatorApp {... props}/>)
-		expect(component.instance().state.showInstruction).toEqual(true)
-		component.find('.close').simulate('keypress', {key: 'Enter'})
-		expect(component.instance().state.showInstruction).toEqual(false)
-	})
-
-	test('CreatorApp fails to call toggleInstruction with other key', () => {
-		const CreatorApp = require('./creator').default
-		const props = makeProps(true, false, false, false, 1)
-
-		const component = shallow(<CreatorApp {... props}/>)
-		expect(component.instance().state.showInstruction).toEqual(true)
-		component.find('.close').simulate('keypress', {key: 'a'})
-		expect(component.instance().state.showInstruction).toEqual(true)
 	})
 
 })
