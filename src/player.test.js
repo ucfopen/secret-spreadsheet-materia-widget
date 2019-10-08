@@ -395,31 +395,50 @@ describe('Player', () => {
 		mockPlayer.unmount();
 	});
 
-	test('handlePopupToggle is correctly toggled off', () => {
+	test('handlePopupToggle when popup and first are true', () => {
 		const mockPlayer = makeNewPlayer();
 
 		mockPlayer.setState({
 			popup: true,
-			answered: 0
+			first: true
 		});
 		mockPlayer.instance().handlePopupToggle();
 
 		expect(mockPlayer.state(['popup'])).toBeFalsy();
+		expect(mockPlayer.state(['first'])).toBeFalsy();
+		expect(mockPlayer.state(['showQuestion'])).toBeTruthy();
 
 		// cleanup
 		mockPlayer.unmount();
 	});
 
-	test('handlePopupToggle is toggled on', () => {
+	test('handlePopupToggle when popup is true and first is false', () => {
+		const mockPlayer = makeNewPlayer();
+
+		mockPlayer.setState({
+			popup: true,
+			first: false
+		});
+		mockPlayer.instance().handlePopupToggle();
+
+		expect(mockPlayer.state(['popup'])).toBeFalsy();
+		expect(mockPlayer.state(['first'])).toBeFalsy();
+
+		// cleanup
+		mockPlayer.unmount();
+	});
+
+	test('handlePopupToggle when popup and first are false', () => {
 		const mockPlayer = makeNewPlayer();
 
 		mockPlayer.setState({
 			popup: false,
-			answered: 0
+			first: false
 		});
 		mockPlayer.instance().handlePopupToggle();
 
 		expect(mockPlayer.state(['popup'])).toBeTruthy();
+		expect(mockPlayer.state(['first'])).toBeFalsy();
 
 		// cleanup
 		mockPlayer.unmount();
