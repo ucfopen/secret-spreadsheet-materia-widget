@@ -1,7 +1,7 @@
 {
 	"name": "@ucfopen/spreadsheet",
 	"materia": {
-		"cleanName": "spreadsheet"
+		"cleanName": "secret-spreadsheet"
 	},
 	"dependencies": {
 		"materia-widget-development-kit": "^2.4.2"
