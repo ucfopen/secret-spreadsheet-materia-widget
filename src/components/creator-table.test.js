@@ -27,8 +27,8 @@ const cellData = (value, check) => {
 const makeQset = (text = '', blank = false, left = true, header = true) => {
 	return {
 		dimensions: {
-			x: 1,
-			y: 1,
+			rows: 1,
+			columns: 1,
 		},
 		items: [{
 			items: [[
@@ -84,9 +84,9 @@ describe('CreatorTable component', function() {
 		}
 		const component = mount(<Table {... props}/>)
 
-		expect(props.qset.dimensions.x).toEqual(1)
+		expect(props.qset.dimensions.rows).toEqual(1)
 		component.instance().removeRow(1, 1)
-		expect(props.qset.dimensions.x).toEqual(1)
+		expect(props.qset.dimensions.columns).toEqual(1)
 
 	})
 
@@ -99,9 +99,9 @@ describe('CreatorTable component', function() {
 		}
 		const component = mount(<Table {... props}/>)
 
-		expect(props.qset.dimensions.y).toEqual(1)
+		expect(props.qset.dimensions.columns).toEqual(1)
 		component.instance().removeColumn(1, 1)
-		expect(props.qset.dimensions.y).toEqual(1)
+		expect(props.qset.dimensions.columns).toEqual(1)
 
 	})
 
@@ -114,9 +114,9 @@ describe('CreatorTable component', function() {
 		}
 		const component = mount(<Table {... props}/>)
 
-		expect(props.qset.dimensions.x).toEqual(1)
+		expect(props.qset.dimensions.rows).toEqual(1)
 		component.instance().appendRow()
-		expect(props.qset.dimensions.x).toEqual(2)
+		expect(props.qset.dimensions.rows).toEqual(2)
 
 	})
 
@@ -129,9 +129,9 @@ describe('CreatorTable component', function() {
 		}
 		const component = mount(<Table {... props}/>)
 
-		expect(props.qset.dimensions.y).toEqual(1)
+		expect(props.qset.dimensions.columns).toEqual(1)
 		component.instance().appendColumn()
-		expect(props.qset.dimensions.y).toEqual(2)
+		expect(props.qset.dimensions.columns).toEqual(2)
 
 	})
 
@@ -145,9 +145,9 @@ describe('CreatorTable component', function() {
 		const component = mount(<Table {... props}/>)
 
 		component.instance().appendRow()
-		expect(props.qset.dimensions.x).toEqual(2)
+		expect(props.qset.dimensions.rows).toEqual(2)
 		component.instance().removeRow(1, 0)
-		expect(props.qset.dimensions.x).toEqual(1)
+		expect(props.qset.dimensions.rows).toEqual(1)
 
 	})
 
@@ -161,9 +161,9 @@ describe('CreatorTable component', function() {
 		const component = mount(<Table {... props}/>)
 
 		component.instance().appendRow()
-		expect(props.qset.dimensions.x).toEqual(2)
+		expect(props.qset.dimensions.rows).toEqual(2)
 		component.instance().removeRow(2, 0)
-		expect(props.qset.dimensions.x).toEqual(1)
+		expect(props.qset.dimensions.rows).toEqual(1)
 
 	})
 
@@ -177,9 +177,9 @@ describe('CreatorTable component', function() {
 		const component = mount(<Table {... props}/>)
 
 		component.instance().appendColumn()
-		expect(props.qset.dimensions.y).toEqual(2)
+		expect(props.qset.dimensions.columns).toEqual(2)
 		component.instance().removeColumn(0, 1)
-		expect(props.qset.dimensions.y).toEqual(1)
+		expect(props.qset.dimensions.columns).toEqual(1)
 
 	})
 
@@ -193,9 +193,9 @@ describe('CreatorTable component', function() {
 		const component = mount(<Table {... props}/>)
 
 		component.instance().appendColumn()
-		expect(props.qset.dimensions.y).toEqual(2)
+		expect(props.qset.dimensions.columns).toEqual(2)
 		component.instance().removeColumn(0, 2)
-		expect(props.qset.dimensions.y).toEqual(1)
+		expect(props.qset.dimensions.columns).toEqual(1)
 
 	})
 

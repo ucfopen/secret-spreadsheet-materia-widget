@@ -14,12 +14,16 @@ export default class Options extends React.Component {
 			this.setState(Object.assign(this.props.qset,{randomization:0}))
 		}
 		// Upper limit changes depending on whether header row is enabled
-		else if (event.target.value > ((!this.props.qset.header ? this.props.qset.dimensions.x : (this.props.qset.dimensions.x - 1) ) * this.props.qset.dimensions.y)) {
-			this.setState(Object.assign(this.props.qset,{randomization:((!this.props.qset.header ? this.props.qset.dimensions.x : (this.props.qset.dimensions.x - 1) ) * this.props.qset.dimensions.y)}))
+		else if (event.target.value > ((!this.props.qset.header ? this.props.qset.dimensions.rows : (this.props.qset.dimensions.rows - 1) ) * this.props.qset.dimensions.columns)) {
+			this.setState(Object.assign(this.props.qset,{randomization:((!this.props.qset.header ? this.props.qset.dimensions.rows : (this.props.qset.dimensions.rows - 1) ) * this.props.qset.dimensions.columns)}))
 		}
 		else {
 			this.setState(Object.assign(this.props.qset,{randomization:event.target.value}))
 		}
+	}
+
+	handleCheckBox(event) {
+		event.target.checked = !event.target.checked
 	}
 
 	render() {
@@ -147,7 +151,15 @@ export default class Options extends React.Component {
 						</div>
 
 						<label className="switch" htmlFor="hide-method-toggle" >
-							<input tabIndex={0} type="checkbox" checked={!this.props.hideCellsRandomly} id="hide-method-toggle" onClick={this.props.toggleHideCellMethod} onKeyPress={(e) => {if (e.key == 'Enter') {this.props.toggleHideCellMethod()}}}></input>
+							<input
+								tabIndex={0}
+								type="checkbox"
+								checked={!this.props.hideCellsRandomly}
+								id="hide-method-toggle"
+								onClick={this.props.toggleHideCellMethod}
+								onKeyPress={(e) => {if (e.key == 'Enter') {this.props.toggleHideCellMethod()}}}
+								onChange={this.handleCheckBox}
+							></input>
 							<span className="slider"></span>
 						</label>
 
