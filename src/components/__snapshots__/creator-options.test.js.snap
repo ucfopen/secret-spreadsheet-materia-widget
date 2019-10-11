@@ -283,6 +283,7 @@ exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] =
         <input
           checked={false}
           id="hide-method-toggle"
+          onChange={[Function]}
           onClick={[MockFunction]}
           onKeyPress={[Function]}
           tabIndex={0}

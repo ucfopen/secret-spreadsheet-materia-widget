@@ -18,7 +18,7 @@ const makeProps = (init = true, left = false, header = false, spreadsheet = fals
 			'header': header,
 			'spreadsheet': spreadsheet,
 			'randomization': randomization,
-			'dimensions': {'x': 1, 'y': 1},
+			'dimensions': {'rows': 1, 'columns': 1},
 			'items': [{
 				'items': [[{
 					'options': {
@@ -267,7 +267,7 @@ describe('CreatorApp component', function() {
 
 		const component = shallow(<CreatorApp {... props}/>)
 		component.instance().handleXChange(event)
-		expect(component.instance().state.qset.dimensions.x).toEqual(1)
+		expect(component.instance().state.qset.dimensions.rows).toEqual(1)
 	})
 
 	test('CreatorApp calls handleXChange with large x value', () => {
@@ -281,7 +281,7 @@ describe('CreatorApp component', function() {
 
 		const component = shallow(<CreatorApp {... props}/>)
 		component.instance().handleXChange(event)
-		expect(component.instance().state.qset.dimensions.x).toEqual(10)
+		expect(component.instance().state.qset.dimensions.rows).toEqual(10)
 	})
 
 	test('CreatorApp calls handleXChange with normal x value', () => {
@@ -295,7 +295,7 @@ describe('CreatorApp component', function() {
 
 		const component = shallow(<CreatorApp {... props}/>)
 		component.instance().handleXChange(event)
-		expect(component.instance().state.qset.dimensions.x).toEqual(5)
+		expect(component.instance().state.qset.dimensions.rows).toEqual(5)
 	})
 
 	test('CreatorApp calls handleYChange with negative y value', () => {
@@ -309,7 +309,7 @@ describe('CreatorApp component', function() {
 
 		const component = shallow(<CreatorApp {... props}/>)
 		component.instance().handleYChange(event)
-		expect(component.instance().state.qset.dimensions.y).toEqual(1)
+		expect(component.instance().state.qset.dimensions.columns).toEqual(1)
 	})
 
 	test('CreatorApp calls handleYChange with large y value', () => {
@@ -323,7 +323,7 @@ describe('CreatorApp component', function() {
 
 		const component = shallow(<CreatorApp {... props}/>)
 		component.instance().handleYChange(event)
-		expect(component.instance().state.qset.dimensions.y).toEqual(10)
+		expect(component.instance().state.qset.dimensions.columns).toEqual(10)
 	})
 
 	test('CreatorApp calls handleYChange with normal y value', () => {
@@ -337,7 +337,7 @@ describe('CreatorApp component', function() {
 
 		const component = shallow(<CreatorApp {... props}/>)
 		component.instance().handleYChange(event)
-		expect(component.instance().state.qset.dimensions.y).toEqual(5)
+		expect(component.instance().state.qset.dimensions.columns).toEqual(5)
 	})
 
 	test('CreatorApp calls useSpreadsheet', () => {

@@ -7,8 +7,8 @@
 			"header": true,
 			"spreadsheet": true,
 			"dimensions": {
-				"x": 2,
-				"y": 2
+				"rows": 2,
+				"columns": 2
 			},
 			"randomization": 1,
 			"question": "Fill in the blank cell.",

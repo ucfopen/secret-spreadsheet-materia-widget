@@ -6,8 +6,8 @@ import { mount, shallow } from '../enzyme'
 const props ={
 	qset: {
 		dimensions: {
-			x: 1,
-			y: 1,
+			rows: 1,
+			columns: 1,
 		},
 		spreadsheet: true,
 		left: true,
