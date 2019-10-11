@@ -1,9 +1,9 @@
 <h1>
 	<img src="src/_icons/icon-60.png" width="36px"/>
-	Spreadsheet: A Materia Widget
+	Secret Spreadsheet: A Materia Widget
 </h1>
 
-Spreadsheet is a Materia Widget that is played by filling in the blanks on the provided spreadsheet. Players are scored based on how many answers are correct after the spreadsheet is submitted. The blank cells can be selected by the creator or be randomly generated. Spreadsheet is designed for use with [Materia](https://github.com/ucfopen/Materia), an open-source platform for interactive course content developed by the University of Central Florida.
+Secret Spreadsheet is a Materia Widget that is played by filling in the blanks on the provided spreadsheet. Players are scored based on how many answers are correct after the spreadsheet is submitted. The blank cells can be selected by the creator or be randomly generated. Spreadsheet is designed for use with [Materia](https://github.com/ucfopen/Materia), an open-source platform for interactive course content developed by the University of Central Florida.
 
 ![Spreadsheet Player](src/_screen-shots/1.png)
 
