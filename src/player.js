@@ -128,12 +128,12 @@ class PlayerApp extends React.Component {
 		let selectCount = 0;
 
 		if (this.props.header) {
-			totalCells -= this.props.dimensions.x;
+			totalCells -= this.props.dimensions.y;
 		}
 
 		while (selectCount < this.props.randCount) {
 			// decide to use all cells or ignore top header row
-			const position = Math.floor(Math.random() * totalCells + (this.props.header ? this.props.dimensions.x:0));
+			const position = Math.floor(Math.random() * totalCells + (this.props.header ? this.props.dimensions.y:0));
 
 			if (!this.blankPositions.has(position)) {
 				selectCount++;
