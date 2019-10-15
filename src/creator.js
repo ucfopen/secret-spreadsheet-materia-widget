@@ -54,6 +54,13 @@ export default class CreatorApp extends React.Component {
 		this.toggleHideCellMethod = this.toggleHideCellMethod.bind(this)
 		this.resetCheckbox = this.resetCheckbox.bind(this)
 		this.resetRandomization = this.resetRandomization.bind(this)
+		this.appendRow = this.appendRow.bind(this)
+		this.removeRow = this.removeRow.bind(this)
+		this.appendColumn = this.appendColumn.bind(this)
+		this.removeColumn = this.removeColumn.bind(this)
+		this.focusOnCell = this.focusOnCell.bind(this)
+		// Used when placing focus on cells
+		this.refsArray = []
 	}
 
 	// Callback when widget save is clicked
@@ -291,9 +298,102 @@ export default class CreatorApp extends React.Component {
 		this.setState(Object.assign(this.state.qset, { randomization: 0 }))
 	}
 
+	// Add a row to the table, limited to 10 rows
+	appendRow() {
+		const xValue = Math.min(10, parseInt(this.state.qset.dimensions.rows) + 1)
+		this.setState(Object.assign(this.state.qset.dimensions,{rows:xValue}))
+		// Fill the cells in the row with empty cell data
+		const cellsArray = []
+		for (let i = 0; i < this.state.qset.dimensions.columns; i++) {
+			cellsArray.push(this.cellData('', false))
+		}
+
+		this.state.qset.items[0].items.push(cellsArray)
+	}
+
+	// Remove the last row of the table until only 1 row remains
+	removeRow(row, col) {
+		if (this.state.qset.dimensions.rows > 1) {
+			const rowsValue = parseInt(this.state.qset.dimensions.rows) - 1
+
+			// If focus is currently in the row being removed, focus on a previous row
+			if (rowsValue == row) {
+				this.focusOnCell(rowsValue - 1, col)
+			}
+
+			this.setState(Object.assign(this.state.qset.dimensions,{rows:rowsValue}))
+
+			this.state.qset.items[0].items.pop()
+
+			// Also remove the row from refsArray
+			const arr = this.refsArray.slice(0)
+			arr.splice(rowsValue, 1)
+			this.refsArray = arr
+		}
+	}
+
+	// Add a column to the table, limited to 10 rows
+	appendColumn() {
+		const columnValue = Math.min(10, parseInt(this.state.qset.dimensions.columns) + 1)
+		this.setState(Object.assign(this.state.qset.dimensions,{columns:columnValue}))
+
+		// Fill the cells in the column with empty cell data
+		for (let i = 0; i < this.state.qset.dimensions.rows; i++) {
+			this.state.qset.items[0].items[i].push(this.cellData('', false))
+		}
+	}
+
+	// Remove the last column of the table until only 1 column remains
+	removeColumn(row, col) {
+		if (this.state.qset.dimensions.columns > 1) {
+			const columnValue = Math.max(1, parseInt(this.state.qset.dimensions.columns) - 1)
+
+			// If focus is currently in the column being removed, focus on a previous column
+			if (columnValue == col) {
+				this.focusOnCell(row, columnValue - 1)
+			}
+
+			this.setState(Object.assign(this.state.qset.dimensions,{columns:columnValue}))
+			for (let i = 0; i < this.state.qset.dimensions.rows; i++) {
+				this.state.qset.items[0].items[i].pop()
+			}
+
+			// Remove column from refsArray
+			for (let i = this.state.qset.dimensions.rows - 1; i >= 0; i--) {
+				this.refsArray[i].splice(this.state.qset.dimensions.columns, 1)
+			}
+		}
+	}
+
+	focusOnCell(row, col) {
+		if (row >= 0 && row < this.state.qset.dimensions.rows &&
+				col >= 0 && col < this.state.qset.dimensions.columns) {
+			this.refsArray[row][col].focus()
+			// return value for testing
+			return 1
+		} else {
+			return 0
+		}
+	}
+
 	render() {
 		return (
-			<div>
+			<div className="creator-component" tabIndex={0} onKeyDown={(e) => {
+				// Keyboard controls for table:
+				// Alt + PageUp         = Add Column
+				// Alt + PageDown       = Remove Column
+				// Shift + PageUp       = Add Row
+				// Shift + PageDown     = Remove Row
+				if (e.key === 'PageUp' && e.altKey) {
+					this.appendColumn()
+				} else if (e.key === 'PageDown' && e.altKey) {
+					this.removeColumn(0, 0)
+				} else if (e.key === 'PageUp' && e.shiftKey) {
+					this.appendRow()
+				} else if (e.key === 'PageDown' && e.shiftKey) {
+					this.removeRow(0, 0)
+				}
+			}}>
 				{this.state.showPopup ?
 					<Popup
 						showIntro={this.state.showIntro}
@@ -347,6 +447,12 @@ export default class CreatorApp extends React.Component {
 						cellData={this.cellData}
 						qset={this.state.qset}
 						hideCellsRandomly={this.state.hideCellsRandomly}
+						appendColumn={this.appendColumn}
+						removeColumn={this.removeColumn}
+						appendRow={this.appendRow}
+						removeRow={this.removeRow}
+						focusOnCell={this.focusOnCell}
+						refsArray={this.refsArray}
 					/>
 				</div>
 			</div>

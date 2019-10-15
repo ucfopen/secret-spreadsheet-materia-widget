@@ -20,13 +20,14 @@ export default class Cell extends React.Component {
 	render() {
 		return (
 			<td className={`${this.props.className} ${this.props.data && this.props.data.options.blank ? "hidden-cell" : ""} tableCell`}>
-				<div className="cell" onKeyDown={(e) => {
+				<div className="cell" row={this.props.row} column={this.props.column} onKeyDown={(e) => {
 					// Keyboard controls for table:
 					// Alt + PageUp         = Add Column
 					// Alt + PageDown       = Remove Column
 					// Shift + PageUp       = Add Row
 					// Shift + PageDown     = Remove Row
 					// Ctrl/Command + Arrow = Move Cell
+					e.stopPropagation()
 					if (e.key === 'PageUp' && e.altKey) {
 						this.props.appendColumn()
 					} else if (e.key === 'PageDown' && e.altKey) {
