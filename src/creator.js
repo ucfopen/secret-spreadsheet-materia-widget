@@ -62,8 +62,8 @@ export default class CreatorApp extends React.Component {
 		if (this.state.qset.randomization > 0) {
 			minimumOneCellHidden = true
 		} else {
-			for (let i = 0; i < this.state.qset.dimensions.x; i++) {
-				for (let j = 0; j < this.state.qset.dimensions.y; j++) {
+			for (let i = 0; i < this.state.qset.dimensions.rows; i++) {
+				for (let j = 0; j < this.state.qset.dimensions.columns; j++) {
 					if (this.state.qset.items[0].items[i][j].options.blank) {
 						minimumOneCellHidden = true
 					}
@@ -147,28 +147,28 @@ export default class CreatorApp extends React.Component {
 
 	// Make sure number of rows is 1-10
 	handleXChange(event) {
-		let xValue
+		let rowValue
 		if (event.target.value < 1) {
-			xValue = 1
+			rowValue = 1
 		} else if (event.target.value > 10) {
-			xValue = 10
+			rowValue = 10
 		} else {
-			xValue = event.target.value
+			rowValue = event.target.value
 		}
-		this.setState(Object.assign(this.state.qset.dimensions, { x: xValue }))
+		this.setState(Object.assign(this.state.qset.dimensions, { rows: rowValue }))
 	}
 
 	// Make sure number of columns is 1-10
 	handleYChange(event) {
-		let yValue
+		let columnValue
 		if (event.target.value < 1) {
-			yValue = 1
+			columnValue = 1
 		} else if (event.target.value > 10) {
-			yValue = 10
+			columnValue = 10
 		} else {
-			yValue = event.target.value
+			columnValue = event.target.value
 		}
-		this.setState(Object.assign(this.state.qset.dimensions, { y: yValue }))
+		this.setState(Object.assign(this.state.qset.dimensions, { columns: columnValue }))
 	}
 
 	useSpreadsheet() {
@@ -190,12 +190,12 @@ export default class CreatorApp extends React.Component {
 	useHeader() {
 		this.setState(Object.assign(this.state.qset, { header: !this.state.qset.header }))
 		// Stop cells in the first row from being hidden
-		for (let i = 0; i < this.state.qset.dimensions.y; i++) {
+		for (let i = 0; i < this.state.qset.dimensions.columns; i++) {
 			this.setState(Object.assign(this.state.qset.items[0].items[0][i].options, { blank: false }))
 		}
 		// Adjust maximum number of cells allowed to be randomly hidden
-		if (this.props.qset.randomization > ((!this.props.qset.header ? this.props.qset.dimensions.x : (this.props.qset.dimensions.x - 1)) * this.props.qset.dimensions.y)) {
-			this.setState(Object.assign(this.state.qset, { randomization: (this.props.qset.dimensions.x - 1) * this.props.qset.dimensions.y }))
+		if (this.props.qset.randomization > ((!this.props.qset.header ? this.props.qset.dimensions.rows : (this.props.qset.dimensions.rows - 1)) * this.props.qset.dimensions.columns)) {
+			this.setState(Object.assign(this.state.qset, { randomization: (this.props.qset.dimensions.rows - 1) * this.props.qset.dimensions.columns }))
 		}
 	}
 
@@ -280,8 +280,8 @@ export default class CreatorApp extends React.Component {
 	}
 
 	resetCheckbox() {
-		for (let i = 0; i < this.state.qset.dimensions.x; i++) {
-			for (let j = 0; j < this.state.qset.dimensions.y; j++) {
+		for (let i = 0; i < this.state.qset.dimensions.rows; i++) {
+			for (let j = 0; j < this.state.qset.dimensions.columns; j++) {
 				this.setState(Object.assign(this.state.qset.items[0].items[i][j].options, { blank: false }))
 			}
 		}
@@ -363,7 +363,7 @@ CreatorApp.defaultProps = {
 		'randomization': 0,
 		'question': '',
 		'description': '',
-		'dimensions': { 'x': 1, 'y': 1 },
+		'dimensions': { 'rows': 1, 'columns': 1 },
 		'items': [{ 'items': [] }]
 	},
 }

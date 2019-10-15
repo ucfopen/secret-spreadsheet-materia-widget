@@ -60,7 +60,7 @@ class PlayerTable extends React.Component {
 				<th key="col-label-0" id="col-label-0" className="label skinny" />
 			);
 
-			for (let i=0;i<this.props.dimensions.y;i++) {
+			for (let i=0;i<this.props.dimensions.columns;i++) {
 				const b26Number = this.convertNumberToLetters(i);
 
 				cells.push(
@@ -75,12 +75,12 @@ class PlayerTable extends React.Component {
 
 		// generate the table
 		// going down columns
-		for (let i=0;i<this.props.dimensions.x;i++) {
+		for (let i=0;i<this.props.dimensions.rows;i++) {
 			const rowID = `row${i}`;
 			const cells = [];
 
 			// going across
-			for (let j=0;j<this.props.dimensions.y;j++) {
+			for (let j=0;j<this.props.dimensions.columns;j++) {
 				const question = this.props.qset[i][j];
 				const cellID = `cell${counter}`;
 
@@ -104,7 +104,7 @@ class PlayerTable extends React.Component {
 				}
 
 				// make the first row of user created content a header if needed
-				if (this.props.header && headerCount < (this.props.dimensions.y)) {
+				if (this.props.header && headerCount < (this.props.dimensions.columns)) {
 					cells.push(
 						<th
 							key={cellID}

@@ -11,8 +11,8 @@ const qset = () => {
 		"header": false,
 		"spreadsheet": false,
 		"dimensions": {
-			"x": 2,
-			"y": 2
+			"rows": 2,
+			"columns": 2
 		},
 		"randomization": 0,
 		"question": "Test Question",

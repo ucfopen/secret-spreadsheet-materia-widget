@@ -6,8 +6,8 @@ import { mount, shallow } from '../enzyme';
 const genProps = () => {
 	return {
 		dimensions: {
-			x: 2,
-			y: 2
+			rows: 2,
+			columns: 2
 		},
 		handleNewAnswer: jest.fn(),
 		countBlanks: jest.fn(),

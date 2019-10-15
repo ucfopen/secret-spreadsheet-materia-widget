@@ -8,7 +8,7 @@ describe('CreatorQuestion component', function() {
 		jest.resetModules()
 	})
 
-  test('CreatorQuestion renders question and description textareas with showQuestion = true', () => {
+	test('CreatorQuestion renders question and description textareas with showQuestion = true', () => {
 		const props = {
 			qset: {
 				question: 'Wake me up',
