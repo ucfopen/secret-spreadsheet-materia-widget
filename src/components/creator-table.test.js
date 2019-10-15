@@ -53,6 +53,32 @@ describe('CreatorTable component', function() {
 		const props = {
 			qset,
 			cellData: jest.fn(),
+			refsArray: [],
+			appendColumn:jest.fn(),
+			removeColumn:jest.fn(),
+			appendRow:jest.fn(),
+			removeRow:jest.fn(),
+			focusOnCell:jest.fn(),
+		}
+		mount(<Table {... props}/>)
+
+		const tree = renderer.create(<Table {... props}/>).toJSON()
+		expect(tree).toMatchSnapshot()
+
+	})
+
+	test('CreatorTable renders 1x1 table, center aligned, no header', () => {
+		const qset = makeQset('', false, false, false)
+
+		const props = {
+			qset,
+			cellData: jest.fn(),
+			refsArray: [],
+			appendColumn:jest.fn(),
+			removeColumn:jest.fn(),
+			appendRow:jest.fn(),
+			removeRow:jest.fn(),
+			focusOnCell:jest.fn(),
 		}
 		const component = mount(<Table {... props}/>)
 
@@ -67,7 +93,16 @@ describe('CreatorTable component', function() {
 		const props = {
 			qset,
 			cellData: jest.fn(),
+			refsArray: [],
+			appendColumn:jest.fn(),
+			removeColumn:jest.fn(),
+			appendRow:jest.fn(),
+			removeRow:jest.fn(),
+			focusOnCell:jest.fn(),
 		}
+		qset.dimensions.rows = 2
+		qset.dimensions.rows = 2
+
 		const component = mount(<Table {... props}/>)
 
 		const tree = renderer.create(<Table {... props}/>).toJSON()
@@ -75,142 +110,7 @@ describe('CreatorTable component', function() {
 
 	})
 
-	test('CreatorTable renders 1x1 table, unable to remove 1st row', () => {
-		const qset = makeQset()
 
-		const props = {
-			qset,
-			cellData: jest.fn(),
-		}
-		const component = mount(<Table {... props}/>)
 
-		expect(props.qset.dimensions.rows).toEqual(1)
-		component.instance().removeRow(1, 1)
-		expect(props.qset.dimensions.columns).toEqual(1)
-
-	})
-
-	test('CreatorTable renders 1x1 table, unable to remove 1st column', () => {
-		const qset = makeQset()
-
-		const props = {
-			qset,
-			cellData: jest.fn(),
-		}
-		const component = mount(<Table {... props}/>)
-
-		expect(props.qset.dimensions.columns).toEqual(1)
-		component.instance().removeColumn(1, 1)
-		expect(props.qset.dimensions.columns).toEqual(1)
-
-	})
-
-	test('CreatorTable renders 1x1 table to append a row', () => {
-		const qset = makeQset()
-
-		const props = {
-			qset,
-			cellData: jest.fn(),
-		}
-		const component = mount(<Table {... props}/>)
-
-		expect(props.qset.dimensions.rows).toEqual(1)
-		component.instance().appendRow()
-		expect(props.qset.dimensions.rows).toEqual(2)
-
-	})
-
-	test('CreatorTable renders 1x1 table to append a column', () => {
-		const qset = makeQset()
-
-		const props = {
-			qset,
-			cellData: jest.fn(),
-		}
-		const component = mount(<Table {... props}/>)
-
-		expect(props.qset.dimensions.columns).toEqual(1)
-		component.instance().appendColumn()
-		expect(props.qset.dimensions.columns).toEqual(2)
-
-	})
-
-	test('CreatorTable renders 2x1 table to remove a row when focus is on another row', () => {
-		const qset = makeQset()
-
-		const props = {
-			qset,
-			cellData: jest.fn(),
-		}
-		const component = mount(<Table {... props}/>)
-
-		component.instance().appendRow()
-		expect(props.qset.dimensions.rows).toEqual(2)
-		component.instance().removeRow(1, 0)
-		expect(props.qset.dimensions.rows).toEqual(1)
-
-	})
-
-	test('CreatorTable renders 2x1 table to remove a row when focus is on the same row', () => {
-		const qset = makeQset()
-
-		const props = {
-			qset,
-			cellData: jest.fn(),
-		}
-		const component = mount(<Table {... props}/>)
-
-		component.instance().appendRow()
-		expect(props.qset.dimensions.rows).toEqual(2)
-		component.instance().removeRow(2, 0)
-		expect(props.qset.dimensions.rows).toEqual(1)
-
-	})
-
-	test('CreatorTable renders 1x2 table to remove a column when focus is on another row', () => {
-		const qset = makeQset()
-
-		const props = {
-			qset,
-			cellData: jest.fn(),
-		}
-		const component = mount(<Table {... props}/>)
-
-		component.instance().appendColumn()
-		expect(props.qset.dimensions.columns).toEqual(2)
-		component.instance().removeColumn(0, 1)
-		expect(props.qset.dimensions.columns).toEqual(1)
-
-	})
-
-	test('CreatorTable renders 1x2 table to remove a column when focus is on the same column', () => {
-		const qset = makeQset()
-
-		const props = {
-			qset,
-			cellData: jest.fn(),
-		}
-		const component = mount(<Table {... props}/>)
-
-		component.instance().appendColumn()
-		expect(props.qset.dimensions.columns).toEqual(2)
-		component.instance().removeColumn(0, 2)
-		expect(props.qset.dimensions.columns).toEqual(1)
-
-	})
-
-	test('CreatorTable focuses on non-existant cell', () => {
-		const qset = makeQset()
-
-		const props = {
-			qset,
-			cellData: jest.fn(),
-		}
-		const component = mount(<Table {... props}/>)
-
-		const retVal = component.instance().focusOnCell(-1, 0)
-		expect(retVal).toEqual(0)
-
-	})
 
 })
