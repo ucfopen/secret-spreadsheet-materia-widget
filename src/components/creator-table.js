@@ -57,7 +57,7 @@ export default class Table extends React.Component {
 							<div className={`${this.props.qset.dimensions.rows == 1 ? 'button-name-hidden' : ''}`}>Col</div>
 						</button>
 						<button onClick={this.props.removeColumn}><svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" id="svg" version="1.1" viewBox="0, 0, 400,400"><g id="svgg"><path id="path0" d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M280.000 200.000 C 280.000 207.407,244.444 213.333,200.000 213.333 C 155.556 213.333,120.000 207.407,120.000 200.000 C 120.000 192.593,155.556 186.667,200.000 186.667 C 244.444 186.667,280.000 192.593,280.000 200.000 "/></g></svg>
-							<div className={`${this.props.qset.dimensions.columns == 1 ? 'button-name-hidden' : ''}`}>Col</div>
+							<div className={`${this.props.qset.dimensions.rows == 1 ? 'button-name-hidden' : ''}`}>Col</div>
 						</button>
 					</div>
 				</div>
