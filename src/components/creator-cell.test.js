@@ -22,7 +22,7 @@ const makeProps = () => {
 			spreadsheet: true,
 			randomization: 0,
 			question: '',
-			dimensions: { 'x': 1, 'y': 1 },
+			dimensions: { 'rows': 1, 'columns': 1 },
 			items: [{ 'items': [] }]
 		},
 		appendColumn:jest.fn(),

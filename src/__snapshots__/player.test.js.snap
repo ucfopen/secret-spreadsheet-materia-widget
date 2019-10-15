@@ -5,8 +5,8 @@ exports[`Player Render called with correct props no randomization 1`] = `
   description="Test question body"
   dimensions={
     Object {
-      "x": 2,
-      "y": 2,
+      "columns": 2,
+      "rows": 2,
     }
   }
   header={false}
@@ -111,8 +111,8 @@ exports[`Player Render called with correct props with randomization 1`] = `
   description="Test question body"
   dimensions={
     Object {
-      "x": 2,
-      "y": 2,
+      "columns": 2,
+      "rows": 2,
     }
   }
   header={false}

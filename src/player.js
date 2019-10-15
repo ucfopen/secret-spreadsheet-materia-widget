@@ -124,16 +124,16 @@ class PlayerApp extends React.Component {
 
 	// select random blank answers
 	randomize() {
-		let totalCells = this.props.dimensions.x * this.props.dimensions.y;
+		let totalCells = this.props.dimensions.rows * this.props.dimensions.columns;
 		let selectCount = 0;
 
 		if (this.props.header) {
-			totalCells -= this.props.dimensions.x;
+			totalCells -= this.props.dimensions.columns;
 		}
 
 		while (selectCount < this.props.randCount) {
 			// decide to use all cells or ignore top header row
-			const position = Math.floor(Math.random() * totalCells + (this.props.header ? this.props.dimensions.x:0));
+			const position = Math.floor(Math.random() * totalCells + (this.props.header ? this.props.dimensions.columns:0));
 
 			if (!this.blankPositions.has(position)) {
 				selectCount++;
