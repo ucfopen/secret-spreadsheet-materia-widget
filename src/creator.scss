@@ -668,6 +668,23 @@ input:checked + .slider:before {
 				margin: 0 1.2px;
 			}
 		}
+
+		.lower-options-bar {
+			height: 42px;
+
+			input {
+				font-size: 14.4px;
+			}
+
+			h3 {
+				font-size: 14.4px;
+				margin: 0 1.2px;
+			}
+
+			.randomize {
+				float: left;
+			}
+		}
 	}
 
 	.options,
@@ -695,21 +712,6 @@ input:checked + .slider:before {
 				height: 18px;
 				font-size: 14.4px;
 			}
-		}
-	}
-
-	.lower-options-bar {
-		input {
-			font-size: 14.4px;
-		}
-
-		h3 {
-			font-size: 14.4px;
-			margin: 0 1.2px;
-		}
-
-		.randomize {
-			float: left;
 		}
 	}
 
