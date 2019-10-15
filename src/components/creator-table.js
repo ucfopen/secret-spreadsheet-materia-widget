@@ -71,20 +71,20 @@ export default class Table extends React.Component {
 			}
 
 			this.setState(Object.assign(this.props.qset.dimensions,{columns:columnValue}))
-			for (let i = 0; i < this.props.qset.dimensions.row; i++) {
+			for (let i = 0; i < this.props.qset.dimensions.rows; i++) {
 				this.props.qset.items[0].items[i].pop()
 			}
 
 			// Remove column from refsArray
-			for (let i = this.props.qset.dimensions.row - 1; i >= 0; i--) {
-				this.refsArray[i].splice(this.props.qset.dimensions.column, 1)
+			for (let i = this.props.qset.dimensions.rows - 1; i >= 0; i--) {
+				this.refsArray[i].splice(this.props.qset.dimensions.columns, 1)
 			}
 		}
 	}
 
 	focusOnCell(row, col) {
-		if (row >= 0 && row < this.props.qset.dimensions.row &&
-				col >= 0 && col < this.props.qset.dimensions.column) {
+		if (row >= 0 && row < this.props.qset.dimensions.rows &&
+				col >= 0 && col < this.props.qset.dimensions.columns) {
 			this.refsArray[row][col].focus()
 			// return value for testing
 			return 1

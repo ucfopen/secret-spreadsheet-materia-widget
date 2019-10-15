@@ -223,4 +223,27 @@ describe('CreatorOptions component', function() {
 
 	})
 
+	test('handleCheckBox called with target not checked', () => {
+		const component = shallow(<Options {... props} />)
+		const event = {
+			target: {
+				checked: false
+			}
+		}
+
+		component.instance().handleCheckBox(event)
+		expect(event.target.checked).toBeTruthy()
+	})
+
+	test('handleCheckBox called with target checked', () => {
+		const component = shallow(<Options {... props} />)
+		const event = {
+			target: {
+				checked: true
+			}
+		}
+
+		component.instance().handleCheckBox(event)
+		expect(event.target.checked).toBeFalsy()
+	})
 })
