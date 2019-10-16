@@ -132,6 +132,7 @@ export default class Options extends React.Component {
 							className={`${this.props.showInstruction ? "active" : ""} hoverable`}
 							onClick={this.props.toggleInstruction}
 							onKeyDown={(e) => {if (e.key === 'Enter') {this.props.toggleInstruction()}}}
+							ref={this.props.instructionRef}
 						>
 							<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="34" height="34" viewBox="0 0 344.000000 344.000000">
 								<g transform="translate(0.000000,344.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">

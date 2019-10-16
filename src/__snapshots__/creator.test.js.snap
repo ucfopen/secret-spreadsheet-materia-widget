@@ -1,7 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CreatorApp component CreatorApp renders base code 1`] = `
-<div>
+<div
+  className="creator-component"
+  onKeyDown={[Function]}
+  tabIndex={0}
+>
   
   <div
     className="title-bar"
@@ -435,7 +439,9 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
               >
                 <div
                   className="cell"
+                  column={0}
                   onKeyDown={[Function]}
+                  row={0}
                 >
                   <input
                     className="row-0 col-0"
@@ -579,7 +585,11 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
 `;
 
 exports[`CreatorApp component CreatorApp renders branch code 1`] = `
-<div>
+<div
+  className="creator-component"
+  onKeyDown={[Function]}
+  tabIndex={0}
+>
   <div
     className="popup"
   >
@@ -1063,7 +1073,9 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
               >
                 <div
                   className="cell"
+                  column={0}
                   onKeyDown={[Function]}
+                  row={0}
                 >
                   <input
                     className="row-0 col-0"
@@ -1206,7 +1218,11 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
 `;
 
 exports[`CreatorApp component CreatorApp renders branch code 2`] = `
-<div>
+<div
+  className="creator-component"
+  onKeyDown={[Function]}
+  tabIndex={0}
+>
   <div
     className="popup"
   >
@@ -1690,7 +1706,9 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
               >
                 <div
                   className="cell"
+                  column={0}
                   onKeyDown={[Function]}
+                  row={0}
                 >
                   <input
                     className="row-0 col-0"

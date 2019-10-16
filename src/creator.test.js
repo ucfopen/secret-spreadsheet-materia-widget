@@ -526,4 +526,206 @@ describe('CreatorApp component', function() {
 		expect(component.instance().state.qset.randomization).toEqual(0)
 	})
 
+
+	test('CreatorApp renders 1x1 CreatorApp, unable to remove 1st row', () => {
+		const CreatorApp = require('./creator').default
+		const props = makeProps(true, false, false, false, 1)
+
+		const component = mount(<CreatorApp {... props}/>)
+
+		expect(props.qset.dimensions.rows).toEqual(1)
+		component.instance().removeRow(1, 1)
+		expect(props.qset.dimensions.columns).toEqual(1)
+	})
+
+	test('CreatorApp renders 1x1 CreatorApp, unable to remove 1st column', () => {
+		const CreatorApp = require('./creator').default
+		const props = makeProps(true, false, false, false, 1)
+
+		const component = mount(<CreatorApp {... props}/>)
+
+		expect(props.qset.dimensions.columns).toEqual(1)
+		component.instance().removeColumn(1, 1)
+		expect(props.qset.dimensions.columns).toEqual(1)
+	})
+
+	test('CreatorApp renders 1x1 CreatorApp to append a row', () => {
+		const CreatorApp = require('./creator').default
+		const props = makeProps(true, false, false, false, 1)
+
+		const component = mount(<CreatorApp {... props}/>)
+
+		expect(props.qset.dimensions.rows).toEqual(1)
+		component.instance().appendRow()
+		expect(props.qset.dimensions.rows).toEqual(2)
+	})
+
+	test('CreatorApp renders 1x1 CreatorApp to append a column', () => {
+		const CreatorApp = require('./creator').default
+		const props = makeProps(true, false, false, false, 1)
+
+		const component = mount(<CreatorApp {... props}/>)
+
+		expect(props.qset.dimensions.columns).toEqual(1)
+		component.instance().appendColumn()
+		expect(props.qset.dimensions.columns).toEqual(2)
+	})
+
+	test('CreatorApp renders 2x1 CreatorApp to remove a row when focus is on another row', () => {
+		const CreatorApp = require('./creator').default
+		const props = makeProps(true, false, false, false, 1)
+
+		const component = mount(<CreatorApp {... props}/>)
+
+		component.instance().appendRow()
+		expect(props.qset.dimensions.rows).toEqual(2)
+		component.instance().removeRow(1, 0)
+		expect(props.qset.dimensions.rows).toEqual(1)
+	})
+
+	test('CreatorApp renders 2x1 CreatorApp to remove a row when focus is on the same row', () => {
+		const CreatorApp = require('./creator').default
+		const props = makeProps(true, false, false, false, 1)
+
+		const component = mount(<CreatorApp {... props}/>)
+
+		component.instance().appendRow()
+		expect(props.qset.dimensions.rows).toEqual(2)
+		component.instance().removeRow(2, 0)
+		expect(props.qset.dimensions.rows).toEqual(1)
+	})
+
+	test('CreatorApp renders 1x2 CreatorApp to remove a column when focus is on another row', () => {
+		const CreatorApp = require('./creator').default
+		const props = makeProps(true, false, false, false, 1)
+
+		const component = mount(<CreatorApp {... props}/>)
+
+		component.instance().appendColumn()
+		expect(props.qset.dimensions.columns).toEqual(2)
+		component.instance().removeColumn(0, 1)
+		expect(props.qset.dimensions.columns).toEqual(1)
+	})
+
+	test('CreatorApp renders 1x2 CreatorApp to remove a column when focus is on the same column', () => {
+		const CreatorApp = require('./creator').default
+		const props = makeProps(true, false, false, false, 1)
+
+		const component = mount(<CreatorApp {... props}/>)
+
+		component.instance().appendColumn()
+		expect(props.qset.dimensions.columns).toEqual(2)
+		component.instance().removeColumn(0, 2)
+		expect(props.qset.dimensions.columns).toEqual(1)
+	})
+
+	test('CreatorApp focuses on non-existant cell', () => {
+		const CreatorApp = require('./creator').default
+		const props = makeProps(true, false, false, false, 1)
+
+		const component = mount(<CreatorApp {... props}/>)
+
+		const retVal = component.instance().focusOnCell(-1, 0)
+		expect(retVal).toEqual(0)
+	})
+
+	test('CreatorCell calls appendColumn', () => {
+		const CreatorApp = require('./creator').default
+		const props = makeProps(true, false, false, false, 1)
+
+		const component = shallow(<CreatorApp {... props}/>)
+		component.instance().appendColumn = jest.fn()
+
+		component.find('.creator-component').simulate('keyDown', {altKey: true, key: 'PageUp'})
+		expect(component.instance().appendColumn).toBeCalled()
+	})
+
+	test('CreatorCell does not call appendColumn with wrong key', () => {
+		const CreatorApp = require('./creator').default
+		const props = makeProps(true, false, false, false, 1)
+
+		const component = shallow(<CreatorApp {... props}/>)
+		component.instance().appendColumn = jest.fn()
+
+		component.find('.creator-component').simulate('keyDown', {altKey: true, key: 'a'})
+		expect(component.instance().appendColumn).not.toBeCalled()
+	})
+
+	test('CreatorCell calls appendRow', () => {
+		const CreatorApp = require('./creator').default
+		const props = makeProps(true, false, false, false, 1)
+
+		const component = shallow(<CreatorApp {... props}/>)
+		component.instance().appendRow = jest.fn()
+
+		component.find('.creator-component').simulate('keyDown', {shiftKey: true, key: 'PageUp'})
+		expect(component.instance().appendRow).toBeCalled()
+	})
+
+	test('CreatorCell does not call appendRow with wrong key', () => {
+		const CreatorApp = require('./creator').default
+		const props = makeProps(true, false, false, false, 1)
+
+		const component = shallow(<CreatorApp {... props}/>)
+		component.instance().appendRow = jest.fn()
+
+		component.find('.creator-component').simulate('keyDown', {shiftKey: true, key: 'a'})
+		expect(component.instance().appendRow).not.toBeCalled()
+	})
+
+	test('CreatorCell calls removeColumn', () => {
+		const CreatorApp = require('./creator').default
+		const props = makeProps(true, false, false, false, 1)
+
+		const component = shallow(<CreatorApp {... props}/>)
+		component.instance().removeColumn = jest.fn()
+
+		component.find('.creator-component').simulate('keyDown', {altKey: true, key: 'PageDown', stopPropagation: jest.fn()})
+		expect(component.instance().removeColumn).toBeCalled()
+	})
+
+	test('CreatorCell does not call removeColumn with wrong key', () => {
+		const CreatorApp = require('./creator').default
+		const props = makeProps(true, false, false, false, 1)
+
+		const component = shallow(<CreatorApp {... props}/>)
+		component.instance().removeColumn = jest.fn()
+
+		component.find('.creator-component').simulate('keyDown', {altKey: true, key: 'a', stopPropagation: jest.fn()})
+		expect(component.instance().removeColumn).not.toBeCalled()
+	})
+
+	test('CreatorCell calls removeRow', () => {
+		const CreatorApp = require('./creator').default
+		const props = makeProps(true, false, false, false, 1)
+
+		const component = shallow(<CreatorApp {... props}/>)
+		component.instance().removeRow = jest.fn()
+
+		component.find('.creator-component').simulate('keyDown', {shiftKey: true, key: 'PageDown', stopPropagation: jest.fn()})
+		expect(component.instance().removeRow).toBeCalled()
+	})
+
+	test('CreatorCell does not call removeRow with wrong key', () => {
+		const CreatorApp = require('./creator').default
+		const props = makeProps(true, false, false, false, 1)
+
+		const component = shallow(<CreatorApp {... props}/>)
+		component.instance().removeRow = jest.fn()
+
+		component.find('.creator-component').simulate('keyDown', {shiftKey: true, key: 'a', stopPropagation: jest.fn()})
+		expect(component.instance().removeRow).not.toBeCalled()
+	})
+
+	test('CreatorCell calls focusOnInstruction', () => {
+		const CreatorApp = require('./creator').default
+		const props = makeProps(true, false, false, false, 1)
+
+		const component = shallow(<CreatorApp {... props}/>)
+		const mockObj = { focus: jest.fn() }
+
+		component.instance().focusOnInstruction(mockObj)
+		expect(mockObj.focus).toBeCalled()
+	})
+
 })
