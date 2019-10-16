@@ -87,7 +87,7 @@ describe('CreatorTable component', function() {
 
 	})
 
-	test('CreatorTable renders 1x1 table, center aligned, no header', () => {
+	test('CreatorTable renders 2x2 table, center aligned, no header', () => {
 		const qset = makeQset('', false, false, false)
 
 		const props = {

@@ -59,8 +59,10 @@ export default class CreatorApp extends React.Component {
 		this.appendColumn = this.appendColumn.bind(this)
 		this.removeColumn = this.removeColumn.bind(this)
 		this.focusOnCell = this.focusOnCell.bind(this)
+		this.focusOnInstruction = this.focusOnInstruction.bind(this)
 		// Used when placing focus on cells
 		this.refsArray = []
+		this.instructionRef = React.createRef()
 	}
 
 	// Callback when widget save is clicked
@@ -376,6 +378,10 @@ export default class CreatorApp extends React.Component {
 		}
 	}
 
+	focusOnInstruction(e) {
+		e.focus()
+	}
+
 	render() {
 		return (
 			<div className="creator-component" tabIndex={0} onKeyDown={(e) => {
@@ -422,6 +428,7 @@ export default class CreatorApp extends React.Component {
 					toggleInstruction={this.toggleInstruction}
 					hideCellsRandomly={this.state.hideCellsRandomly}
 					toggleHideCellMethod={this.toggleHideCellMethod}
+					instructionRef={this.instructionRef}
 				/>
 
 
@@ -432,6 +439,8 @@ export default class CreatorApp extends React.Component {
 						hideCellsRandomly={this.state.hideCellsRandomly}
 						toggleKeyboardInst={this.toggleKeyboardInst}
 						showKeyControls={this.state.showKeyControls}
+						focusOnInstruction={this.focusOnInstruction}
+						instructionRef={this.instructionRef}
 					/>
 
 					<Question
