@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PlayerTable from './components/player-table';
-import Popup from './components/player-popup';
-import Question from './components/player-question';
+import PlayerTable from './components/player/table';
+import Popup from './components/player/popup';
+import Question from './components/player/question';
 
 class PlayerApp extends React.Component {
 	constructor(props) {

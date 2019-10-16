@@ -1,7 +1,7 @@
 import React from 'react'
-import Cell from './creator-cell'
+import Cell from './cell'
 import renderer from 'react-test-renderer'
-import { shallow, mount } from '../enzyme'
+import { shallow, mount } from '../../enzyme'
 
 const makeProps = () => {
 	return {

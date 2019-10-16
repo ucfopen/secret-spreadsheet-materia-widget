@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Popup from './components/creator-popup'
-import Title from './components/creator-title'
-import Options from './components/creator-options'
-import Table from './components/creator-table'
-import Question from './components/creator-question'
-import Instruction from './components/creator-instruction'
+import Popup from './components/creator/popup'
+import Title from './components/creator/title'
+import Options from './components/creator/options'
+import Table from './components/creator/table'
+import Question from './components/creator/question'
+import Instruction from './components/creator/instruction'
 
 
 const materiaCallbacks = {}

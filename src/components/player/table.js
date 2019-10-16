@@ -1,5 +1,5 @@
 import React from 'react';
-import Cell from './player-cell';
+import Cell from './cell';
 
 class PlayerTable extends React.Component {
 	constructor(props) {

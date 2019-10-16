@@ -1,7 +1,7 @@
 import React from 'react'
-import Title from './creator-title'
+import Title from './title'
 import renderer from 'react-test-renderer'
-import { shallow } from '../enzyme'
+import { shallow } from '../../enzyme'
 
 describe('CreatorTitle component', function() {
 

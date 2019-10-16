@@ -1,7 +1,7 @@
 import React from 'react'
-import Instruction from './creator-instruction'
+import Instruction from './instruction'
 import renderer from 'react-test-renderer'
-import { shallow } from '../enzyme'
+import { shallow } from '../../enzyme'
 
 const makeProps = (showKeyControls = false) => {
 	return({

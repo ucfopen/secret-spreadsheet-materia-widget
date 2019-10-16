@@ -1,5 +1,5 @@
 import React from 'react'
-import Popup from './player-popup'
+import Popup from './popup'
 import renderer from 'react-test-renderer';
 
 describe('Popup component', () => {

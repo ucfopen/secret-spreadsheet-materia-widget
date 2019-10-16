@@ -1,5 +1,5 @@
 import React from 'react'
-import Question from './player-question'
+import Question from './question'
 import renderer from 'react-test-renderer';
 
 describe('Question component', () => {
