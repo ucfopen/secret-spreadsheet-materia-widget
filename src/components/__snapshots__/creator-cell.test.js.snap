@@ -6,7 +6,9 @@ exports[`CreatorCell component CreatorCell renders basic cell 1`] = `
 >
   <div
     className="cell"
+    column={0}
     onKeyDown={[Function]}
+    row={0}
   >
     <input
       className="row-0 col-0"

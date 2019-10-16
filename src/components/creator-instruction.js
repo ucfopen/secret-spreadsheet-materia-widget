@@ -6,9 +6,18 @@ const Instruction = props => {
 			<span
 				tabIndex={0}
 				className="close"
-				onClick={props.toggleInstruction}
-				onKeyPress={(e) => {if (e.key === 'Enter') {props.toggleInstruction()}}}
-				>x
+				onClick={() => {
+					props.toggleInstruction()
+					props.focusOnInstruction(props.instructionRef.current)
+				}}
+				onKeyPress={(e) => {
+					if (e.key === 'Enter') {
+						props.toggleInstruction()
+						props.focusOnInstruction(props.instructionRef.current)
+					}
+				}}
+			>
+				x
 			</span>
 			<h2>WHAT TO DO</h2>
 			<ul className="what-to-do">

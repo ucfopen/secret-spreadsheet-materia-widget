@@ -15,7 +15,9 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
           >
             <div
               className="cell"
+              column={0}
               onKeyDown={[Function]}
+              row={0}
             >
               <input
                 className="row-0 col-0"
@@ -48,7 +50,7 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
       className="column-buttons"
     >
       <button
-        onClick={[Function]}
+        onClick={[MockFunction]}
       >
         <svg
           id="svg"
@@ -73,7 +75,7 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
         </div>
       </button>
       <button
-        onClick={[Function]}
+        onClick={[MockFunction]}
       >
         <svg
           id="svg"
@@ -103,7 +105,7 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
     className="row-buttons"
   >
     <button
-      onClick={[Function]}
+      onClick={[MockFunction]}
     >
       <svg
         id="svg"
@@ -126,7 +128,7 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
       </div>
     </button>
     <button
-      onClick={[Function]}
+      onClick={[MockFunction]}
     >
       <svg
         id="svg"
@@ -171,7 +173,9 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
           >
             <div
               className="cell"
+              column={0}
               onKeyDown={[Function]}
+              row={0}
             >
               <input
                 className="row-0 col-0"
@@ -204,7 +208,7 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
       className="column-buttons"
     >
       <button
-        onClick={[Function]}
+        onClick={[MockFunction]}
       >
         <svg
           id="svg"
@@ -229,7 +233,7 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
         </div>
       </button>
       <button
-        onClick={[Function]}
+        onClick={[MockFunction]}
       >
         <svg
           id="svg"
@@ -259,7 +263,7 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
     className="row-buttons"
   >
     <button
-      onClick={[Function]}
+      onClick={[MockFunction]}
     >
       <svg
         id="svg"
@@ -282,7 +286,195 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
       </div>
     </button>
     <button
-      onClick={[Function]}
+      onClick={[MockFunction]}
+    >
+      <svg
+        id="svg"
+        version="1.1"
+        viewBox="0, 0, 400,400"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+      >
+        <g
+          id="svgg"
+        >
+          <path
+            d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M280.000 200.000 C 280.000 207.407,244.444 213.333,200.000 213.333 C 155.556 213.333,120.000 207.407,120.000 200.000 C 120.000 192.593,155.556 186.667,200.000 186.667 C 244.444 186.667,280.000 192.593,280.000 200.000 "
+            id="path0"
+          />
+        </g>
+      </svg>
+      <div>
+        Row
+      </div>
+    </button>
+  </div>
+  <input
+    hidden={true}
+    type="submit"
+  />
+</div>
+`;
+
+exports[`CreatorTable component CreatorTable renders 2x2 table, center aligned, no header 1`] = `
+<div
+  className="table"
+>
+  <div
+    className="table-elements"
+  >
+    <table>
+      <tbody>
+        <tr>
+          <td
+            className="center-align   tableCell"
+          >
+            <div
+              className="cell"
+              column={0}
+              onKeyDown={[Function]}
+              row={0}
+            >
+              <input
+                className="row-0 col-0"
+                onChange={[Function]}
+                placeholder=""
+                type="text"
+                value=""
+              />
+              <div
+                className="checkbox-hidden checkbox"
+                onClick={[Function]}
+              >
+                <input
+                  checked={false}
+                  onChange={[Function]}
+                  onKeyDown={[Function]}
+                  type="checkbox"
+                />
+                Hide
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td
+            className="center-align   tableCell"
+          >
+            <div
+              className="cell"
+              column={0}
+              onKeyDown={[Function]}
+              row={1}
+            >
+              <input
+                className="row-1 col-0"
+                onChange={[Function]}
+                placeholder=""
+                type="text"
+              />
+              <div
+                className="checkbox-hidden checkbox"
+                onClick={[Function]}
+              >
+                <input
+                  onChange={[Function]}
+                  onKeyDown={[Function]}
+                  type="checkbox"
+                />
+                Hide
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button
+      hidden={true}
+    />
+    <div
+      className="column-buttons"
+    >
+      <button
+        onClick={[MockFunction]}
+      >
+        <svg
+          id="svg"
+          version="1.1"
+          viewBox="0 0 400 400"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+        >
+          <g
+            id="svgg"
+          >
+            <path
+              d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M213.333 160.000 C 213.333 177.778,222.222 186.667,240.000 186.667 C 254.667 186.667,266.667 192.667,266.667 200.000 C 266.667 207.333,254.667 213.333,240.000 213.333 C 222.222 213.333,213.333 222.222,213.333 240.000 C 213.333 254.667,207.333 266.667,200.000 266.667 C 192.667 266.667,186.667 254.667,186.667 240.000 C 186.667 222.222,177.778 213.333,160.000 213.333 C 145.333 213.333,133.333 207.333,133.333 200.000 C 133.333 192.667,145.333 186.667,160.000 186.667 C 177.778 186.667,186.667 177.778,186.667 160.000 C 186.667 145.333,192.667 133.333,200.000 133.333 C 207.333 133.333,213.333 145.333,213.333 160.000 "
+              id="path0"
+            />
+          </g>
+        </svg>
+        <div
+          className=""
+        >
+          Col
+        </div>
+      </button>
+      <button
+        onClick={[MockFunction]}
+      >
+        <svg
+          id="svg"
+          version="1.1"
+          viewBox="0, 0, 400,400"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+        >
+          <g
+            id="svgg"
+          >
+            <path
+              d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M280.000 200.000 C 280.000 207.407,244.444 213.333,200.000 213.333 C 155.556 213.333,120.000 207.407,120.000 200.000 C 120.000 192.593,155.556 186.667,200.000 186.667 C 244.444 186.667,280.000 192.593,280.000 200.000 "
+              id="path0"
+            />
+          </g>
+        </svg>
+        <div
+          className=""
+        >
+          Col
+        </div>
+      </button>
+    </div>
+  </div>
+  <div
+    className="row-buttons"
+  >
+    <button
+      onClick={[MockFunction]}
+    >
+      <svg
+        id="svg"
+        version="1.1"
+        viewBox="0 0 400 400"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+      >
+        <g
+          id="svgg"
+        >
+          <path
+            d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M213.333 160.000 C 213.333 177.778,222.222 186.667,240.000 186.667 C 254.667 186.667,266.667 192.667,266.667 200.000 C 266.667 207.333,254.667 213.333,240.000 213.333 C 222.222 213.333,213.333 222.222,213.333 240.000 C 213.333 254.667,207.333 266.667,200.000 266.667 C 192.667 266.667,186.667 254.667,186.667 240.000 C 186.667 222.222,177.778 213.333,160.000 213.333 C 145.333 213.333,133.333 207.333,133.333 200.000 C 133.333 192.667,145.333 186.667,160.000 186.667 C 177.778 186.667,186.667 177.778,186.667 160.000 C 186.667 145.333,192.667 133.333,200.000 133.333 C 207.333 133.333,213.333 145.333,213.333 160.000 "
+            id="path0"
+          />
+        </g>
+      </svg>
+      <div>
+        Row
+      </div>
+    </button>
+    <button
+      onClick={[MockFunction]}
     >
       <svg
         id="svg"

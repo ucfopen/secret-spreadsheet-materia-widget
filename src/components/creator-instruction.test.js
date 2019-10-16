@@ -6,8 +6,12 @@ import { shallow } from '../enzyme'
 const makeProps = (showKeyControls = false) => {
 	return({
 		toggleInstruction: jest.fn(),
+		focusOnInstruction: jest.fn(),
 		toggleKeyboardInst: jest.fn(),
 		showKeyControls: showKeyControls,
+		instructionRef: {
+			current: {}
+		}
 	})
 }
 
@@ -60,6 +64,14 @@ describe('CreatorInstruction component', function() {
 		expect(props.toggleKeyboardInst).not.toBeCalled()
 	})
 
+	test('CreatorInstruction calls toggleInstruction with Click', () => {
+		const props = makeProps()
+
+		const component = shallow(<Instruction {... props}/>)
+		component.find('.close').simulate('Click')
+		expect(props.toggleInstruction).toBeCalled()
+		expect(props.focusOnInstruction).toBeCalled()
+	})
 
 	test('CreatorInstruction calls toggleInstruction with Enter key', () => {
 		const props = makeProps()
@@ -67,6 +79,7 @@ describe('CreatorInstruction component', function() {
 		const component = shallow(<Instruction {... props}/>)
 		component.find('.close').simulate('keypress', {key: 'Enter'})
 		expect(props.toggleInstruction).toBeCalled()
+		expect(props.focusOnInstruction).toBeCalled()
 	})
 
 	test('CreatorInstruction fails to call toggleInstruction with non-Enter keyPress', () => {
