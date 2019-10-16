@@ -717,4 +717,15 @@ describe('CreatorApp component', function() {
 		expect(component.instance().removeRow).not.toBeCalled()
 	})
 
+	test('CreatorCell calls focusOnInstruction', () => {
+		const CreatorApp = require('./creator').default
+		const props = makeProps(true, false, false, false, 1)
+
+		const component = shallow(<CreatorApp {... props}/>)
+		const mockObj = { focus: jest.fn() }
+
+		component.instance().focusOnInstruction(mockObj)
+		expect(mockObj.focus).toBeCalled()
+	})
+
 })

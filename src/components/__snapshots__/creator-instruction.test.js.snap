@@ -6,7 +6,7 @@ exports[`CreatorInstruction component CreatorInstruction renders basic component
 >
   <span
     className="close"
-    onClick={[MockFunction]}
+    onClick={[Function]}
     onKeyPress={[Function]}
     tabIndex={0}
   >
@@ -76,7 +76,7 @@ exports[`CreatorInstruction component CreatorInstruction renders basic component
 >
   <span
     className="close"
-    onClick={[MockFunction]}
+    onClick={[Function]}
     onKeyPress={[Function]}
     tabIndex={0}
   >
