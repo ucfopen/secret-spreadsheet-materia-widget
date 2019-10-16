@@ -1,7 +1,7 @@
 import React from 'react'
-import Options from './creator-options'
+import Options from './options'
 import renderer from 'react-test-renderer'
-import { mount, shallow } from '../enzyme'
+import { mount, shallow } from '../../enzyme'
 
 const props ={
 	qset: {

@@ -1,5 +1,5 @@
 import React from 'react'
-import Cell from './creator-cell'
+import Cell from './cell'
 
 export default class Table extends React.Component {
 	constructor(props) {

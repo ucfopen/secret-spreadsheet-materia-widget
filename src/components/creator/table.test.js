@@ -1,8 +1,8 @@
 import React from 'react'
-import Table from './creator-table'
+import Table from './table'
 import renderer from 'react-test-renderer'
-import { mount } from '../enzyme'
-import document from './creator-table'
+import { mount } from '../../enzyme'
+import document from './table'
 
 
 const cellData = (value, check) => {

@@ -1,7 +1,7 @@
 import React from 'react';
-import Cell from './player-cell'
+import Cell from './cell'
 import renderer from 'react-test-renderer';
-import { shallow, mount } from '../enzyme';
+import { shallow, mount } from '../../enzyme';
 
 const genProps = {
 	key: 1,

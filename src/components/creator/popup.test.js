@@ -1,7 +1,7 @@
 import React from 'react'
-import Popup from './creator-popup'
+import Popup from './popup'
 import renderer from 'react-test-renderer'
-import { shallow, mount } from '../enzyme'
+import { shallow, mount } from '../../enzyme'
 
 describe('CreatorPopup component', function() {
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import PlayerTable from './player-table';
+import PlayerTable from './table';
 import renderer from 'react-test-renderer';
-import { mount, shallow } from '../enzyme';
+import { mount, shallow } from '../../enzyme';
 
 const genProps = () => {
 	return {
