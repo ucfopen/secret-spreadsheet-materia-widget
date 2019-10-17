@@ -26,8 +26,8 @@ const Instruction = props => {
 				<li className={`${props.hideCellsRandomly ? `list-item-hidden` : ``}`}>The widget will automatically hide the given number of cells</li>
 				<li onClick={props.toggleKeyboardInst} className="keyboard-controls-div"><span tabIndex={0} onKeyPress={(e) => {
 					if (e.key === `Enter`) {
-						props.toggleKeyboardInst(); 
-					} 
+						props.toggleKeyboardInst();
+					}
 				}} className="keyboard-controls-spam">Keyboard controls</span>
 				{props.showKeyControls ?
 					(<ul>
