@@ -8,7 +8,7 @@ const Question = props => {
 			<div>
 				<p className="mainQuestion">{props.question}</p>
 
-				{props.description !== '' ? <p>{props.description}</p>:null}
+				{props.description !== `` ? <p>{props.description}</p>:null}
 
 				<button type="button" value="Next" onClick={props.handleQuestionToggle}>
 						Next

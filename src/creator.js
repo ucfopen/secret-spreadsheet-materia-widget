@@ -21,7 +21,7 @@ export default class CreatorApp extends React.Component {
 			showPopup: props.init,
 			showKeyControls: false,
 			showInstruction: true,
-			showQuestion: props.qset.question !== '',
+			showQuestion: props.qset.question !== ``,
 			questionRows: 1,
 			minQuestionRows: 1,
 			maxQuestionRows: 2,
@@ -32,7 +32,7 @@ export default class CreatorApp extends React.Component {
 			hideCellsRandomly: props.qset.randomization == 0,
 		};
 
-		this.state.qset.items[0].items.push([this.cellData('', false)]);
+		this.state.qset.items[0].items.push([this.cellData(``, false)]);
 
 		this.showIntro = this.showIntro.bind(this);
 		this.editTitle = this.editTitle.bind(this);
@@ -81,9 +81,9 @@ export default class CreatorApp extends React.Component {
 		}
 
 		if (!minimumOneCellHidden) {
-			Materia.CreatorCore.cancelSave('At least one cell must be hidden!');
-		} else if (this.state.title == '') {
-			Materia.CreatorCore.cancelSave('This widget has no title!');
+			Materia.CreatorCore.cancelSave(`At least one cell must be hidden!`);
+		} else if (this.state.title == ``) {
+			Materia.CreatorCore.cancelSave(`This widget has no title!`);
 		} else {
 			Materia.CreatorCore.save(this.state.title, this.state.qset, 1);
 		}
@@ -137,9 +137,9 @@ export default class CreatorApp extends React.Component {
 	// constructs an object containing cell data
 	cellData(value, check) {
 		return {
-			'materiaType': 'question',
+			'materiaType': `question`,
 			'id': null,
-			'type': 'QA',
+			'type': `QA`,
 			'options': {
 				'blank': check,
 			},
@@ -211,7 +211,7 @@ export default class CreatorApp extends React.Component {
 	// Display textarea for question and description text
 	useQuestion() {
 		this.setState({showQuestion: !this.state.showQuestion});
-		this.setState(Object.assign(this.state.qset, { question: '', description: '' }));
+		this.setState(Object.assign(this.state.qset, { question: ``, description: `` }));
 	}
 
 	// Resizable textarea for question text. Automatically adjusts based
@@ -307,7 +307,7 @@ export default class CreatorApp extends React.Component {
 		// Fill the cells in the row with empty cell data
 		const cellsArray = [];
 		for (let i = 0; i < this.state.qset.dimensions.columns; i++) {
-			cellsArray.push(this.cellData('', false));
+			cellsArray.push(this.cellData(``, false));
 		}
 
 		this.state.qset.items[0].items.push(cellsArray);
@@ -341,7 +341,7 @@ export default class CreatorApp extends React.Component {
 
 		// Fill the cells in the column with empty cell data
 		for (let i = 0; i < this.state.qset.dimensions.rows; i++) {
-			this.state.qset.items[0].items[i].push(this.cellData('', false));
+			this.state.qset.items[0].items[i].push(this.cellData(``, false));
 		}
 	}
 
@@ -390,13 +390,13 @@ export default class CreatorApp extends React.Component {
 				// Alt + PageDown       = Remove Column
 				// Shift + PageUp       = Add Row
 				// Shift + PageDown     = Remove Row
-				if (e.key === 'PageUp' && e.altKey) {
+				if (e.key === `PageUp` && e.altKey) {
 					this.appendColumn();
-				} else if (e.key === 'PageDown' && e.altKey) {
+				} else if (e.key === `PageDown` && e.altKey) {
 					this.removeColumn(0, 0);
-				} else if (e.key === 'PageUp' && e.shiftKey) {
+				} else if (e.key === `PageUp` && e.shiftKey) {
 					this.appendRow();
-				} else if (e.key === 'PageDown' && e.shiftKey) {
+				} else if (e.key === `PageDown` && e.shiftKey) {
 					this.removeRow(0, 0);
 				}
 			}}>
@@ -407,7 +407,7 @@ export default class CreatorApp extends React.Component {
 						onChange={this.handleTitleChange}
 						title={this.state.title}
 					/>
-					: ''}
+					: ``}
 
 				<Title
 					showIntro={this.showIntro}
@@ -470,14 +470,14 @@ export default class CreatorApp extends React.Component {
 }
 
 CreatorApp.defaultProps = {
-	title: 'New Spreadsheet Widget',
+	title: `New Spreadsheet Widget`,
 	qset: {
 		'left': false,
 		'header': false,
 		'spreadsheet': true,
 		'randomization': 0,
-		'question': '',
-		'description': '',
+		'question': ``,
+		'description': ``,
 		'dimensions': { 'rows': 1, 'columns': 1 },
 		'items': [{ 'items': [] }]
 	},
@@ -485,7 +485,7 @@ CreatorApp.defaultProps = {
 
 // Callback when a new widget is being created
 materiaCallbacks.initNewWidget = (instance) => {
-	materiaCallbacks.initExistingWidget('New Spreadsheet Widget', instance, undefined, 1, true);
+	materiaCallbacks.initExistingWidget(`New Spreadsheet Widget`, instance, undefined, 1, true);
 	// return value for testing
 };
 
@@ -493,10 +493,10 @@ materiaCallbacks.initNewWidget = (instance) => {
 materiaCallbacks.initExistingWidget = (title, instance, _qset, version, newWidget = false) => {
 	creatorInstance = ReactDOM.render(
 		<CreatorApp title={title} qset={_qset} init={newWidget} />,
-		document.getElementById('root')
+		document.getElementById(`root`)
 	);
 	// return value for testing
-	return '1A4';
+	return `1A4`;
 };
 
 // Callback when widget save is clicked
@@ -508,7 +508,7 @@ materiaCallbacks.onSaveClicked = () => {
 // Callback when widget save is completed
 materiaCallbacks.onSaveComplete = () => {
 	// return value for testing
-	return '1A4';
+	return `1A4`;
 };
 
 
