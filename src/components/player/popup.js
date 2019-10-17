@@ -23,4 +23,4 @@ const Popup = props => {
 	);
 };
 
-export default Popup
+export default Popup;

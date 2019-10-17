@@ -24,13 +24,13 @@ exports[`CreatorInstruction component CreatorInstruction renders basic component
     <li
       className="list-item-hidden"
     >
-      Check cells to turn them 
+      Check cells to turn them 
       <span
         className="blue-text"
       >
         blue
       </span>
-       - these will be left blank for students to fill out.
+       - these will be left blank for students to fill out.
     </li>
     <li
       className=""
@@ -94,13 +94,13 @@ exports[`CreatorInstruction component CreatorInstruction renders basic component
     <li
       className="list-item-hidden"
     >
-      Check cells to turn them 
+      Check cells to turn them 
       <span
         className="blue-text"
       >
         blue
       </span>
-       - these will be left blank for students to fill out.
+       - these will be left blank for students to fill out.
     </li>
     <li
       className=""
