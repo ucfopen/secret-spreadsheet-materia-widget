@@ -49,6 +49,14 @@
 			{
 				"varsIgnorePattern": "React|Cell|Popup|Title|Options|Table|Question|Instruction|PlayerTable"
 			}
+		],
+		"brace-style": [
+			"error",
+			"stroustrup"
+		],
+		"multiline-ternary": [
+			"error",
+			"always-multiline"
 		]
 	}
 }
