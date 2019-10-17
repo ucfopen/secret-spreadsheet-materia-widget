@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Question = props => {
 	return(
@@ -10,7 +10,7 @@ const Question = props => {
 				<textarea rows={props.descriptionRows} className="question-text" type="text" placeholder="Question Text" value={props.qset.description} onChange={props.handleDescriptionChange}/>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default Question
+export default Question;
