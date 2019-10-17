@@ -38,7 +38,11 @@ export default class Options extends React.Component {
 						<div
 							id="spreadsheet"
 							tabIndex={0}
-							onKeyDown={(e) => {if (e.key === `Enter`) {this.props.useSpreadsheet();}}}
+							onKeyDown={(e) => {
+								if (e.key === `Enter`) {
+									this.props.useSpreadsheet();
+								}
+							}}
 							onClick={this.props.useSpreadsheet}
 							className={`${this.props.qset.spreadsheet ? `active ` : ``}hoverable`}>
 							{!this.props.qset.spreadsheet ?
@@ -51,7 +55,11 @@ export default class Options extends React.Component {
 						<div
 							id="table"
 							tabIndex={0}
-							onKeyDown={(e) => {if (e.key === `Enter`) {this.props.useTable();}}}
+							onKeyDown={(e) => {
+								if (e.key === `Enter`) {
+									this.props.useTable();
+								}
+							}}
 							onClick={this.props.useTable}
 							className={`${!this.props.qset.spreadsheet ? `active` : `inactive`} hoverable`}
 						>
@@ -69,7 +77,11 @@ export default class Options extends React.Component {
 						<div
 							id="left"
 							tabIndex={0}
-							onKeyDown={(e) => {if (e.key === `Enter`) {this.props.useLeftAlign();}}}
+							onKeyDown={(e) => {
+								if (e.key === `Enter`) {
+									this.props.useLeftAlign();
+								}
+							}}
 							onClick={this.props.useLeftAlign}
 							className={`${this.props.qset.left ? `active` : ``} hoverable`}
 						>
@@ -78,7 +90,11 @@ export default class Options extends React.Component {
 						<div
 							id="center"
 							tabIndex={0}
-							onKeyDown={(e) => {if (e.key === `Enter`) {this.props.useCenterAlign();}}}
+							onKeyDown={(e) => {
+								if (e.key === `Enter`) {
+									this.props.useCenterAlign();
+								}
+							}}
 							onClick={this.props.useCenterAlign}
 							className={`${!this.props.qset.left ? `active` : ``} hoverable`}
 						>
@@ -91,7 +107,11 @@ export default class Options extends React.Component {
 						<div
 							id="header"
 							tabIndex={0}
-							onKeyDown={(e) => {if (e.key === `Enter`) {this.props.useHeader();}}}
+							onKeyDown={(e) => {
+								if (e.key === `Enter`) {
+									this.props.useHeader();
+								}
+							}}
 							onClick={this.props.useHeader}
 							className={`${this.props.qset.header ? `active` : ``} hoverable`}
 						>
@@ -109,7 +129,11 @@ export default class Options extends React.Component {
 						<div
 							id="question"
 							tabIndex={0}
-							onKeyDown={(e) => {if (e.key === `Enter`) {this.props.useQuestion();}}}
+							onKeyDown={(e) => {
+								if (e.key === `Enter`) {
+									this.props.useQuestion();
+								}
+							}}
 							onClick={this.props.useQuestion}
 							className={`${this.props.showQuestion ? `active` : ``} hoverable`}
 						>
@@ -131,7 +155,11 @@ export default class Options extends React.Component {
 							tabIndex={0}
 							className={`${this.props.showInstruction ? `active` : ``} hoverable`}
 							onClick={this.props.toggleInstruction}
-							onKeyDown={(e) => {if (e.key === `Enter`) {this.props.toggleInstruction();}}}
+							onKeyDown={(e) => {
+								if (e.key === `Enter`) {
+									this.props.toggleInstruction();
+								}
+							}}
 							ref={this.props.instructionRef}
 						>
 							<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="34" height="34" viewBox="0 0 344.000000 344.000000">
@@ -158,7 +186,11 @@ export default class Options extends React.Component {
 								checked={!this.props.hideCellsRandomly}
 								id="hide-method-toggle"
 								onClick={this.props.toggleHideCellMethod}
-								onKeyPress={(e) => {if (e.key == `Enter`) {this.props.toggleHideCellMethod();}}}
+								onKeyPress={(e) => {
+									if (e.key == `Enter`) {
+										this.props.toggleHideCellMethod();
+									}
+								}}
 								onChange={this.handleCheckBox}
 							></input>
 							<span className="slider"></span>

@@ -70,7 +70,8 @@ export default class CreatorApp extends React.Component {
 		let minimumOneCellHidden = false;
 		if (this.state.qset.randomization > 0) {
 			minimumOneCellHidden = true;
-		} else {
+		}
+		else {
 			for (let i = 0; i < this.state.qset.dimensions.rows; i++) {
 				for (let j = 0; j < this.state.qset.dimensions.columns; j++) {
 					if (this.state.qset.items[0].items[i][j].options.blank) {
@@ -82,9 +83,11 @@ export default class CreatorApp extends React.Component {
 
 		if (!minimumOneCellHidden) {
 			Materia.CreatorCore.cancelSave(`At least one cell must be hidden!`);
-		} else if (this.state.title == ``) {
+		}
+		else if (this.state.title == ``) {
 			Materia.CreatorCore.cancelSave(`This widget has no title!`);
-		} else {
+		}
+		else {
 			Materia.CreatorCore.save(this.state.title, this.state.qset, 1);
 		}
 	}
@@ -159,9 +162,11 @@ export default class CreatorApp extends React.Component {
 		let rowValue;
 		if (event.target.value < 1) {
 			rowValue = 1;
-		} else if (event.target.value > 10) {
+		}
+		else if (event.target.value > 10) {
 			rowValue = 10;
-		} else {
+		}
+		else {
 			rowValue = event.target.value;
 		}
 		this.setState(Object.assign(this.state.qset.dimensions, { rows: rowValue }));
@@ -172,9 +177,11 @@ export default class CreatorApp extends React.Component {
 		let columnValue;
 		if (event.target.value < 1) {
 			columnValue = 1;
-		} else if (event.target.value > 10) {
+		}
+		else if (event.target.value > 10) {
 			columnValue = 10;
-		} else {
+		}
+		else {
 			columnValue = event.target.value;
 		}
 		this.setState(Object.assign(this.state.qset.dimensions, { columns: columnValue }));
@@ -283,7 +290,8 @@ export default class CreatorApp extends React.Component {
 		// resets each other
 		if (!this.state.hideCellsRandomly) {
 			this.resetRandomization();
-		} else {
+		}
+		else {
 			this.resetCheckbox();
 		}
 	}
@@ -373,7 +381,8 @@ export default class CreatorApp extends React.Component {
 			this.refsArray[row][col].focus();
 			// return value for testing
 			return 1;
-		} else {
+		}
+		else {
 			return 0;
 		}
 	}
@@ -392,11 +401,14 @@ export default class CreatorApp extends React.Component {
 				// Shift + PageDown     = Remove Row
 				if (e.key === `PageUp` && e.altKey) {
 					this.appendColumn();
-				} else if (e.key === `PageDown` && e.altKey) {
+				}
+				else if (e.key === `PageDown` && e.altKey) {
 					this.removeColumn(0, 0);
-				} else if (e.key === `PageUp` && e.shiftKey) {
+				}
+				else if (e.key === `PageUp` && e.shiftKey) {
 					this.appendRow();
-				} else if (e.key === `PageDown` && e.shiftKey) {
+				}
+				else if (e.key === `PageDown` && e.shiftKey) {
 					this.removeRow(0, 0);
 				}
 			}}>
