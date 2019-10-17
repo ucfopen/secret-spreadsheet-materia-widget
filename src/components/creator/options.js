@@ -38,9 +38,9 @@ export default class Options extends React.Component {
 						<div
 							id="spreadsheet"
 							tabIndex={0}
-							onKeyDown={(e) => {if (e.key === 'Enter') {this.props.useSpreadsheet();}}}
+							onKeyDown={(e) => {if (e.key === `Enter`) {this.props.useSpreadsheet();}}}
 							onClick={this.props.useSpreadsheet}
-							className={`${this.props.qset.spreadsheet ? 'active ' : ''}hoverable`}>
+							className={`${this.props.qset.spreadsheet ? `active ` : ``}hoverable`}>
 							{!this.props.qset.spreadsheet ?
 								<svg viewBox="0 0 28 28" width="20px" height="20px" color="lightblue"> <path d="M0 0v28h28V0H0zm24 24H4V4h20v20z"></path> </svg>
 								:
@@ -51,9 +51,9 @@ export default class Options extends React.Component {
 						<div
 							id="table"
 							tabIndex={0}
-							onKeyDown={(e) => {if (e.key === 'Enter') {this.props.useTable();}}}
+							onKeyDown={(e) => {if (e.key === `Enter`) {this.props.useTable();}}}
 							onClick={this.props.useTable}
-							className={`${!this.props.qset.spreadsheet ? 'active' : 'inactive'} hoverable`}
+							className={`${!this.props.qset.spreadsheet ? `active` : `inactive`} hoverable`}
 						>
 							{this.props.qset.spreadsheet ?
 								<svg viewBox="0 0 28 28" width="20px" height="20px"> <path d="M0 0v28h28V0H0zm24 24H4V4h20v20z"></path> </svg>
@@ -69,18 +69,18 @@ export default class Options extends React.Component {
 						<div
 							id="left"
 							tabIndex={0}
-							onKeyDown={(e) => {if (e.key === 'Enter') {this.props.useLeftAlign();}}}
+							onKeyDown={(e) => {if (e.key === `Enter`) {this.props.useLeftAlign();}}}
 							onClick={this.props.useLeftAlign}
-							className={`${this.props.qset.left ? 'active' : ''} hoverable`}
+							className={`${this.props.qset.left ? `active` : ``} hoverable`}
 						>
 							<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="20px" height="20px" viewBox="0 0 344 344" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0,344) scale(0.1,-0.1)" fill="#000000" stroke="none"> <path d="M130 3095 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"/> <path d="M130 2410 l0 -140 1105 0 1105 0 0 140 0 140 -1105 0 -1105 0 0 -140z"/> <path d="M130 1720 l0 -140 1590 0 1590 0 0 140 0 140 -1590 0 -1590 0 0 -140z"/> <path d="M130 1030 l0 -140 1105 0 1105 0 0 140 0 140 -1105 0 -1105 0 0 -140z"/> <path d="M130 345 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"/> </g> </svg>
 						</div>
 						<div
 							id="center"
 							tabIndex={0}
-							onKeyDown={(e) => {if (e.key === 'Enter') {this.props.useCenterAlign();}}}
+							onKeyDown={(e) => {if (e.key === `Enter`) {this.props.useCenterAlign();}}}
 							onClick={this.props.useCenterAlign}
-							className={`${!this.props.qset.left ? 'active' : ''} hoverable`}
+							className={`${!this.props.qset.left ? `active` : ``} hoverable`}
 						>
 							<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="20px" height="20px" viewBox="0 0 344 344" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0,344) scale(0.1,-0.1)" fill="#000000" stroke="none"> <path d="M130 3095 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"/> <path d="M610 2410 l0 -140 1110 0 1110 0 0 140 0 140 -1110 0 -1110 0 0 -140z"/> <path d="M130 1720 l0 -140 1590 0 1590 0 0 140 0 140 -1590 0 -1590 0 0 -140z"/> <path d="M610 1030 l0 -140 1110 0 1110 0 0 140 0 140 -1110 0 -1110 0 0 -140z"/> <path d="M130 345 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"/> </g> </svg>
 						</div>
@@ -91,9 +91,9 @@ export default class Options extends React.Component {
 						<div
 							id="header"
 							tabIndex={0}
-							onKeyDown={(e) => {if (e.key === 'Enter') {this.props.useHeader();}}}
+							onKeyDown={(e) => {if (e.key === `Enter`) {this.props.useHeader();}}}
 							onClick={this.props.useHeader}
-							className={`${this.props.qset.header ? 'active' : ''} hoverable`}
+							className={`${this.props.qset.header ? `active` : ``} hoverable`}
 						>
 							{!this.props.qset.header ?
 								<svg viewBox="0 0 28 28" width="20px" height="20px" color="lightblue"> <path d="M0 0v28h28V0H0zm24 24H4V4h20v20z"></path> </svg>
@@ -109,9 +109,9 @@ export default class Options extends React.Component {
 						<div
 							id="question"
 							tabIndex={0}
-							onKeyDown={(e) => {if (e.key === 'Enter') {this.props.useQuestion();}}}
+							onKeyDown={(e) => {if (e.key === `Enter`) {this.props.useQuestion();}}}
 							onClick={this.props.useQuestion}
-							className={`${this.props.showQuestion ? 'active' : ''} hoverable`}
+							className={`${this.props.showQuestion ? `active` : ``} hoverable`}
 						>
 							{!this.props.showQuestion ?
 								<svg viewBox="0 0 28 28" width="20px" height="20px" color="lightblue"> <path d="M0 0v28h28V0H0zm24 24H4V4h20v20z"></path> </svg>
@@ -129,9 +129,9 @@ export default class Options extends React.Component {
 						<div
 							id="instructions"
 							tabIndex={0}
-							className={`${this.props.showInstruction ? 'active' : ''} hoverable`}
+							className={`${this.props.showInstruction ? `active` : ``} hoverable`}
 							onClick={this.props.toggleInstruction}
-							onKeyDown={(e) => {if (e.key === 'Enter') {this.props.toggleInstruction();}}}
+							onKeyDown={(e) => {if (e.key === `Enter`) {this.props.toggleInstruction();}}}
 							ref={this.props.instructionRef}
 						>
 							<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="34" height="34" viewBox="0 0 344.000000 344.000000">
@@ -145,7 +145,7 @@ export default class Options extends React.Component {
 					</div>
 
 					<div className="randomize">
-						<div className={`${this.props.hideCellsRandomly ? 'active' : ''}`}>
+						<div className={`${this.props.hideCellsRandomly ? `active` : ``}`}>
 							<label>
 								Manually hide cells with checkboxes
 							</label>
@@ -158,13 +158,13 @@ export default class Options extends React.Component {
 								checked={!this.props.hideCellsRandomly}
 								id="hide-method-toggle"
 								onClick={this.props.toggleHideCellMethod}
-								onKeyPress={(e) => {if (e.key == 'Enter') {this.props.toggleHideCellMethod();}}}
+								onKeyPress={(e) => {if (e.key == `Enter`) {this.props.toggleHideCellMethod();}}}
 								onChange={this.handleCheckBox}
 							></input>
 							<span className="slider"></span>
 						</label>
 
-						<div className={`${this.props.hideCellsRandomly ? '' : 'active'}`}>
+						<div className={`${this.props.hideCellsRandomly ? `` : `active`}`}>
 							<label>
 								Randomly hide <input readOnly={this.props.hideCellsRandomly} type="number" placeholder={0} value={this.props.qset.randomization} onChange={this.handleRandomizationChange}/> cells.
 							</label>

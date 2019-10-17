@@ -12,10 +12,10 @@ class PlayerTable extends React.Component {
 		const newAnswers = this.props.parentAnswers;
 
 		// check if the user answered this with a non blank answer for the first time
-		const fromBlankToFilled = event.target.value !== '' &&
+		const fromBlankToFilled = event.target.value !== `` &&
 								(!Object.prototype.hasOwnProperty.call(this.props.parentAnswers, event.target.id) ||
-								this.props.parentAnswers[event.target.id] === '');
-		const fromFilledToBlank = this.props.parentAnswers[event.target.id] !== '' && event.target.value === '';
+								this.props.parentAnswers[event.target.id] === ``);
+		const fromFilledToBlank = this.props.parentAnswers[event.target.id] !== `` && event.target.value === ``;
 		newAnswers[event.target.id] = event.target.value;
 
 		this.props.handleNewAnswer(newAnswers, fromBlankToFilled, fromFilledToBlank);
@@ -23,19 +23,19 @@ class PlayerTable extends React.Component {
 
 	// converts a decimal number to a base26 letter system, like in excel
 	convertNumberToLetters(number) {
-		if (typeof number !== 'number') {
-			console.error('Error in convertNumberToLetters: did not recieve a number');
+		if (typeof number !== `number`) {
+			console.error(`Error in convertNumberToLetters: did not recieve a number`);
 		}
 
 		if (number < 0) {
-			return 'A';
+			return `A`;
 		}
 
 		let base = number;
-		let finalString = '';
+		let finalString = ``;
 
 		do {
-			const calcChar = String.fromCharCode(Math.floor(base % 26) + 'A'.charCodeAt(0));
+			const calcChar = String.fromCharCode(Math.floor(base % 26) + `A`.charCodeAt(0));
 
 			finalString = `${finalString}${calcChar}`;
 			base = Math.floor(base / 26);
@@ -109,7 +109,7 @@ class PlayerTable extends React.Component {
 						<th
 							key={cellID}
 							id={cellID}
-							className={`${this.props.leftAlign ? 'leftAlign':'centerAlign'} header`}
+							className={`${this.props.leftAlign ? `leftAlign`:`centerAlign`} header`}
 						>
 							{question.questions[0].text}
 						</th>

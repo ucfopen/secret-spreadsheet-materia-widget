@@ -19,7 +19,7 @@ export default class Cell extends React.Component {
 
 	render() {
 		return (
-			<td className={`${this.props.className} ${this.props.data && this.props.data.options.blank ? 'hidden-cell' : ''} tableCell`}>
+			<td className={`${this.props.className} ${this.props.data && this.props.data.options.blank ? `hidden-cell` : ``} tableCell`}>
 				<div className="cell" row={this.props.row} column={this.props.column} onKeyDown={(e) => {
 					// Keyboard controls for table:
 					// Alt + PageUp         = Add Column
@@ -28,21 +28,21 @@ export default class Cell extends React.Component {
 					// Shift + PageDown     = Remove Row
 					// Ctrl/Command + Arrow = Move Cell
 					e.stopPropagation();
-					if (e.key === 'PageUp' && e.altKey) {
+					if (e.key === `PageUp` && e.altKey) {
 						this.props.appendColumn();
-					} else if (e.key === 'PageDown' && e.altKey) {
+					} else if (e.key === `PageDown` && e.altKey) {
 						this.props.removeColumn(this.props.row, this.props.column);
-					} else if (e.key === 'PageUp' && e.shiftKey) {
+					} else if (e.key === `PageUp` && e.shiftKey) {
 						this.props.appendRow();
-					} else if (e.key === 'PageDown' && e.shiftKey) {
+					} else if (e.key === `PageDown` && e.shiftKey) {
 						this.props.removeRow(this.props.row, this.props.column);
-					} else if (e.key === 'ArrowUp' && (e.ctrlKey || e.metaKey)) {
+					} else if (e.key === `ArrowUp` && (e.ctrlKey || e.metaKey)) {
 						this.props.focusOnCell(this.props.row - 1, this.props.column);
-					} else if (e.key === 'ArrowDown' && (e.ctrlKey || e.metaKey)) {
+					} else if (e.key === `ArrowDown` && (e.ctrlKey || e.metaKey)) {
 						this.props.focusOnCell(this.props.row + 1, this.props.column);
-					} else if (e.key === 'ArrowLeft' && (e.ctrlKey || e.metaKey)) {
+					} else if (e.key === `ArrowLeft` && (e.ctrlKey || e.metaKey)) {
 						this.props.focusOnCell(this.props.row, this.props.column - 1);
-					} else if (e.key === 'ArrowRight' && (e.ctrlKey || e.metaKey)) {
+					} else if (e.key === `ArrowRight` && (e.ctrlKey || e.metaKey)) {
 						this.props.focusOnCell(this.props.row, this.props.column + 1);
 					}
 				}}>
@@ -52,16 +52,16 @@ export default class Cell extends React.Component {
 						type="text"
 						value={this.props.data && this.props.data.questions && this.props.data.questions[0] && this.props.data.questions[0].text}
 						onChange={this.handleTextboxChange}
-						placeholder={this.props.qset.spreadsheet ? `${String.fromCharCode(this.props.row + 65)}${this.props.column + 1}` : ''}
+						placeholder={this.props.qset.spreadsheet ? `${String.fromCharCode(this.props.row + 65)}${this.props.column + 1}` : ``}
 					/>
 
 					<div
-						className={`${this.props.hideCellsRandomly ? '' : 'checkbox-hidden'} checkbox`}
+						className={`${this.props.hideCellsRandomly ? `` : `checkbox-hidden`} checkbox`}
 						onClick={this.handleCheckboxToggle}
 					>
 						<input
 							type="checkbox"
-							onKeyDown={(e) => {if (e.key === 'Enter') {this.handleCheckboxToggle();}}}
+							onKeyDown={(e) => {if (e.key === `Enter`) {this.handleCheckboxToggle();}}}
 							onChange={() => {}}
 							checked={this.props.data && this.props.data.options.blank}
 						/>

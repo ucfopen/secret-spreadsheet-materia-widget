@@ -2,7 +2,7 @@ import React from 'react';
 
 const Question = props => {
 	return(
-		<div className={`${props.showQuestion ? '' : 'question-hidden'}`}>
+		<div className={`${props.showQuestion ? `` : `question-hidden`}`}>
 			<div>
 				<textarea rows={props.questionRows} className="question-header" type="text" placeholder="Question Header" value={props.qset.question} onChange={props.handleQuestionChange}/>
 			</div>
