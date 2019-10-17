@@ -13,7 +13,7 @@ class PlayerApp extends React.Component {
 			showQuestion: false,
 			first: true,
 			answered: 0
-		}
+		};
 		this.answers = {};
 		this.blankPositions = new Set(); // list of blank cells
 		this.submitAnswer = this.submitAnswer.bind(this);
@@ -27,7 +27,7 @@ class PlayerApp extends React.Component {
 
 	// check if question has been answered. If it is, submit the answer, or submit blank
 	submitAnswer(id, counter) {
-		if (this.answers.hasOwnProperty(`${counter}-input`)) {
+		if (Object.prototype.hasOwnProperty.call(this.answers, `${counter}-input`)) {
 			Materia.Score.submitQuestionForScoring(id, this.answers[`${counter}-input`]);
 		}
 		else {

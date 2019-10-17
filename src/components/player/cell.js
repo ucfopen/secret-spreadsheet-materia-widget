@@ -7,7 +7,7 @@ class Cell extends React.Component {
 			value: '',
 			colorClass: 'unanswered',
 			firstFocus: true
-		}
+		};
 		this.handleChange = this.handleChange.bind(this);
 		this.input = React.createRef();
 	}
@@ -74,4 +74,4 @@ class Cell extends React.Component {
 	}
 }
 
-export default Cell
+export default Cell;

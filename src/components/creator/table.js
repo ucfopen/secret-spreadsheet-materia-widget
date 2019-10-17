@@ -1,23 +1,23 @@
-import React from 'react'
-import Cell from './cell'
+import React from 'react';
+import Cell from './cell';
 
 export default class Table extends React.Component {
 	constructor(props) {
-		super(props)
-		this.renderTable = this.renderTable.bind(this)
+		super(props);
+		this.renderTable = this.renderTable.bind(this);
 	}
 
 	// Render a table for the creator
 	renderTable() {
-		const table = []
+		const table = [];
 		for (let i = 0; i < this.props.qset.dimensions.rows; i++) {
-			const row = []
+			const row = [];
 			if (this.props.refsArray[i] === undefined) {
-				this.props.refsArray[i] = []
+				this.props.refsArray[i] = [];
 			}
 			for (let j = 0; j < this.props.qset.dimensions.columns; j++) {
 				// Make sure data exist, use shortened variable name for readability
-				const cellData = (this.props.qset && this.props.qset.items[0].items[i] && this.props.qset.items[0].items[i][j])
+				const cellData = (this.props.qset && this.props.qset.items[0].items[i] && this.props.qset.items[0].items[i][j]);
 				row.push(
 					<Cell
 						// conditionally name the cells for css
@@ -35,11 +35,11 @@ export default class Table extends React.Component {
 						refsArray={this.props.refsArray}
 						hideCellsRandomly={this.props.hideCellsRandomly}
 					/>
-				)
+				);
 			}
-			table.push(<tr key={i}>{row}</tr>)
+			table.push(<tr key={i}>{row}</tr>);
 		}
-		return table
+		return table;
 	}
 
 	render() {
@@ -71,6 +71,6 @@ export default class Table extends React.Component {
 				</div>
 				<input type="submit" hidden/>
 			</div>
-		)
+		);
 	}
 }

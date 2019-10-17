@@ -13,8 +13,8 @@ class PlayerTable extends React.Component {
 
 		// check if the user answered this with a non blank answer for the first time
 		const fromBlankToFilled = event.target.value !== '' &&
-								  (!this.props.parentAnswers.hasOwnProperty(event.target.id) ||
-								  this.props.parentAnswers[event.target.id] === '');
+								(!Object.prototype.hasOwnProperty.call(this.props.parentAnswers, event.target.id) ||
+								this.props.parentAnswers[event.target.id] === '');
 		const fromFilledToBlank = this.props.parentAnswers[event.target.id] !== '' && event.target.value === '';
 		newAnswers[event.target.id] = event.target.value;
 
@@ -173,6 +173,6 @@ class PlayerTable extends React.Component {
 			</table>
 		);
 	}
-};
+}
 
 export default PlayerTable;

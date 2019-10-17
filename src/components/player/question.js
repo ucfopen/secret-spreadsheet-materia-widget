@@ -16,6 +16,6 @@ const Question = props => {
 			</div>
 		</div>
 	);
-}
+};
 
-export default Question
+export default Question;
