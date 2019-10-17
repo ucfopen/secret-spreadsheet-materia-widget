@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Title = props => {
 	return (
@@ -15,7 +15,7 @@ const Title = props => {
 				<img src="./assets/img/question-mark.svg" />Help
 			</button>
 		</div>
-	)
-}
+	);
+};
 
-export default Title
+export default Title;

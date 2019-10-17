@@ -13,10 +13,13 @@
 		"react-test-renderer": "^16.9.0",
 		"jest": "^24.9",
 		"enzyme": "^3.10.0",
-		"enzyme-adapter-react-16": "^1.12.1"
+		"enzyme-adapter-react-16": "^1.12.1",
+		"eslint": "^6.5.1",
+		"eslint-plugin-react": "^7.16.0"
 	},
 	"scripts": {
 		"start": "webpack-dev-server",
+		"lint": "yarn eslint src/**/*.js --ignore-pattern *.test.js",
 		"build": "webpack -p",
 		"build-dev": "webpack",
 		"test": "jest",

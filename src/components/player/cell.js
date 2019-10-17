@@ -4,10 +4,10 @@ class Cell extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			value: '',
-			colorClass: 'unanswered',
+			value: ``,
+			colorClass: `unanswered`,
 			firstFocus: true
-		}
+		};
 		this.handleChange = this.handleChange.bind(this);
 		this.input = React.createRef();
 	}
@@ -23,17 +23,17 @@ class Cell extends React.Component {
 
 	// this can be improved
 	componentDidUpdate() {
-		if (this.state.value !== '' && this.state.colorClass === 'unanswered') {
+		if (this.state.value !== `` && this.state.colorClass === `unanswered`) {
 			this.setState({
 				value: this.state.value,
-				colorClass: 'answered',
+				colorClass: `answered`,
 				firstFocus: this.state.firstFocus
 			});
 		}
-		else if (this.state.value === '' && this.state.colorClass === 'answered') {
+		else if (this.state.value === `` && this.state.colorClass === `answered`) {
 			this.setState({
 				value: this.state.value,
-				colorClass: 'unanswered',
+				colorClass: `unanswered`,
 				firstFocus: this.state.firstFocus
 			});
 		}
@@ -55,7 +55,7 @@ class Cell extends React.Component {
 	render() {
 		// test if it should display an input box or if it should show the text
 		return(
-			<td id={this.props.id} className={`${this.props.showInput ? `${this.state.colorClass} `:''}${this.props.leftAlign ? 'leftAlign':'centerAlign'}`} >
+			<td id={this.props.id} className={`${this.props.showInput ? `${this.state.colorClass} `:``}${this.props.leftAlign ? `leftAlign`:`centerAlign`}`} >
 				{ this.props.showInput ?
 					<input
 						type="text"
@@ -74,4 +74,4 @@ class Cell extends React.Component {
 	}
 }
 
-export default Cell
+export default Cell;

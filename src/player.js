@@ -9,11 +9,11 @@ class PlayerApp extends React.Component {
 		super(props);
 		this.state = {
 			popup: true,
-			question: this.props.question !== '',
+			question: this.props.question !== ``,
 			showQuestion: false,
 			first: true,
 			answered: 0
-		}
+		};
 		this.answers = {};
 		this.blankPositions = new Set(); // list of blank cells
 		this.submitAnswer = this.submitAnswer.bind(this);
@@ -27,11 +27,11 @@ class PlayerApp extends React.Component {
 
 	// check if question has been answered. If it is, submit the answer, or submit blank
 	submitAnswer(id, counter) {
-		if (this.answers.hasOwnProperty(`${counter}-input`)) {
+		if (Object.prototype.hasOwnProperty.call(this.answers, `${counter}-input`)) {
 			Materia.Score.submitQuestionForScoring(id, this.answers[`${counter}-input`]);
 		}
 		else {
-			Materia.Score.submitQuestionForScoring(id, '');
+			Materia.Score.submitQuestionForScoring(id, ``);
 		}
 	}
 
@@ -80,7 +80,7 @@ class PlayerApp extends React.Component {
 			});
 		}
 		else if (fromBlankToFilled && fromFilledToBlank) {
-			console.error('Answer count error in handleNewAnswer');
+			console.error(`Answer count error in handleNewAnswer`);
 		}
 	}
 
@@ -201,7 +201,7 @@ class PlayerApp extends React.Component {
 						<input
 							type="submit"
 							value="Submit"
-							className={this.state.answered !== this.blankPositions.size ? 'grayed':'filled'}
+							className={this.state.answered !== this.blankPositions.size ? `grayed`:`filled`}
 						/>
 					</form>
 				</main>
@@ -226,7 +226,7 @@ Materia.Engine.start({
 				question={qset.question}
 				description={qset.description}
 			/>,
-			document.getElementById('root')
+			document.getElementById(`root`)
 		);
 	},
 	manualResize: false
