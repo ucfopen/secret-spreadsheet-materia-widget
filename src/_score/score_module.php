@@ -9,7 +9,7 @@ class Score_Modules_SpreadsheetWidget extends Score_Module
 		{
 			$question = $this->questions[$log->item_id];
 
-			if (strcmp($question->answers[0]['text'], $log->text) === 0) {
+			if (strcmp(strtoupper($question->answers[0]['text']), strtoupper($log->text)) === 0) {
 				return $question->answers[0]['value'];
 			}
 		}
