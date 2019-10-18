@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { shallow } from './enzyme'
+import { shallow } from './enzyme';
 import ReactDOM from 'react-dom';
 
 const mockDomRender = jest.fn();
@@ -15,25 +15,25 @@ const qset = () => {
 			"columns": 2
 		},
 		"randomization": 0,
-		"question": "Test Question",
-		"description": "Test question body",
+		"question": `Test Question`,
+		"description": `Test question body`,
 		"items": [
 			{
 				"items": [
 					[
 						{
-							"materiaType": "question",
+							"materiaType": `question`,
 							"id": null,
-							"type": "QA",
+							"type": `QA`,
 							"questions": [
 								{
-									"text": "Show 1"
+									"text": `Show 1`
 								}
 							],
 							"answers": [
 								{
 									"id": null,
-									"text": "Show 1",
+									"text": `Show 1`,
 									"value": 100
 								}
 							],
@@ -42,18 +42,18 @@ const qset = () => {
 							}
 						},
 						{
-							"materiaType": "question",
+							"materiaType": `question`,
 							"id": null,
-							"type": "QA",
+							"type": `QA`,
 							"questions": [
 								{
-									"text": "Hide 1"
+									"text": `Hide 1`
 								}
 							],
 							"answers": [
 								{
 									"id": null,
-									"text": "Hide 1",
+									"text": `Hide 1`,
 									"value": 100
 								}
 							],
@@ -64,18 +64,18 @@ const qset = () => {
 					],
 					[
 						{
-							"materiaType": "question",
+							"materiaType": `question`,
 							"id": null,
-							"type": "QA",
+							"type": `QA`,
 							"questions": [
 								{
-									"text": "Hide 2"
+									"text": `Hide 2`
 								}
 							],
 							"answers": [
 								{
 									"id": null,
-									"text": "Hide 2",
+									"text": `Hide 2`,
 									"value": 100
 								}
 							],
@@ -84,18 +84,18 @@ const qset = () => {
 							}
 						},
 						{
-							"materiaType": "question",
+							"materiaType": `question`,
 							"id": null,
-							"type": "QA",
+							"type": `QA`,
 							"questions": [
 								{
-									"text": "Show 2"
+									"text": `Show 2`
 								}
 							],
 							"answers": [
 								{
 									"id": null,
-									"text": "Show 2",
+									"text": `Show 2`,
 									"value": 100
 								}
 							],
@@ -113,7 +113,7 @@ const qset = () => {
 const genProps = () => {
 	const tempQset = qset();
 	return {
-		title: 'Test Widget',
+		title: `Test Widget`,
 		dimensions: tempQset.dimensions,
 		qset: tempQset.items[0].items,
 		randCount: tempQset.randomization,
@@ -126,7 +126,7 @@ const genProps = () => {
 };
 
 const makeNewPlayer = (changes={}) => {
-	const PlayerApp = require('./player').default;
+	const PlayerApp = require(`./player`).default;
 
 	const props = genProps();
 	Object.defineProperties(props, changes);
@@ -134,11 +134,11 @@ const makeNewPlayer = (changes={}) => {
 	return shallow(<PlayerApp {... props} />);
 };
 
-describe('Player', () => {
+describe(`Player`, () => {
 	beforeEach(() => {
 		jest.resetAllMocks();
 		jest.resetModules();
-		jest.unmock('react-dom');
+		jest.unmock(`react-dom`);
 		global.Materia = {
 			Engine: {
 				start: jest.fn(),
@@ -150,34 +150,34 @@ describe('Player', () => {
 		};
 	});
 
-	test('Registers callbacks', () => {
-		require('./player');
-		jest.mock('react-dom', () => ({
+	test(`Registers callbacks`, () => {
+		require(`./player`);
+		jest.mock(`react-dom`, () => ({
 			render: jest.fn()
 		}));
 
 		expect(Materia.Engine.start).toHaveBeenCalledTimes(1);
 		const callbacks = Materia.Engine.start.mock.calls[0][0];
-		expect(callbacks).toHaveProperty('start', expect.any(Function));
+		expect(callbacks).toHaveProperty(`start`, expect.any(Function));
 	});
 
-	test('Render called with correct props no randomization', () => {
-		require('./player');
-		jest.mock('react-dom', () => ({
+	test(`Render called with correct props no randomization`, () => {
+		require(`./player`);
+		jest.mock(`react-dom`, () => ({
 			render: mockDomRender
 		}));
 
 		const start = Materia.Engine.start.mock.calls[0][0].start;
 
 		expect(mockDomRender).toHaveBeenCalledTimes(0);
-		start({name: 'Test Widget'}, qset());
+		start({name: `Test Widget`}, qset());
 		expect(mockDomRender).toHaveBeenCalledTimes(1);
 		expect(mockDomRender.mock.calls[0][0]).toMatchSnapshot();
 	});
 
-	test('Render called with correct props with randomization', () => {
-		require('./player');
-		jest.mock('react-dom', () => ({
+	test(`Render called with correct props with randomization`, () => {
+		require(`./player`);
+		jest.mock(`react-dom`, () => ({
 			render: mockDomRender
 		}));
 
@@ -186,21 +186,21 @@ describe('Player', () => {
 		newQset.randomization = 2;
 
 		expect(mockDomRender).toHaveBeenCalledTimes(0);
-		start({name: 'Test Widget'}, newQset);
+		start({name: `Test Widget`}, newQset);
 		expect(mockDomRender).toHaveBeenCalledTimes(1);
 		expect(mockDomRender.mock.calls[0][0]).toMatchSnapshot();
 	});
 
 	// can't test rendering with randomization because it is changed every time
 	// randomization function test will ensure the randomization is working
-	test('Render without randomization', () => {
-		require('./player');
-		jest.mock('react-dom', () => ({
+	test(`Render without randomization`, () => {
+		require(`./player`);
+		jest.mock(`react-dom`, () => ({
 			render: mockDomRender
 		}));
 
 		const start = Materia.Engine.start.mock.calls[0][0].start;
-		start({name: 'Test Widget'}, qset());
+		start({name: `Test Widget`}, qset());
 		const playerComponent = mockDomRender.mock.calls[0][0];
 
 		const component = renderer.create(playerComponent);
@@ -208,14 +208,14 @@ describe('Player', () => {
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Render with question and body', () => {
-		require('./player');
-		jest.mock('react-dom', () => ({
+	test(`Render with question and body`, () => {
+		require(`./player`);
+		jest.mock(`react-dom`, () => ({
 			render: mockDomRender
 		}));
 
 		const start = Materia.Engine.start.mock.calls[0][0].start;
-		start({name: 'Test Widget'}, qset());
+		start({name: `Test Widget`}, qset());
 		const playerComponent = mockDomRender.mock.calls[0][0];
 
 		const component = renderer.create(playerComponent);
@@ -223,34 +223,16 @@ describe('Player', () => {
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Render with question and no body', () => {
-		require('./player');
-		jest.mock('react-dom', () => ({
-			render: mockDomRender
-		}));
-
-		const start = Materia.Engine.start.mock.calls[0][0].start;
-		const newQset = qset();
-		newQset.description = '';
-		start({name: 'Test Widget'}, newQset);
-		const playerComponent = mockDomRender.mock.calls[0][0];
-
-		const component = renderer.create(playerComponent);
-		const tree = component.toJSON();
-		expect(tree).toMatchSnapshot();
-	});
-
-	test('Render with no question', () => {
-		require('./player');
-		jest.mock('react-dom', () => ({
+	test(`Render with question and no body`, () => {
+		require(`./player`);
+		jest.mock(`react-dom`, () => ({
 			render: mockDomRender
 		}));
 
 		const start = Materia.Engine.start.mock.calls[0][0].start;
 		const newQset = qset();
-		newQset.question = '';
-		newQset.description = '';
-		start({name: 'Test Widget'}, newQset);
+		newQset.description = ``;
+		start({name: `Test Widget`}, newQset);
 		const playerComponent = mockDomRender.mock.calls[0][0];
 
 		const component = renderer.create(playerComponent);
@@ -258,35 +240,53 @@ describe('Player', () => {
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('submitAnswer given user entered answer', () => {
+	test(`Render with no question`, () => {
+		require(`./player`);
+		jest.mock(`react-dom`, () => ({
+			render: mockDomRender
+		}));
+
+		const start = Materia.Engine.start.mock.calls[0][0].start;
+		const newQset = qset();
+		newQset.question = ``;
+		newQset.description = ``;
+		start({name: `Test Widget`}, newQset);
+		const playerComponent = mockDomRender.mock.calls[0][0];
+
+		const component = renderer.create(playerComponent);
+		const tree = component.toJSON();
+		expect(tree).toMatchSnapshot();
+	});
+
+	test(`submitAnswer given user entered answer`, () => {
 		const mockPlayer = makeNewPlayer();
-		mockPlayer.instance().answers['0-input'] = 'TestAnswer';
+		mockPlayer.instance().answers[`0-input`] = `TestAnswer`;
 
 		mockPlayer.instance().submitAnswer(1, 0);
 
 		expect(Materia.Score.submitQuestionForScoring).toHaveBeenCalledTimes(1);
-		expect(Materia.Score.submitQuestionForScoring).toHaveBeenCalledWith(1, 'TestAnswer');
+		expect(Materia.Score.submitQuestionForScoring).toHaveBeenCalledWith(1, `TestAnswer`);
 
 		// cleanup
 		mockPlayer.unmount();
 	});
 
-	test('submitAnswer given no user input', () => {
+	test(`submitAnswer given no user input`, () => {
 		const mockPlayer = makeNewPlayer();
 
 		mockPlayer.instance().submitAnswer(1, 0);
 
 		expect(Materia.Score.submitQuestionForScoring).toHaveBeenCalledTimes(1);
-		expect(Materia.Score.submitQuestionForScoring).toHaveBeenCalledWith(1, '');
+		expect(Materia.Score.submitQuestionForScoring).toHaveBeenCalledWith(1, ``);
 
 		// cleanup
 		mockPlayer.unmount();
 	});
 
-	test('handleSubmit works without randomization', () => {
+	test(`handleSubmit works without randomization`, () => {
 		const event = {
 			preventDefault: jest.fn()
-		}
+		};
 		const mockPlayer = makeNewPlayer();
 		mockPlayer.instance().submitAnswer = jest.fn();
 
@@ -302,10 +302,10 @@ describe('Player', () => {
 		mockPlayer.unmount();
 	});
 
-	test('handleSubmit works with randomization', () => {
+	test(`handleSubmit works with randomization`, () => {
 		const event = {
 			preventDefault: jest.fn()
-		}
+		};
 		const mockPlayer = makeNewPlayer({randCount: {value: 2}});
 		mockPlayer.instance().submitAnswer = jest.fn();
 		mockPlayer.instance().blankPositions = new Set([1, 2]);
@@ -319,9 +319,9 @@ describe('Player', () => {
 		expect(Materia.Engine.end).toHaveBeenCalled();
 	});
 
-	test('handleNewAnswer adding new answer from blank to filled', () => {
+	test(`handleNewAnswer adding new answer from blank to filled`, () => {
 		const mockPlayer = makeNewPlayer();
-		const newAnswers = {'TestID': 'TestAnswer'};
+		const newAnswers = {'TestID': `TestAnswer`};
 
 		mockPlayer.setState({
 			popup: false,
@@ -331,18 +331,18 @@ describe('Player', () => {
 
 		mockPlayer.instance().handleNewAnswer(newAnswers, true, false);
 
-		expect(mockPlayer.instance().answers.hasOwnProperty('TestID')).toBeTruthy();
-		expect(mockPlayer.instance().answers.TestID).toBe('TestAnswer');
-		expect(mockPlayer.state(['popup'])).toBeFalsy();
-		expect(mockPlayer.state(['answered'])).toBe(1);
+		expect(Object.prototype.hasOwnProperty.call(mockPlayer.instance().answers, `TestID`)).toBeTruthy();
+		expect(mockPlayer.instance().answers.TestID).toBe(`TestAnswer`);
+		expect(mockPlayer.state([`popup`])).toBeFalsy();
+		expect(mockPlayer.state([`answered`])).toBe(1);
 
 		// cleanup
 		mockPlayer.unmount();
 	});
 
-	test('handleNewAnswer removing an answer from filled to blank', () => {
+	test(`handleNewAnswer removing an answer from filled to blank`, () => {
 		const mockPlayer = makeNewPlayer();
-		const newAnswers = {'TestID': ''};
+		const newAnswers = {'TestID': ``};
 
 		mockPlayer.setState({
 			popup: false,
@@ -351,34 +351,34 @@ describe('Player', () => {
 
 		mockPlayer.instance().handleNewAnswer(newAnswers, false, true);
 
-		expect(mockPlayer.instance().answers.hasOwnProperty('TestID')).toBeTruthy();
-		expect(mockPlayer.instance().answers.TestID).toBe('');
-		expect(mockPlayer.state(['popup'])).toBeFalsy();
-		expect(mockPlayer.state(['answered'])).toBe(0);
+		expect(Object.prototype.hasOwnProperty.call(mockPlayer.instance().answers, `TestID`)).toBeTruthy();
+		expect(mockPlayer.instance().answers.TestID).toBe(``);
+		expect(mockPlayer.state([`popup`])).toBeFalsy();
+		expect(mockPlayer.state([`answered`])).toBe(0);
 
 		// cleanup
 		mockPlayer.unmount();
 	});
 
-	test('handleNewAnswer changing an answer', () => {
+	test(`handleNewAnswer changing an answer`, () => {
 		const mockPlayer = makeNewPlayer();
-		const newAnswers = {'TestID': 'Changed'};
+		const newAnswers = {'TestID': `Changed`};
 
 		mockPlayer.setState({
 			popup: false,
 			answered: 1
 		});
-		mockPlayer.instance().answers = {'TestID': 'Original'};
+		mockPlayer.instance().answers = {'TestID': `Original`};
 
 		mockPlayer.instance().handleNewAnswer(newAnswers, false, false);
 
-		expect(mockPlayer.instance().answers.hasOwnProperty('TestID')).toBeTruthy();
-		expect(mockPlayer.instance().answers.TestID).toBe('Changed');
-		expect(mockPlayer.state(['popup'])).toBeFalsy();
-		expect(mockPlayer.state(['answered'])).toBe(1);
+		expect(Object.prototype.hasOwnProperty.call(mockPlayer.instance().answers, `TestID`)).toBeTruthy();
+		expect(mockPlayer.instance().answers.TestID).toBe(`Changed`);
+		expect(mockPlayer.state([`popup`])).toBeFalsy();
+		expect(mockPlayer.state([`answered`])).toBe(1);
 	});
 
-	test('handleNewAnswer is given both empty to full and full to empty answers', () => {
+	test(`handleNewAnswer is given both empty to full and full to empty answers`, () => {
 		const mockPlayer = makeNewPlayer();
 		const newAnswers = {};
 
@@ -395,7 +395,7 @@ describe('Player', () => {
 		mockPlayer.unmount();
 	});
 
-	test('handlePopupToggle when popup and first are true', () => {
+	test(`handlePopupToggle when popup and first are true`, () => {
 		const mockPlayer = makeNewPlayer();
 
 		mockPlayer.setState({
@@ -404,15 +404,15 @@ describe('Player', () => {
 		});
 		mockPlayer.instance().handlePopupToggle();
 
-		expect(mockPlayer.state(['popup'])).toBeFalsy();
-		expect(mockPlayer.state(['first'])).toBeFalsy();
-		expect(mockPlayer.state(['showQuestion'])).toBeTruthy();
+		expect(mockPlayer.state([`popup`])).toBeFalsy();
+		expect(mockPlayer.state([`first`])).toBeFalsy();
+		expect(mockPlayer.state([`showQuestion`])).toBeTruthy();
 
 		// cleanup
 		mockPlayer.unmount();
 	});
 
-	test('handlePopupToggle when popup is true and first is false', () => {
+	test(`handlePopupToggle when popup is true and first is false`, () => {
 		const mockPlayer = makeNewPlayer();
 
 		mockPlayer.setState({
@@ -421,14 +421,14 @@ describe('Player', () => {
 		});
 		mockPlayer.instance().handlePopupToggle();
 
-		expect(mockPlayer.state(['popup'])).toBeFalsy();
-		expect(mockPlayer.state(['first'])).toBeFalsy();
+		expect(mockPlayer.state([`popup`])).toBeFalsy();
+		expect(mockPlayer.state([`first`])).toBeFalsy();
 
 		// cleanup
 		mockPlayer.unmount();
 	});
 
-	test('handlePopupToggle when popup and first are false', () => {
+	test(`handlePopupToggle when popup and first are false`, () => {
 		const mockPlayer = makeNewPlayer();
 
 		mockPlayer.setState({
@@ -437,14 +437,14 @@ describe('Player', () => {
 		});
 		mockPlayer.instance().handlePopupToggle();
 
-		expect(mockPlayer.state(['popup'])).toBeTruthy();
-		expect(mockPlayer.state(['first'])).toBeFalsy();
+		expect(mockPlayer.state([`popup`])).toBeTruthy();
+		expect(mockPlayer.state([`first`])).toBeFalsy();
 
 		// cleanup
 		mockPlayer.unmount();
 	});
 
-	test('handleQuestionToggle is toggled off', () => {
+	test(`handleQuestionToggle is toggled off`, () => {
 		const mockPlayer = makeNewPlayer();
 
 		mockPlayer.setState({
@@ -453,13 +453,13 @@ describe('Player', () => {
 		});
 		mockPlayer.instance().handleQuestionToggle();
 
-		expect(mockPlayer.state(['showQuestion'])).toBeFalsy();
+		expect(mockPlayer.state([`showQuestion`])).toBeFalsy();
 
 		// cleanup
 		mockPlayer.unmount();
 	});
 
-	test('handleQuestionToggle is toggled on', () => {
+	test(`handleQuestionToggle is toggled on`, () => {
 		const mockPlayer = makeNewPlayer();
 
 		mockPlayer.setState({
@@ -468,13 +468,13 @@ describe('Player', () => {
 		});
 		mockPlayer.instance().handleQuestionToggle();
 
-		expect(mockPlayer.state(['showQuestion'])).toBeTruthy();
+		expect(mockPlayer.state([`showQuestion`])).toBeTruthy();
 
 		// cleanup
 		mockPlayer.unmount();
 	});
 
-	test('randomize works without header', () => {
+	test(`randomize works without header`, () => {
 		const mockPlayer = makeNewPlayer({randCount: {value: 2}});
 		mockPlayer.instance().blankPositions = new Set();
 
@@ -486,7 +486,7 @@ describe('Player', () => {
 		mockPlayer.unmount();
 	});
 
-	test('randomize works with header', () => {
+	test(`randomize works with header`, () => {
 		const mockPlayer = makeNewPlayer({
 			randCount: {value: 1},
 			header: {value: true}
@@ -503,7 +503,7 @@ describe('Player', () => {
 		mockPlayer.unmount();
 	});
 
-	test('countBlanks called and added', () => {
+	test(`countBlanks called and added`, () => {
 		const mockPlayer = makeNewPlayer();
 
 		mockPlayer.instance().countBlanks(1);

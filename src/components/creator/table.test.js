@@ -1,15 +1,13 @@
-import React from 'react'
-import Table from './table'
-import renderer from 'react-test-renderer'
-import { mount } from '../../enzyme'
-import document from './table'
+import React from 'react';
+import Table from './table';
+import renderer from 'react-test-renderer';
 
 
 const cellData = (value, check) => {
 	return {
-		'materiaType': 'question',
+		'materiaType': `question`,
 		'id': null,
-		'type': 'QA',
+		'type': `QA`,
 		'options': {
 			'blank': check,
 		},
@@ -21,10 +19,10 @@ const cellData = (value, check) => {
 			'text': value,
 			'value': 100
 		}]
-	}
-}
+	};
+};
 
-const makeQset = (text = '', blank = false, left = true, header = true) => {
+const makeQset = (text = ``, blank = false, left = true, header = true) => {
 	return {
 		dimensions: {
 			rows: 1,
@@ -37,38 +35,16 @@ const makeQset = (text = '', blank = false, left = true, header = true) => {
 		}],
 		left: left,
 		header: header,
-	}
-}
+	};
+};
 
-describe('CreatorTable component', function() {
-
+describe(`CreatorTable component`, function() {
 	beforeEach(() => {
-		jest.resetModules()
+		jest.resetModules();
+	});
 
-	})
-
-	test('CreatorTable renders 1x1 table, left aligned, header', () => {
-		const qset = makeQset()
-
-		const props = {
-			qset,
-			cellData: jest.fn(),
-			refsArray: [],
-			appendColumn:jest.fn(),
-			removeColumn:jest.fn(),
-			appendRow:jest.fn(),
-			removeRow:jest.fn(),
-			focusOnCell:jest.fn(),
-		}
-		mount(<Table {... props}/>)
-
-		const tree = renderer.create(<Table {... props}/>).toJSON()
-		expect(tree).toMatchSnapshot()
-
-	})
-
-	test('CreatorTable renders 1x1 table, center aligned, no header', () => {
-		const qset = makeQset('', false, false, false)
+	test(`CreatorTable renders 1x1 table, left aligned, header`, () => {
+		const qset = makeQset();
 
 		const props = {
 			qset,
@@ -79,16 +55,15 @@ describe('CreatorTable component', function() {
 			appendRow:jest.fn(),
 			removeRow:jest.fn(),
 			focusOnCell:jest.fn(),
-		}
-		const component = mount(<Table {... props}/>)
+		};
 
-		const tree = renderer.create(<Table {... props}/>).toJSON()
-		expect(tree).toMatchSnapshot()
+		const tree = renderer.create(<Table {... props}/>).toJSON();
+		expect(tree).toMatchSnapshot();
 
-	})
+	});
 
-	test('CreatorTable renders 2x2 table, center aligned, no header', () => {
-		const qset = makeQset('', false, false, false)
+	test(`CreatorTable renders 1x1 table, center aligned, no header`, () => {
+		const qset = makeQset(``, false, false, false);
 
 		const props = {
 			qset,
@@ -99,18 +74,31 @@ describe('CreatorTable component', function() {
 			appendRow:jest.fn(),
 			removeRow:jest.fn(),
 			focusOnCell:jest.fn(),
-		}
-		qset.dimensions.rows = 2
-		qset.dimensions.rows = 2
+		};
 
-		const component = mount(<Table {... props}/>)
+		const tree = renderer.create(<Table {... props}/>).toJSON();
+		expect(tree).toMatchSnapshot();
 
-		const tree = renderer.create(<Table {... props}/>).toJSON()
-		expect(tree).toMatchSnapshot()
+	});
 
-	})
+	test(`CreatorTable renders 2x2 table, center aligned, no header`, () => {
+		const qset = makeQset(``, false, false, false);
 
+		const props = {
+			qset,
+			cellData: jest.fn(),
+			refsArray: [],
+			appendColumn:jest.fn(),
+			removeColumn:jest.fn(),
+			appendRow:jest.fn(),
+			removeRow:jest.fn(),
+			focusOnCell:jest.fn(),
+		};
+		qset.dimensions.rows = 2;
+		qset.dimensions.rows = 2;
 
+		const tree = renderer.create(<Table {... props}/>).toJSON();
+		expect(tree).toMatchSnapshot();
 
-
-})
+	});
+});

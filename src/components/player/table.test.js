@@ -14,18 +14,18 @@ const genProps = () => {
 		qset: [
 			[
 				{
-					"materiaType": "question",
+					"materiaType": `question`,
 					"id": null,
-					"type": "QA",
+					"type": `QA`,
 					"questions": [
 						{
-							"text": "Show 1"
+							"text": `Show 1`
 						}
 					],
 					"answers": [
 						{
 							"id": null,
-							"text": "Show 1",
+							"text": `Show 1`,
 							"value": 100
 						}
 					],
@@ -34,18 +34,18 @@ const genProps = () => {
 					}
 				},
 				{
-					"materiaType": "question",
+					"materiaType": `question`,
 					"id": null,
-					"type": "QA",
+					"type": `QA`,
 					"questions": [
 						{
-							"text": "Hide 1"
+							"text": `Hide 1`
 						}
 					],
 					"answers": [
 						{
 							"id": null,
-							"text": "Hide 1",
+							"text": `Hide 1`,
 							"value": 100
 						}
 					],
@@ -56,18 +56,18 @@ const genProps = () => {
 			],
 			[
 				{
-					"materiaType": "question",
+					"materiaType": `question`,
 					"id": null,
-					"type": "QA",
+					"type": `QA`,
 					"questions": [
 						{
-							"text": "Hide 2"
+							"text": `Hide 2`
 						}
 					],
 					"answers": [
 						{
 							"id": null,
-							"text": "Hide 2",
+							"text": `Hide 2`,
 							"value": 100
 						}
 					],
@@ -76,18 +76,18 @@ const genProps = () => {
 					}
 				},
 				{
-					"materiaType": "question",
+					"materiaType": `question`,
 					"id": null,
-					"type": "QA",
+					"type": `QA`,
 					"questions": [
 						{
-							"text": "Show 2"
+							"text": `Show 2`
 						}
 					],
 					"answers": [
 						{
 							"id": null,
-							"text": "Show 2",
+							"text": `Show 2`,
 							"value": 100
 						}
 					],
@@ -98,18 +98,18 @@ const genProps = () => {
 			]
 		],
 		parentAnswers: {}
-	}
-}
+	};
+};
 
 const noRandProps = () => {
 	const props = {
 		randPositions: new Set([]),
 		randCount: 0
-	}
+	};
 	Object.assign(props, genProps());
 
 	return props;
-}
+};
 
 const makeProps = (leftAlign, header, spreadsheet) => {
 	const props = {
@@ -120,7 +120,7 @@ const makeProps = (leftAlign, header, spreadsheet) => {
 	Object.assign(props, noRandProps());
 
 	return props;
-}
+};
 
 const runTest = (leftAlign=false, header=false, spreadsheet=false) => {
 	const props = makeProps(leftAlign, header, spreadsheet);
@@ -129,12 +129,12 @@ const runTest = (leftAlign=false, header=false, spreadsheet=false) => {
 	return component.toJSON();
 };
 
-describe('PlayerTable component', () => {
+describe(`PlayerTable component`, () => {
 	beforeEach(() => {
 		jest.resetModules();
 	});
 
-	test('Rendered with randomness and no header', () => {
+	test(`Rendered with randomness and no header`, () => {
 		const props = {
 			randPositions: new Set([1, 2]),
 			randCount: 2,
@@ -149,7 +149,7 @@ describe('PlayerTable component', () => {
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Rendered with randomness and a header', () => {
+	test(`Rendered with randomness and a header`, () => {
 		const props = {
 			randPositions: new Set([2]),
 			randCount: 1,
@@ -165,54 +165,54 @@ describe('PlayerTable component', () => {
 	});
 
 	// no more randomness past this point
-	test('Rendered leftAligned, no header, no labels', () => {
+	test(`Rendered leftAligned, no header, no labels`, () => {
 		const tree = runTest(true, false, false);
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Rendered leftAligned, with header, no labels', () => {
+	test(`Rendered leftAligned, with header, no labels`, () => {
 		const tree = runTest(true, true, false);
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Rendered leftAligned, no header, with labels', () => {
+	test(`Rendered leftAligned, no header, with labels`, () => {
 		const tree = runTest(true, false, true);
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Rendered leftAligned, with header, with labels', () => {
+	test(`Rendered leftAligned, with header, with labels`, () => {
 		const tree = runTest(true, true, true);
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Rendered centered, with header, no labels', () => {
+	test(`Rendered centered, with header, no labels`, () => {
 		const tree = runTest(false, true, false);
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Rendered centered, with header, with labels', () => {
+	test(`Rendered centered, with header, with labels`, () => {
 		const tree = runTest(false, true, true);
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Rendered centered, no header, no labels', () => {
+	test(`Rendered centered, no header, no labels`, () => {
 		const tree = runTest(false, false, false);
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Rendered centered, no header, with labels', () => {
+	test(`Rendered centered, no header, with labels`, () => {
 		const tree = runTest(false, false, true);
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('saveAnswer no answer record', () => {
+	test(`saveAnswer no answer record`, () => {
 		const props = makeProps(false, false, false);
 		const event = {
 			target: {
-				value: 'Test',
-				id: '1'
+				value: `Test`,
+				id: `1`
 			}
-		}
+		};
 
 		const tempComponent = mount(<PlayerTable {... props} />);
 		tempComponent.instance().saveAnswer(event);
@@ -220,23 +220,23 @@ describe('PlayerTable component', () => {
 		const propsWithAnswer = props.parentAnswers;
 		propsWithAnswer[event.target.id] = event.target.value;
 
-		expect(tempComponent.prop('handleNewAnswer')).toHaveBeenCalledTimes(1);
-		expect(tempComponent.prop('handleNewAnswer')).toHaveBeenCalledWith(propsWithAnswer, true, false);
+		expect(tempComponent.prop(`handleNewAnswer`)).toHaveBeenCalledTimes(1);
+		expect(tempComponent.prop(`handleNewAnswer`)).toHaveBeenCalledWith(propsWithAnswer, true, false);
 
 		// cleanup
 		tempComponent.unmount();
 	});
 
-	test('saveAnswer with blank answer record', () => {
+	test(`saveAnswer with blank answer record`, () => {
 		const props = makeProps(false, false, false);
-		props.parentAnswers['1'] = '';
+		props.parentAnswers[`1`] = ``;
 
 		const event = {
 			target: {
-				value: 'Test',
-				id: '1'
+				value: `Test`,
+				id: `1`
 			}
-		}
+		};
 
 		const tempComponent = mount(<PlayerTable {... props} />);
 		tempComponent.instance().saveAnswer(event);
@@ -244,23 +244,23 @@ describe('PlayerTable component', () => {
 		const propsWithAnswer = props.parentAnswers;
 		propsWithAnswer[event.target.id] = event.target.value;
 
-		expect(tempComponent.prop('handleNewAnswer')).toHaveBeenCalledTimes(1);
-		expect(tempComponent.prop('handleNewAnswer')).toHaveBeenCalledWith(propsWithAnswer, true, false);
+		expect(tempComponent.prop(`handleNewAnswer`)).toHaveBeenCalledTimes(1);
+		expect(tempComponent.prop(`handleNewAnswer`)).toHaveBeenCalledWith(propsWithAnswer, true, false);
 
 		// cleanup
 		tempComponent.unmount();
 	});
 
-	test('saveAnswer with filled answer record', () => {
+	test(`saveAnswer with filled answer record`, () => {
 		const props = makeProps(false, false, false);
-		props.parentAnswers['1'] = 'Not Test';
+		props.parentAnswers[`1`] = `Not Test`;
 
 		const event = {
 			target: {
-				value: 'Test',
-				id: '1'
+				value: `Test`,
+				id: `1`
 			}
-		}
+		};
 
 		const tempComponent = mount(<PlayerTable {... props} />);
 		tempComponent.instance().saveAnswer(event);
@@ -268,23 +268,23 @@ describe('PlayerTable component', () => {
 		const propsWithAnswer = props.parentAnswers;
 		propsWithAnswer[event.target.id] = event.target.value;
 
-		expect(tempComponent.prop('handleNewAnswer')).toHaveBeenCalledTimes(1);
-		expect(tempComponent.prop('handleNewAnswer')).toHaveBeenCalledWith(propsWithAnswer, false, false);
+		expect(tempComponent.prop(`handleNewAnswer`)).toHaveBeenCalledTimes(1);
+		expect(tempComponent.prop(`handleNewAnswer`)).toHaveBeenCalledWith(propsWithAnswer, false, false);
 
 		// cleanup
 		tempComponent.unmount();
 	});
 
-	test('saveAnswer with filled answer record', () => {
+	test(`saveAnswer with filled answer record`, () => {
 		const props = makeProps(false, false, false);
-		props.parentAnswers['1'] = 'Not Test';
+		props.parentAnswers[`1`] = `Not Test`;
 
 		const event = {
 			target: {
-				value: '',
-				id: '1'
+				value: ``,
+				id: `1`
 			}
-		}
+		};
 
 		const tempComponent = mount(<PlayerTable {... props} />);
 		tempComponent.instance().saveAnswer(event);
@@ -292,74 +292,75 @@ describe('PlayerTable component', () => {
 		const propsWithAnswer = props.parentAnswers;
 		propsWithAnswer[event.target.id] = event.target.value;
 
-		expect(tempComponent.prop('handleNewAnswer')).toHaveBeenCalledTimes(1);
-		expect(tempComponent.prop('handleNewAnswer')).toHaveBeenCalledWith(propsWithAnswer, false, true);
+		expect(tempComponent.prop(`handleNewAnswer`)).toHaveBeenCalledTimes(1);
+		expect(tempComponent.prop(`handleNewAnswer`)).toHaveBeenCalledWith(propsWithAnswer, false, true);
 
 		// cleanup
 		tempComponent.unmount();
 	});
 
-	test('convertNumberToLetters number less than 0', () => {
+	test(`convertNumberToLetters number less than 0`, () => {
 		const props = makeProps(false, false, true);
 
 		const tempComponent = shallow(<PlayerTable {... props} />);
 		const result = tempComponent.instance().convertNumberToLetters(-1);
 
-		expect(typeof result).toBe('string');
-		expect(result).toBe('A');
+		expect(typeof result).toBe(`string`);
+		expect(result).toBe(`A`);
 
 		// cleanup
 		tempComponent.unmount();
 	});
 
-	test('convertNumberToLetters number is 0', () => {
+	test(`convertNumberToLetters number is 0`, () => {
 		const props = makeProps(false, false, true);
 
 		const tempComponent = shallow(<PlayerTable {... props} />);
 		const result = tempComponent.instance().convertNumberToLetters(0);
 
-		expect(typeof result).toBe('string');
-		expect(result).toBe('A');
+		expect(typeof result).toBe(`string`);
+		expect(result).toBe(`A`);
 
 		// cleanup
 		tempComponent.unmount();
 	});
 
-	test('convertNumberToLetters number is greater than 0', () => {
+	test(`convertNumberToLetters number is greater than 0`, () => {
 		const props = makeProps(false, false, true);
 
 		const tempComponent = shallow(<PlayerTable {... props} />);
 		const result = tempComponent.instance().convertNumberToLetters(1);
 
-		expect(typeof result).toBe('string');
-		expect(result).toBe('B');
+		expect(typeof result).toBe(`string`);
+		expect(result).toBe(`B`);
 
 		// cleanup
 		tempComponent.unmount();
 	});
 
-	test('convertNumberToLetters number is very large', () => {
+	test(`convertNumberToLetters number is very large`, () => {
 		const props = makeProps(false, false, true);
 
 		const tempComponent = shallow(<PlayerTable {... props} />);
 		const result = tempComponent.instance().convertNumberToLetters(1000000000);
 
-		expect(typeof result).toBe('string');
-		expect(result).toBe('MYTHEGD');
+		expect(typeof result).toBe(`string`);
+		expect(result).toBe(`MYTHEGD`);
 
 		// cleanup
 		tempComponent.unmount();
 	});
 
-	test("convertNumberToLetters doesn't get a number", () => {
+	test(`convertNumberToLetters doesn't get a number`, () => {
 		const props = makeProps(false, false, true);
 		const realError = console.error;
 		console.error = jest.fn();
 
 		const tempComponent = shallow(<PlayerTable {... props} />);
-		const result = tempComponent.instance().convertNumberToLetters('test');
+		const result = tempComponent.instance().convertNumberToLetters(`test`);
 
 		expect(console.error).toHaveBeenCalledTimes(1);
+		expect(result).toBe(NaN);
 
 		// cleanup
 		tempComponent.unmount();
