@@ -89,7 +89,7 @@ class PlayerApp extends React.Component {
 	// will show both popups on first open then only show selected popup on
 	// button press
 	handlePopupToggle() {
-		if (this.state.popup && this.state.first) {
+		if (this.state.popup && this.state.first && this.props.question !== ``) {
 			this.setState({
 				popup: false,
 				showQuestion: true,
