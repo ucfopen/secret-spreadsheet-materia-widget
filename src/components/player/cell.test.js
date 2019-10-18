@@ -1,13 +1,13 @@
 import React from 'react';
-import Cell from './cell'
+import Cell from './cell';
 import renderer from 'react-test-renderer';
-import { shallow, mount } from '../../enzyme';
+import { shallow } from '../../enzyme';
 
 const genProps = {
 	key: 1,
 	id: 1,
 	saveAnswer: jest.fn(),
-	displayText: 'Testing Text',
+	displayText: `Testing Text`,
 	firstInput: false,
 	focus: false,
 	exitQuestion: false
@@ -29,215 +29,192 @@ const testComponent = (showInput=false, leftAlign=false) => {
 	const tree = component.toJSON();
 
 	return tree;
-}
+};
 
-describe('Cell component', () => {
+describe(`Cell component`, () => {
 	beforeEach(() => {
 		jest.resetModules();
 	});
 
-	test('Rendered with user input left aligned', () => {
+	test(`Rendered with user input left aligned`, () => {
 		const tree = testComponent(true, true);
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Rendered with user input center aligned', () => {
+	test(`Rendered with user input center aligned`, () => {
 		const tree = testComponent(true, false);
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Rendered without user input left aligned', () => {
+	test(`Rendered without user input left aligned`, () => {
 		const tree = testComponent(false, true);
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Rendered without user input center aligned', () => {
+	test(`Rendered without user input center aligned`, () => {
 		const tree = testComponent(false, false);
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('handleChange with nonblank answer', () => {
+	test(`handleChange with nonblank answer`, () => {
 		const props = makeProps(true, false);
 		const event = {
 			target: {
-				value: 'Test'
+				value: `Test`
 			}
 		};
 
 		const tempComponent = shallow(<Cell {... props} />);
 		tempComponent.instance().componentDidUpdate = jest.fn();
-		const originalClass = tempComponent.state(['colorClass']);
-		const originalFirstFocus = tempComponent.state(['firstFocus']);
+		const originalClass = tempComponent.state([`colorClass`]);
+		const originalFirstFocus = tempComponent.state([`firstFocus`]);
 
 		tempComponent.instance().handleChange(event);
 
-		expect(tempComponent.state(['value'])).toEqual('Test');
-		expect(tempComponent.state(['colorClass'])).toEqual(originalClass);
-		expect(tempComponent.state(['firstFocus'])).toEqual(originalFirstFocus);
+		expect(tempComponent.state([`value`])).toEqual(`Test`);
+		expect(tempComponent.state([`colorClass`])).toEqual(originalClass);
+		expect(tempComponent.state([`firstFocus`])).toEqual(originalFirstFocus);
 		expect(tempComponent.instance().componentDidUpdate).toHaveBeenCalled();
 
 		// cleanup
 		tempComponent.unmount();
 	});
 
-	test('handleChange with blank answer', () => {
+	test(`handleChange with blank answer`, () => {
 		const props = makeProps(true, false);
 		const event = {
 			target: {
-				value: ''
+				value: ``
 			}
 		};
 
 		const tempComponent = shallow(<Cell {... props} />);
 		tempComponent.instance().componentDidUpdate = jest.fn();
-		const originalClass = tempComponent.state(['colorClass']);
-		const originalFirstFocus = tempComponent.state(['firstFocus']);
+		const originalClass = tempComponent.state([`colorClass`]);
+		const originalFirstFocus = tempComponent.state([`firstFocus`]);
 
 		tempComponent.instance().handleChange(event);
 
-		expect(tempComponent.state(['value'])).toEqual('');
-		expect(tempComponent.state(['colorClass'])).toEqual(originalClass);
-		expect(tempComponent.state(['firstFocus'])).toEqual(originalFirstFocus);
+		expect(tempComponent.state([`value`])).toEqual(``);
+		expect(tempComponent.state([`colorClass`])).toEqual(originalClass);
+		expect(tempComponent.state([`firstFocus`])).toEqual(originalFirstFocus);
 		expect(tempComponent.instance().componentDidUpdate).toHaveBeenCalled();
 
 		// cleanup
 		tempComponent.unmount();
 	});
 
-	test('componentDidUpdate with nonblank value and unanswered class', () => {
+	test(`componentDidUpdate with nonblank value and unanswered class`, () => {
 		const props = makeProps(true, false);
-		const event = {
-			target: {
-				value: 'Test'
-			}
-		};
 
 		const tempComponent = shallow(<Cell {... props} />);
 		tempComponent.setState({
-			value: 'Test',
-			colorClass: 'unanswered'
+			value: `Test`,
+			colorClass: `unanswered`
 		});
-		const originalValue = tempComponent.state(['value']);
+		const originalValue = tempComponent.state([`value`]);
 
 		tempComponent.instance().componentDidUpdate();
 
-		expect(tempComponent.state(['value'])).toEqual(originalValue);
-		expect(tempComponent.state(['colorClass'])).toEqual('answered');
+		expect(tempComponent.state([`value`])).toEqual(originalValue);
+		expect(tempComponent.state([`colorClass`])).toEqual(`answered`);
 
 		// cleanup
 		tempComponent.unmount();
 	});
 
-	test('componentDidUpdate with blank value and answered class', () => {
+	test(`componentDidUpdate with blank value and answered class`, () => {
 		const props = makeProps(true, false);
-		const event = {
-			target: {
-				value: ''
-			}
-		};
 
 		const tempComponent = shallow(<Cell {... props} />);
 		tempComponent.setState({
-			value: '',
-			colorClass: 'answered'
+			value: ``,
+			colorClass: `answered`
 		});
-		const originalValue = tempComponent.state(['value']);
+		const originalValue = tempComponent.state([`value`]);
 
 		tempComponent.instance().componentDidUpdate();
 
-		expect(tempComponent.state(['value'])).toEqual(originalValue);
-		expect(tempComponent.state(['colorClass'])).toEqual('unanswered');
+		expect(tempComponent.state([`value`])).toEqual(originalValue);
+		expect(tempComponent.state([`colorClass`])).toEqual(`unanswered`);
 
 		// cleanup
 		tempComponent.unmount();
 	});
 
-	test('componentDidUpdate with change focus needed no question', () => {
+	test(`componentDidUpdate with change focus needed no question`, () => {
 		const props = makeProps(true, false);
 		props.firstInput = true;
 		props.focus = true;
-		const event = {
-			target: {
-				value: ''
-			}
-		};
+
 		const inputComponent = {
 			focus: jest.fn()
 		};
 
 		const tempComponent = shallow(<Cell {... props} />);
 		tempComponent.setState({
-			value: '',
-			colorClass: 'unanswered',
+			value: ``,
+			colorClass: `unanswered`,
 			firstFocus: true
 		});
-		const originalValue = tempComponent.state(['value']);
-		const originalClass = tempComponent.state(['colorClass']);
+		const originalValue = tempComponent.state([`value`]);
+		const originalClass = tempComponent.state([`colorClass`]);
 		tempComponent.instance().input.current = inputComponent;
 
 		tempComponent.instance().componentDidUpdate();
 
-		expect(tempComponent.state(['value'])).toEqual(originalValue);
-		expect(tempComponent.state(['colorClass'])).toEqual(originalClass);
-		expect(tempComponent.state(['firstFocus'])).toEqual(true);
+		expect(tempComponent.state([`value`])).toEqual(originalValue);
+		expect(tempComponent.state([`colorClass`])).toEqual(originalClass);
+		expect(tempComponent.state([`firstFocus`])).toEqual(true);
 
 		// cleanup
 		tempComponent.unmount();
 	});
 
-	test('componentDidUpdate with change focus needed with question', () => {
+	test(`componentDidUpdate with change focus needed with question`, () => {
 		const props = makeProps(true, false);
 		props.firstInput = true;
 		props.focus = true;
 		props.exitQuestion = true;
-		const event = {
-			target: {
-				value: ''
-			}
-		};
+
 		const inputComponent = {
 			focus: jest.fn()
 		};
 
 		const tempComponent = shallow(<Cell {... props} />);
 		tempComponent.setState({
-			value: '',
-			colorClass: 'unanswered',
+			value: ``,
+			colorClass: `unanswered`,
 			firstFocus: true
 		});
-		const originalValue = tempComponent.state(['value']);
-		const originalClass = tempComponent.state(['colorClass']);
+		const originalValue = tempComponent.state([`value`]);
+		const originalClass = tempComponent.state([`colorClass`]);
 		tempComponent.instance().input.current = inputComponent;
 
 		tempComponent.instance().componentDidUpdate();
 
-		expect(tempComponent.state(['value'])).toEqual(originalValue);
-		expect(tempComponent.state(['colorClass'])).toEqual(originalClass);
-		expect(tempComponent.state(['firstFocus'])).toEqual(false);
+		expect(tempComponent.state([`value`])).toEqual(originalValue);
+		expect(tempComponent.state([`colorClass`])).toEqual(originalClass);
+		expect(tempComponent.state([`firstFocus`])).toEqual(false);
 
 		// cleanup
 		tempComponent.unmount();
 	});
 
 	// note the things that are tested here happen in the previous three tests. This is necessary to stop an endless loop because state is being set
-	test('componentDidUpdate with no changes needed', () => {
+	test(`componentDidUpdate with no changes needed`, () => {
 		const props = makeProps(true, false);
-		const event = {
-			target: {
-				value: 'Test'
-			}
-		};
 
 		const tempComponent = shallow(<Cell {... props} />);
 		tempComponent.setState({
-			value: 'Test',
-			colorClass: 'answered'
+			value: `Test`,
+			colorClass: `answered`
 		});
 
 		tempComponent.instance().componentDidUpdate();
 
-		expect(tempComponent.state(['value'])).toEqual('Test');
-		expect(tempComponent.state(['colorClass'])).toEqual('answered');
+		expect(tempComponent.state([`value`])).toEqual(`Test`);
+		expect(tempComponent.state([`colorClass`])).toEqual(`answered`);
 
 		// cleanup
 		tempComponent.unmount();

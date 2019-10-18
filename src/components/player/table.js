@@ -25,6 +25,7 @@ class PlayerTable extends React.Component {
 	convertNumberToLetters(number) {
 		if (typeof number !== `number`) {
 			console.error(`Error in convertNumberToLetters: did not recieve a number`);
+			return NaN;
 		}
 
 		if (number < 0) {

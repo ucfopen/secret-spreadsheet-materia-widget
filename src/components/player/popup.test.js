@@ -1,16 +1,16 @@
-import React from 'react'
-import Popup from './popup'
+import React from 'react';
+import Popup from './popup';
 import renderer from 'react-test-renderer';
 
-describe('Popup component', () => {
+describe(`Popup component`, () => {
 	beforeEach(() => {
 		jest.resetModules();
 	});
 
-	test('Is rendered', () => {
+	test(`Is rendered`, () => {
 		const props = {
 			handlePopupToggle: jest.fn()
-		}
+		};
 
 		const component = renderer.create(<Popup {... props} />);
 		const tree = component.toJSON();
