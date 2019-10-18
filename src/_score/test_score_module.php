@@ -3,9 +3,9 @@
  * @group App
  * @group Materia
  * @group Score
- * @group SpreadsheetWidget
+ * @group SecretSpreadsheet
  */
-class Test_Score_Modules_SpreadsheetWidget extends \Basetest {
+class Test_Score_Modules_SecretSpreadsheet extends \Basetest {
 	protected function _get_qset() {
 		return json_decode('{
 			"items": [
