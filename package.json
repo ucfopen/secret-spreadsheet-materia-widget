@@ -23,7 +23,6 @@
 		"build": "webpack -p",
 		"build-dev": "webpack",
 		"test": "jest",
-		"test": "jest",
 		"test-ci": "TZ='America/New_York' CI=true jest --ci --useStderr --coverage --coverageReporters text-summary cobertura"
 	},
 	"jest": {
