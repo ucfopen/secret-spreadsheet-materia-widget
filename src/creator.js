@@ -139,6 +139,12 @@ export default class CreatorApp extends React.Component {
 
 	// constructs an object containing cell data
 	cellData(value, check) {
+		let input = value;
+
+		if (typeof input !== `string`) {
+			input = input.toString();
+		}
+
 		return {
 			'materiaType': `question`,
 			'id': null,
@@ -147,7 +153,7 @@ export default class CreatorApp extends React.Component {
 				'blank': check,
 			},
 			'questions': [{
-				'text': value,
+				'text': input,
 			}],
 			'answers': [{
 				'id': null,

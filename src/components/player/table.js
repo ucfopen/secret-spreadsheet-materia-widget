@@ -16,7 +16,14 @@ class PlayerTable extends React.Component {
 								(!Object.prototype.hasOwnProperty.call(this.props.parentAnswers, event.target.id) ||
 								this.props.parentAnswers[event.target.id] === ``);
 		const fromFilledToBlank = this.props.parentAnswers[event.target.id] !== `` && event.target.value === ``;
-		newAnswers[event.target.id] = event.target.value;
+
+		let answer = event.target.value;
+
+		if (typeof answer !== `string`) {
+			answer = event.target.value.toString();
+		}
+
+		newAnswers[event.target.id] = answer;
 
 		this.props.handleNewAnswer(newAnswers, fromBlankToFilled, fromFilledToBlank);
 	}
