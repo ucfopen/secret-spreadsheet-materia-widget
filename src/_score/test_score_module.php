@@ -18,18 +18,22 @@ class Test_Score_Modules_SecretSpreadsheet extends \Basetest {
 								"type": "QA",
 								"questions": [
 									{
-										"text": "Show 1"
+										"text": "Title 1"
 									}
 								],
 								"answers": [
 									{
 										"id": null,
-										"text": "Show 1",
+										"text": "Title 1",
 										"value": 100
 									}
 								],
 								"options": {
-									"blank": false
+									"blank": false,
+									"position": {
+										"column": 0,
+										"row": 0
+									}
 								}
 							},
 							{
@@ -38,18 +42,22 @@ class Test_Score_Modules_SecretSpreadsheet extends \Basetest {
 								"type": "QA",
 								"questions": [
 									{
-										"text": "Hide 1"
+										"text": "Title 2"
 									}
 								],
 								"answers": [
 									{
 										"id": null,
-										"text": "Hide 1",
+										"text": "Title 2",
 										"value": 100
 									}
 								],
 								"options": {
-									"blank": true
+									"blank": false,
+									"position": {
+										"column": 1,
+										"row": 0
+									}
 								}
 							}
 						],
@@ -60,18 +68,22 @@ class Test_Score_Modules_SecretSpreadsheet extends \Basetest {
 								"type": "QA",
 								"questions": [
 									{
-										"text": "Hide 2"
+										"text": "Answerable 1"
 									}
 								],
 								"answers": [
 									{
 										"id": null,
-										"text": "Hide 2",
+										"text": "Answerable 1",
 										"value": 100
 									}
 								],
 								"options": {
-									"blank": true
+									"blank": true,
+									"position": {
+										"column": 0,
+										"row": 1
+									}
 								}
 							},
 							{
@@ -80,18 +92,22 @@ class Test_Score_Modules_SecretSpreadsheet extends \Basetest {
 								"type": "QA",
 								"questions": [
 									{
-										"text": "Show 2"
+										"text": "Answerable 2"
 									}
 								],
 								"answers": [
 									{
 										"id": null,
-										"text": "Show 2",
+										"text": "Answerable 2",
 										"value": 100
 									}
 								],
 								"options": {
-									"blank": false
+									"blank": false,
+									"position": {
+										"column": 1,
+										"row": 1
+									}
 								}
 							}
 						]
