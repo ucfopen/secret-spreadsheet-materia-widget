@@ -4,8 +4,12 @@ import Cell from './cell'
 class ScoreTable extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			checked: false
+		}
 		this.generateHead = this.generateHead.bind(this);
 		this.generateBody = this.generateBody.bind(this);
+		this.handleChange = this.handleChange.bind(this);
 	}
 
 	convertNumberToLetters(number) {
@@ -31,21 +35,22 @@ class ScoreTable extends React.Component {
 		return finalString;
 	}
 
-	generateHead(counter=0) {
+	generateHead() {
 		const rows = [];
+		let counter = 0;
 
 		if (this.props.spreadsheet) {
 			const cells = [];
 
 			cells.push(
-				<th key="col-label-0" id="col-label-0" />
+				<th key="col-label-0" id="col-label-0" className={`label skinny${this.props.leftAlign ? ` leftAlign`:``}`} />
 			);
 
 			for (let i=0;i<this.props.dimensions.columns;i++) {
 				const b26Number = this.convertNumberToLetters(i);
 
 				cells.push(
-					<th key={`col-label-${i+1}`} id={`col-label-${i+1}`}>
+					<th key={`col-label-${i+1}`} id={`col-label-${i+1}`} className="label">
 						{b26Number}
 					</th>
 				);
@@ -60,7 +65,7 @@ class ScoreTable extends React.Component {
 			// add in the row labels if needed
 			if (this.props.spreadsheet) {
 				cells.push(
-					<th key="row=label-1" id="row-label-1">1</th>
+					<th key="row=label-1" id="row-label-1" className={`label skinny${this.props.leftAlign ? ` leftAlign`:``}`}>1</th>
 				);
 			}
 
@@ -77,14 +82,28 @@ class ScoreTable extends React.Component {
 				counter++;
 			}
 
-			rows.push(<tr key="0" id="row0">{cells}</tr>)
+			rows.push(<tr key="0" id="row0" className={this.props.leftAlign ? `leftAlign`:null}>{cells}</tr>)
 		}
+
+		return rows;
+	}
+
+	handleChange(event) {
+		this.setState({
+			checked: event.target.checked
+		});
 	}
 
 	// start=0 or 1
 	// tells if to skip first row b/c of header
-	generateBody(start=0, counter=0) {
+	generateBody(start=0) {
 		const rows = [];
+		let counter = 0;
+
+		if (this.props.header) {
+			counter += this.props.dimensions.columns;
+		}
+
 		// going down
 		for (let i=start;i<this.props.dimensions.rows;i++) {
 			const rowID = `row${i}`;
@@ -98,7 +117,7 @@ class ScoreTable extends React.Component {
 				// add in row labels if needed
 				if (j === 0 && this.props.spreadsheet) {
 					cells.push(
-						<td key={`row-label-${i+1}`} id={`row-label-${i+1}`}>
+						<td key={`row-label-${i+1}`} id={`row-label-${i+1}`} className={`label skinny${this.props.leftAlign ? ` leftAlign`:``}`}>
 							{i+1}
 						</td>
 					);
@@ -133,6 +152,7 @@ class ScoreTable extends React.Component {
 						leftAlign={this.props.leftAlign}
 						answer={answer}
 						correct={correct}
+						checked={this.state.checked}
 					/>
 				);
 
@@ -146,22 +166,32 @@ class ScoreTable extends React.Component {
 	}
 
 	render() {
-		let counter = 0;
-
 		return (
 			<main>
 				<h3>Answers</h3>
 
+				<label>
+					Show correct answers <input
+											type="checkbox"
+											checked={this.state.checked}
+											onChange={this.handleChange}
+										 />
+				</label>
+
 				<table>
 					{
-						this.props.spreadsheet || this.props.header ?
+						this.props.spreadsheet ?
 						<thead>
-							{this.generateHead(counter)}
+							{this.generateHead()}
+						</thead>:
+						this.props.header ?
+						<thead>
+							{this.generateHead()}
 						</thead>:
 						null
 					}
 					<tbody>
-						{this.generateBody(this.header ? 1:0, counter)}
+						{this.generateBody(this.props.header ? 1:0)}
 					</tbody>
 				</table>
 			</main>

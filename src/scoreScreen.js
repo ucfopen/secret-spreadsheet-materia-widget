@@ -34,9 +34,9 @@ class ScoreScreenApp extends React.Component {
 				}
 
 				<ScoreTable
-					spreadsheet={this.props.spreadsheet}
+					spreadsheet={this.props.qset.spreadsheet}
 					dimensions={this.props.qset.dimensions}
-					header={this.props.header}
+					header={this.props.qset.header}
 					qset={this.props.qset.items[0].items}
 					positions={this.state.positions}
 					leftAlign={this.props.qset.left}
