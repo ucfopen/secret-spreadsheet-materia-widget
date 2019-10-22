@@ -1,46 +1,21 @@
 import React from 'react';
 
-class Cell extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			checked: false
-		}
-		this.handleChange = this.handleChange.bind(this);
+const Cell = props => {
+	if (props.answerable) {
+		const leftAlign = props.leftAlign ? ` leftAlign`:``;
+		const correct = props.correct ? `right`:`wrong`;
+
+		return(
+			<td id={props.id} className={`${correct}${leftAlign}`}>
+				{props.checked ? <p>{props.displayText}</p>:props.answer}
+			</td>
+		);
 	}
-
-	handleChange(event) {
-		this.setState({
-			checked: event.target.checked
-		});
+	else {
+		return(
+			<td id={props.id} className={props.leftAlign ? `leftAlign`:null}>{props.displayText}</td>
+		);
 	}
-
-	render() {
-		if (this.props.answerable) {
-			return(
-				<td>
-					<span>{this.props.answer} </span>
-
-					{this.state.checked ? <span>{this.props.displayText} </span>:null}
-
-					<label>
-						{this.state.checked ? `Hide`:`Show`}
-
-						<input
-							type="checkbox"
-							checked={this.state.checked}
-							onChange={this.handleChange}
-						/>
-					</label>
-				</td>
-			);
-		}
-		else {
-			return(
-				<td>{this.props.displayText}</td>
-			);
-		}
-	}
-}
+};
 
 export default Cell;
