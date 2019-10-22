@@ -42,6 +42,9 @@ class Score_Modules_SecretSpreadsheet extends Score_Module
 
 	protected function get_ss_position($log, $question)
 	{
-		return $question->options['position'];
+		$column = $question->options['position']['column'];
+		$row = $question->options['position']['row'];
+
+		return "row{$row} column{$column}";
 	}
 }
