@@ -1,21 +1,48 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Question from './components/scoreScreen/question'
+import Question from './components/scoreScreen/question';
+import ScoreTable from './components/scoreScreen/table';
 
 class ScoreScreenApp extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			positions: this.makePositionList(this.props.scoreTable)
+		}
+	}
+
+	makePositionList(scoreTable) {
+		const positions = new Set();
+
+		scoreTable.forEach(score => {
+			positions.add(score.data[3]);
+		});
+
+		return positions;
 	}
 
 	render() {
-		console.log(this.props.qset);
-		console.log(this.props.scoreTable);
-		console.log(this.props.title);
 		return(
-			<Question
-				question={this.props.qset.question}
-				description={this.props.qset.description}
-			/>
+			<div>
+				{
+					this.props.qset.question !== `` ?
+					<Question
+						question={this.props.qset.question}
+						description={this.props.qset.description}
+					/>:
+					null
+				}
+
+				<ScoreTable
+					spreadsheet={this.props.spreadsheet}
+					dimensions={this.props.qset.dimensions}
+					header={this.props.header}
+					qset={this.props.qset.items[0].items}
+					positions={this.state.positions}
+					leftAlign={this.props.qset.left}
+					scoreTable={this.props.scoreTable}
+				/>
+			</div>
 		);
 	}
 }
