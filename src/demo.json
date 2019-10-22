@@ -34,7 +34,11 @@
 									}
 								],
 								"options": {
-									"blank": false
+									"blank": false,
+									"position": {
+										"column": 0,
+										"row": 0
+									}
 								}
 							},
 							{
@@ -54,7 +58,11 @@
 									}
 								],
 								"options": {
-									"blank": false
+									"blank": false,
+									"position": {
+										"column": 1,
+										"row": 0
+									}
 								}
 							}
 						],
@@ -76,7 +84,11 @@
 									}
 								],
 								"options": {
-									"blank": true
+									"blank": true,
+									"position": {
+										"column": 0,
+										"row": 1
+									}
 								}
 							},
 							{
@@ -96,7 +108,11 @@
 									}
 								],
 								"options": {
-									"blank": false
+									"blank": false,
+									"position": {
+										"column": 1,
+										"row": 1
+									}
 								}
 							}
 						]
