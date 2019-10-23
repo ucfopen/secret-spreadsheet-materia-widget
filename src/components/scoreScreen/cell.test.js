@@ -23,7 +23,7 @@ const customProps = (changes={}) => {
 	return newProps;
 };
 
-describe('Cell', () => {
+describe(`Cell`, () => {
 	beforeEach(() => {
 		jest.resetModules();
 		jest.resetAllMocks();

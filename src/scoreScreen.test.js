@@ -130,35 +130,35 @@ const scoreTable = () => {
 	return [
 		{
 			data: [
-				"Hide 1", "Hide 1", "Hide 1", "row0 column1"
+				`Hide 1`, `Hide 1`, `Hide 1`, `row0 column1`
 			],
 			data_style: [
-				"question", "response", "answer", "position"
+				`question`, `response`, `answer`, `position`
 			],
 			display_score: true,
 			feedback: null,
-			graphic: "score",
+			graphic: `score`,
 			score: 100,
-			style: "full-value",
-			symbol: "%",
-			tag: "div",
-			type: "SCORE_QUESTION_ANSWERED"
+			style: `full-value`,
+			symbol: `%`,
+			tag: `div`,
+			type: `SCORE_QUESTION_ANSWERED`
 		},
 		{
 			data: [
-				"Hide 2", "wrong", "Hide 2", "row1 column0"
+				`Hide 2`, `wrong`, `Hide 2`, `row1 column0`
 			],
 			data_style: [
-				"question", "response", "answer", "position"
+				`question`, `response`, `answer`, `position`
 			],
 			display_score: true,
 			feedback: null,
-			graphic: "score",
+			graphic: `score`,
 			score: 100,
-			style: "full-value",
-			symbol: "%",
-			tag: "div",
-			type: "SCORE_QUESTION_ANSWERED"
+			style: `full-value`,
+			symbol: `%`,
+			tag: `div`,
+			type: `SCORE_QUESTION_ANSWERED`
 		}
 	];
 };
@@ -172,7 +172,7 @@ const genProps = () => {
 };
 
 const makeNewScoreScreen = (changes={}) => {
-	const ScoreScreenApp = require('./scoreScreen').default;
+	const ScoreScreenApp = require(`./scoreScreen`).default;
 
 	const props = genProps();
 	Object.defineProperties(props, changes);
@@ -193,20 +193,20 @@ describe(`ScoreScreen`, () => {
 	beforeEach(() => {
 		jest.resetAllMocks();
 		jest.resetModules();
-		jest.unmock('react-dom');
+		jest.unmock(`react-dom`);
 		global.Materia = {
 			ScoreCore: {
 				start: jest.fn(),
 				update: jest.fn(),
 				hideResultsTable: jest.fn()
 			}
-		}
+		};
 	});
 
 	test(`Registers callbacks`, () => {
-		require('./scorescreen');
+		require(`./scorescreen`);
 		jest.mock(`react-dom`, () => {
-			render: jest.fn()
+			jest.fn();
 		});
 
 		expect(Materia.ScoreCore.start).toHaveBeenCalledTimes(1);
