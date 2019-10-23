@@ -74,7 +74,7 @@ class ScoreTable extends React.Component {
 				const cellID = `cell${counter}`;
 
 				cells.push(
-					<th key={cellID} id={cellID}>
+					<th key={cellID} id={cellID} className="header">
 						{question.questions[0].text}
 					</th>
 				);
@@ -178,22 +178,26 @@ class ScoreTable extends React.Component {
 										 />
 				</label>
 
-				<table>
-					{
-						this.props.spreadsheet ?
-						<thead>
-							{this.generateHead()}
-						</thead>:
-						this.props.header ?
-						<thead>
-							{this.generateHead()}
-						</thead>:
-						null
-					}
-					<tbody>
-						{this.generateBody(this.props.header ? 1:0)}
-					</tbody>
-				</table>
+				<div className="table-surround">
+					<div>
+						<table>
+							{
+								this.props.spreadsheet ?
+								<thead>
+									{this.generateHead()}
+								</thead>:
+								this.props.header ?
+								<thead>
+									{this.generateHead()}
+								</thead>:
+								null
+							}
+							<tbody>
+								{this.generateBody(this.props.header ? 1:0)}
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</main>
 		);
 	}
