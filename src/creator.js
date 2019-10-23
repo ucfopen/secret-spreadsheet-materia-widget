@@ -82,6 +82,10 @@ export default class CreatorApp extends React.Component {
 			for (let j = 0; j < this.state.qset.dimensions.columns; j++) {
 				const options = this.state.qset.items[0].items[i][j].options;
 
+				if (options.position === undefined) {
+					options.position = {};
+				}
+
 				options.position.row = i;
 				options.position.column = j;
 
