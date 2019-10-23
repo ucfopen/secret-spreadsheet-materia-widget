@@ -113,43 +113,43 @@ const props = () => {
 				}
 			]
 		],
-		positions: new Set(['row0 column1', 'row1 column0']),
+		positions: new Set([`row0 column1`, `row1 column0`]),
 		leftAlign: false,
 		scoreTable: [
 			{
 				data: [
-					"Hide 1", "Hide 1", "Hide 1", "row0 column1"
+					`Hide 1`, `Hide 1`, `Hide 1`, `row0 column1`
 				],
 				data_style: [
-					"question", "response", "answer", "position"
+					`question`, `response`, `answer`, `position`
 				],
 				display_score: true,
 				feedback: null,
-				graphic: "score",
+				graphic: `score`,
 				score: 100,
-				style: "full-value",
-				symbol: "%",
-				tag: "div",
-				type: "SCORE_QUESTION_ANSWERED"
+				style: `full-value`,
+				symbol: `%`,
+				tag: `div`,
+				type: `SCORE_QUESTION_ANSWERED`
 			},
 			{
 				data: [
-					"Hide 2", "wrong", "Hide 2", "row1 column0"
+					`Hide 2`, `wrong`, `Hide 2`, `row1 column0`
 				],
 				data_style: [
-					"question", "response", "answer", "position"
+					`question`, `response`, `answer`, `position`
 				],
 				display_score: true,
 				feedback: null,
-				graphic: "score",
+				graphic: `score`,
 				score: 100,
-				style: "full-value",
-				symbol: "%",
-				tag: "div",
-				type: "SCORE_QUESTION_ANSWERED"
+				style: `full-value`,
+				symbol: `%`,
+				tag: `div`,
+				type: `SCORE_QUESTION_ANSWERED`
 			}
 		]
-	}
+	};
 };
 
 const customProps = (changes={}) => {
@@ -160,8 +160,8 @@ const customProps = (changes={}) => {
 	return newProps;
 };
 
-describe('ScoreTable', () => {
-	test('Rendered with header, spreadsheet, centered', () => {
+describe(`ScoreTable`, () => {
+	test(`Rendered with header, spreadsheet, centered`, () => {
 		const newProps = customProps({
 			header: {value: true},
 			spreadsheet: {value: true}
@@ -173,7 +173,7 @@ describe('ScoreTable', () => {
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Rendered with header, spreadsheet, left aligned', () => {
+	test(`Rendered with header, spreadsheet, left aligned`, () => {
 		const newProps = customProps({
 			header: {value: true},
 			spreadsheet: {value: true},
@@ -186,7 +186,7 @@ describe('ScoreTable', () => {
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Rendered with header, no spreadsheet, centered', () => {
+	test(`Rendered with header, no spreadsheet, centered`, () => {
 		const newProps = customProps({
 			header: {value: true}
 		});
@@ -197,7 +197,7 @@ describe('ScoreTable', () => {
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Rendered with header, no spreadsheet, left aligned', () => {
+	test(`Rendered with header, no spreadsheet, left aligned`, () => {
 		const newProps = customProps({
 			header: {value: true},
 			leftAlign: {value: true}
@@ -209,7 +209,7 @@ describe('ScoreTable', () => {
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Rendered with no header, spreadsheet, centered', () => {
+	test(`Rendered with no header, spreadsheet, centered`, () => {
 		const newProps = customProps({
 			spreadsheet: {value: true}
 		});
@@ -220,7 +220,7 @@ describe('ScoreTable', () => {
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Rendered with no header, spreadsheet, left aligned', () => {
+	test(`Rendered with no header, spreadsheet, left aligned`, () => {
 		const newProps = customProps({
 			leftAlign: {value: true},
 			spreadsheet: {value: true}
@@ -232,7 +232,7 @@ describe('ScoreTable', () => {
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Rendered with no header, no spreadsheet, centered', () => {
+	test(`Rendered with no header, no spreadsheet, centered`, () => {
 		const newProps = props();
 
 		const component = renderer.create(<ScoreTable {... newProps} />);
@@ -241,7 +241,7 @@ describe('ScoreTable', () => {
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('Rendered with no header, no spreadsheet, left aligned', () => {
+	test(`Rendered with no header, no spreadsheet, left aligned`, () => {
 		const newProps = customProps({
 			leftAlign: {value: true}
 		});
@@ -252,37 +252,37 @@ describe('ScoreTable', () => {
 		expect(tree).toMatchSnapshot();
 	});
 
-	test('handleChange works going from not checked to checked', () => {
+	test(`handleChange works going from not checked to checked`, () => {
 		const event = {
 			target: {
 				checked: true
 			}
-		}
+		};
 		const newProps = props();
 
 		const component = shallow(<ScoreTable {... newProps} />);
 		component.setState({checked: false});
 		component.instance().handleChange(event);
 
-		expect(component.state(['checked'])).toBeTruthy();
+		expect(component.state([`checked`])).toBeTruthy();
 
 		// cleanup
 		component.unmount();
 	});
 
-	test('handleChange works going from checked to not checked', () => {
+	test(`handleChange works going from checked to not checked`, () => {
 		const event = {
 			target: {
 				checked: false
 			}
-		}
+		};
 		const newProps = props();
 
 		const component = shallow(<ScoreTable {... newProps} />);
 		component.setState({checked: true});
 		component.instance().handleChange(event);
 
-		expect(component.state(['checked'])).toBeFalsy();
+		expect(component.state([`checked`])).toBeFalsy();
 
 		// cleanup
 		component.unmount();
