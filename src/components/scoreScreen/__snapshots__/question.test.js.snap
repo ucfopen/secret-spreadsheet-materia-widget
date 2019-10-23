@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Question Rendered with question description 1`] = `
+<header>
+  <h3>
+    Test Question
+  </h3>
+  <p>
+    Test description
+  </p>
+</header>
+`;
+
+exports[`Question Rendered without question description 1`] = `
+<header>
+  <h3>
+    Test Question
+  </h3>
+</header>
+`;
