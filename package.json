@@ -19,7 +19,7 @@
 	},
 	"scripts": {
 		"start": "webpack-dev-server",
-		"lint": "eslint src/**/*.js --ignore-pattern *scoreScreen*",
+		"lint": "eslint src/**/*.js --ignore-pattern src/**/*score*.test*",
 		"build": "webpack -p",
 		"build-dev": "webpack",
 		"test": "jest",
