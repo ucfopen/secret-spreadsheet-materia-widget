@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import Question from './components/scoreScreen/question';
 import ScoreTable from './components/scoreScreen/table';
 
+let name = ``;
+
 class ScoreScreenApp extends React.Component {
 	constructor(props) {
 		super(props);
@@ -22,7 +24,6 @@ class ScoreScreenApp extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.scoreTable);
 		return(
 			<div>
 				{
@@ -48,12 +49,18 @@ class ScoreScreenApp extends React.Component {
 	}
 }
 
-const updateDisplay = (qset, scoreTable, title) => {
+export default ScoreScreenApp;
+
+const updateDisplay = (qset, scoreTable, title=undefined) => {
+	if (title !== undefined) {
+		name = title;
+	}
+
 	ReactDOM.render(
 		<ScoreScreenApp
 			qset={qset}
 			scoreTable={scoreTable}
-			title={title}
+			title={name}
 		/>,
 		document.getElementById(`root`)
 	);
@@ -64,7 +71,7 @@ Materia.ScoreCore.start({
 		updateDisplay(qset, scoreTable, instance.name);
 	},
 	update: (qset, scoreTable) => {
-		updateDisplay(qset, scoreTable, instance.name);
+		updateDisplay(qset, scoreTable);
 	}
 });
 Materia.ScoreCore.hideResultsTable();
