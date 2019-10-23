@@ -5,6 +5,7 @@ export default class Cell extends React.Component {
 		super(props);
 		this.handleCheckboxToggle = this.handleCheckboxToggle.bind(this);
 		this.handleTextboxChange = this.handleTextboxChange.bind(this);
+		this.generateColumnLabel = this.generateColumnLabel.bind(this);
 	}
 
 	handleCheckboxToggle() {
@@ -15,6 +16,26 @@ export default class Cell extends React.Component {
 	handleTextboxChange(event) {
 		this.setState(Object.assign(this.props.data.questions[0], {text: event.target.value}));
 		this.setState(Object.assign(this.props.data.answers[0], {text: event.target.value}));
+	}
+
+	generateColumnLabel(num) {
+		let cellName = '';
+		let remainder = [];
+		if (num == 0) {
+			remainder.push(0);
+		} else {
+			while (num != 0) {
+				remainder.push(num % 26);
+				num = Math.floor(num / 26) ;
+			}
+			if (remainder.length > 1) {
+				remainder[remainder.length - 1]--;
+			}
+		}
+		for (let i = remainder.length - 1; i >= 0 ; i--) {
+			cellName += String.fromCharCode(remainder[i] + 65);
+		}
+		return cellName;
 	}
 
 	render() {
@@ -61,7 +82,7 @@ export default class Cell extends React.Component {
 						type="text"
 						value={this.props.data && this.props.data.questions && this.props.data.questions[0] && this.props.data.questions[0].text}
 						onChange={this.handleTextboxChange}
-						placeholder={this.props.qset.spreadsheet ? `${String.fromCharCode(this.props.row + 65)}${this.props.column + 1}` : ``}
+						placeholder={this.props.qset.spreadsheet ? `${this.generateColumnLabel(this.props.column)}${this.props.row + 1}` : ``}
 					/>
 
 					<div
