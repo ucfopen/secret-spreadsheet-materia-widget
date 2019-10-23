@@ -1,12 +1,12 @@
 import React from 'react';
-import Cell from './cell'
+import Cell from './cell';
 
 class ScoreTable extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			checked: false
-		}
+		};
 		this.generateHead = this.generateHead.bind(this);
 		this.generateBody = this.generateBody.bind(this);
 		this.handleChange = this.handleChange.bind(this);
@@ -56,7 +56,7 @@ class ScoreTable extends React.Component {
 				);
 			}
 
-			rows.push(<tr key="column-labels" id="column-labels">{cells}</tr>)
+			rows.push(<tr key="column-labels" id="column-labels">{cells}</tr>);
 		}
 
 		if (this.props.header) {
@@ -82,7 +82,7 @@ class ScoreTable extends React.Component {
 				counter++;
 			}
 
-			rows.push(<tr key="0" id="row0" className={this.props.leftAlign ? `leftAlign`:null}>{cells}</tr>)
+			rows.push(<tr key="0" id="row0" className={this.props.leftAlign ? `leftAlign`:null}>{cells}</tr>);
 		}
 
 		return rows;
@@ -124,7 +124,7 @@ class ScoreTable extends React.Component {
 				}
 
 				const answerable = this.props.positions.has(`row${i} column${j}`);
-				const answer = null;
+				let answer = null;
 
 				if (answerable) {
 					for (let k=0;k<this.props.scoreTable.length;k++) {
@@ -159,7 +159,7 @@ class ScoreTable extends React.Component {
 				counter++;
 			}
 
-			rows.push(<tr key={i} id={rowID}>{cells}</tr>)
+			rows.push(<tr key={i} id={rowID}>{cells}</tr>);
 		}
 
 		return rows;
@@ -171,11 +171,12 @@ class ScoreTable extends React.Component {
 				<h3>Answers</h3>
 
 				<label>
-					Show correct answers <input
-											type="checkbox"
-											checked={this.state.checked}
-											onChange={this.handleChange}
-										 />
+					Show correct answers
+					<input
+						type="checkbox"
+						checked={this.state.checked}
+						onChange={this.handleChange}
+					/>
 				</label>
 
 				<div className="table-surround">
@@ -183,14 +184,14 @@ class ScoreTable extends React.Component {
 						<table>
 							{
 								this.props.spreadsheet ?
-								<thead>
-									{this.generateHead()}
-								</thead>:
-								this.props.header ?
-								<thead>
-									{this.generateHead()}
-								</thead>:
-								null
+									<thead>
+										{this.generateHead()}
+									</thead>:
+									this.props.header ?
+										<thead>
+											{this.generateHead()}
+										</thead>:
+										null
 							}
 							<tbody>
 								{this.generateBody(this.props.header ? 1:0)}

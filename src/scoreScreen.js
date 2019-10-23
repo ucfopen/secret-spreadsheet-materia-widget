@@ -8,7 +8,7 @@ class ScoreScreenApp extends React.Component {
 		super(props);
 		this.state = {
 			positions: this.makePositionList(this.props.scoreTable)
-		}
+		};
 	}
 
 	makePositionList(scoreTable) {
@@ -22,15 +22,16 @@ class ScoreScreenApp extends React.Component {
 	}
 
 	render() {
+		console.log(this.props.scoreTable);
 		return(
 			<div>
 				{
 					this.props.qset.question !== `` ?
-					<Question
-						question={this.props.qset.question}
-						description={this.props.qset.description}
-					/>:
-					null
+						<Question
+							question={this.props.qset.question}
+							description={this.props.qset.description}
+						/>:
+						null
 				}
 
 				<ScoreTable
