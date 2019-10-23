@@ -1,0 +1,633 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScoreTable Rendered with header, no spreadsheet, centered 1`] = `
+<main>
+  <h3>
+    Answers
+  </h3>
+  <label>
+    Show correct answers
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="checkbox"
+    />
+  </label>
+  <div
+    className="table-surround"
+  >
+    <div>
+      <table>
+        <thead>
+          <tr
+            className={null}
+            id="row0"
+          >
+            <th
+              className="header"
+              id="cell0"
+            >
+              Show 1
+            </th>
+            <th
+              className="header"
+              id="cell1"
+            >
+              Hide 1
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            id="row1"
+          >
+            <td
+              className="wrong"
+              id="cell2"
+            >
+              <p>
+                wrong
+              </p>
+            </td>
+            <td
+              className=""
+              id="cell3"
+            >
+              Show 2
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`ScoreTable Rendered with header, no spreadsheet, left aligned 1`] = `
+<main>
+  <h3>
+    Answers
+  </h3>
+  <label>
+    Show correct answers
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="checkbox"
+    />
+  </label>
+  <div
+    className="table-surround"
+  >
+    <div>
+      <table>
+        <thead>
+          <tr
+            className="leftAlign"
+            id="row0"
+          >
+            <th
+              className="header"
+              id="cell0"
+            >
+              Show 1
+            </th>
+            <th
+              className="header"
+              id="cell1"
+            >
+              Hide 1
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            id="row1"
+          >
+            <td
+              className="wrong leftAlign"
+              id="cell2"
+            >
+              <p>
+                wrong
+              </p>
+            </td>
+            <td
+              className="leftAlign"
+              id="cell3"
+            >
+              Show 2
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`ScoreTable Rendered with header, spreadsheet, centered 1`] = `
+<main>
+  <h3>
+    Answers
+  </h3>
+  <label>
+    Show correct answers
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="checkbox"
+    />
+  </label>
+  <div
+    className="table-surround"
+  >
+    <div>
+      <table>
+        <thead>
+          <tr
+            id="column-labels"
+          >
+            <th
+              className="label skinny"
+              id="col-label-0"
+            />
+            <th
+              className="label"
+              id="col-label-1"
+            >
+              A
+            </th>
+            <th
+              className="label"
+              id="col-label-2"
+            >
+              B
+            </th>
+          </tr>
+          <tr
+            className={null}
+            id="row0"
+          >
+            <th
+              className="label skinny"
+              id="row-label-1"
+            >
+              1
+            </th>
+            <th
+              className="header"
+              id="cell0"
+            >
+              Show 1
+            </th>
+            <th
+              className="header"
+              id="cell1"
+            >
+              Hide 1
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            id="row1"
+          >
+            <td
+              className="label skinny"
+              id="row-label-2"
+            >
+              2
+            </td>
+            <td
+              className="wrong"
+              id="cell2"
+            >
+              <p>
+                wrong
+              </p>
+            </td>
+            <td
+              className=""
+              id="cell3"
+            >
+              Show 2
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`ScoreTable Rendered with header, spreadsheet, left aligned 1`] = `
+<main>
+  <h3>
+    Answers
+  </h3>
+  <label>
+    Show correct answers
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="checkbox"
+    />
+  </label>
+  <div
+    className="table-surround"
+  >
+    <div>
+      <table>
+        <thead>
+          <tr
+            id="column-labels"
+          >
+            <th
+              className="label skinny leftAlign"
+              id="col-label-0"
+            />
+            <th
+              className="label"
+              id="col-label-1"
+            >
+              A
+            </th>
+            <th
+              className="label"
+              id="col-label-2"
+            >
+              B
+            </th>
+          </tr>
+          <tr
+            className="leftAlign"
+            id="row0"
+          >
+            <th
+              className="label skinny leftAlign"
+              id="row-label-1"
+            >
+              1
+            </th>
+            <th
+              className="header"
+              id="cell0"
+            >
+              Show 1
+            </th>
+            <th
+              className="header"
+              id="cell1"
+            >
+              Hide 1
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            id="row1"
+          >
+            <td
+              className="label skinny leftAlign"
+              id="row-label-2"
+            >
+              2
+            </td>
+            <td
+              className="wrong leftAlign"
+              id="cell2"
+            >
+              <p>
+                wrong
+              </p>
+            </td>
+            <td
+              className="leftAlign"
+              id="cell3"
+            >
+              Show 2
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`ScoreTable Rendered with no header, no spreadsheet, centered 1`] = `
+<main>
+  <h3>
+    Answers
+  </h3>
+  <label>
+    Show correct answers
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="checkbox"
+    />
+  </label>
+  <div
+    className="table-surround"
+  >
+    <div>
+      <table>
+        <tbody>
+          <tr
+            id="row0"
+          >
+            <td
+              className=""
+              id="cell0"
+            >
+              Show 1
+            </td>
+            <td
+              className="right"
+              id="cell1"
+            >
+              <p>
+                Hide 1
+              </p>
+            </td>
+          </tr>
+          <tr
+            id="row1"
+          >
+            <td
+              className="wrong"
+              id="cell2"
+            >
+              <p>
+                wrong
+              </p>
+            </td>
+            <td
+              className=""
+              id="cell3"
+            >
+              Show 2
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`ScoreTable Rendered with no header, no spreadsheet, left aligned 1`] = `
+<main>
+  <h3>
+    Answers
+  </h3>
+  <label>
+    Show correct answers
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="checkbox"
+    />
+  </label>
+  <div
+    className="table-surround"
+  >
+    <div>
+      <table>
+        <tbody>
+          <tr
+            id="row0"
+          >
+            <td
+              className="leftAlign"
+              id="cell0"
+            >
+              Show 1
+            </td>
+            <td
+              className="right leftAlign"
+              id="cell1"
+            >
+              <p>
+                Hide 1
+              </p>
+            </td>
+          </tr>
+          <tr
+            id="row1"
+          >
+            <td
+              className="wrong leftAlign"
+              id="cell2"
+            >
+              <p>
+                wrong
+              </p>
+            </td>
+            <td
+              className="leftAlign"
+              id="cell3"
+            >
+              Show 2
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`ScoreTable Rendered with no header, spreadsheet, centered 1`] = `
+<main>
+  <h3>
+    Answers
+  </h3>
+  <label>
+    Show correct answers
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="checkbox"
+    />
+  </label>
+  <div
+    className="table-surround"
+  >
+    <div>
+      <table>
+        <thead>
+          <tr
+            id="column-labels"
+          >
+            <th
+              className="label skinny"
+              id="col-label-0"
+            />
+            <th
+              className="label"
+              id="col-label-1"
+            >
+              A
+            </th>
+            <th
+              className="label"
+              id="col-label-2"
+            >
+              B
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            id="row0"
+          >
+            <td
+              className="label skinny"
+              id="row-label-1"
+            >
+              1
+            </td>
+            <td
+              className=""
+              id="cell0"
+            >
+              Show 1
+            </td>
+            <td
+              className="right"
+              id="cell1"
+            >
+              <p>
+                Hide 1
+              </p>
+            </td>
+          </tr>
+          <tr
+            id="row1"
+          >
+            <td
+              className="label skinny"
+              id="row-label-2"
+            >
+              2
+            </td>
+            <td
+              className="wrong"
+              id="cell2"
+            >
+              <p>
+                wrong
+              </p>
+            </td>
+            <td
+              className=""
+              id="cell3"
+            >
+              Show 2
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`ScoreTable Rendered with no header, spreadsheet, left aligned 1`] = `
+<main>
+  <h3>
+    Answers
+  </h3>
+  <label>
+    Show correct answers
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="checkbox"
+    />
+  </label>
+  <div
+    className="table-surround"
+  >
+    <div>
+      <table>
+        <thead>
+          <tr
+            id="column-labels"
+          >
+            <th
+              className="label skinny leftAlign"
+              id="col-label-0"
+            />
+            <th
+              className="label"
+              id="col-label-1"
+            >
+              A
+            </th>
+            <th
+              className="label"
+              id="col-label-2"
+            >
+              B
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            id="row0"
+          >
+            <td
+              className="label skinny leftAlign"
+              id="row-label-1"
+            >
+              1
+            </td>
+            <td
+              className="leftAlign"
+              id="cell0"
+            >
+              Show 1
+            </td>
+            <td
+              className="right leftAlign"
+              id="cell1"
+            >
+              <p>
+                Hide 1
+              </p>
+            </td>
+          </tr>
+          <tr
+            id="row1"
+          >
+            <td
+              className="label skinny leftAlign"
+              id="row-label-2"
+            >
+              2
+            </td>
+            <td
+              className="wrong leftAlign"
+              id="cell2"
+            >
+              <p>
+                wrong
+              </p>
+            </td>
+            <td
+              className="leftAlign"
+              id="cell3"
+            >
+              Show 2
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+`;

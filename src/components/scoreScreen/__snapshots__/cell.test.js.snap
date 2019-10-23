@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cell Is rendered answerable centered checked with correct response 1`] = `
+<td
+  className="right"
+  id={1}
+>
+  <p>
+    Correct Answer
+  </p>
+</td>
+`;
+
+exports[`Cell Is rendered answerable centered checked with wrong response 1`] = `
+<td
+  className="right"
+  id={1}
+>
+  <p>
+    Correct Answer
+  </p>
+</td>
+`;
+
+exports[`Cell Is rendered answerable centered unchecked with correct response 1`] = `
+<td
+  className="right"
+  id={1}
+>
+  <p>
+    Correct Answer
+  </p>
+</td>
+`;
+
+exports[`Cell Is rendered answerable centered unchecked with wrong response 1`] = `
+<td
+  className="wrong"
+  id={1}
+>
+  <p>
+    Wrong Answer
+  </p>
+</td>
+`;
+
+exports[`Cell Is rendered answerable left aligned checked with correct response 1`] = `
+<td
+  className="right leftAlign"
+  id={1}
+>
+  <p>
+    Correct Answer
+  </p>
+</td>
+`;
+
+exports[`Cell Is rendered answerable left aligned checked with wrong response 1`] = `
+<td
+  className="right leftAlign"
+  id={1}
+>
+  <p>
+    Correct Answer
+  </p>
+</td>
+`;
+
+exports[`Cell Is rendered answerable left aligned unchecked with correct response 1`] = `
+<td
+  className="right leftAlign"
+  id={1}
+>
+  <p>
+    Correct Answer
+  </p>
+</td>
+`;
+
+exports[`Cell Is rendered answerable left aligned unchecked with wrong response 1`] = `
+<td
+  className="wrong leftAlign"
+  id={1}
+>
+  <p>
+    Wrong Answer
+  </p>
+</td>
+`;
+
+exports[`Cell Is rendered not answerable centered 1`] = `
+<td
+  className=""
+  id={1}
+>
+  Correct Answer
+</td>
+`;
+
+exports[`Cell Is rendered not answerable left aligned 1`] = `
+<td
+  className="leftAlign"
+  id={1}
+>
+  Correct Answer
+</td>
+`;
