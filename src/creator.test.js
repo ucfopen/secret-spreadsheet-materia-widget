@@ -728,4 +728,13 @@ describe(`CreatorApp component`, function() {
 		expect(mockObj.focus).toBeCalled();
 	});
 
+	test(`CellData fixes non string value`, () => {
+		const CreatorApp = require(`./creator`).default;
+		const props = makeProps(true, false, false, false, 1);
+
+		const component = shallow(<CreatorApp {... props} />);
+		const output = component.instance().cellData(1, true);
+
+		expect(typeof output.questions[0].text).toEqual(`string`);
+	});
 });

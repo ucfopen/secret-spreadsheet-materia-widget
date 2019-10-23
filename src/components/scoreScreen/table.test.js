@@ -288,6 +288,21 @@ describe(`ScoreTable`, () => {
 		component.unmount();
 	});
 
+	test(`convertNumberToLetters number less than 0`, () => {
+		const newProps = customProps({
+			spreadsheet: {value: true}
+		});
+
+		const component = shallow(<ScoreTable {... newProps} />);
+		const result = component.instance().convertNumberToLetters(-1);
+
+		expect(typeof result).toBe(`string`);
+		expect(result).toBe(`A`);
+
+		// cleanup
+		component.unmount();
+	});
+
 	test(`convertNumberToLetters number is 0`, () => {
 		const newProps = customProps({
 			spreadsheet: {value: true}
@@ -345,6 +360,24 @@ describe(`ScoreTable`, () => {
 
 		expect(console.error).toHaveBeenCalledTimes(1);
 		expect(result).toBe(NaN);
+
+		// cleanup
+		component.unmount();
+		console.error = realError;
+	});
+
+	test(`generateBody with start at 0 and the answer is not in the scoreTable`, () => {
+		const newProps = customProps({
+			scoreTable: {value: []}
+		});
+		const realError = console.error;
+		console.error = jest.fn();
+
+		const component = shallow(<ScoreTable {... newProps} />);
+		component.instance().generateBody();
+
+		// four times because three times is with the original generation
+		expect(console.error).toHaveBeenCalledTimes(4);
 
 		// cleanup
 		component.unmount();

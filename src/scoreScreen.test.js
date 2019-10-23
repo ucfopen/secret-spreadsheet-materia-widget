@@ -228,6 +228,28 @@ describe(`ScoreScreen`, () => {
 		expect(mockDomRender.mock.calls[0][0]).toMatchSnapshot();
 	});
 
+	test(`Render called with correct props on update`, () => {
+		require(`./scoreScreen`);
+		jest.mock(`react-dom`, () => ({
+			render: mockDomRender
+		}));
+
+		// have to start first
+		const start = Materia.ScoreCore.start.mock.calls[0][0].start;
+
+		expect(mockDomRender).toHaveBeenCalledTimes(0);
+		start({name: `Test Score`}, qset(), scoreTable(), false, 1);
+		expect(mockDomRender).toHaveBeenCalledTimes(1);
+		expect(mockDomRender.mock.calls[0][0]).toMatchSnapshot();
+
+		const update = Materia.ScoreCore.start.mock.calls[0][0].update;
+
+		expect(mockDomRender).toHaveBeenCalledTimes(1);
+		update(qset(), scoreTable());
+		expect(mockDomRender).toHaveBeenCalledTimes(2);
+		expect(mockDomRender.mock.calls[1][0]).toMatchSnapshot();
+	});
+
 	test(`Render with question and description`, () => {
 		const scoreScreen = renderScoreScreen();
 		const tree = scoreScreen.toJSON();
