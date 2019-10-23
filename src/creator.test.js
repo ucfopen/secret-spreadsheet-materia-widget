@@ -281,7 +281,7 @@ describe(`CreatorApp component`, function() {
 
 		const component = shallow(<CreatorApp {... props}/>);
 		component.instance().handleXChange(event);
-		expect(component.instance().state.qset.dimensions.rows).toEqual(10);
+		expect(component.instance().state.qset.dimensions.rows).toEqual(9001);
 	});
 
 	test(`CreatorApp calls handleXChange with normal x value`, () => {
@@ -323,7 +323,7 @@ describe(`CreatorApp component`, function() {
 
 		const component = shallow(<CreatorApp {... props}/>);
 		component.instance().handleYChange(event);
-		expect(component.instance().state.qset.dimensions.columns).toEqual(10);
+		expect(component.instance().state.qset.dimensions.columns).toEqual(9001);
 	});
 
 	test(`CreatorApp calls handleYChange with normal y value`, () => {
