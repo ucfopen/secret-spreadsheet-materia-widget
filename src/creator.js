@@ -503,7 +503,7 @@ export default class CreatorApp extends React.Component {
 }
 
 CreatorApp.defaultProps = {
-	title: `New Spreadsheet Widget`,
+	title: `New Secret Spreadsheet`,
 	qset: {
 		'left': false,
 		'header': false,
@@ -518,7 +518,7 @@ CreatorApp.defaultProps = {
 
 // Callback when a new widget is being created
 materiaCallbacks.initNewWidget = (instance) => {
-	materiaCallbacks.initExistingWidget(`New Spreadsheet Widget`, instance, undefined, 1, true);
+	materiaCallbacks.initExistingWidget(`New Secret Spreadsheet`, instance, undefined, 1, true);
 	// return value for testing
 };
 
