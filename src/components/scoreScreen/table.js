@@ -148,7 +148,7 @@ class ScoreTable extends React.Component {
 					}
 				}
 
-				const correct = answer === question.questions[0].text;
+				const correct = (typeof answer === `string` ? answer.toUpperCase():answer) === question.questions[0].text.toUpperCase();
 
 				cells.push(
 					<Cell
