@@ -600,9 +600,6 @@ exports[`ScoreScreen Render without description 1`] = `
     <h3>
       Test Question
     </h3>
-    <p>
-      Test question body
-    </p>
   </header>
   <main>
     <h3>
@@ -668,14 +665,6 @@ exports[`ScoreScreen Render without description 1`] = `
 
 exports[`ScoreScreen Render without question or description 1`] = `
 <div>
-  <header>
-    <h3>
-      Test Question
-    </h3>
-    <p>
-      Test question body
-    </p>
-  </header>
   <main>
     <h3>
       Answers
