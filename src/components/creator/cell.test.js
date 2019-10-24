@@ -184,4 +184,69 @@ describe(`CreatorCell component`, function() {
 		component.find({type: `text`}).simulate(`change`, {target: {value: `Test`}});
 		expect(props.data.questions[0].text).toEqual(`Test`);
 	});
+
+	test(`generateColumnLabel number less than 0`, () => {
+		const props = makeProps();
+
+		const component = shallow(<Cell {... props} />);
+		const result = component.instance().generateColumnLabel(-1);
+
+		expect(typeof result).toBe(`string`);
+		expect(result).toBe(`A`);
+	});
+
+	test(`generateColumnLabel number is 0`, () => {
+		const props = makeProps();
+
+		const component = shallow(<Cell {... props} />);
+		const result = component.instance().generateColumnLabel(0);
+
+		expect(typeof result).toBe(`string`);
+		expect(result).toBe(`A`);
+	});
+
+	test(`generateColumnLabel number is greater than 0`, () => {
+		const props = makeProps();
+
+		const component = shallow(<Cell {... props} />);
+		const result = component.instance().generateColumnLabel(1);
+
+		expect(typeof result).toBe(`string`);
+		expect(result).toBe(`B`);
+	});
+
+	test(`generateColumnLabel number is very large`, () => {
+		const props = makeProps();
+
+		const component = shallow(<Cell {... props} />);
+		const result = component.instance().generateColumnLabel(1000000000);
+
+		expect(typeof result).toBe(`string`);
+		expect(result).toBe(`CGEHTYM`);
+	});
+
+	test(`convertNumberToLetters gets an average number`, () => {
+		const props = makeProps();
+
+		const component = shallow(<Cell {... props} />);
+		const result = component.instance().generateColumnLabel(40);
+
+		expect(typeof result).toBe(`string`);
+		expect(result).toEqual(`AO`);
+	});
+
+	test(`generateColumnLabel doesn't get a number`, () => {
+		const props = makeProps();
+		const realError = console.error;
+		console.error = jest.fn();
+
+		const component = shallow(<Cell {... props} />);
+		const result = component.instance().generateColumnLabel(`test`);
+
+		expect(console.error).toHaveBeenCalledTimes(1);
+		expect(result).toBe(NaN);
+
+		// cleanup
+		console.error = realError;
+	});
 });

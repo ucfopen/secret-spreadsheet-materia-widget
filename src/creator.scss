@@ -402,14 +402,25 @@ button,
 
 .table-container {
 	top: 20px;
+	align-items: center;
 	justify-content: center;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+	overflow-y: hidden;
 
 	p {
 		float: right;
+	}
+
+	.table-surround {
+		padding: 2px;
+		height: 78vh;
+    width: 90vw;
+		overflow: auto;
+		margin: auto;
+		justify-content: center;
+		align-items: center;
+		border: 2px purple solid;
 	}
 }
 
@@ -441,6 +452,7 @@ button,
 	clear:both;
 	float:left;
 	padding-right: 50px;
+	margin: 0 auto 10px;
 
 	.delete-cell,
 	.empty-cell {
@@ -487,7 +499,7 @@ button,
 	position: relative;
 
 	table {
-		margin: 0;
+		margin: auto;
 		border-width: 0;
 		border-collapse: collapse;
 
@@ -543,6 +555,7 @@ button,
 
 .tableCell {
 	max-width: 100%;
+	min-width: 150px;
 	word-break: break-all;
 	border: 1px solid black;
 
