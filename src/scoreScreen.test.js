@@ -259,10 +259,10 @@ describe(`ScoreScreen`, () => {
 
 	test(`Render without description`, () => {
 		const newQset = qset();
-		delete newQset.description;
+		newQset.description = ``;
 
 		const scoreScreen = renderScoreScreen({
-			qset: newQset
+			qset: {value: newQset}
 		});
 		const tree = scoreScreen.toJSON();
 
@@ -271,11 +271,11 @@ describe(`ScoreScreen`, () => {
 
 	test(`Render without question or description`, () => {
 		const newQset = qset();
-		delete newQset.question;
-		delete newQset.description;
+		newQset.question = ``;
+		newQset.description = ``;
 
 		const scoreScreen = renderScoreScreen({
-			qset: newQset
+			qset: {value: newQset}
 		});
 		const tree = scoreScreen.toJSON();
 
