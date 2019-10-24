@@ -28,21 +28,28 @@ class PlayerTable extends React.Component {
 			return NaN;
 		}
 
-		if (number < 0) {
-			return `A`;
+		let remainder = [];
+		let name = ``;
+
+		if (number <= 0) {
+			remainder.push(0);
+		}
+		else {
+			while(number > 0) {
+				remainder.push(number % 26);
+				number = Math.floor(number / 26);
+			}
+
+			if (remainder.length > 1) {
+				remainder[remainder.length - 1]--;
+			}
 		}
 
-		let base = number;
-		let finalString = ``;
+		for (let i=remainder.length - 1;i>=0;i--) {
+			name += String.fromCharCode(remainder[i] + 65);
+		}
 
-		do {
-			const calcChar = String.fromCharCode(Math.floor(base % 26) + `A`.charCodeAt(0));
-
-			finalString = `${finalString}${calcChar}`;
-			base = Math.floor(base / 26);
-		} while (base > 0);
-
-		return finalString;
+		return name;
 	}
 
 	render() {

@@ -157,14 +157,11 @@ export default class CreatorApp extends React.Component {
 		};
 	}
 
-	// Make sure number of rows is 1-10
+	// Make sure number of rows is > 1
 	handleXChange(event) {
 		let rowValue;
 		if (event.target.value < 1) {
 			rowValue = 1;
-		}
-		else if (event.target.value > 10) {
-			rowValue = 10;
 		}
 		else {
 			rowValue = event.target.value;
@@ -172,14 +169,11 @@ export default class CreatorApp extends React.Component {
 		this.setState(Object.assign(this.state.qset.dimensions, { rows: rowValue }));
 	}
 
-	// Make sure number of columns is 1-10
+	// Make sure number of columns is > 1
 	handleYChange(event) {
 		let columnValue;
 		if (event.target.value < 1) {
 			columnValue = 1;
-		}
-		else if (event.target.value > 10) {
-			columnValue = 10;
 		}
 		else {
 			columnValue = event.target.value;
@@ -308,9 +302,9 @@ export default class CreatorApp extends React.Component {
 		this.setState(Object.assign(this.state.qset, { randomization: 0 }));
 	}
 
-	// Add a row to the table, limited to 10 rows
+	// Add a row to the table
 	appendRow() {
-		const xValue = Math.min(10, parseInt(this.state.qset.dimensions.rows) + 1);
+		const xValue = parseInt(this.state.qset.dimensions.rows) + 1;
 		this.setState(Object.assign(this.state.qset.dimensions,{rows:xValue}));
 		// Fill the cells in the row with empty cell data
 		const cellsArray = [];
@@ -342,9 +336,9 @@ export default class CreatorApp extends React.Component {
 		}
 	}
 
-	// Add a column to the table, limited to 10 rows
+	// Add a column to the table
 	appendColumn() {
-		const columnValue = Math.min(10, parseInt(this.state.qset.dimensions.columns) + 1);
+		const columnValue = parseInt(this.state.qset.dimensions.columns) + 1;
 		this.setState(Object.assign(this.state.qset.dimensions,{columns:columnValue}));
 
 		// Fill the cells in the column with empty cell data
@@ -463,7 +457,6 @@ export default class CreatorApp extends React.Component {
 						handleQuestionChange={this.handleQuestionChange}
 						handleDescriptionChange={this.handleDescriptionChange}
 					/>
-
 					<Table
 						cellData={this.cellData}
 						qset={this.state.qset}

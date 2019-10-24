@@ -345,9 +345,22 @@ describe(`PlayerTable component`, () => {
 		const result = tempComponent.instance().convertNumberToLetters(1000000000);
 
 		expect(typeof result).toBe(`string`);
-		expect(result).toBe(`MYTHEGD`);
+		expect(result).toBe(`CGEHTYM`);
 
 		// cleanup
+		tempComponent.unmount();
+	});
+
+	test(`convertNumberToLetters gets an average number`, () => {
+		const props = makeProps(false, false, true);
+
+		const tempComponent = shallow(<PlayerTable {... props} />);
+		const result = tempComponent.instance().convertNumberToLetters(40);
+
+		expect(typeof result).toBe(`string`);
+		expect(result).toEqual(`AO`);
+
+		//cleanup
 		tempComponent.unmount();
 	});
 

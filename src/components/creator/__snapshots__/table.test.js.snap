@@ -7,42 +7,46 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
   <div
     className="table-elements"
   >
-    <table>
-      <tbody>
-        <tr>
-          <td
-            className="center-align   tableCell"
-          >
-            <div
-              className="cell"
-              column={0}
-              onKeyDown={[Function]}
-              row={0}
+    <div
+      className="table-surround"
+    >
+      <table>
+        <tbody>
+          <tr>
+            <td
+              className="center-align   tableCell"
             >
-              <input
-                className="row-0 col-0"
-                onChange={[Function]}
-                placeholder=""
-                type="text"
-                value=""
-              />
               <div
-                className="checkbox-hidden checkbox"
-                onClick={[Function]}
+                className="cell"
+                column={0}
+                onKeyDown={[Function]}
+                row={0}
               >
                 <input
-                  checked={false}
+                  className="row-0 col-0"
                   onChange={[Function]}
-                  onKeyDown={[Function]}
-                  type="checkbox"
+                  placeholder=""
+                  type="text"
+                  value=""
                 />
-                Hide
+                <div
+                  className="checkbox-hidden checkbox"
+                  onClick={[Function]}
+                >
+                  <input
+                    checked={false}
+                    onChange={[Function]}
+                    onKeyDown={[Function]}
+                    type="checkbox"
+                  />
+                  Hide
+                </div>
               </div>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <button
       hidden={true}
     />
@@ -68,9 +72,7 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
             />
           </g>
         </svg>
-        <div
-          className="button-name-hidden"
-        >
+        <div>
           Col
         </div>
       </button>
@@ -93,9 +95,7 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, center aligned, 
             />
           </g>
         </svg>
-        <div
-          className="button-name-hidden"
-        >
+        <div>
           Col
         </div>
       </button>
@@ -165,42 +165,46 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
   <div
     className="table-elements"
   >
-    <table>
-      <tbody>
-        <tr>
-          <td
-            className=" header-cell  tableCell"
-          >
-            <div
-              className="cell"
-              column={0}
-              onKeyDown={[Function]}
-              row={0}
+    <div
+      className="table-surround"
+    >
+      <table>
+        <tbody>
+          <tr>
+            <td
+              className=" header-cell  tableCell"
             >
-              <input
-                className="row-0 col-0"
-                onChange={[Function]}
-                placeholder=""
-                type="text"
-                value=""
-              />
               <div
-                className="checkbox-hidden checkbox"
-                onClick={[Function]}
+                className="cell"
+                column={0}
+                onKeyDown={[Function]}
+                row={0}
               >
                 <input
-                  checked={false}
+                  className="row-0 col-0"
                   onChange={[Function]}
-                  onKeyDown={[Function]}
-                  type="checkbox"
+                  placeholder=""
+                  type="text"
+                  value=""
                 />
-                Hide
+                <div
+                  className="checkbox-hidden checkbox"
+                  onClick={[Function]}
+                >
+                  <input
+                    checked={false}
+                    onChange={[Function]}
+                    onKeyDown={[Function]}
+                    type="checkbox"
+                  />
+                  Hide
+                </div>
               </div>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <button
       hidden={true}
     />
@@ -226,9 +230,7 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
             />
           </g>
         </svg>
-        <div
-          className="button-name-hidden"
-        >
+        <div>
           Col
         </div>
       </button>
@@ -251,9 +253,7 @@ exports[`CreatorTable component CreatorTable renders 1x1 table, left aligned, he
             />
           </g>
         </svg>
-        <div
-          className="button-name-hidden"
-        >
+        <div>
           Col
         </div>
       </button>
@@ -323,72 +323,76 @@ exports[`CreatorTable component CreatorTable renders 2x2 table, center aligned, 
   <div
     className="table-elements"
   >
-    <table>
-      <tbody>
-        <tr>
-          <td
-            className="center-align   tableCell"
-          >
-            <div
-              className="cell"
-              column={0}
-              onKeyDown={[Function]}
-              row={0}
+    <div
+      className="table-surround"
+    >
+      <table>
+        <tbody>
+          <tr>
+            <td
+              className="center-align   tableCell"
             >
-              <input
-                className="row-0 col-0"
-                onChange={[Function]}
-                placeholder=""
-                type="text"
-                value=""
-              />
               <div
-                className="checkbox-hidden checkbox"
-                onClick={[Function]}
+                className="cell"
+                column={0}
+                onKeyDown={[Function]}
+                row={0}
               >
                 <input
-                  checked={false}
+                  className="row-0 col-0"
                   onChange={[Function]}
-                  onKeyDown={[Function]}
-                  type="checkbox"
+                  placeholder=""
+                  type="text"
+                  value=""
                 />
-                Hide
+                <div
+                  className="checkbox-hidden checkbox"
+                  onClick={[Function]}
+                >
+                  <input
+                    checked={false}
+                    onChange={[Function]}
+                    onKeyDown={[Function]}
+                    type="checkbox"
+                  />
+                  Hide
+                </div>
               </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td
-            className="center-align   tableCell"
-          >
-            <div
-              className="cell"
-              column={0}
-              onKeyDown={[Function]}
-              row={1}
+            </td>
+          </tr>
+          <tr>
+            <td
+              className="center-align   tableCell"
             >
-              <input
-                className="row-1 col-0"
-                onChange={[Function]}
-                placeholder=""
-                type="text"
-              />
               <div
-                className="checkbox-hidden checkbox"
-                onClick={[Function]}
+                className="cell"
+                column={0}
+                onKeyDown={[Function]}
+                row={1}
               >
                 <input
+                  className="row-1 col-0"
                   onChange={[Function]}
-                  onKeyDown={[Function]}
-                  type="checkbox"
+                  placeholder=""
+                  type="text"
                 />
-                Hide
+                <div
+                  className="checkbox-hidden checkbox"
+                  onClick={[Function]}
+                >
+                  <input
+                    onChange={[Function]}
+                    onKeyDown={[Function]}
+                    type="checkbox"
+                  />
+                  Hide
+                </div>
               </div>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <button
       hidden={true}
     />
@@ -414,9 +418,7 @@ exports[`CreatorTable component CreatorTable renders 2x2 table, center aligned, 
             />
           </g>
         </svg>
-        <div
-          className=""
-        >
+        <div>
           Col
         </div>
       </button>
@@ -439,9 +441,7 @@ exports[`CreatorTable component CreatorTable renders 2x2 table, center aligned, 
             />
           </g>
         </svg>
-        <div
-          className=""
-        >
+        <div>
           Col
         </div>
       </button>
