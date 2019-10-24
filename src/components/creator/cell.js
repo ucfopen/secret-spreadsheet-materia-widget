@@ -19,12 +19,18 @@ export default class Cell extends React.Component {
 	}
 
 	generateColumnLabel(num) {
-		let cellName = '';
+		if (typeof num !== `number`) {
+			console.error(`Error in generateColumnLabel: did not recieve a number`);
+			return NaN;
+		}
+
+		let cellName = ``;
 		let remainder = [];
-		if (num == 0) {
+		if (num <= 0) {
 			remainder.push(0);
-		} else {
-			while (num != 0) {
+		}
+		else {
+			while (num > 0) {
 				remainder.push(num % 26);
 				num = Math.floor(num / 26) ;
 			}
