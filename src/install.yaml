@@ -18,7 +18,8 @@ files:
   creator_guide: guides/creator.html
 score:
   is_scorable: Yes
-  score_module: SpreadsheetWidget
+  score_module: SecretSpreadsheet
+  score_screen: scoreScreen.html
 meta_data:
   features:
     - Customizable

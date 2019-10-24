@@ -299,6 +299,29 @@ describe(`PlayerTable component`, () => {
 		tempComponent.unmount();
 	});
 
+	test(`saveAnswer with non string value`, () => {
+		const props = makeProps(false, false, false);
+
+		const event = {
+			target: {
+				value: 1,
+				id: `1`
+			}
+		};
+
+		const tempComponent = mount(<PlayerTable {... props} />);
+		tempComponent.instance().saveAnswer(event);
+
+		const propsWithAnswer = props.parentAnswers;
+		propsWithAnswer[event.target.id] = event.target.value.toString();
+
+		expect(tempComponent.prop(`handleNewAnswer`)).toHaveBeenCalledTimes(1);
+		expect(tempComponent.prop(`handleNewAnswer`)).toHaveBeenCalledWith(propsWithAnswer, true, false);
+
+		// cleanup
+		tempComponent.unmount();
+	});
+
 	test(`convertNumberToLetters number less than 0`, () => {
 		const props = makeProps(false, false, true);
 

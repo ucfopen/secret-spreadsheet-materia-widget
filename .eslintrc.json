@@ -15,7 +15,8 @@
 		"global": "readonly",
 		"describe": "readonly",
 		"global": "readonly",
-		"beforeEach": "readonly"
+		"beforeEach": "readonly",
+		"instance": "readonly"
 	},
 	"parserOptions": {
 		"ecmaFeatures": {
@@ -55,7 +56,8 @@
 		"no-unused-vars": [
 			"error",
 			{
-				"varsIgnorePattern": "React|Cell|Popup|Title|Options|Table|Question|Instruction|PlayerTable|PlayerApp|CreatorApp"
+				"varsIgnorePattern": "React|Cell|Popup|Title|Options|Table|Question|Instruction|PlayerTable|PlayerApp|CreatorApp|ScoreScreenApp",
+				"args": "none"
 			}
 		],
 		"brace-style": [
