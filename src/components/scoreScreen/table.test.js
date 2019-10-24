@@ -342,9 +342,24 @@ describe(`ScoreTable`, () => {
 		const result = component.instance().convertNumberToLetters(1000000000);
 
 		expect(typeof result).toBe(`string`);
-		expect(result).toBe(`MYTHEGD`);
+		expect(result).toBe(`CGEHTYM`);
 
 		// cleanup
+		component.unmount();
+	});
+
+	test(`convertNumberToLetters gets an average number`, () => {
+		const newProps = customProps({
+			spreadsheet: {value: true}
+		});
+
+		const component = shallow(<ScoreTable {... newProps} />);
+		const result = component.instance().convertNumberToLetters(40);
+
+		expect(typeof result).toBe(`string`);
+		expect(result).toEqual(`AO`);
+
+		//cleanup
 		component.unmount();
 	});
 
