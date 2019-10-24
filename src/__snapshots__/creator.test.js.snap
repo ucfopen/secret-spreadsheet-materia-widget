@@ -13,7 +13,7 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
     <span
       className="title-text"
     >
-      New Spreadsheet Widget
+      New Secret Spreadsheet
     </span>
     <button
       className="edit-title-button"
