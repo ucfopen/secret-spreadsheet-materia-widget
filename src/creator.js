@@ -67,25 +67,36 @@ export default class CreatorApp extends React.Component {
 
 	// Callback when widget save is clicked
 	onSaveClicked() {
+		if (this.state.title == ``) {
+			Materia.CreatorCore.cancelSave(`This widget has no title!`);
+			return;
+		}
+
 		let minimumOneCellHidden = false;
+
 		if (this.state.qset.randomization > 0) {
 			minimumOneCellHidden = true;
 		}
-		else {
-			for (let i = 0; i < this.state.qset.dimensions.rows; i++) {
-				for (let j = 0; j < this.state.qset.dimensions.columns; j++) {
-					if (this.state.qset.items[0].items[i][j].options.blank) {
-						minimumOneCellHidden = true;
-					}
+
+		for (let i = 0; i < this.state.qset.dimensions.rows; i++) {
+			for (let j = 0; j < this.state.qset.dimensions.columns; j++) {
+				const options = this.state.qset.items[0].items[i][j].options;
+
+				if (options.position === undefined) {
+					options.position = {};
+				}
+
+				options.position.row = i;
+				options.position.column = j;
+
+				if (options.blank) {
+					minimumOneCellHidden = true;
 				}
 			}
 		}
 
 		if (!minimumOneCellHidden) {
 			Materia.CreatorCore.cancelSave(`At least one cell must be hidden!`);
-		}
-		else if (this.state.title == ``) {
-			Materia.CreatorCore.cancelSave(`This widget has no title!`);
 		}
 		else {
 			Materia.CreatorCore.save(this.state.title, this.state.qset, 1);
@@ -139,15 +150,25 @@ export default class CreatorApp extends React.Component {
 
 	// constructs an object containing cell data
 	cellData(value, check) {
+		let input = value;
+
+		if (typeof input !== `string`) {
+			input = input.toString();
+		}
+
 		return {
 			'materiaType': `question`,
 			'id': null,
 			'type': `QA`,
 			'options': {
 				'blank': check,
+				'position': {
+					'row': null,
+					'column': null
+				}
 			},
 			'questions': [{
-				'text': value,
+				'text': input,
 			}],
 			'answers': [{
 				'id': null,
@@ -475,7 +496,7 @@ export default class CreatorApp extends React.Component {
 }
 
 CreatorApp.defaultProps = {
-	title: `New Spreadsheet Widget`,
+	title: `New Secret Spreadsheet`,
 	qset: {
 		'left': false,
 		'header': false,
@@ -490,7 +511,7 @@ CreatorApp.defaultProps = {
 
 // Callback when a new widget is being created
 materiaCallbacks.initNewWidget = (instance) => {
-	materiaCallbacks.initExistingWidget(`New Spreadsheet Widget`, instance, undefined, 1, true);
+	materiaCallbacks.initExistingWidget(`New Secret Spreadsheet`, instance, undefined, 1, true);
 	// return value for testing
 };
 
