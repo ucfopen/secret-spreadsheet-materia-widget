@@ -236,7 +236,7 @@ describe(`CreatorCell component`, function() {
 	});
 
 	test(`generateColumnLabel doesn't get a number`, () => {
-		const props = makeProps(false, false, true);
+		const props = makeProps();
 		const realError = console.error;
 		console.error = jest.fn();
 
