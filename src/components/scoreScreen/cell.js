@@ -4,6 +4,7 @@ const Cell = props => {
 	if (props.answerable) {
 		const leftAlign = props.leftAlign ? ` leftAlign`:``;
 		let correct;
+		let different = false;
 
 		if (props.correct || props.checked) {
 			correct = `right`;
@@ -12,8 +13,12 @@ const Cell = props => {
 			correct = `wrong`;
 		}
 
+		if (props.correct && !props.checked) {
+			different = true;
+		}
+
 		return(
-			<td id={props.id} className={`${correct}${leftAlign}`}>
+			<td id={props.id} className={`${correct}${leftAlign}${different ? ` different`:``}`}>
 				<p>{props.checked ? props.displayText:props.answer}</p>
 			</td>
 		);
