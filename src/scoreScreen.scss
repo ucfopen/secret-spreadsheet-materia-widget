@@ -93,11 +93,15 @@ td, th {
 	word-break: break-all;
 
 	&.right {
-		border: 2px solid #00cc00;
+		border: 2px solid #009900;
 	}
 
 	&.wrong {
 		border: 2px solid #ff6666;
+	}
+
+	&.different {
+		border: 2px solid #00e600;
 	}
 }
 
@@ -111,7 +115,11 @@ input {
 }
 
 .right {
-	background-color: #ccffcc;
+	background-color: #99ff99;
+}
+
+.different {
+	background-color: #e6ffe6;
 }
 
 .wrong {
