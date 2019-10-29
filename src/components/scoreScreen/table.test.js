@@ -398,4 +398,49 @@ describe(`ScoreTable`, () => {
 		component.unmount();
 		console.error = realError;
 	});
+
+	test(`Toggle show answer checkbox with click`, () => {
+		const newProps = customProps({
+			spreadsheet: {value: true}
+		});
+
+		const component = shallow(<ScoreTable {... newProps} />);
+
+		expect(component.instance().state.checked).toBeFalsy();
+		component.find(`.show-answer-checkbox`).simulate(`Click`);
+		expect(component.instance().state.checked).toBeTruthy();
+
+		//cleanup
+		component.unmount();
+	});
+
+	test(`Toggle show answer checkbox with Enter`, () => {
+		const newProps = customProps({
+			spreadsheet: {value: true}
+		});
+
+		const component = shallow(<ScoreTable {... newProps} />);
+
+		expect(component.instance().state.checked).toBeFalsy();
+		component.find(`.show-answer-checkbox`).simulate(`keyDown`, {key: `Enter`});
+		expect(component.instance().state.checked).toBeTruthy();
+
+		//cleanup
+		component.unmount();
+	});
+
+	test(`Can not toggle show answer checkbox with key other than Enter`, () => {
+		const newProps = customProps({
+			spreadsheet: {value: true}
+		});
+
+		const component = shallow(<ScoreTable {... newProps} />);
+
+		expect(component.instance().state.checked).toBeFalsy();
+		component.find(`.show-answer-checkbox`).simulate(`keyDown`, {key: `a`});
+		expect(component.instance().state.checked).toBeFalsy();
+
+		//cleanup
+		component.unmount();
+	});
 });

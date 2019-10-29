@@ -5,14 +5,31 @@ exports[`ScoreTable Rendered with header, no spreadsheet, centered 1`] = `
   <h3>
     Answers
   </h3>
-  <label>
-    Show correct answers
-    <input
-      checked={false}
-      onChange={[Function]}
-      type="checkbox"
-    />
-  </label>
+  <div
+    id="show-answer-toggle"
+  >
+    <label
+      htmlFor="show-answer-toggle"
+    >
+      Show correct answers 
+    </label>
+    <div
+      className="show-answer-checkbox"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      tabIndex={0}
+    >
+      <svg
+        height="22px"
+        viewBox="0 0 28 28"
+        width="22px"
+      >
+        <path
+          d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+        />
+      </svg>
+    </div>
+  </div>
   <div
     className="table-surround"
   >
@@ -68,14 +85,31 @@ exports[`ScoreTable Rendered with header, no spreadsheet, left aligned 1`] = `
   <h3>
     Answers
   </h3>
-  <label>
-    Show correct answers
-    <input
-      checked={false}
-      onChange={[Function]}
-      type="checkbox"
-    />
-  </label>
+  <div
+    id="show-answer-toggle"
+  >
+    <label
+      htmlFor="show-answer-toggle"
+    >
+      Show correct answers 
+    </label>
+    <div
+      className="show-answer-checkbox"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      tabIndex={0}
+    >
+      <svg
+        height="22px"
+        viewBox="0 0 28 28"
+        width="22px"
+      >
+        <path
+          d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+        />
+      </svg>
+    </div>
+  </div>
   <div
     className="table-surround"
   >
@@ -131,14 +165,31 @@ exports[`ScoreTable Rendered with header, spreadsheet, centered 1`] = `
   <h3>
     Answers
   </h3>
-  <label>
-    Show correct answers
-    <input
-      checked={false}
-      onChange={[Function]}
-      type="checkbox"
-    />
-  </label>
+  <div
+    id="show-answer-toggle"
+  >
+    <label
+      htmlFor="show-answer-toggle"
+    >
+      Show correct answers 
+    </label>
+    <div
+      className="show-answer-checkbox"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      tabIndex={0}
+    >
+      <svg
+        height="22px"
+        viewBox="0 0 28 28"
+        width="22px"
+      >
+        <path
+          d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+        />
+      </svg>
+    </div>
+  </div>
   <div
     className="table-surround"
   >
@@ -226,14 +277,31 @@ exports[`ScoreTable Rendered with header, spreadsheet, left aligned 1`] = `
   <h3>
     Answers
   </h3>
-  <label>
-    Show correct answers
-    <input
-      checked={false}
-      onChange={[Function]}
-      type="checkbox"
-    />
-  </label>
+  <div
+    id="show-answer-toggle"
+  >
+    <label
+      htmlFor="show-answer-toggle"
+    >
+      Show correct answers 
+    </label>
+    <div
+      className="show-answer-checkbox"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      tabIndex={0}
+    >
+      <svg
+        height="22px"
+        viewBox="0 0 28 28"
+        width="22px"
+      >
+        <path
+          d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+        />
+      </svg>
+    </div>
+  </div>
   <div
     className="table-surround"
   >
@@ -321,14 +389,31 @@ exports[`ScoreTable Rendered with no header, no spreadsheet, centered 1`] = `
   <h3>
     Answers
   </h3>
-  <label>
-    Show correct answers
-    <input
-      checked={false}
-      onChange={[Function]}
-      type="checkbox"
-    />
-  </label>
+  <div
+    id="show-answer-toggle"
+  >
+    <label
+      htmlFor="show-answer-toggle"
+    >
+      Show correct answers 
+    </label>
+    <div
+      className="show-answer-checkbox"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      tabIndex={0}
+    >
+      <svg
+        height="22px"
+        viewBox="0 0 28 28"
+        width="22px"
+      >
+        <path
+          d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+        />
+      </svg>
+    </div>
+  </div>
   <div
     className="table-surround"
   >
@@ -383,14 +468,31 @@ exports[`ScoreTable Rendered with no header, no spreadsheet, left aligned 1`] = 
   <h3>
     Answers
   </h3>
-  <label>
-    Show correct answers
-    <input
-      checked={false}
-      onChange={[Function]}
-      type="checkbox"
-    />
-  </label>
+  <div
+    id="show-answer-toggle"
+  >
+    <label
+      htmlFor="show-answer-toggle"
+    >
+      Show correct answers 
+    </label>
+    <div
+      className="show-answer-checkbox"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      tabIndex={0}
+    >
+      <svg
+        height="22px"
+        viewBox="0 0 28 28"
+        width="22px"
+      >
+        <path
+          d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+        />
+      </svg>
+    </div>
+  </div>
   <div
     className="table-surround"
   >
@@ -445,14 +547,31 @@ exports[`ScoreTable Rendered with no header, spreadsheet, centered 1`] = `
   <h3>
     Answers
   </h3>
-  <label>
-    Show correct answers
-    <input
-      checked={false}
-      onChange={[Function]}
-      type="checkbox"
-    />
-  </label>
+  <div
+    id="show-answer-toggle"
+  >
+    <label
+      htmlFor="show-answer-toggle"
+    >
+      Show correct answers 
+    </label>
+    <div
+      className="show-answer-checkbox"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      tabIndex={0}
+    >
+      <svg
+        height="22px"
+        viewBox="0 0 28 28"
+        width="22px"
+      >
+        <path
+          d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+        />
+      </svg>
+    </div>
+  </div>
   <div
     className="table-surround"
   >
@@ -541,14 +660,31 @@ exports[`ScoreTable Rendered with no header, spreadsheet, left aligned 1`] = `
   <h3>
     Answers
   </h3>
-  <label>
-    Show correct answers
-    <input
-      checked={false}
-      onChange={[Function]}
-      type="checkbox"
-    />
-  </label>
+  <div
+    id="show-answer-toggle"
+  >
+    <label
+      htmlFor="show-answer-toggle"
+    >
+      Show correct answers 
+    </label>
+    <div
+      className="show-answer-checkbox"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      tabIndex={0}
+    >
+      <svg
+        height="22px"
+        viewBox="0 0 28 28"
+        width="22px"
+      >
+        <path
+          d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+        />
+      </svg>
+    </div>
+  </div>
   <div
     className="table-surround"
   >
