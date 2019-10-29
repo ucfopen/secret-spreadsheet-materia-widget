@@ -24,7 +24,7 @@ exports[`Cell Is rendered answerable centered checked with wrong response 1`] = 
 
 exports[`Cell Is rendered answerable centered unchecked with correct response 1`] = `
 <td
-  className="right"
+  className="right different"
   id={1}
 >
   <p>
@@ -68,7 +68,7 @@ exports[`Cell Is rendered answerable left aligned checked with wrong response 1`
 
 exports[`Cell Is rendered answerable left aligned unchecked with correct response 1`] = `
 <td
-  className="right leftAlign"
+  className="right leftAlign different"
   id={1}
 >
   <p>

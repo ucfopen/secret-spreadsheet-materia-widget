@@ -560,7 +560,7 @@ exports[`ScoreScreen Render with question and description 1`] = `
                 Show 1
               </td>
               <td
-                className="right"
+                className="right different"
                 id="cell1"
               >
                 <p>
@@ -629,7 +629,7 @@ exports[`ScoreScreen Render without description 1`] = `
                 Show 1
               </td>
               <td
-                className="right"
+                className="right different"
                 id="cell1"
               >
                 <p>
@@ -693,7 +693,7 @@ exports[`ScoreScreen Render without question or description 1`] = `
                 Show 1
               </td>
               <td
-                className="right"
+                className="right different"
                 id="cell1"
               >
                 <p>
