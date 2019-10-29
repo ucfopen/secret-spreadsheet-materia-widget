@@ -345,7 +345,7 @@ exports[`ScoreTable Rendered with no header, no spreadsheet, centered 1`] = `
               Show 1
             </td>
             <td
-              className="right"
+              className="right different"
               id="cell1"
             >
               <p>
@@ -407,7 +407,7 @@ exports[`ScoreTable Rendered with no header, no spreadsheet, left aligned 1`] = 
               Show 1
             </td>
             <td
-              className="right leftAlign"
+              className="right leftAlign different"
               id="cell1"
             >
               <p>
@@ -497,7 +497,7 @@ exports[`ScoreTable Rendered with no header, spreadsheet, centered 1`] = `
               Show 1
             </td>
             <td
-              className="right"
+              className="right different"
               id="cell1"
             >
               <p>
@@ -593,7 +593,7 @@ exports[`ScoreTable Rendered with no header, spreadsheet, left aligned 1`] = `
               Show 1
             </td>
             <td
-              className="right leftAlign"
+              className="right leftAlign different"
               id="cell1"
             >
               <p>
