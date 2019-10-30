@@ -16,6 +16,9 @@ const Instruction = props => {
 						props.focusOnInstruction(props.instructionRef.current);
 					}
 				}}
+				role="button"
+				aria-label="Close instruction window."
+				aria-checked={props.showInstruction}
 			>
 				x
 			</span>
