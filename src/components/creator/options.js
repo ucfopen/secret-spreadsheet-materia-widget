@@ -34,7 +34,7 @@ export default class Options extends React.Component {
 					<h2 className="options">OPTIONS</h2>
 
 					<div className="style">
-						<label id="style-label" className="options-text">Style:</label>
+						<p className="options-text">Style:</p>
 						<div
 							id="spreadsheet"
 							tabIndex={0}
@@ -46,7 +46,7 @@ export default class Options extends React.Component {
 							onClick={this.props.useSpreadsheet}
 							className={`${this.props.qset.spreadsheet ? `active ` : ``}hoverable`}
 							role="checkbox"
-							aria-labelledby="style-label"
+							aria-labelledby="spreadsheet-label"
 							aria-checked={this.props.qset.spreadsheet}
 						>
 							{!this.props.qset.spreadsheet ?
@@ -54,7 +54,7 @@ export default class Options extends React.Component {
 								:
 								<svg viewBox="0 0 28 28" width="20px" height="20px"> <path d="M0 0v28h28V0H0zm24 24H4V4h20v20zm-2-13l-2.828-2.828-6.768 6.982-3.576-3.576L6 14.406l6.404 6.406L22 11z"></path> </svg>
 							}
-							<label htmlFor="spreadsheet">Spreadsheet</label>
+							<label id="spreadsheet-label">Spreadsheet</label>
 						</div>
 						<div
 							id="table"
@@ -67,7 +67,7 @@ export default class Options extends React.Component {
 							onClick={this.props.useTable}
 							className={`${!this.props.qset.spreadsheet ? `active` : `inactive`} hoverable`}
 							role="checkbox"
-							aria-labelledby="style-label"
+							aria-labelledby="table-label"
 							aria-checked={this.props.qset.spreadsheet}
 						>
 							{this.props.qset.spreadsheet ?
@@ -75,12 +75,12 @@ export default class Options extends React.Component {
 								:
 								<svg viewBox="0 0 28 28" width="20px" height="20px"> <path d="M0 0v28h28V0H0zm24 24H4V4h20v20zm-2-13l-2.828-2.828-6.768 6.982-3.576-3.576L6 14.406l6.404 6.406L22 11z"></path> </svg>
 							}
-							<label htmlFor="table">Table</label>
+							<label id="table-label">Table</label>
 						</div>
 					</div>
 
 					<div className="text">
-						<label id="text-label" className="options-text">Text:</label>
+						<label className="options-text">Text:</label>
 						<div
 							id="left"
 							tabIndex={0}
@@ -92,7 +92,7 @@ export default class Options extends React.Component {
 							onClick={this.props.useLeftAlign}
 							className={`${this.props.qset.left ? `active` : ``} hoverable`}
 							role="checkbox"
-							aria-labelledby="text-label"
+							aria-label="Use left alignment."
 							aria-checked={this.props.qset.left}
 						>
 							<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="20px" height="20px" viewBox="0 0 344 344" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0,344) scale(0.1,-0.1)" fill="#000000" stroke="none"> <path d="M130 3095 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"/> <path d="M130 2410 l0 -140 1105 0 1105 0 0 140 0 140 -1105 0 -1105 0 0 -140z"/> <path d="M130 1720 l0 -140 1590 0 1590 0 0 140 0 140 -1590 0 -1590 0 0 -140z"/> <path d="M130 1030 l0 -140 1105 0 1105 0 0 140 0 140 -1105 0 -1105 0 0 -140z"/> <path d="M130 345 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"/> </g> </svg>
@@ -108,7 +108,7 @@ export default class Options extends React.Component {
 							onClick={this.props.useCenterAlign}
 							className={`${!this.props.qset.left ? `active` : ``} hoverable`}
 							role="checkbox"
-							aria-labelledby="text-label"
+							aria-label="Use center alignment."
 							aria-checked={!this.props.qset.left}
 						>
 							<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="20px" height="20px" viewBox="0 0 344 344" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0,344) scale(0.1,-0.1)" fill="#000000" stroke="none"> <path d="M130 3095 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"/> <path d="M610 2410 l0 -140 1110 0 1110 0 0 140 0 140 -1110 0 -1110 0 0 -140z"/> <path d="M130 1720 l0 -140 1590 0 1590 0 0 140 0 140 -1590 0 -1590 0 0 -140z"/> <path d="M610 1030 l0 -140 1110 0 1110 0 0 140 0 140 -1110 0 -1110 0 0 -140z"/> <path d="M130 345 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"/> </g> </svg>

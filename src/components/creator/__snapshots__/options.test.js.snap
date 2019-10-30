@@ -15,15 +15,14 @@ exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] =
     <div
       className="style"
     >
-      <label
+      <p
         className="options-text"
-        id="style-label"
       >
         Style:
-      </label>
+      </p>
       <div
         aria-checked={true}
-        aria-labelledby="style-label"
+        aria-labelledby="spreadsheet-label"
         className="active hoverable"
         id="spreadsheet"
         onClick={[MockFunction]}
@@ -43,14 +42,14 @@ exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] =
            
         </svg>
         <label
-          htmlFor="spreadsheet"
+          id="spreadsheet-label"
         >
           Spreadsheet
         </label>
       </div>
       <div
         aria-checked={true}
-        aria-labelledby="style-label"
+        aria-labelledby="table-label"
         className="inactive hoverable"
         id="table"
         onClick={[MockFunction]}
@@ -70,7 +69,7 @@ exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] =
            
         </svg>
         <label
-          htmlFor="table"
+          id="table-label"
         >
           Table
         </label>
@@ -81,13 +80,12 @@ exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] =
     >
       <label
         className="options-text"
-        id="text-label"
       >
         Text:
       </label>
       <div
         aria-checked={true}
-        aria-labelledby="text-label"
+        aria-label="Use left alignment."
         className="active hoverable"
         id="left"
         onClick={[MockFunction]}
@@ -136,7 +134,7 @@ exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] =
       </div>
       <div
         aria-checked={false}
-        aria-labelledby="text-label"
+        aria-label="Use center alignment."
         className=" hoverable"
         id="center"
         onClick={[MockFunction]}
