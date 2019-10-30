@@ -5,18 +5,17 @@ exports[`ScoreTable Rendered with header, no spreadsheet, centered 1`] = `
   <h3>
     Answers
   </h3>
-  <div
-    id="show-answer-toggle"
+  <label
+    id="check-label"
   >
-    <label
-      htmlFor="show-answer-toggle"
-    >
-      Show correct answers 
-    </label>
+    Show correct answers
     <div
+      aria-checked="false"
+      aria-labelledby="check-label"
       className="show-answer-checkbox"
       onClick={[Function]}
       onKeyDown={[Function]}
+      role="checkbox"
       tabIndex={0}
     >
       <svg
@@ -29,7 +28,7 @@ exports[`ScoreTable Rendered with header, no spreadsheet, centered 1`] = `
         />
       </svg>
     </div>
-  </div>
+  </label>
   <div
     className="table-surround"
   >
@@ -85,18 +84,17 @@ exports[`ScoreTable Rendered with header, no spreadsheet, left aligned 1`] = `
   <h3>
     Answers
   </h3>
-  <div
-    id="show-answer-toggle"
+  <label
+    id="check-label"
   >
-    <label
-      htmlFor="show-answer-toggle"
-    >
-      Show correct answers 
-    </label>
+    Show correct answers
     <div
+      aria-checked="false"
+      aria-labelledby="check-label"
       className="show-answer-checkbox"
       onClick={[Function]}
       onKeyDown={[Function]}
+      role="checkbox"
       tabIndex={0}
     >
       <svg
@@ -109,7 +107,7 @@ exports[`ScoreTable Rendered with header, no spreadsheet, left aligned 1`] = `
         />
       </svg>
     </div>
-  </div>
+  </label>
   <div
     className="table-surround"
   >
@@ -165,18 +163,17 @@ exports[`ScoreTable Rendered with header, spreadsheet, centered 1`] = `
   <h3>
     Answers
   </h3>
-  <div
-    id="show-answer-toggle"
+  <label
+    id="check-label"
   >
-    <label
-      htmlFor="show-answer-toggle"
-    >
-      Show correct answers 
-    </label>
+    Show correct answers
     <div
+      aria-checked="false"
+      aria-labelledby="check-label"
       className="show-answer-checkbox"
       onClick={[Function]}
       onKeyDown={[Function]}
+      role="checkbox"
       tabIndex={0}
     >
       <svg
@@ -189,7 +186,7 @@ exports[`ScoreTable Rendered with header, spreadsheet, centered 1`] = `
         />
       </svg>
     </div>
-  </div>
+  </label>
   <div
     className="table-surround"
   >
@@ -277,18 +274,17 @@ exports[`ScoreTable Rendered with header, spreadsheet, left aligned 1`] = `
   <h3>
     Answers
   </h3>
-  <div
-    id="show-answer-toggle"
+  <label
+    id="check-label"
   >
-    <label
-      htmlFor="show-answer-toggle"
-    >
-      Show correct answers 
-    </label>
+    Show correct answers
     <div
+      aria-checked="false"
+      aria-labelledby="check-label"
       className="show-answer-checkbox"
       onClick={[Function]}
       onKeyDown={[Function]}
+      role="checkbox"
       tabIndex={0}
     >
       <svg
@@ -301,7 +297,7 @@ exports[`ScoreTable Rendered with header, spreadsheet, left aligned 1`] = `
         />
       </svg>
     </div>
-  </div>
+  </label>
   <div
     className="table-surround"
   >
@@ -389,18 +385,17 @@ exports[`ScoreTable Rendered with no header, no spreadsheet, centered 1`] = `
   <h3>
     Answers
   </h3>
-  <div
-    id="show-answer-toggle"
+  <label
+    id="check-label"
   >
-    <label
-      htmlFor="show-answer-toggle"
-    >
-      Show correct answers 
-    </label>
+    Show correct answers
     <div
+      aria-checked="false"
+      aria-labelledby="check-label"
       className="show-answer-checkbox"
       onClick={[Function]}
       onKeyDown={[Function]}
+      role="checkbox"
       tabIndex={0}
     >
       <svg
@@ -413,7 +408,7 @@ exports[`ScoreTable Rendered with no header, no spreadsheet, centered 1`] = `
         />
       </svg>
     </div>
-  </div>
+  </label>
   <div
     className="table-surround"
   >
@@ -468,18 +463,17 @@ exports[`ScoreTable Rendered with no header, no spreadsheet, left aligned 1`] = 
   <h3>
     Answers
   </h3>
-  <div
-    id="show-answer-toggle"
+  <label
+    id="check-label"
   >
-    <label
-      htmlFor="show-answer-toggle"
-    >
-      Show correct answers 
-    </label>
+    Show correct answers
     <div
+      aria-checked="false"
+      aria-labelledby="check-label"
       className="show-answer-checkbox"
       onClick={[Function]}
       onKeyDown={[Function]}
+      role="checkbox"
       tabIndex={0}
     >
       <svg
@@ -492,7 +486,7 @@ exports[`ScoreTable Rendered with no header, no spreadsheet, left aligned 1`] = 
         />
       </svg>
     </div>
-  </div>
+  </label>
   <div
     className="table-surround"
   >
@@ -547,18 +541,17 @@ exports[`ScoreTable Rendered with no header, spreadsheet, centered 1`] = `
   <h3>
     Answers
   </h3>
-  <div
-    id="show-answer-toggle"
+  <label
+    id="check-label"
   >
-    <label
-      htmlFor="show-answer-toggle"
-    >
-      Show correct answers 
-    </label>
+    Show correct answers
     <div
+      aria-checked="false"
+      aria-labelledby="check-label"
       className="show-answer-checkbox"
       onClick={[Function]}
       onKeyDown={[Function]}
+      role="checkbox"
       tabIndex={0}
     >
       <svg
@@ -571,7 +564,7 @@ exports[`ScoreTable Rendered with no header, spreadsheet, centered 1`] = `
         />
       </svg>
     </div>
-  </div>
+  </label>
   <div
     className="table-surround"
   >
@@ -660,18 +653,17 @@ exports[`ScoreTable Rendered with no header, spreadsheet, left aligned 1`] = `
   <h3>
     Answers
   </h3>
-  <div
-    id="show-answer-toggle"
+  <label
+    id="check-label"
   >
-    <label
-      htmlFor="show-answer-toggle"
-    >
-      Show correct answers 
-    </label>
+    Show correct answers
     <div
+      aria-checked="false"
+      aria-labelledby="check-label"
       className="show-answer-checkbox"
       onClick={[Function]}
       onKeyDown={[Function]}
+      role="checkbox"
       tabIndex={0}
     >
       <svg
@@ -684,7 +676,7 @@ exports[`ScoreTable Rendered with no header, spreadsheet, left aligned 1`] = `
         />
       </svg>
     </div>
-  </div>
+  </label>
   <div
     className="table-surround"
   >

@@ -536,18 +536,17 @@ exports[`ScoreScreen Render with question and description 1`] = `
     <h3>
       Answers
     </h3>
-    <div
-      id="show-answer-toggle"
+    <label
+      id="check-label"
     >
-      <label
-        htmlFor="show-answer-toggle"
-      >
-        Show correct answers 
-      </label>
+      Show correct answers
       <div
+        aria-checked="false"
+        aria-labelledby="check-label"
         className="show-answer-checkbox"
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="checkbox"
         tabIndex={0}
       >
         <svg
@@ -560,7 +559,7 @@ exports[`ScoreScreen Render with question and description 1`] = `
           />
         </svg>
       </div>
-    </div>
+    </label>
     <div
       className="table-surround"
     >
@@ -622,18 +621,17 @@ exports[`ScoreScreen Render without description 1`] = `
     <h3>
       Answers
     </h3>
-    <div
-      id="show-answer-toggle"
+    <label
+      id="check-label"
     >
-      <label
-        htmlFor="show-answer-toggle"
-      >
-        Show correct answers 
-      </label>
+      Show correct answers
       <div
+        aria-checked="false"
+        aria-labelledby="check-label"
         className="show-answer-checkbox"
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="checkbox"
         tabIndex={0}
       >
         <svg
@@ -646,7 +644,7 @@ exports[`ScoreScreen Render without description 1`] = `
           />
         </svg>
       </div>
-    </div>
+    </label>
     <div
       className="table-surround"
     >
@@ -703,18 +701,17 @@ exports[`ScoreScreen Render without question or description 1`] = `
     <h3>
       Answers
     </h3>
-    <div
-      id="show-answer-toggle"
+    <label
+      id="check-label"
     >
-      <label
-        htmlFor="show-answer-toggle"
-      >
-        Show correct answers 
-      </label>
+      Show correct answers
       <div
+        aria-checked="false"
+        aria-labelledby="check-label"
         className="show-answer-checkbox"
         onClick={[Function]}
         onKeyDown={[Function]}
+        role="checkbox"
         tabIndex={0}
       >
         <svg
@@ -727,7 +724,7 @@ exports[`ScoreScreen Render without question or description 1`] = `
           />
         </svg>
       </div>
-    </div>
+    </label>
     <div
       className="table-surround"
     >
