@@ -47,14 +47,20 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
       <div
         className="style"
       >
-        <h3>
+        <label
+          className="options-text"
+          id="style-label"
+        >
           Style:
-        </h3>
+        </label>
         <div
+          aria-checked={true}
+          aria-labelledby="style-label"
           className="active hoverable"
           id="spreadsheet"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -75,10 +81,13 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
           </label>
         </div>
         <div
+          aria-checked={true}
+          aria-labelledby="style-label"
           className="inactive hoverable"
           id="table"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -102,14 +111,20 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
       <div
         className="text"
       >
-        <h3>
+        <label
+          className="options-text"
+          id="text-label"
+        >
           Text:
-        </h3>
+        </label>
         <div
+          aria-checked={false}
+          aria-labelledby="text-label"
           className=" hoverable"
           id="left"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -152,10 +167,13 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
           </svg>
         </div>
         <div
+          aria-checked={true}
+          aria-labelledby="text-label"
           className="active hoverable"
           id="center"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -201,14 +219,20 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
       <div
         className="header"
       >
-        <h3>
+        <label
+          className="options-text"
+          id="header-label"
+        >
           Header:
-        </h3>
+        </label>
         <div
+          aria-checked={false}
+          aria-labelledby="header-label"
           className=" hoverable"
           id="header"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -233,14 +257,20 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
       <div
         className="question"
       >
-        <h3>
+        <label
+          className="options-text"
+          id="question-label"
+        >
           Question Text:
-        </h3>
+        </label>
         <div
+          aria-checked={false}
+          aria-labelledby="question-label"
           className=" hoverable"
           id="question"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -264,14 +294,20 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
       <div
         className="instructions"
       >
-        <h3>
+        <label
+          className="options-text"
+          id="instructions-label"
+        >
           Instructions:
-        </h3>
+        </label>
         <div
+          aria-checked={true}
+          aria-labelledby="instructions-label"
           className="active hoverable"
           id="instructions"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -354,12 +390,19 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
       className="table-text "
     >
       <span
+        aria-checked={true}
+        aria-labelledby="close-button"
         className="close"
         onClick={[Function]}
         onKeyPress={[Function]}
+        role="button"
         tabIndex={0}
       >
-        x
+        <label
+          id="close-button"
+        >
+          x
+        </label>
       </span>
       <h2>
         WHAT TO DO
@@ -683,14 +726,20 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
       <div
         className="style"
       >
-        <h3>
+        <label
+          className="options-text"
+          id="style-label"
+        >
           Style:
-        </h3>
+        </label>
         <div
+          aria-checked={false}
+          aria-labelledby="style-label"
           className="hoverable"
           id="spreadsheet"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -712,10 +761,13 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
           </label>
         </div>
         <div
+          aria-checked={false}
+          aria-labelledby="style-label"
           className="active hoverable"
           id="table"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -739,14 +791,20 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
       <div
         className="text"
       >
-        <h3>
+        <label
+          className="options-text"
+          id="text-label"
+        >
           Text:
-        </h3>
+        </label>
         <div
+          aria-checked={false}
+          aria-labelledby="text-label"
           className=" hoverable"
           id="left"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -789,10 +847,13 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
           </svg>
         </div>
         <div
+          aria-checked={true}
+          aria-labelledby="text-label"
           className="active hoverable"
           id="center"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -838,14 +899,20 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
       <div
         className="header"
       >
-        <h3>
+        <label
+          className="options-text"
+          id="header-label"
+        >
           Header:
-        </h3>
+        </label>
         <div
+          aria-checked={false}
+          aria-labelledby="header-label"
           className=" hoverable"
           id="header"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -870,14 +937,20 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
       <div
         className="question"
       >
-        <h3>
+        <label
+          className="options-text"
+          id="question-label"
+        >
           Question Text:
-        </h3>
+        </label>
         <div
+          aria-checked={true}
+          aria-labelledby="question-label"
           className="active hoverable"
           id="question"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -900,14 +973,20 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
       <div
         className="instructions"
       >
-        <h3>
+        <label
+          className="options-text"
+          id="instructions-label"
+        >
           Instructions:
-        </h3>
+        </label>
         <div
+          aria-checked={true}
+          aria-labelledby="instructions-label"
           className="active hoverable"
           id="instructions"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -990,12 +1069,19 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
       className="table-text "
     >
       <span
+        aria-checked={true}
+        aria-labelledby="close-button"
         className="close"
         onClick={[Function]}
         onKeyPress={[Function]}
+        role="button"
         tabIndex={0}
       >
-        x
+        <label
+          id="close-button"
+        >
+          x
+        </label>
       </span>
       <h2>
         WHAT TO DO
@@ -1316,14 +1402,20 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
       <div
         className="style"
       >
-        <h3>
+        <label
+          className="options-text"
+          id="style-label"
+        >
           Style:
-        </h3>
+        </label>
         <div
+          aria-checked={false}
+          aria-labelledby="style-label"
           className="hoverable"
           id="spreadsheet"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -1345,10 +1437,13 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
           </label>
         </div>
         <div
+          aria-checked={false}
+          aria-labelledby="style-label"
           className="active hoverable"
           id="table"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -1372,14 +1467,20 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
       <div
         className="text"
       >
-        <h3>
+        <label
+          className="options-text"
+          id="text-label"
+        >
           Text:
-        </h3>
+        </label>
         <div
+          aria-checked={false}
+          aria-labelledby="text-label"
           className=" hoverable"
           id="left"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -1422,10 +1523,13 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
           </svg>
         </div>
         <div
+          aria-checked={true}
+          aria-labelledby="text-label"
           className="active hoverable"
           id="center"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -1471,14 +1575,20 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
       <div
         className="header"
       >
-        <h3>
+        <label
+          className="options-text"
+          id="header-label"
+        >
           Header:
-        </h3>
+        </label>
         <div
+          aria-checked={false}
+          aria-labelledby="header-label"
           className=" hoverable"
           id="header"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -1503,14 +1613,20 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
       <div
         className="question"
       >
-        <h3>
+        <label
+          className="options-text"
+          id="question-label"
+        >
           Question Text:
-        </h3>
+        </label>
         <div
+          aria-checked={true}
+          aria-labelledby="question-label"
           className="active hoverable"
           id="question"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -1533,14 +1649,20 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
       <div
         className="instructions"
       >
-        <h3>
+        <label
+          className="options-text"
+          id="instructions-label"
+        >
           Instructions:
-        </h3>
+        </label>
         <div
+          aria-checked={true}
+          aria-labelledby="instructions-label"
           className="active hoverable"
           id="instructions"
           onClick={[Function]}
           onKeyDown={[Function]}
+          role="checkbox"
           tabIndex={0}
         >
           <svg
@@ -1623,12 +1745,19 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
       className="table-text "
     >
       <span
+        aria-checked={true}
+        aria-labelledby="close-button"
         className="close"
         onClick={[Function]}
         onKeyPress={[Function]}
+        role="button"
         tabIndex={0}
       >
-        x
+        <label
+          id="close-button"
+        >
+          x
+        </label>
       </span>
       <h2>
         WHAT TO DO

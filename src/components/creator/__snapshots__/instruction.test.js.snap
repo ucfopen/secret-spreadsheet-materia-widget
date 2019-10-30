@@ -5,12 +5,18 @@ exports[`CreatorInstruction component CreatorInstruction renders basic component
   className="table-text instruction-hidden"
 >
   <span
+    aria-labelledby="close-button"
     className="close"
     onClick={[Function]}
     onKeyPress={[Function]}
+    role="button"
     tabIndex={0}
   >
-    x
+    <label
+      id="close-button"
+    >
+      x
+    </label>
   </span>
   <h2>
     WHAT TO DO
@@ -75,12 +81,18 @@ exports[`CreatorInstruction component CreatorInstruction renders basic component
   className="table-text instruction-hidden"
 >
   <span
+    aria-labelledby="close-button"
     className="close"
     onClick={[Function]}
     onKeyPress={[Function]}
+    role="button"
     tabIndex={0}
   >
-    x
+    <label
+      id="close-button"
+    >
+      x
+    </label>
   </span>
   <h2>
     WHAT TO DO

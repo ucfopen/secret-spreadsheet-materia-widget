@@ -15,14 +15,20 @@ exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] =
     <div
       className="style"
     >
-      <h3>
+      <label
+        className="options-text"
+        id="style-label"
+      >
         Style:
-      </h3>
+      </label>
       <div
+        aria-checked={true}
+        aria-labelledby="style-label"
         className="active hoverable"
         id="spreadsheet"
         onClick={[MockFunction]}
         onKeyDown={[Function]}
+        role="checkbox"
         tabIndex={0}
       >
         <svg
@@ -43,10 +49,13 @@ exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] =
         </label>
       </div>
       <div
+        aria-checked={true}
+        aria-labelledby="style-label"
         className="inactive hoverable"
         id="table"
         onClick={[MockFunction]}
         onKeyDown={[Function]}
+        role="checkbox"
         tabIndex={0}
       >
         <svg
@@ -70,14 +79,20 @@ exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] =
     <div
       className="text"
     >
-      <h3>
+      <label
+        className="options-text"
+        id="text-label"
+      >
         Text:
-      </h3>
+      </label>
       <div
+        aria-checked={true}
+        aria-labelledby="text-label"
         className="active hoverable"
         id="left"
         onClick={[MockFunction]}
         onKeyDown={[Function]}
+        role="checkbox"
         tabIndex={0}
       >
         <svg
@@ -120,10 +135,13 @@ exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] =
         </svg>
       </div>
       <div
+        aria-checked={false}
+        aria-labelledby="text-label"
         className=" hoverable"
         id="center"
         onClick={[MockFunction]}
         onKeyDown={[Function]}
+        role="checkbox"
         tabIndex={0}
       >
         <svg
@@ -169,14 +187,20 @@ exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] =
     <div
       className="header"
     >
-      <h3>
+      <label
+        className="options-text"
+        id="header-label"
+      >
         Header:
-      </h3>
+      </label>
       <div
+        aria-checked={true}
+        aria-labelledby="header-label"
         className="active hoverable"
         id="header"
         onClick={[MockFunction]}
         onKeyDown={[Function]}
+        role="checkbox"
         tabIndex={0}
       >
         <svg
@@ -200,14 +224,19 @@ exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] =
     <div
       className="question"
     >
-      <h3>
+      <label
+        className="options-text"
+        id="question-label"
+      >
         Question Text:
-      </h3>
+      </label>
       <div
+        aria-labelledby="question-label"
         className=" hoverable"
         id="question"
         onClick={[MockFunction]}
         onKeyDown={[Function]}
+        role="checkbox"
         tabIndex={0}
       >
         <svg
@@ -231,14 +260,19 @@ exports[`CreatorOptions component CreatorOptions renders basic options bar 1`] =
     <div
       className="instructions"
     >
-      <h3>
+      <label
+        className="options-text"
+        id="instructions-label"
+      >
         Instructions:
-      </h3>
+      </label>
       <div
+        aria-labelledby="instructions-label"
         className=" hoverable"
         id="instructions"
         onClick={[MockFunction]}
         onKeyDown={[Function]}
+        role="checkbox"
         tabIndex={0}
       >
         <svg
