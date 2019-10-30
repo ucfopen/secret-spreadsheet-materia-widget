@@ -101,7 +101,7 @@ input {
 	background-color: #ffcccc;
 }
 
-#show-answer-toggle {
+label {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -110,4 +110,8 @@ input {
 	svg {
 		margin-left: 5px;
 	}
+}
+
+.show-answer-checkbox:hover {
+	cursor: pointer;
 }
