@@ -536,30 +536,29 @@ exports[`ScoreScreen Render with question and description 1`] = `
     <h3>
       Answers
     </h3>
-    <div
-      id="show-answer-toggle"
+    <label
+      id="check-label"
     >
-      <label
-        htmlFor="show-answer-toggle"
+      Show correct answers
+    </label>
+    <div
+      aria-checked="false"
+      aria-labelledby="check-label"
+      className="show-answer-checkbox"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="checkbox"
+      tabIndex={0}
+    >
+      <svg
+        height="22px"
+        viewBox="0 0 28 28"
+        width="22px"
       >
-        Show correct answers 
-      </label>
-      <div
-        className="show-answer-checkbox"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        tabIndex={0}
-      >
-        <svg
-          height="22px"
-          viewBox="0 0 28 28"
-          width="22px"
-        >
-          <path
-            d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
-          />
-        </svg>
-      </div>
+        <path
+          d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+        />
+      </svg>
     </div>
     <div
       className="table-surround"
@@ -622,30 +621,29 @@ exports[`ScoreScreen Render without description 1`] = `
     <h3>
       Answers
     </h3>
-    <div
-      id="show-answer-toggle"
+    <label
+      id="check-label"
     >
-      <label
-        htmlFor="show-answer-toggle"
+      Show correct answers
+    </label>
+    <div
+      aria-checked="false"
+      aria-labelledby="check-label"
+      className="show-answer-checkbox"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="checkbox"
+      tabIndex={0}
+    >
+      <svg
+        height="22px"
+        viewBox="0 0 28 28"
+        width="22px"
       >
-        Show correct answers 
-      </label>
-      <div
-        className="show-answer-checkbox"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        tabIndex={0}
-      >
-        <svg
-          height="22px"
-          viewBox="0 0 28 28"
-          width="22px"
-        >
-          <path
-            d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
-          />
-        </svg>
-      </div>
+        <path
+          d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+        />
+      </svg>
     </div>
     <div
       className="table-surround"
@@ -703,30 +701,29 @@ exports[`ScoreScreen Render without question or description 1`] = `
     <h3>
       Answers
     </h3>
-    <div
-      id="show-answer-toggle"
+    <label
+      id="check-label"
     >
-      <label
-        htmlFor="show-answer-toggle"
+      Show correct answers
+    </label>
+    <div
+      aria-checked="false"
+      aria-labelledby="check-label"
+      className="show-answer-checkbox"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      role="checkbox"
+      tabIndex={0}
+    >
+      <svg
+        height="22px"
+        viewBox="0 0 28 28"
+        width="22px"
       >
-        Show correct answers 
-      </label>
-      <div
-        className="show-answer-checkbox"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        tabIndex={0}
-      >
-        <svg
-          height="22px"
-          viewBox="0 0 28 28"
-          width="22px"
-        >
-          <path
-            d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
-          />
-        </svg>
-      </div>
+        <path
+          d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+        />
+      </svg>
     </div>
     <div
       className="table-surround"

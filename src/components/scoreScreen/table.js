@@ -176,10 +176,9 @@ class ScoreTable extends React.Component {
 		return (
 			<main>
 				<h3>Answers</h3>
-
-				<div id="show-answer-toggle">
-					<label htmlFor="show-answer-toggle">Show correct answers </label>
-					<div className="show-answer-checkbox"
+				<label id="check-label">Show correct answers
+					<div
+						className="show-answer-checkbox"
 						tabIndex={0}
 						onKeyDown={e => {
 							if (e.key === `Enter`) {
@@ -187,6 +186,9 @@ class ScoreTable extends React.Component {
 							}
 						}}
 						onClick={this.handleChange}
+						role="checkbox"
+						aria-checked={this.state.checked ? `true`:`false`}
+						aria-labelledby="check-label"
 					>
 						{!this.state.checked ? (
 							<svg viewBox="0 0 28 28" width="22px" height="22px">
@@ -198,7 +200,7 @@ class ScoreTable extends React.Component {
 							</svg>
 						)}
 					</div>
-				</div>
+				</label>
 
 				<div className="table-surround">
 					<div>
