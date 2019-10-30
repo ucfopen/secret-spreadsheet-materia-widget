@@ -16,8 +16,11 @@ const Instruction = props => {
 						props.focusOnInstruction(props.instructionRef.current);
 					}
 				}}
+				role="button"
+				aria-labelledby="close-button"
+				aria-checked={props.showInstruction}
 			>
-				x
+				<label id="close-button">x</label>
 			</span>
 			<h2>WHAT TO DO</h2>
 			<ul className="what-to-do">

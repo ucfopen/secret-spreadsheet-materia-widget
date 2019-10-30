@@ -244,7 +244,7 @@ button,
 			font-size: 1.4vw;
 		}
 
-		h3 {
+		.options-text {
 			font-size: 1.2vw;
 			margin: 0 .1vw;
 		}
@@ -319,7 +319,7 @@ button,
 		text-decoration: underline;
 	}
 
-	h3 {
+	.options-text {
 		font-size: 1.2vw;
 		margin: 0 .1vw;
 	}
@@ -386,6 +386,10 @@ button,
 	.close:hover{
 		color: rgb(138, 138, 138);
 		text-decoration: none;
+		cursor: pointer;
+	}
+
+	#close-button {
 		cursor: pointer;
 	}
 
@@ -683,7 +687,7 @@ input:checked + .slider:before {
 				font-size: 16.8px;
 			}
 
-			h3 {
+			.options-text {
 				font-size: 14.4px;
 				margin: 0 1.2px;
 			}
@@ -696,7 +700,7 @@ input:checked + .slider:before {
 				font-size: 14.4px;
 			}
 
-			h3 {
+			.options-text {
 				font-size: 14.4px;
 				margin: 0 1.2px;
 			}

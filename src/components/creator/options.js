@@ -34,7 +34,7 @@ export default class Options extends React.Component {
 					<h2 className="options">OPTIONS</h2>
 
 					<div className="style">
-						<h3>Style:</h3>
+						<label id="style-label" className="options-text">Style:</label>
 						<div
 							id="spreadsheet"
 							tabIndex={0}
@@ -44,7 +44,11 @@ export default class Options extends React.Component {
 								}
 							}}
 							onClick={this.props.useSpreadsheet}
-							className={`${this.props.qset.spreadsheet ? `active ` : ``}hoverable`}>
+							className={`${this.props.qset.spreadsheet ? `active ` : ``}hoverable`}
+							role="checkbox"
+							aria-labelledby="style-label"
+							aria-checked={this.props.qset.spreadsheet}
+						>
 							{!this.props.qset.spreadsheet ?
 								<svg viewBox="0 0 28 28" width="20px" height="20px" color="lightblue"> <path d="M0 0v28h28V0H0zm24 24H4V4h20v20z"></path> </svg>
 								:
@@ -62,6 +66,9 @@ export default class Options extends React.Component {
 							}}
 							onClick={this.props.useTable}
 							className={`${!this.props.qset.spreadsheet ? `active` : `inactive`} hoverable`}
+							role="checkbox"
+							aria-labelledby="style-label"
+							aria-checked={this.props.qset.spreadsheet}
 						>
 							{this.props.qset.spreadsheet ?
 								<svg viewBox="0 0 28 28" width="20px" height="20px"> <path d="M0 0v28h28V0H0zm24 24H4V4h20v20z"></path> </svg>
@@ -73,7 +80,7 @@ export default class Options extends React.Component {
 					</div>
 
 					<div className="text">
-						<h3>Text:</h3>
+						<label id="text-label" className="options-text">Text:</label>
 						<div
 							id="left"
 							tabIndex={0}
@@ -84,6 +91,9 @@ export default class Options extends React.Component {
 							}}
 							onClick={this.props.useLeftAlign}
 							className={`${this.props.qset.left ? `active` : ``} hoverable`}
+							role="checkbox"
+							aria-labelledby="text-label"
+							aria-checked={this.props.qset.left}
 						>
 							<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="20px" height="20px" viewBox="0 0 344 344" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0,344) scale(0.1,-0.1)" fill="#000000" stroke="none"> <path d="M130 3095 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"/> <path d="M130 2410 l0 -140 1105 0 1105 0 0 140 0 140 -1105 0 -1105 0 0 -140z"/> <path d="M130 1720 l0 -140 1590 0 1590 0 0 140 0 140 -1590 0 -1590 0 0 -140z"/> <path d="M130 1030 l0 -140 1105 0 1105 0 0 140 0 140 -1105 0 -1105 0 0 -140z"/> <path d="M130 345 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"/> </g> </svg>
 						</div>
@@ -97,13 +107,16 @@ export default class Options extends React.Component {
 							}}
 							onClick={this.props.useCenterAlign}
 							className={`${!this.props.qset.left ? `active` : ``} hoverable`}
+							role="checkbox"
+							aria-labelledby="text-label"
+							aria-checked={!this.props.qset.left}
 						>
 							<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="20px" height="20px" viewBox="0 0 344 344" preserveAspectRatio="xMidYMid meet"> <g transform="translate(0,344) scale(0.1,-0.1)" fill="#000000" stroke="none"> <path d="M130 3095 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"/> <path d="M610 2410 l0 -140 1110 0 1110 0 0 140 0 140 -1110 0 -1110 0 0 -140z"/> <path d="M130 1720 l0 -140 1590 0 1590 0 0 140 0 140 -1590 0 -1590 0 0 -140z"/> <path d="M610 1030 l0 -140 1110 0 1110 0 0 140 0 140 -1110 0 -1110 0 0 -140z"/> <path d="M130 345 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"/> </g> </svg>
 						</div>
 					</div>
 
 					<div className="header">
-						<h3>Header:</h3>
+						<label id="header-label" className="options-text">Header:</label>
 						<div
 							id="header"
 							tabIndex={0}
@@ -114,6 +127,9 @@ export default class Options extends React.Component {
 							}}
 							onClick={this.props.useHeader}
 							className={`${this.props.qset.header ? `active` : ``} hoverable`}
+							role="checkbox"
+							aria-labelledby="header-label"
+							aria-checked={this.props.qset.header}
 						>
 							{!this.props.qset.header ?
 								<svg viewBox="0 0 28 28" width="20px" height="20px" color="lightblue"> <path d="M0 0v28h28V0H0zm24 24H4V4h20v20z"></path> </svg>
@@ -125,7 +141,7 @@ export default class Options extends React.Component {
 					</div>
 
 					<div className="question">
-						<h3>Question Text:</h3>
+						<label id="question-label" className="options-text">Question Text:</label>
 						<div
 							id="question"
 							tabIndex={0}
@@ -136,6 +152,9 @@ export default class Options extends React.Component {
 							}}
 							onClick={this.props.useQuestion}
 							className={`${this.props.showQuestion ? `active` : ``} hoverable`}
+							role="checkbox"
+							aria-labelledby="question-label"
+							aria-checked={this.props.showQuestion}
 						>
 							{!this.props.showQuestion ?
 								<svg viewBox="0 0 28 28" width="20px" height="20px" color="lightblue"> <path d="M0 0v28h28V0H0zm24 24H4V4h20v20z"></path> </svg>
@@ -149,7 +168,7 @@ export default class Options extends React.Component {
 
 				<div className="lower-options-bar">
 					<div className="instructions">
-						<h3>Instructions:</h3>
+						<label id="instructions-label" className="options-text">Instructions:</label>
 						<div
 							id="instructions"
 							tabIndex={0}
@@ -161,6 +180,9 @@ export default class Options extends React.Component {
 								}
 							}}
 							ref={this.props.instructionRef}
+							role="checkbox"
+							aria-labelledby="instructions-label"
+							aria-checked={this.props.showInstruction}
 						>
 							<svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="34" height="34" viewBox="0 0 344.000000 344.000000">
 								<g transform="translate(0.000000,344.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
