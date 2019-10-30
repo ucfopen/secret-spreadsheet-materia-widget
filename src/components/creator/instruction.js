@@ -17,10 +17,10 @@ const Instruction = props => {
 					}
 				}}
 				role="button"
-				aria-labelledby="close-button"
+				aria-label="Close instruction window."
 				aria-checked={props.showInstruction}
 			>
-				<label id="close-button">x</label>
+				x
 			</span>
 			<h2>WHAT TO DO</h2>
 			<ul className="what-to-do">

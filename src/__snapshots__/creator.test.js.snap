@@ -47,15 +47,14 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
       <div
         className="style"
       >
-        <label
+        <p
           className="options-text"
-          id="style-label"
         >
           Style:
-        </label>
+        </p>
         <div
           aria-checked={true}
-          aria-labelledby="style-label"
+          aria-labelledby="spreadsheet-label"
           className="active hoverable"
           id="spreadsheet"
           onClick={[Function]}
@@ -75,14 +74,14 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
              
           </svg>
           <label
-            htmlFor="spreadsheet"
+            id="spreadsheet-label"
           >
             Spreadsheet
           </label>
         </div>
         <div
           aria-checked={true}
-          aria-labelledby="style-label"
+          aria-labelledby="table-label"
           className="inactive hoverable"
           id="table"
           onClick={[Function]}
@@ -102,7 +101,7 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
              
           </svg>
           <label
-            htmlFor="table"
+            id="table-label"
           >
             Table
           </label>
@@ -113,13 +112,12 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
       >
         <label
           className="options-text"
-          id="text-label"
         >
           Text:
         </label>
         <div
           aria-checked={false}
-          aria-labelledby="text-label"
+          aria-label="Use left alignment."
           className=" hoverable"
           id="left"
           onClick={[Function]}
@@ -168,7 +166,7 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
         </div>
         <div
           aria-checked={true}
-          aria-labelledby="text-label"
+          aria-label="Use center alignment."
           className="active hoverable"
           id="center"
           onClick={[Function]}
@@ -391,18 +389,14 @@ exports[`CreatorApp component CreatorApp renders base code 1`] = `
     >
       <span
         aria-checked={true}
-        aria-labelledby="close-button"
+        aria-label="Close instruction window."
         className="close"
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
         tabIndex={0}
       >
-        <label
-          id="close-button"
-        >
-          x
-        </label>
+        x
       </span>
       <h2>
         WHAT TO DO
@@ -726,15 +720,14 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
       <div
         className="style"
       >
-        <label
+        <p
           className="options-text"
-          id="style-label"
         >
           Style:
-        </label>
+        </p>
         <div
           aria-checked={false}
-          aria-labelledby="style-label"
+          aria-labelledby="spreadsheet-label"
           className="hoverable"
           id="spreadsheet"
           onClick={[Function]}
@@ -755,14 +748,14 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
              
           </svg>
           <label
-            htmlFor="spreadsheet"
+            id="spreadsheet-label"
           >
             Spreadsheet
           </label>
         </div>
         <div
           aria-checked={false}
-          aria-labelledby="style-label"
+          aria-labelledby="table-label"
           className="active hoverable"
           id="table"
           onClick={[Function]}
@@ -782,7 +775,7 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
              
           </svg>
           <label
-            htmlFor="table"
+            id="table-label"
           >
             Table
           </label>
@@ -793,13 +786,12 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
       >
         <label
           className="options-text"
-          id="text-label"
         >
           Text:
         </label>
         <div
           aria-checked={false}
-          aria-labelledby="text-label"
+          aria-label="Use left alignment."
           className=" hoverable"
           id="left"
           onClick={[Function]}
@@ -848,7 +840,7 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
         </div>
         <div
           aria-checked={true}
-          aria-labelledby="text-label"
+          aria-label="Use center alignment."
           className="active hoverable"
           id="center"
           onClick={[Function]}
@@ -1070,18 +1062,14 @@ exports[`CreatorApp component CreatorApp renders branch code 1`] = `
     >
       <span
         aria-checked={true}
-        aria-labelledby="close-button"
+        aria-label="Close instruction window."
         className="close"
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
         tabIndex={0}
       >
-        <label
-          id="close-button"
-        >
-          x
-        </label>
+        x
       </span>
       <h2>
         WHAT TO DO
@@ -1402,15 +1390,14 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
       <div
         className="style"
       >
-        <label
+        <p
           className="options-text"
-          id="style-label"
         >
           Style:
-        </label>
+        </p>
         <div
           aria-checked={false}
-          aria-labelledby="style-label"
+          aria-labelledby="spreadsheet-label"
           className="hoverable"
           id="spreadsheet"
           onClick={[Function]}
@@ -1431,14 +1418,14 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
              
           </svg>
           <label
-            htmlFor="spreadsheet"
+            id="spreadsheet-label"
           >
             Spreadsheet
           </label>
         </div>
         <div
           aria-checked={false}
-          aria-labelledby="style-label"
+          aria-labelledby="table-label"
           className="active hoverable"
           id="table"
           onClick={[Function]}
@@ -1458,7 +1445,7 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
              
           </svg>
           <label
-            htmlFor="table"
+            id="table-label"
           >
             Table
           </label>
@@ -1469,13 +1456,12 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
       >
         <label
           className="options-text"
-          id="text-label"
         >
           Text:
         </label>
         <div
           aria-checked={false}
-          aria-labelledby="text-label"
+          aria-label="Use left alignment."
           className=" hoverable"
           id="left"
           onClick={[Function]}
@@ -1524,7 +1510,7 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
         </div>
         <div
           aria-checked={true}
-          aria-labelledby="text-label"
+          aria-label="Use center alignment."
           className="active hoverable"
           id="center"
           onClick={[Function]}
@@ -1746,18 +1732,14 @@ exports[`CreatorApp component CreatorApp renders branch code 2`] = `
     >
       <span
         aria-checked={true}
-        aria-labelledby="close-button"
+        aria-label="Close instruction window."
         className="close"
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
         tabIndex={0}
       >
-        <label
-          id="close-button"
-        >
-          x
-        </label>
+        x
       </span>
       <h2>
         WHAT TO DO
