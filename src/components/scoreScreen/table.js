@@ -97,7 +97,7 @@ class ScoreTable extends React.Component {
 
 	handleChange(event) {
 		this.setState({
-			checked: event.target.checked
+			checked: !this.state.checked
 		});
 	}
 
@@ -176,14 +176,30 @@ class ScoreTable extends React.Component {
 		return (
 			<main>
 				<h3>Answers</h3>
-
-				<label>
-					Show correct answers
-					<input
-						type="checkbox"
-						checked={this.state.checked}
-						onChange={this.handleChange}
-					/>
+				<label id="check-label">Show correct answers
+					<div
+						className="show-answer-checkbox"
+						tabIndex={0}
+						onKeyDown={e => {
+							if (e.key === `Enter`) {
+								this.handleChange();
+							}
+						}}
+						onClick={this.handleChange}
+						role="checkbox"
+						aria-checked={this.state.checked ? `true`:`false`}
+						aria-labelledby="check-label"
+					>
+						{!this.state.checked ? (
+							<svg viewBox="0 0 28 28" width="22px" height="22px">
+								<path d="M0 0v28h28V0H0zm24 24H4V4h20v20z"></path>
+							</svg>
+						) : (
+							<svg viewBox="0 0 28 28" width="22px" height="22px">
+								<path d="M0 0v28h28V0H0zm24 24H4V4h20v20zm-2-13l-2.828-2.828-6.768 6.982-3.576-3.576L6 14.406l6.404 6.406L22 11z"></path>
+							</svg>
+						)}
+					</div>
 				</label>
 
 				<div className="table-surround">
