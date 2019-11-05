@@ -31,9 +31,9 @@ export default class CreatorApp extends React.Component {
 			numHidden: 0,
 			hideCellsRandomly: props.qset.randomization == 0,
 		};
-
-		this.state.qset.items[0].items.push([this.cellData(``, false)]);
-
+		if (this.state.qset.items[0].items.length === 0) {
+			this.state.qset.items[0].items.push([this.cellData(``, false)]);
+		}
 		this.showIntro = this.showIntro.bind(this);
 		this.editTitle = this.editTitle.bind(this);
 		this.handleTitleSubmit = this.handleTitleSubmit.bind(this);
