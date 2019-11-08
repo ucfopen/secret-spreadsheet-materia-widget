@@ -3,6 +3,11 @@ import React from 'react';
 export default class Cell extends React.Component {
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			value: this.props.data && this.props.data.questions && this.props.data.questions[0] && this.props.data.questions[0].text
+		};
+
 		this.handleCheckboxToggle = this.handleCheckboxToggle.bind(this);
 		this.handleTextboxChange = this.handleTextboxChange.bind(this);
 		this.generateColumnLabel = this.generateColumnLabel.bind(this);
@@ -14,8 +19,18 @@ export default class Cell extends React.Component {
 
 	// Store the text as both question and answer in the qset
 	handleTextboxChange(event) {
-		this.setState(Object.assign(this.props.data.questions[0], {text: event.target.value}));
-		this.setState(Object.assign(this.props.data.answers[0], {text: event.target.value}));
+		let value = event.target.value;
+
+		if (value.length > 36) {
+			value = value.slice(0, 36);
+		}
+		Object.assign(this.props.data.questions[0], {text: value});
+		Object.assign(this.props.data.answers[0], {text: value});
+
+		this.setState({
+			value: value
+		});
+
 	}
 
 	generateColumnLabel(num) {
@@ -86,7 +101,7 @@ export default class Cell extends React.Component {
 						}}
 						className={`row-${this.props.row} col-${this.props.column}`}
 						type="text"
-						value={this.props.data && this.props.data.questions && this.props.data.questions[0] && this.props.data.questions[0].text}
+						value={this.state.value}
 						onChange={this.handleTextboxChange}
 						placeholder={this.props.qset.spreadsheet ? `${this.generateColumnLabel(this.props.column)}${this.props.row + 1}` : ``}
 					/>

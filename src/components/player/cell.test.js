@@ -104,6 +104,26 @@ describe(`Cell component`, () => {
 		tempComponent.unmount();
 	});
 
+	test(`handleChange with value over the character limit`, () => {
+		const props = makeProps(true, false);
+		const event = {
+			target: {
+				value: `1234567890123456789012345678901234567890`
+			}
+		};
+
+		const tempComponent = shallow(<Cell {... props} />);
+		tempComponent.instance().componentDidUpdate = jest.fn();
+
+		tempComponent.instance().handleChange(event);
+
+		expect(tempComponent.state([`value`])).toEqual(`123456789012345678901234567890123456`);
+		expect(tempComponent.instance().componentDidUpdate).toHaveBeenCalled();
+
+		// cleanup
+		tempComponent.unmount();
+	});
+
 	test(`componentDidUpdate with nonblank value and unanswered class`, () => {
 		const props = makeProps(true, false);
 
