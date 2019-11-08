@@ -249,4 +249,34 @@ describe(`CreatorCell component`, function() {
 		// cleanup
 		console.error = realError;
 	});
+
+	test(`handleTextboxChange handles correct length input`, () => {
+		const props = makeProps();
+		const event = {
+			target: {
+				value: `Input`
+			}
+		};
+
+		const component = shallow(<Cell {... props} />);
+
+		component.instance().handleTextboxChange(event);
+
+		expect(component.state([`value`])).toEqual(`Input`);
+	});
+
+	test(`handleTextboxChange handle input over the correct length`, () => {
+		const props = makeProps();
+		const event = {
+			target: {
+				value: `1234567890123456789012345678901234567890`
+			}
+		};
+
+		const component = shallow(<Cell {... props} />);
+
+		component.instance().handleTextboxChange(event);
+
+		expect(component.state([`value`])).toEqual(`123456789012345678901234567890123456`);
+	});
 });

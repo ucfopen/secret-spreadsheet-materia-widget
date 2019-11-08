@@ -13,15 +13,21 @@ class Cell extends React.Component {
 	}
 
 	// controlled component function
+	// limit to 36 characters
 	handleChange(event) {
+		let value = event.target.value;
+
+		if (value.length > 36) {
+			value = value.slice(0, 36);
+		}
+
 		this.setState({
-			value: event.target.value,
+			value: value,
 			colorClass: this.state.colorClass,
 			firstFocus: this.state.firstFocus
 		});
 	}
 
-	// this can be improved
 	componentDidUpdate() {
 		if (this.state.value !== `` && this.state.colorClass === `unanswered`) {
 			this.setState({
