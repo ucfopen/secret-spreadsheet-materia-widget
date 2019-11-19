@@ -1,0 +1,65 @@
+.table-surround {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	background-color: #eff0ef;
+	overflow: auto;
+
+	div {
+		margin: auto;
+		display: inline;
+		background-color: white;
+		padding: 4px;
+		border-radius: 5px;
+		box-shadow: 10px 10px 0px 1px #dcdddc;
+	}
+}
+
+table, td, th {
+	border: 1px solid black;
+}
+
+table {
+	font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+	margin: auto;
+	border-collapse: collapse;
+	box-sizing: border-box;
+}
+
+td, th {
+	box-sizing: border-box;
+	width: 150px;
+	min-width: 150px;
+	max-width: 150px;
+	height: 35px;
+	min-height: 35px;
+	max-height: 35px;
+	word-break: break-all;
+}
+
+.leftAlign {
+	text-align: left;
+}
+
+.skinny {
+	width: 18px;
+	min-width: 18px;
+	max-width: 18px;
+}
+
+// for excel style labels
+.label {
+	min-height: 20px;
+	height: 20px;
+	max-height: 20px;
+	font-size: 10px;
+	color: gray;
+	background-color: #f2f3f2;
+	font-weight: normal;
+	border-color: #a7a8a7;
+}
+
+.header {
+	font-weight: bold;
+	background-color: #e7e8e7;
+}

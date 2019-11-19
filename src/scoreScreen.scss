@@ -1,0 +1,117 @@
+@import 'table';
+
+@font-face {
+	font-family: 'Open Sans';
+	src:url('assets/fonts/OpenSans.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+	src:url('assets/fonts/OpenSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Roboto Mono';
+	src:url('assets/fonts/RobotoMono.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Roboto Mono';
+	src:url('assets/fonts/RobotoMono-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	line-height: 1.5;
+}
+
+body {
+	background: #FFF;
+	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	text-align: center;
+}
+
+h3 {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+header {
+	margin-bottom: 10px;
+}
+
+.table-surround {
+	margin: 20px auto 0;
+	height: 430px;
+}
+
+table {
+	font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+	margin: auto;
+	border-collapse: collapse;
+	box-sizing: border-box;
+}
+
+td, th {
+	&.right {
+		border: 2px solid #009900;
+	}
+
+	&.wrong {
+		border: 2px solid #ff6666;
+	}
+
+	&.different {
+		border: 2px solid #00e600;
+	}
+}
+
+input {
+	min-width: 18px;
+	min-height: 18px;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.right {
+	background-color: #99ff99;
+}
+
+.different {
+	background-color: #e6ffe6;
+}
+
+.wrong {
+	background-color: #ffcccc;
+}
+
+label {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-content: center;
+
+	svg {
+		margin-left: 5px;
+	}
+}
+
+.show-answer-checkbox:hover {
+	cursor: pointer;
+}

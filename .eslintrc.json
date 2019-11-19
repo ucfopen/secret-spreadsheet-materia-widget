@@ -1,0 +1,81 @@
+{
+	"env": {
+		"browser": true,
+		"es6": true
+	},
+	"extends": "eslint:recommended",
+	"globals": {
+		"Atomics": "readonly",
+		"SharedArrayBuffer": "readonly",
+		"Materia": "readonly",
+		"test": "readonly",
+		"expect": "readonly",
+		"jest": "readonly",
+		"require": "readonly",
+		"global": "readonly",
+		"describe": "readonly",
+		"global": "readonly",
+		"beforeEach": "readonly",
+		"instance": "readonly"
+	},
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 2018,
+		"sourceType": "module"
+	},
+	"plugins": [
+		"react"
+	],
+	"rules": {
+		"indent": [
+			"error",
+			"tab"
+		],
+		"linebreak-style": [
+			"error",
+			"unix"
+		],
+		"quotes": [
+			"error",
+			"backtick",
+			{
+				"avoidEscape": true,
+				"allowTemplateLiterals": true
+			}
+		],
+		"jsx-quotes": [
+			"error",
+			"prefer-double"
+		],
+		"semi": [
+			"error",
+			"always"
+		],
+		"no-unused-vars": [
+			"error",
+			{
+				"varsIgnorePattern": "React|Cell|Popup|Title|Options|Table|Question|Instruction|PlayerTable|PlayerApp|CreatorApp|ScoreScreenApp",
+				"args": "none"
+			}
+		],
+		"brace-style": [
+			"error",
+			"stroustrup"
+		],
+		"multiline-ternary": [
+			"error",
+			"always-multiline"
+		],
+		"default-case": [
+			"error"
+		],
+		"no-trailing-spaces": [
+			"error"
+		],
+		"block-scoped-var": [
+			"error"
+		]
+	}
+}

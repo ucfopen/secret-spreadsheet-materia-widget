@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreatorCell component CreatorCell renders basic cell 1`] = `
+<td
+  className="undefined hidden-cell tableCell"
+>
+  <div
+    className="cell"
+    column={0}
+    onKeyDown={[Function]}
+    row={0}
+  >
+    <input
+      className="row-0 col-0"
+      onChange={[Function]}
+      placeholder="A1"
+      type="text"
+      value=""
+    />
+    <div
+      className="checkbox-hidden checkbox"
+      onClick={[Function]}
+    >
+      <input
+        checked={true}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        type="checkbox"
+      />
+      Hide
+    </div>
+  </div>
+</td>
+`;

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreatorTitle component CreatorTitle renders title 1`] = `
+<div
+  className="title-bar"
+>
+  <span
+    className="title-text"
+  >
+    mock-title
+  </span>
+  <button
+    className="edit-title-button"
+  >
+    Edit title
+  </button>
+  <button
+    className="help-button"
+    type="button"
+    value="Help"
+  >
+    <img
+      src="./assets/img/question-mark.svg"
+    />
+    Help
+  </button>
+</div>
+`;

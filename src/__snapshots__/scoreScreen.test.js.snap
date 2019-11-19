@@ -1,0 +1,776 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScoreScreen Render called with correct props on start 1`] = `
+<ScoreScreenApp
+  qset={
+    Object {
+      "description": "Test question body",
+      "dimensions": Object {
+        "columns": 2,
+        "rows": 2,
+      },
+      "header": false,
+      "items": Array [
+        Object {
+          "items": Array [
+            Array [
+              Object {
+                "answers": Array [
+                  Object {
+                    "id": null,
+                    "text": "Show 1",
+                    "value": 100,
+                  },
+                ],
+                "id": null,
+                "materiaType": "question",
+                "options": Object {
+                  "blank": false,
+                  "position": Object {
+                    "column": 0,
+                    "row": 0,
+                  },
+                },
+                "questions": Array [
+                  Object {
+                    "text": "Show 1",
+                  },
+                ],
+                "type": "QA",
+              },
+              Object {
+                "answers": Array [
+                  Object {
+                    "id": null,
+                    "text": "Hide 1",
+                    "value": 100,
+                  },
+                ],
+                "id": null,
+                "materiaType": "question",
+                "options": Object {
+                  "blank": true,
+                  "position": Object {
+                    "column": 1,
+                    "row": 0,
+                  },
+                },
+                "questions": Array [
+                  Object {
+                    "text": "Hide 1",
+                  },
+                ],
+                "type": "QA",
+              },
+            ],
+            Array [
+              Object {
+                "answers": Array [
+                  Object {
+                    "id": null,
+                    "text": "Hide 2",
+                    "value": 100,
+                  },
+                ],
+                "id": null,
+                "materiaType": "question",
+                "options": Object {
+                  "blank": true,
+                  "position": Object {
+                    "column": 0,
+                    "row": 1,
+                  },
+                },
+                "questions": Array [
+                  Object {
+                    "text": "Hide 2",
+                  },
+                ],
+                "type": "QA",
+              },
+              Object {
+                "answers": Array [
+                  Object {
+                    "id": null,
+                    "text": "Show 2",
+                    "value": 100,
+                  },
+                ],
+                "id": null,
+                "materiaType": "question",
+                "options": Object {
+                  "blank": false,
+                  "position": Object {
+                    "column": 1,
+                    "row": 1,
+                  },
+                },
+                "questions": Array [
+                  Object {
+                    "text": "Show 2",
+                  },
+                ],
+                "type": "QA",
+              },
+            ],
+          ],
+        },
+      ],
+      "left": false,
+      "question": "Test Question",
+      "randomization": 0,
+      "spreadsheet": false,
+    }
+  }
+  scoreTable={
+    Array [
+      Object {
+        "data": Array [
+          "Hide 1",
+          "Hide 1",
+          "Hide 1",
+          "row0 column1",
+        ],
+        "data_style": Array [
+          "question",
+          "response",
+          "answer",
+          "position",
+        ],
+        "display_score": true,
+        "feedback": null,
+        "graphic": "score",
+        "score": 100,
+        "style": "full-value",
+        "symbol": "%",
+        "tag": "div",
+        "type": "SCORE_QUESTION_ANSWERED",
+      },
+      Object {
+        "data": Array [
+          "Hide 2",
+          "wrong",
+          "Hide 2",
+          "row1 column0",
+        ],
+        "data_style": Array [
+          "question",
+          "response",
+          "answer",
+          "position",
+        ],
+        "display_score": true,
+        "feedback": null,
+        "graphic": "score",
+        "score": 100,
+        "style": "full-value",
+        "symbol": "%",
+        "tag": "div",
+        "type": "SCORE_QUESTION_ANSWERED",
+      },
+    ]
+  }
+  title="Test Score"
+/>
+`;
+
+exports[`ScoreScreen Render called with correct props on update 1`] = `
+<ScoreScreenApp
+  qset={
+    Object {
+      "description": "Test question body",
+      "dimensions": Object {
+        "columns": 2,
+        "rows": 2,
+      },
+      "header": false,
+      "items": Array [
+        Object {
+          "items": Array [
+            Array [
+              Object {
+                "answers": Array [
+                  Object {
+                    "id": null,
+                    "text": "Show 1",
+                    "value": 100,
+                  },
+                ],
+                "id": null,
+                "materiaType": "question",
+                "options": Object {
+                  "blank": false,
+                  "position": Object {
+                    "column": 0,
+                    "row": 0,
+                  },
+                },
+                "questions": Array [
+                  Object {
+                    "text": "Show 1",
+                  },
+                ],
+                "type": "QA",
+              },
+              Object {
+                "answers": Array [
+                  Object {
+                    "id": null,
+                    "text": "Hide 1",
+                    "value": 100,
+                  },
+                ],
+                "id": null,
+                "materiaType": "question",
+                "options": Object {
+                  "blank": true,
+                  "position": Object {
+                    "column": 1,
+                    "row": 0,
+                  },
+                },
+                "questions": Array [
+                  Object {
+                    "text": "Hide 1",
+                  },
+                ],
+                "type": "QA",
+              },
+            ],
+            Array [
+              Object {
+                "answers": Array [
+                  Object {
+                    "id": null,
+                    "text": "Hide 2",
+                    "value": 100,
+                  },
+                ],
+                "id": null,
+                "materiaType": "question",
+                "options": Object {
+                  "blank": true,
+                  "position": Object {
+                    "column": 0,
+                    "row": 1,
+                  },
+                },
+                "questions": Array [
+                  Object {
+                    "text": "Hide 2",
+                  },
+                ],
+                "type": "QA",
+              },
+              Object {
+                "answers": Array [
+                  Object {
+                    "id": null,
+                    "text": "Show 2",
+                    "value": 100,
+                  },
+                ],
+                "id": null,
+                "materiaType": "question",
+                "options": Object {
+                  "blank": false,
+                  "position": Object {
+                    "column": 1,
+                    "row": 1,
+                  },
+                },
+                "questions": Array [
+                  Object {
+                    "text": "Show 2",
+                  },
+                ],
+                "type": "QA",
+              },
+            ],
+          ],
+        },
+      ],
+      "left": false,
+      "question": "Test Question",
+      "randomization": 0,
+      "spreadsheet": false,
+    }
+  }
+  scoreTable={
+    Array [
+      Object {
+        "data": Array [
+          "Hide 1",
+          "Hide 1",
+          "Hide 1",
+          "row0 column1",
+        ],
+        "data_style": Array [
+          "question",
+          "response",
+          "answer",
+          "position",
+        ],
+        "display_score": true,
+        "feedback": null,
+        "graphic": "score",
+        "score": 100,
+        "style": "full-value",
+        "symbol": "%",
+        "tag": "div",
+        "type": "SCORE_QUESTION_ANSWERED",
+      },
+      Object {
+        "data": Array [
+          "Hide 2",
+          "wrong",
+          "Hide 2",
+          "row1 column0",
+        ],
+        "data_style": Array [
+          "question",
+          "response",
+          "answer",
+          "position",
+        ],
+        "display_score": true,
+        "feedback": null,
+        "graphic": "score",
+        "score": 100,
+        "style": "full-value",
+        "symbol": "%",
+        "tag": "div",
+        "type": "SCORE_QUESTION_ANSWERED",
+      },
+    ]
+  }
+  title="Test Score"
+/>
+`;
+
+exports[`ScoreScreen Render called with correct props on update 2`] = `
+<ScoreScreenApp
+  qset={
+    Object {
+      "description": "Test question body",
+      "dimensions": Object {
+        "columns": 2,
+        "rows": 2,
+      },
+      "header": false,
+      "items": Array [
+        Object {
+          "items": Array [
+            Array [
+              Object {
+                "answers": Array [
+                  Object {
+                    "id": null,
+                    "text": "Show 1",
+                    "value": 100,
+                  },
+                ],
+                "id": null,
+                "materiaType": "question",
+                "options": Object {
+                  "blank": false,
+                  "position": Object {
+                    "column": 0,
+                    "row": 0,
+                  },
+                },
+                "questions": Array [
+                  Object {
+                    "text": "Show 1",
+                  },
+                ],
+                "type": "QA",
+              },
+              Object {
+                "answers": Array [
+                  Object {
+                    "id": null,
+                    "text": "Hide 1",
+                    "value": 100,
+                  },
+                ],
+                "id": null,
+                "materiaType": "question",
+                "options": Object {
+                  "blank": true,
+                  "position": Object {
+                    "column": 1,
+                    "row": 0,
+                  },
+                },
+                "questions": Array [
+                  Object {
+                    "text": "Hide 1",
+                  },
+                ],
+                "type": "QA",
+              },
+            ],
+            Array [
+              Object {
+                "answers": Array [
+                  Object {
+                    "id": null,
+                    "text": "Hide 2",
+                    "value": 100,
+                  },
+                ],
+                "id": null,
+                "materiaType": "question",
+                "options": Object {
+                  "blank": true,
+                  "position": Object {
+                    "column": 0,
+                    "row": 1,
+                  },
+                },
+                "questions": Array [
+                  Object {
+                    "text": "Hide 2",
+                  },
+                ],
+                "type": "QA",
+              },
+              Object {
+                "answers": Array [
+                  Object {
+                    "id": null,
+                    "text": "Show 2",
+                    "value": 100,
+                  },
+                ],
+                "id": null,
+                "materiaType": "question",
+                "options": Object {
+                  "blank": false,
+                  "position": Object {
+                    "column": 1,
+                    "row": 1,
+                  },
+                },
+                "questions": Array [
+                  Object {
+                    "text": "Show 2",
+                  },
+                ],
+                "type": "QA",
+              },
+            ],
+          ],
+        },
+      ],
+      "left": false,
+      "question": "Test Question",
+      "randomization": 0,
+      "spreadsheet": false,
+    }
+  }
+  scoreTable={
+    Array [
+      Object {
+        "data": Array [
+          "Hide 1",
+          "Hide 1",
+          "Hide 1",
+          "row0 column1",
+        ],
+        "data_style": Array [
+          "question",
+          "response",
+          "answer",
+          "position",
+        ],
+        "display_score": true,
+        "feedback": null,
+        "graphic": "score",
+        "score": 100,
+        "style": "full-value",
+        "symbol": "%",
+        "tag": "div",
+        "type": "SCORE_QUESTION_ANSWERED",
+      },
+      Object {
+        "data": Array [
+          "Hide 2",
+          "wrong",
+          "Hide 2",
+          "row1 column0",
+        ],
+        "data_style": Array [
+          "question",
+          "response",
+          "answer",
+          "position",
+        ],
+        "display_score": true,
+        "feedback": null,
+        "graphic": "score",
+        "score": 100,
+        "style": "full-value",
+        "symbol": "%",
+        "tag": "div",
+        "type": "SCORE_QUESTION_ANSWERED",
+      },
+    ]
+  }
+  title="Test Score"
+/>
+`;
+
+exports[`ScoreScreen Render with question and description 1`] = `
+<div>
+  <header>
+    <h3>
+      Test Question
+    </h3>
+    <p>
+      Test question body
+    </p>
+  </header>
+  <main>
+    <h3>
+      Answers
+    </h3>
+    <label
+      id="check-label"
+    >
+      Show correct answers
+      <div
+        aria-checked="false"
+        aria-labelledby="check-label"
+        className="show-answer-checkbox"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="checkbox"
+        tabIndex={0}
+      >
+        <svg
+          height="22px"
+          viewBox="0 0 28 28"
+          width="22px"
+        >
+          <path
+            d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+          />
+        </svg>
+      </div>
+    </label>
+    <div
+      className="table-surround"
+    >
+      <div>
+        <table>
+          <tbody>
+            <tr
+              id="row0"
+            >
+              <td
+                className=""
+                id="cell0"
+              >
+                Show 1
+              </td>
+              <td
+                className="right different"
+                id="cell1"
+              >
+                <p>
+                  Hide 1
+                </p>
+              </td>
+            </tr>
+            <tr
+              id="row1"
+            >
+              <td
+                className="wrong"
+                id="cell2"
+              >
+                <p>
+                  wrong
+                </p>
+              </td>
+              <td
+                className=""
+                id="cell3"
+              >
+                Show 2
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+`;
+
+exports[`ScoreScreen Render without description 1`] = `
+<div>
+  <header>
+    <h3>
+      Test Question
+    </h3>
+  </header>
+  <main>
+    <h3>
+      Answers
+    </h3>
+    <label
+      id="check-label"
+    >
+      Show correct answers
+      <div
+        aria-checked="false"
+        aria-labelledby="check-label"
+        className="show-answer-checkbox"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="checkbox"
+        tabIndex={0}
+      >
+        <svg
+          height="22px"
+          viewBox="0 0 28 28"
+          width="22px"
+        >
+          <path
+            d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+          />
+        </svg>
+      </div>
+    </label>
+    <div
+      className="table-surround"
+    >
+      <div>
+        <table>
+          <tbody>
+            <tr
+              id="row0"
+            >
+              <td
+                className=""
+                id="cell0"
+              >
+                Show 1
+              </td>
+              <td
+                className="right different"
+                id="cell1"
+              >
+                <p>
+                  Hide 1
+                </p>
+              </td>
+            </tr>
+            <tr
+              id="row1"
+            >
+              <td
+                className="wrong"
+                id="cell2"
+              >
+                <p>
+                  wrong
+                </p>
+              </td>
+              <td
+                className=""
+                id="cell3"
+              >
+                Show 2
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+`;
+
+exports[`ScoreScreen Render without question or description 1`] = `
+<div>
+  <main>
+    <h3>
+      Answers
+    </h3>
+    <label
+      id="check-label"
+    >
+      Show correct answers
+      <div
+        aria-checked="false"
+        aria-labelledby="check-label"
+        className="show-answer-checkbox"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="checkbox"
+        tabIndex={0}
+      >
+        <svg
+          height="22px"
+          viewBox="0 0 28 28"
+          width="22px"
+        >
+          <path
+            d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+          />
+        </svg>
+      </div>
+    </label>
+    <div
+      className="table-surround"
+    >
+      <div>
+        <table>
+          <tbody>
+            <tr
+              id="row0"
+            >
+              <td
+                className=""
+                id="cell0"
+              >
+                Show 1
+              </td>
+              <td
+                className="right different"
+                id="cell1"
+              >
+                <p>
+                  Hide 1
+                </p>
+              </td>
+            </tr>
+            <tr
+              id="row1"
+            >
+              <td
+                className="wrong"
+                id="cell2"
+              >
+                <p>
+                  wrong
+                </p>
+              </td>
+              <td
+                className=""
+                id="cell3"
+              >
+                Show 2
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+`;

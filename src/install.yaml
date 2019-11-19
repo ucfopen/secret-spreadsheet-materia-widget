@@ -1,0 +1,36 @@
+general:
+  name: Secret Spreadsheet
+  group: Materia
+  height: 550
+  width: 850
+  in_catalog: Yes
+  is_editable: Yes
+  is_playable: Yes
+  is_qset_encrypted: Yes
+  is_answer_encrypted: Yes
+  is_storage_enabled: No
+  api_version: 2
+files:
+  player: player.html
+  creator: creator.html
+  flash_version: 0
+  player_guide: guides/player.html
+  creator_guide: guides/creator.html
+score:
+  is_scorable: Yes
+  score_module: SecretSpreadsheet
+  score_screen: scoreScreen.html
+meta_data:
+  features:
+    - Customizable
+    - Scorable
+  supported_data:
+    - Question/Answer
+  about: >
+    Fill in the blanks in
+    the spreadsheet. The blanks can be
+    randomly generated or preselected.
+  excerpt: >
+    Students are provided with a
+    spreadsheet that is missing some
+    information and must fill in the gaps.

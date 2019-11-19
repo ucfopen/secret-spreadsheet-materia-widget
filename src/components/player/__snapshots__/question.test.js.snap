@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Question component Is rendered with question body 1`] = `
+<div
+  className="popup question"
+>
+  <div>
+    <p
+      className="mainQuestion"
+    >
+      Test entry question
+    </p>
+    <p>
+      Test question body
+    </p>
+    <button
+      onClick={[MockFunction]}
+      type="button"
+      value="Next"
+    >
+      Next
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Question component Is rendered without question body 1`] = `
+<div
+  className="popup question"
+>
+  <div>
+    <p
+      className="mainQuestion"
+    >
+      Test entry question
+    </p>
+    <button
+      onClick={[MockFunction]}
+      type="button"
+      value="Next"
+    >
+      Next
+    </button>
+  </div>
+</div>
+`;

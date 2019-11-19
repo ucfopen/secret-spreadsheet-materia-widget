@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cell component Rendered with user input center aligned 1`] = `
+<td
+  className="unanswered centerAlign"
+  id={1}
+>
+  <input
+    className="unanswered"
+    onBlur={[MockFunction]}
+    onChange={[Function]}
+    placeholder="?"
+    type="text"
+    value=""
+  />
+</td>
+`;
+
+exports[`Cell component Rendered with user input left aligned 1`] = `
+<td
+  className="unanswered leftAlign"
+  id={1}
+>
+  <input
+    className="unanswered"
+    onBlur={[MockFunction]}
+    onChange={[Function]}
+    placeholder="?"
+    type="text"
+    value=""
+  />
+</td>
+`;
+
+exports[`Cell component Rendered without user input center aligned 1`] = `
+<td
+  className="centerAlign"
+  id={1}
+>
+  <span>
+    Testing Text
+  </span>
+</td>
+`;
+
+exports[`Cell component Rendered without user input left aligned 1`] = `
+<td
+  className="leftAlign"
+  id={1}
+>
+  <span>
+    Testing Text
+  </span>
+</td>
+`;

@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreatorInstruction component CreatorInstruction renders basic component with key controls 1`] = `
+<div
+  className="table-text instruction-hidden"
+>
+  <span
+    aria-label="Close instruction window."
+    className="close"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    x
+  </span>
+  <h2>
+    WHAT TO DO
+  </h2>
+  <ul
+    className="what-to-do"
+  >
+    <li>
+      Add rows and columns, then input data in the cells below.
+    </li>
+    <li
+      className="list-item-hidden"
+    >
+      Check cells to turn them 
+      <span
+        className="blue-text"
+      >
+        blue
+      </span>
+       - these will be left blank for students to fill out.
+    </li>
+    <li
+      className=""
+    >
+      The widget will automatically hide the given number of cells
+    </li>
+    <li
+      className="keyboard-controls-div"
+      onClick={[MockFunction]}
+    >
+      <span
+        className="keyboard-controls-spam"
+        onKeyPress={[Function]}
+        tabIndex={0}
+      >
+        Keyboard controls
+      </span>
+      <ul>
+        <li>
+          Alt + PageUp = Add Column
+        </li>
+        <li>
+          Alt + PageDown = Remove Column
+        </li>
+        <li>
+          Shift + PageUp = Add Row
+        </li>
+        <li>
+          Shift + PageDown = Remove Row
+        </li>
+        <li>
+          Ctrl/Command + Arrow = Move Cell
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`CreatorInstruction component CreatorInstruction renders basic component without key controls 1`] = `
+<div
+  className="table-text instruction-hidden"
+>
+  <span
+    aria-label="Close instruction window."
+    className="close"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    x
+  </span>
+  <h2>
+    WHAT TO DO
+  </h2>
+  <ul
+    className="what-to-do"
+  >
+    <li>
+      Add rows and columns, then input data in the cells below.
+    </li>
+    <li
+      className="list-item-hidden"
+    >
+      Check cells to turn them 
+      <span
+        className="blue-text"
+      >
+        blue
+      </span>
+       - these will be left blank for students to fill out.
+    </li>
+    <li
+      className=""
+    >
+      The widget will automatically hide the given number of cells
+    </li>
+    <li
+      className="keyboard-controls-div"
+      onClick={[MockFunction]}
+    >
+      <span
+        className="keyboard-controls-spam"
+        onKeyPress={[Function]}
+        tabIndex={0}
+      >
+        Keyboard controls
+      </span>
+      
+    </li>
+  </ul>
+</div>
+`;

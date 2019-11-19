@@ -1,0 +1,124 @@
+{
+	"name": "Secret Spreadsheet",
+	"qset": {
+		"version": 1,
+		"data": {
+			"left": false,
+			"header": true,
+			"spreadsheet": true,
+			"dimensions": {
+				"rows": 2,
+				"columns": 2
+			},
+			"randomization": 1,
+			"question": "Fill in the blank cell.",
+			"description": "It shouldn't be too difficult.",
+			"items": [
+				{
+					"items": [
+						[
+							{
+								"materiaType": "question",
+								"id": null,
+								"type": "QA",
+								"questions": [
+									{
+										"text": "Title 1"
+									}
+								],
+								"answers": [
+									{
+										"id": null,
+										"text": "Title 1",
+										"value": 100
+									}
+								],
+								"options": {
+									"blank": false,
+									"position": {
+										"column": 0,
+										"row": 0
+									}
+								}
+							},
+							{
+								"materiaType": "question",
+								"id": null,
+								"type": "QA",
+								"questions": [
+									{
+										"text": "Title 2"
+									}
+								],
+								"answers": [
+									{
+										"id": null,
+										"text": "Title 2",
+										"value": 100
+									}
+								],
+								"options": {
+									"blank": false,
+									"position": {
+										"column": 1,
+										"row": 0
+									}
+								}
+							}
+						],
+						[
+							{
+								"materiaType": "question",
+								"id": null,
+								"type": "QA",
+								"questions": [
+									{
+										"text": "Answerable 1"
+									}
+								],
+								"answers": [
+									{
+										"id": null,
+										"text": "Answerable 1",
+										"value": 100
+									}
+								],
+								"options": {
+									"blank": true,
+									"position": {
+										"column": 0,
+										"row": 1
+									}
+								}
+							},
+							{
+								"materiaType": "question",
+								"id": null,
+								"type": "QA",
+								"questions": [
+									{
+										"text": "Answerable 2"
+									}
+								],
+								"answers": [
+									{
+										"id": null,
+										"text": "Answerable 2",
+										"value": 100
+									}
+								],
+								"options": {
+									"blank": false,
+									"position": {
+										"column": 1,
+										"row": 1
+									}
+								}
+							}
+						]
+					]
+				}
+			]
+		}
+	}
+}

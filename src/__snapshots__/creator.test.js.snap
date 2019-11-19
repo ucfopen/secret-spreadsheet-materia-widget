@@ -1,0 +1,1962 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreatorApp component CreatorApp renders base code 1`] = `
+<div
+  className="creator-component"
+  onKeyDown={[Function]}
+  tabIndex={0}
+>
+  
+  <div
+    className="title-bar"
+  >
+    <span
+      className="title-text"
+    >
+      New Secret Spreadsheet
+    </span>
+    <button
+      className="edit-title-button"
+      onClick={[Function]}
+    >
+      Edit title
+    </button>
+    <button
+      className="help-button"
+      onClick={[Function]}
+      type="button"
+      value="Help"
+    >
+      <img
+        src="./assets/img/question-mark.svg"
+      />
+      Help
+    </button>
+  </div>
+  <div
+    className="options-bar"
+  >
+    <div
+      className="upper-options-bar"
+    >
+      <h2
+        className="options"
+      >
+        OPTIONS
+      </h2>
+      <div
+        className="style"
+      >
+        <p
+          className="options-text"
+        >
+          Style:
+        </p>
+        <div
+          aria-checked={true}
+          aria-labelledby="spreadsheet-label"
+          className="active hoverable"
+          id="spreadsheet"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            height="20px"
+            viewBox="0 0 28 28"
+            width="20px"
+          >
+             
+            <path
+              d="M0 0v28h28V0H0zm24 24H4V4h20v20zm-2-13l-2.828-2.828-6.768 6.982-3.576-3.576L6 14.406l6.404 6.406L22 11z"
+            />
+             
+          </svg>
+          <label
+            id="spreadsheet-label"
+          >
+            Spreadsheet
+          </label>
+        </div>
+        <div
+          aria-checked={true}
+          aria-labelledby="table-label"
+          className="inactive hoverable"
+          id="table"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            height="20px"
+            viewBox="0 0 28 28"
+            width="20px"
+          >
+             
+            <path
+              d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+            />
+             
+          </svg>
+          <label
+            id="table-label"
+          >
+            Table
+          </label>
+        </div>
+      </div>
+      <div
+        className="text"
+      >
+        <label
+          className="options-text"
+        >
+          Text:
+        </label>
+        <div
+          aria-checked={false}
+          aria-label="Use left alignment."
+          className=" hoverable"
+          id="left"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            height="20px"
+            preserveAspectRatio="xMidYMid meet"
+            version="1.0"
+            viewBox="0 0 344 344"
+            width="20px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+             
+            <g
+              fill="#000000"
+              stroke="none"
+              transform="translate(0,344) scale(0.1,-0.1)"
+            >
+               
+              <path
+                d="M130 3095 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
+              />
+               
+              <path
+                d="M130 2410 l0 -140 1105 0 1105 0 0 140 0 140 -1105 0 -1105 0 0 -140z"
+              />
+               
+              <path
+                d="M130 1720 l0 -140 1590 0 1590 0 0 140 0 140 -1590 0 -1590 0 0 -140z"
+              />
+               
+              <path
+                d="M130 1030 l0 -140 1105 0 1105 0 0 140 0 140 -1105 0 -1105 0 0 -140z"
+              />
+               
+              <path
+                d="M130 345 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
+              />
+               
+            </g>
+             
+          </svg>
+        </div>
+        <div
+          aria-checked={true}
+          aria-label="Use center alignment."
+          className="active hoverable"
+          id="center"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            height="20px"
+            preserveAspectRatio="xMidYMid meet"
+            version="1.0"
+            viewBox="0 0 344 344"
+            width="20px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+             
+            <g
+              fill="#000000"
+              stroke="none"
+              transform="translate(0,344) scale(0.1,-0.1)"
+            >
+               
+              <path
+                d="M130 3095 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
+              />
+               
+              <path
+                d="M610 2410 l0 -140 1110 0 1110 0 0 140 0 140 -1110 0 -1110 0 0 -140z"
+              />
+               
+              <path
+                d="M130 1720 l0 -140 1590 0 1590 0 0 140 0 140 -1590 0 -1590 0 0 -140z"
+              />
+               
+              <path
+                d="M610 1030 l0 -140 1110 0 1110 0 0 140 0 140 -1110 0 -1110 0 0 -140z"
+              />
+               
+              <path
+                d="M130 345 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
+              />
+               
+            </g>
+             
+          </svg>
+        </div>
+      </div>
+      <div
+        className="header"
+      >
+        <label
+          className="options-text"
+          id="header-label"
+        >
+          Header:
+        </label>
+        <div
+          aria-checked={false}
+          aria-labelledby="header-label"
+          className=" hoverable"
+          id="header"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            color="lightblue"
+            height="20px"
+            viewBox="0 0 28 28"
+            width="20px"
+          >
+             
+            <path
+              d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+            />
+             
+          </svg>
+          <label
+            htmlFor="header"
+          >
+            First row is a header row
+          </label>
+        </div>
+      </div>
+      <div
+        className="question"
+      >
+        <label
+          className="options-text"
+          id="question-label"
+        >
+          Question Text:
+        </label>
+        <div
+          aria-checked={false}
+          aria-labelledby="question-label"
+          className=" hoverable"
+          id="question"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            color="lightblue"
+            height="20px"
+            viewBox="0 0 28 28"
+            width="20px"
+          >
+             
+            <path
+              d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+            />
+             
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="lower-options-bar"
+    >
+      <div
+        className="instructions"
+      >
+        <label
+          className="options-text"
+          id="instructions-label"
+        >
+          Instructions:
+        </label>
+        <div
+          aria-checked={true}
+          aria-labelledby="instructions-label"
+          className="active hoverable"
+          id="instructions"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            height="34"
+            version="1.0"
+            viewBox="0 0 344.000000 344.000000"
+            width="34"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="#000000"
+              stroke="none"
+              transform="translate(0.000000,344.000000) scale(0.100000,-0.100000)"
+            >
+              <path
+                d="M850 3093 c-218 -22 -529 -110 -567 -160 -9 -11 -13 -55 -13 -129 l0 -111 -64 -5 c-78 -7 -135 -37 -173 -91 l-28 -40 -3 -964 c-2 -933 -2 -964 17 -1001 24 -47 56 -77 103 -97 33 -13 128 -15 732 -15 l695 0 47 -32 c42 -30 52 -33 124 -33 72 0 82 3 124 33 l47 32 695 0 c604 0 699 2 732 15 47 20 79 50 103 97 19 37 19 68 17 1001 l-3 964 -28 40 c-38 54 -95 84 -173 91 l-64 5 0 113 c0 136 -1 137 -117 182 -374 142 -874 147 -1255 13 l-78 -28 -78 28 c-102 36 -282 75 -404 88 -90 10 -308 12 -388 4z m425 -158 c115 -17 247 -49 323 -77 l52 -19 0 -985 c0 -541 -2 -984 -5 -984 -3 0 -44 11 -92 26 -167 48 -302 66 -503 67 -106 1 -225 -4 -279 -12 -84 -12 -288 -58 -334 -76 -16 -7 -17 42 -15 980 l3 988 55 19 c87 30 198 57 295 72 122 19 376 19 500 1z m1465 -13 c52 -11 136 -33 185 -49 l90 -29 3 -988 c2 -939 1 -988 -15 -981 -49 18 -249 65 -333 76 -54 8 -175 13 -280 12 -201 -1 -336 -19 -503 -67 -48 -15 -89 -26 -92 -26 -3 0 -5 443 -5 984 l0 984 38 15 c64 26 222 65 322 81 136 22 460 15 590 -12z m-2470 -1285 c0 -981 -3 -937 54 -951 16 -4 51 4 98 23 367 144 828 146 1203 6 l95 -36 95 36 c384 143 845 138 1223 -14 32 -13 63 -19 78 -15 57 14 54 -30 54 951 l0 903 44 0 c36 0 48 -5 65 -26 21 -27 21 -31 21 -934 0 -879 -1 -909 -19 -931 l-19 -24 -1542 0 -1542 0 -19 24 c-18 22 -19 52 -19 931 0 903 0 907 21 934 17 21 29 26 65 26 l44 0 0 -903z"
+              />
+              <path
+                d="M2341 2603 c-47 -23 -71 -67 -71 -131 0 -45 4 -57 33 -88 91 -99 247 -36 247 99 0 67 -74 137 -145 137 -16 0 -45 -8 -64 -17z"
+              />
+              <path
+                d="M2156 2119 c-19 -15 -26 -30 -26 -54 0 -50 31 -75 92 -75 l48 0 0 -345 0 -345 140 0 140 0 0 399 0 400 -26 20 c-24 19 -40 21 -184 21 -144 0 -160 -2 -184 -21z"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div
+        className="randomize"
+      >
+        <div
+          className="active"
+        >
+          <label>
+            Manually hide cells with checkboxes
+          </label>
+        </div>
+        <label
+          className="switch"
+          htmlFor="hide-method-toggle"
+        >
+          <input
+            checked={false}
+            id="hide-method-toggle"
+            onChange={[Function]}
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            tabIndex={0}
+            type="checkbox"
+          />
+          <span
+            className="slider"
+          />
+        </label>
+        <div
+          className=""
+        >
+          <label>
+            Randomly hide 
+            <input
+              onChange={[Function]}
+              placeholder={0}
+              readOnly={true}
+              type="number"
+              value={0}
+            />
+             cells.
+          </label>
+        </div>
+      </div>
+      <div
+        className="empty-element"
+      />
+    </div>
+  </div>
+  <div
+    className="table-container"
+  >
+    <div
+      className="table-text "
+    >
+      <span
+        aria-checked={true}
+        aria-label="Close instruction window."
+        className="close"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        x
+      </span>
+      <h2>
+        WHAT TO DO
+      </h2>
+      <ul
+        className="what-to-do"
+      >
+        <li>
+          Add rows and columns, then input data in the cells below.
+        </li>
+        <li
+          className=""
+        >
+          Check cells to turn them 
+          <span
+            className="blue-text"
+          >
+            blue
+          </span>
+           - these will be left blank for students to fill out.
+        </li>
+        <li
+          className="list-item-hidden"
+        >
+          The widget will automatically hide the given number of cells
+        </li>
+        <li
+          className="keyboard-controls-div"
+          onClick={[Function]}
+        >
+          <span
+            className="keyboard-controls-spam"
+            onKeyPress={[Function]}
+            tabIndex={0}
+          >
+            Keyboard controls
+          </span>
+          
+        </li>
+      </ul>
+    </div>
+    <div
+      className="question-hidden"
+    >
+      <div>
+        <textarea
+          className="question-header"
+          onChange={[Function]}
+          placeholder="Question Header"
+          rows={1}
+          type="text"
+          value=""
+        />
+      </div>
+      <div>
+        <textarea
+          className="question-text"
+          onChange={[Function]}
+          placeholder="Question Text"
+          rows={2}
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="table"
+    >
+      <div
+        className="table-elements"
+      >
+        <div
+          className="table-surround"
+        >
+          <table>
+            <tbody>
+              <tr>
+                <td
+                  className="center-align   tableCell"
+                >
+                  <div
+                    className="cell"
+                    column={0}
+                    onKeyDown={[Function]}
+                    row={0}
+                  >
+                    <input
+                      className="row-0 col-0"
+                      onChange={[Function]}
+                      placeholder="A1"
+                      type="text"
+                      value=""
+                    />
+                    <div
+                      className=" checkbox"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={false}
+                        onChange={[Function]}
+                        onKeyDown={[Function]}
+                        type="checkbox"
+                      />
+                      Hide
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button
+          hidden={true}
+        />
+        <div
+          className="column-buttons"
+        >
+          <button
+            onClick={[Function]}
+          >
+            <svg
+              id="svg"
+              version="1.1"
+              viewBox="0 0 400 400"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+            >
+              <g
+                id="svgg"
+              >
+                <path
+                  d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M213.333 160.000 C 213.333 177.778,222.222 186.667,240.000 186.667 C 254.667 186.667,266.667 192.667,266.667 200.000 C 266.667 207.333,254.667 213.333,240.000 213.333 C 222.222 213.333,213.333 222.222,213.333 240.000 C 213.333 254.667,207.333 266.667,200.000 266.667 C 192.667 266.667,186.667 254.667,186.667 240.000 C 186.667 222.222,177.778 213.333,160.000 213.333 C 145.333 213.333,133.333 207.333,133.333 200.000 C 133.333 192.667,145.333 186.667,160.000 186.667 C 177.778 186.667,186.667 177.778,186.667 160.000 C 186.667 145.333,192.667 133.333,200.000 133.333 C 207.333 133.333,213.333 145.333,213.333 160.000 "
+                  id="path0"
+                />
+              </g>
+            </svg>
+            <div>
+              Col
+            </div>
+          </button>
+          <button
+            onClick={[Function]}
+          >
+            <svg
+              id="svg"
+              version="1.1"
+              viewBox="0, 0, 400,400"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+            >
+              <g
+                id="svgg"
+              >
+                <path
+                  d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M280.000 200.000 C 280.000 207.407,244.444 213.333,200.000 213.333 C 155.556 213.333,120.000 207.407,120.000 200.000 C 120.000 192.593,155.556 186.667,200.000 186.667 C 244.444 186.667,280.000 192.593,280.000 200.000 "
+                  id="path0"
+                />
+              </g>
+            </svg>
+            <div>
+              Col
+            </div>
+          </button>
+        </div>
+      </div>
+      <div
+        className="row-buttons"
+      >
+        <button
+          onClick={[Function]}
+        >
+          <svg
+            id="svg"
+            version="1.1"
+            viewBox="0 0 400 400"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+          >
+            <g
+              id="svgg"
+            >
+              <path
+                d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M213.333 160.000 C 213.333 177.778,222.222 186.667,240.000 186.667 C 254.667 186.667,266.667 192.667,266.667 200.000 C 266.667 207.333,254.667 213.333,240.000 213.333 C 222.222 213.333,213.333 222.222,213.333 240.000 C 213.333 254.667,207.333 266.667,200.000 266.667 C 192.667 266.667,186.667 254.667,186.667 240.000 C 186.667 222.222,177.778 213.333,160.000 213.333 C 145.333 213.333,133.333 207.333,133.333 200.000 C 133.333 192.667,145.333 186.667,160.000 186.667 C 177.778 186.667,186.667 177.778,186.667 160.000 C 186.667 145.333,192.667 133.333,200.000 133.333 C 207.333 133.333,213.333 145.333,213.333 160.000 "
+                id="path0"
+              />
+            </g>
+          </svg>
+          <div>
+            Row
+          </div>
+        </button>
+        <button
+          onClick={[Function]}
+        >
+          <svg
+            id="svg"
+            version="1.1"
+            viewBox="0, 0, 400,400"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+          >
+            <g
+              id="svgg"
+            >
+              <path
+                d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M280.000 200.000 C 280.000 207.407,244.444 213.333,200.000 213.333 C 155.556 213.333,120.000 207.407,120.000 200.000 C 120.000 192.593,155.556 186.667,200.000 186.667 C 244.444 186.667,280.000 192.593,280.000 200.000 "
+                id="path0"
+              />
+            </g>
+          </svg>
+          <div>
+            Row
+          </div>
+        </button>
+      </div>
+      <input
+        hidden={true}
+        type="submit"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CreatorApp component CreatorApp renders branch code 1`] = `
+<div
+  className="creator-component"
+  onKeyDown={[Function]}
+  tabIndex={0}
+>
+  <div
+    className="popup"
+  >
+    <div
+      className="popup-inner"
+    >
+      <h2
+        className=""
+      >
+        Secret Spreadsheet - How it works:
+      </h2>
+      <div
+        className=""
+      >
+        <img
+          src="assets/img/helper-pic.svg"
+        />
+        <p>
+          You'll create a spreadsheet and choose which cells to hide.
+        </p>
+        <p>
+          Students will attempt to fill in the hidden cells correctly.
+        </p>
+      </div>
+      <form
+        className="title-container"
+        onSubmit={[Function]}
+      >
+        <label
+          htmlFor="name-popup"
+        >
+          <strong>
+            Start by giving your Spreadsheet widget a title
+          </strong>
+        </label>
+        <input
+          autoFocus={true}
+          className="popup-input"
+          id="name-popup"
+          onChange={[Function]}
+          placeholder="My Spreadsheet Widget"
+          required="required"
+          type="text"
+          value="New Spreadsheet Widget"
+        />
+        <input
+          className="popup-submit"
+          type="submit"
+          value="Get Started"
+        />
+      </form>
+    </div>
+  </div>
+  <div
+    className="title-bar"
+  >
+    <span
+      className="title-text"
+    >
+      New Spreadsheet Widget
+    </span>
+    <button
+      className="edit-title-button"
+      onClick={[Function]}
+    >
+      Edit title
+    </button>
+    <button
+      className="help-button"
+      onClick={[Function]}
+      type="button"
+      value="Help"
+    >
+      <img
+        src="./assets/img/question-mark.svg"
+      />
+      Help
+    </button>
+  </div>
+  <div
+    className="options-bar"
+  >
+    <div
+      className="upper-options-bar"
+    >
+      <h2
+        className="options"
+      >
+        OPTIONS
+      </h2>
+      <div
+        className="style"
+      >
+        <p
+          className="options-text"
+        >
+          Style:
+        </p>
+        <div
+          aria-checked={false}
+          aria-labelledby="spreadsheet-label"
+          className="hoverable"
+          id="spreadsheet"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            color="lightblue"
+            height="20px"
+            viewBox="0 0 28 28"
+            width="20px"
+          >
+             
+            <path
+              d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+            />
+             
+          </svg>
+          <label
+            id="spreadsheet-label"
+          >
+            Spreadsheet
+          </label>
+        </div>
+        <div
+          aria-checked={false}
+          aria-labelledby="table-label"
+          className="active hoverable"
+          id="table"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            height="20px"
+            viewBox="0 0 28 28"
+            width="20px"
+          >
+             
+            <path
+              d="M0 0v28h28V0H0zm24 24H4V4h20v20zm-2-13l-2.828-2.828-6.768 6.982-3.576-3.576L6 14.406l6.404 6.406L22 11z"
+            />
+             
+          </svg>
+          <label
+            id="table-label"
+          >
+            Table
+          </label>
+        </div>
+      </div>
+      <div
+        className="text"
+      >
+        <label
+          className="options-text"
+        >
+          Text:
+        </label>
+        <div
+          aria-checked={false}
+          aria-label="Use left alignment."
+          className=" hoverable"
+          id="left"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            height="20px"
+            preserveAspectRatio="xMidYMid meet"
+            version="1.0"
+            viewBox="0 0 344 344"
+            width="20px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+             
+            <g
+              fill="#000000"
+              stroke="none"
+              transform="translate(0,344) scale(0.1,-0.1)"
+            >
+               
+              <path
+                d="M130 3095 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
+              />
+               
+              <path
+                d="M130 2410 l0 -140 1105 0 1105 0 0 140 0 140 -1105 0 -1105 0 0 -140z"
+              />
+               
+              <path
+                d="M130 1720 l0 -140 1590 0 1590 0 0 140 0 140 -1590 0 -1590 0 0 -140z"
+              />
+               
+              <path
+                d="M130 1030 l0 -140 1105 0 1105 0 0 140 0 140 -1105 0 -1105 0 0 -140z"
+              />
+               
+              <path
+                d="M130 345 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
+              />
+               
+            </g>
+             
+          </svg>
+        </div>
+        <div
+          aria-checked={true}
+          aria-label="Use center alignment."
+          className="active hoverable"
+          id="center"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            height="20px"
+            preserveAspectRatio="xMidYMid meet"
+            version="1.0"
+            viewBox="0 0 344 344"
+            width="20px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+             
+            <g
+              fill="#000000"
+              stroke="none"
+              transform="translate(0,344) scale(0.1,-0.1)"
+            >
+               
+              <path
+                d="M130 3095 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
+              />
+               
+              <path
+                d="M610 2410 l0 -140 1110 0 1110 0 0 140 0 140 -1110 0 -1110 0 0 -140z"
+              />
+               
+              <path
+                d="M130 1720 l0 -140 1590 0 1590 0 0 140 0 140 -1590 0 -1590 0 0 -140z"
+              />
+               
+              <path
+                d="M610 1030 l0 -140 1110 0 1110 0 0 140 0 140 -1110 0 -1110 0 0 -140z"
+              />
+               
+              <path
+                d="M130 345 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
+              />
+               
+            </g>
+             
+          </svg>
+        </div>
+      </div>
+      <div
+        className="header"
+      >
+        <label
+          className="options-text"
+          id="header-label"
+        >
+          Header:
+        </label>
+        <div
+          aria-checked={false}
+          aria-labelledby="header-label"
+          className=" hoverable"
+          id="header"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            color="lightblue"
+            height="20px"
+            viewBox="0 0 28 28"
+            width="20px"
+          >
+             
+            <path
+              d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+            />
+             
+          </svg>
+          <label
+            htmlFor="header"
+          >
+            First row is a header row
+          </label>
+        </div>
+      </div>
+      <div
+        className="question"
+      >
+        <label
+          className="options-text"
+          id="question-label"
+        >
+          Question Text:
+        </label>
+        <div
+          aria-checked={true}
+          aria-labelledby="question-label"
+          className="active hoverable"
+          id="question"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            height="20px"
+            viewBox="0 0 28 28"
+            width="20px"
+          >
+             
+            <path
+              d="M0 0v28h28V0H0zm24 24H4V4h20v20zm-2-13l-2.828-2.828-6.768 6.982-3.576-3.576L6 14.406l6.404 6.406L22 11z"
+            />
+             
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="lower-options-bar"
+    >
+      <div
+        className="instructions"
+      >
+        <label
+          className="options-text"
+          id="instructions-label"
+        >
+          Instructions:
+        </label>
+        <div
+          aria-checked={true}
+          aria-labelledby="instructions-label"
+          className="active hoverable"
+          id="instructions"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            height="34"
+            version="1.0"
+            viewBox="0 0 344.000000 344.000000"
+            width="34"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="#000000"
+              stroke="none"
+              transform="translate(0.000000,344.000000) scale(0.100000,-0.100000)"
+            >
+              <path
+                d="M850 3093 c-218 -22 -529 -110 -567 -160 -9 -11 -13 -55 -13 -129 l0 -111 -64 -5 c-78 -7 -135 -37 -173 -91 l-28 -40 -3 -964 c-2 -933 -2 -964 17 -1001 24 -47 56 -77 103 -97 33 -13 128 -15 732 -15 l695 0 47 -32 c42 -30 52 -33 124 -33 72 0 82 3 124 33 l47 32 695 0 c604 0 699 2 732 15 47 20 79 50 103 97 19 37 19 68 17 1001 l-3 964 -28 40 c-38 54 -95 84 -173 91 l-64 5 0 113 c0 136 -1 137 -117 182 -374 142 -874 147 -1255 13 l-78 -28 -78 28 c-102 36 -282 75 -404 88 -90 10 -308 12 -388 4z m425 -158 c115 -17 247 -49 323 -77 l52 -19 0 -985 c0 -541 -2 -984 -5 -984 -3 0 -44 11 -92 26 -167 48 -302 66 -503 67 -106 1 -225 -4 -279 -12 -84 -12 -288 -58 -334 -76 -16 -7 -17 42 -15 980 l3 988 55 19 c87 30 198 57 295 72 122 19 376 19 500 1z m1465 -13 c52 -11 136 -33 185 -49 l90 -29 3 -988 c2 -939 1 -988 -15 -981 -49 18 -249 65 -333 76 -54 8 -175 13 -280 12 -201 -1 -336 -19 -503 -67 -48 -15 -89 -26 -92 -26 -3 0 -5 443 -5 984 l0 984 38 15 c64 26 222 65 322 81 136 22 460 15 590 -12z m-2470 -1285 c0 -981 -3 -937 54 -951 16 -4 51 4 98 23 367 144 828 146 1203 6 l95 -36 95 36 c384 143 845 138 1223 -14 32 -13 63 -19 78 -15 57 14 54 -30 54 951 l0 903 44 0 c36 0 48 -5 65 -26 21 -27 21 -31 21 -934 0 -879 -1 -909 -19 -931 l-19 -24 -1542 0 -1542 0 -19 24 c-18 22 -19 52 -19 931 0 903 0 907 21 934 17 21 29 26 65 26 l44 0 0 -903z"
+              />
+              <path
+                d="M2341 2603 c-47 -23 -71 -67 -71 -131 0 -45 4 -57 33 -88 91 -99 247 -36 247 99 0 67 -74 137 -145 137 -16 0 -45 -8 -64 -17z"
+              />
+              <path
+                d="M2156 2119 c-19 -15 -26 -30 -26 -54 0 -50 31 -75 92 -75 l48 0 0 -345 0 -345 140 0 140 0 0 399 0 400 -26 20 c-24 19 -40 21 -184 21 -144 0 -160 -2 -184 -21z"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div
+        className="randomize"
+      >
+        <div
+          className="active"
+        >
+          <label>
+            Manually hide cells with checkboxes
+          </label>
+        </div>
+        <label
+          className="switch"
+          htmlFor="hide-method-toggle"
+        >
+          <input
+            checked={false}
+            id="hide-method-toggle"
+            onChange={[Function]}
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            tabIndex={0}
+            type="checkbox"
+          />
+          <span
+            className="slider"
+          />
+        </label>
+        <div
+          className=""
+        >
+          <label>
+            Randomly hide 
+            <input
+              onChange={[Function]}
+              placeholder={0}
+              readOnly={true}
+              type="number"
+              value={0}
+            />
+             cells.
+          </label>
+        </div>
+      </div>
+      <div
+        className="empty-element"
+      />
+    </div>
+  </div>
+  <div
+    className="table-container"
+  >
+    <div
+      className="table-text "
+    >
+      <span
+        aria-checked={true}
+        aria-label="Close instruction window."
+        className="close"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        x
+      </span>
+      <h2>
+        WHAT TO DO
+      </h2>
+      <ul
+        className="what-to-do"
+      >
+        <li>
+          Add rows and columns, then input data in the cells below.
+        </li>
+        <li
+          className=""
+        >
+          Check cells to turn them 
+          <span
+            className="blue-text"
+          >
+            blue
+          </span>
+           - these will be left blank for students to fill out.
+        </li>
+        <li
+          className="list-item-hidden"
+        >
+          The widget will automatically hide the given number of cells
+        </li>
+        <li
+          className="keyboard-controls-div"
+          onClick={[Function]}
+        >
+          <span
+            className="keyboard-controls-spam"
+            onKeyPress={[Function]}
+            tabIndex={0}
+          >
+            Keyboard controls
+          </span>
+          
+        </li>
+      </ul>
+    </div>
+    <div
+      className=""
+    >
+      <div>
+        <textarea
+          className="question-header"
+          onChange={[Function]}
+          placeholder="Question Header"
+          rows={1}
+          type="text"
+        />
+      </div>
+      <div>
+        <textarea
+          className="question-text"
+          onChange={[Function]}
+          placeholder="Question Text"
+          rows={2}
+          type="text"
+        />
+      </div>
+    </div>
+    <div
+      className="table"
+    >
+      <div
+        className="table-elements"
+      >
+        <div
+          className="table-surround"
+        >
+          <table>
+            <tbody>
+              <tr>
+                <td
+                  className="center-align   tableCell"
+                >
+                  <div
+                    className="cell"
+                    column={0}
+                    onKeyDown={[Function]}
+                    row={0}
+                  >
+                    <input
+                      className="row-0 col-0"
+                      onChange={[Function]}
+                      placeholder=""
+                      type="text"
+                    />
+                    <div
+                      className=" checkbox"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={false}
+                        onChange={[Function]}
+                        onKeyDown={[Function]}
+                        type="checkbox"
+                      />
+                      Hide
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button
+          hidden={true}
+        />
+        <div
+          className="column-buttons"
+        >
+          <button
+            onClick={[Function]}
+          >
+            <svg
+              id="svg"
+              version="1.1"
+              viewBox="0 0 400 400"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+            >
+              <g
+                id="svgg"
+              >
+                <path
+                  d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M213.333 160.000 C 213.333 177.778,222.222 186.667,240.000 186.667 C 254.667 186.667,266.667 192.667,266.667 200.000 C 266.667 207.333,254.667 213.333,240.000 213.333 C 222.222 213.333,213.333 222.222,213.333 240.000 C 213.333 254.667,207.333 266.667,200.000 266.667 C 192.667 266.667,186.667 254.667,186.667 240.000 C 186.667 222.222,177.778 213.333,160.000 213.333 C 145.333 213.333,133.333 207.333,133.333 200.000 C 133.333 192.667,145.333 186.667,160.000 186.667 C 177.778 186.667,186.667 177.778,186.667 160.000 C 186.667 145.333,192.667 133.333,200.000 133.333 C 207.333 133.333,213.333 145.333,213.333 160.000 "
+                  id="path0"
+                />
+              </g>
+            </svg>
+            <div>
+              Col
+            </div>
+          </button>
+          <button
+            onClick={[Function]}
+          >
+            <svg
+              id="svg"
+              version="1.1"
+              viewBox="0, 0, 400,400"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+            >
+              <g
+                id="svgg"
+              >
+                <path
+                  d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M280.000 200.000 C 280.000 207.407,244.444 213.333,200.000 213.333 C 155.556 213.333,120.000 207.407,120.000 200.000 C 120.000 192.593,155.556 186.667,200.000 186.667 C 244.444 186.667,280.000 192.593,280.000 200.000 "
+                  id="path0"
+                />
+              </g>
+            </svg>
+            <div>
+              Col
+            </div>
+          </button>
+        </div>
+      </div>
+      <div
+        className="row-buttons"
+      >
+        <button
+          onClick={[Function]}
+        >
+          <svg
+            id="svg"
+            version="1.1"
+            viewBox="0 0 400 400"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+          >
+            <g
+              id="svgg"
+            >
+              <path
+                d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M213.333 160.000 C 213.333 177.778,222.222 186.667,240.000 186.667 C 254.667 186.667,266.667 192.667,266.667 200.000 C 266.667 207.333,254.667 213.333,240.000 213.333 C 222.222 213.333,213.333 222.222,213.333 240.000 C 213.333 254.667,207.333 266.667,200.000 266.667 C 192.667 266.667,186.667 254.667,186.667 240.000 C 186.667 222.222,177.778 213.333,160.000 213.333 C 145.333 213.333,133.333 207.333,133.333 200.000 C 133.333 192.667,145.333 186.667,160.000 186.667 C 177.778 186.667,186.667 177.778,186.667 160.000 C 186.667 145.333,192.667 133.333,200.000 133.333 C 207.333 133.333,213.333 145.333,213.333 160.000 "
+                id="path0"
+              />
+            </g>
+          </svg>
+          <div>
+            Row
+          </div>
+        </button>
+        <button
+          onClick={[Function]}
+        >
+          <svg
+            id="svg"
+            version="1.1"
+            viewBox="0, 0, 400,400"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+          >
+            <g
+              id="svgg"
+            >
+              <path
+                d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M280.000 200.000 C 280.000 207.407,244.444 213.333,200.000 213.333 C 155.556 213.333,120.000 207.407,120.000 200.000 C 120.000 192.593,155.556 186.667,200.000 186.667 C 244.444 186.667,280.000 192.593,280.000 200.000 "
+                id="path0"
+              />
+            </g>
+          </svg>
+          <div>
+            Row
+          </div>
+        </button>
+      </div>
+      <input
+        hidden={true}
+        type="submit"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CreatorApp component CreatorApp renders branch code 2`] = `
+<div
+  className="creator-component"
+  onKeyDown={[Function]}
+  tabIndex={0}
+>
+  <div
+    className="popup"
+  >
+    <div
+      className="popup-inner"
+    >
+      <h2
+        className=""
+      >
+        Secret Spreadsheet - How it works:
+      </h2>
+      <div
+        className=""
+      >
+        <img
+          src="assets/img/helper-pic.svg"
+        />
+        <p>
+          You'll create a spreadsheet and choose which cells to hide.
+        </p>
+        <p>
+          Students will attempt to fill in the hidden cells correctly.
+        </p>
+      </div>
+      <form
+        className="title-container"
+        onSubmit={[Function]}
+      >
+        <label
+          htmlFor="name-popup"
+        >
+          <strong>
+            Start by giving your Spreadsheet widget a title
+          </strong>
+        </label>
+        <input
+          autoFocus={true}
+          className="popup-input"
+          id="name-popup"
+          onChange={[Function]}
+          placeholder="My Spreadsheet Widget"
+          required="required"
+          type="text"
+          value="New Spreadsheet Widget"
+        />
+        <input
+          className="popup-submit"
+          type="submit"
+          value="Get Started"
+        />
+      </form>
+    </div>
+  </div>
+  <div
+    className="title-bar"
+  >
+    <span
+      className="title-text"
+    >
+      New Spreadsheet Widget
+    </span>
+    <button
+      className="edit-title-button"
+      onClick={[Function]}
+    >
+      Edit title
+    </button>
+    <button
+      className="help-button"
+      onClick={[Function]}
+      type="button"
+      value="Help"
+    >
+      <img
+        src="./assets/img/question-mark.svg"
+      />
+      Help
+    </button>
+  </div>
+  <div
+    className="options-bar"
+  >
+    <div
+      className="upper-options-bar"
+    >
+      <h2
+        className="options"
+      >
+        OPTIONS
+      </h2>
+      <div
+        className="style"
+      >
+        <p
+          className="options-text"
+        >
+          Style:
+        </p>
+        <div
+          aria-checked={false}
+          aria-labelledby="spreadsheet-label"
+          className="hoverable"
+          id="spreadsheet"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            color="lightblue"
+            height="20px"
+            viewBox="0 0 28 28"
+            width="20px"
+          >
+             
+            <path
+              d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+            />
+             
+          </svg>
+          <label
+            id="spreadsheet-label"
+          >
+            Spreadsheet
+          </label>
+        </div>
+        <div
+          aria-checked={false}
+          aria-labelledby="table-label"
+          className="active hoverable"
+          id="table"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            height="20px"
+            viewBox="0 0 28 28"
+            width="20px"
+          >
+             
+            <path
+              d="M0 0v28h28V0H0zm24 24H4V4h20v20zm-2-13l-2.828-2.828-6.768 6.982-3.576-3.576L6 14.406l6.404 6.406L22 11z"
+            />
+             
+          </svg>
+          <label
+            id="table-label"
+          >
+            Table
+          </label>
+        </div>
+      </div>
+      <div
+        className="text"
+      >
+        <label
+          className="options-text"
+        >
+          Text:
+        </label>
+        <div
+          aria-checked={false}
+          aria-label="Use left alignment."
+          className=" hoverable"
+          id="left"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            height="20px"
+            preserveAspectRatio="xMidYMid meet"
+            version="1.0"
+            viewBox="0 0 344 344"
+            width="20px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+             
+            <g
+              fill="#000000"
+              stroke="none"
+              transform="translate(0,344) scale(0.1,-0.1)"
+            >
+               
+              <path
+                d="M130 3095 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
+              />
+               
+              <path
+                d="M130 2410 l0 -140 1105 0 1105 0 0 140 0 140 -1105 0 -1105 0 0 -140z"
+              />
+               
+              <path
+                d="M130 1720 l0 -140 1590 0 1590 0 0 140 0 140 -1590 0 -1590 0 0 -140z"
+              />
+               
+              <path
+                d="M130 1030 l0 -140 1105 0 1105 0 0 140 0 140 -1105 0 -1105 0 0 -140z"
+              />
+               
+              <path
+                d="M130 345 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
+              />
+               
+            </g>
+             
+          </svg>
+        </div>
+        <div
+          aria-checked={true}
+          aria-label="Use center alignment."
+          className="active hoverable"
+          id="center"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            height="20px"
+            preserveAspectRatio="xMidYMid meet"
+            version="1.0"
+            viewBox="0 0 344 344"
+            width="20px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+             
+            <g
+              fill="#000000"
+              stroke="none"
+              transform="translate(0,344) scale(0.1,-0.1)"
+            >
+               
+              <path
+                d="M130 3095 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
+              />
+               
+              <path
+                d="M610 2410 l0 -140 1110 0 1110 0 0 140 0 140 -1110 0 -1110 0 0 -140z"
+              />
+               
+              <path
+                d="M130 1720 l0 -140 1590 0 1590 0 0 140 0 140 -1590 0 -1590 0 0 -140z"
+              />
+               
+              <path
+                d="M610 1030 l0 -140 1110 0 1110 0 0 140 0 140 -1110 0 -1110 0 0 -140z"
+              />
+               
+              <path
+                d="M130 345 l0 -145 1590 0 1590 0 0 145 0 145 -1590 0 -1590 0 0 -145z"
+              />
+               
+            </g>
+             
+          </svg>
+        </div>
+      </div>
+      <div
+        className="header"
+      >
+        <label
+          className="options-text"
+          id="header-label"
+        >
+          Header:
+        </label>
+        <div
+          aria-checked={false}
+          aria-labelledby="header-label"
+          className=" hoverable"
+          id="header"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            color="lightblue"
+            height="20px"
+            viewBox="0 0 28 28"
+            width="20px"
+          >
+             
+            <path
+              d="M0 0v28h28V0H0zm24 24H4V4h20v20z"
+            />
+             
+          </svg>
+          <label
+            htmlFor="header"
+          >
+            First row is a header row
+          </label>
+        </div>
+      </div>
+      <div
+        className="question"
+      >
+        <label
+          className="options-text"
+          id="question-label"
+        >
+          Question Text:
+        </label>
+        <div
+          aria-checked={true}
+          aria-labelledby="question-label"
+          className="active hoverable"
+          id="question"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            height="20px"
+            viewBox="0 0 28 28"
+            width="20px"
+          >
+             
+            <path
+              d="M0 0v28h28V0H0zm24 24H4V4h20v20zm-2-13l-2.828-2.828-6.768 6.982-3.576-3.576L6 14.406l6.404 6.406L22 11z"
+            />
+             
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="lower-options-bar"
+    >
+      <div
+        className="instructions"
+      >
+        <label
+          className="options-text"
+          id="instructions-label"
+        >
+          Instructions:
+        </label>
+        <div
+          aria-checked={true}
+          aria-labelledby="instructions-label"
+          className="active hoverable"
+          id="instructions"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex={0}
+        >
+          <svg
+            height="34"
+            version="1.0"
+            viewBox="0 0 344.000000 344.000000"
+            width="34"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="#000000"
+              stroke="none"
+              transform="translate(0.000000,344.000000) scale(0.100000,-0.100000)"
+            >
+              <path
+                d="M850 3093 c-218 -22 -529 -110 -567 -160 -9 -11 -13 -55 -13 -129 l0 -111 -64 -5 c-78 -7 -135 -37 -173 -91 l-28 -40 -3 -964 c-2 -933 -2 -964 17 -1001 24 -47 56 -77 103 -97 33 -13 128 -15 732 -15 l695 0 47 -32 c42 -30 52 -33 124 -33 72 0 82 3 124 33 l47 32 695 0 c604 0 699 2 732 15 47 20 79 50 103 97 19 37 19 68 17 1001 l-3 964 -28 40 c-38 54 -95 84 -173 91 l-64 5 0 113 c0 136 -1 137 -117 182 -374 142 -874 147 -1255 13 l-78 -28 -78 28 c-102 36 -282 75 -404 88 -90 10 -308 12 -388 4z m425 -158 c115 -17 247 -49 323 -77 l52 -19 0 -985 c0 -541 -2 -984 -5 -984 -3 0 -44 11 -92 26 -167 48 -302 66 -503 67 -106 1 -225 -4 -279 -12 -84 -12 -288 -58 -334 -76 -16 -7 -17 42 -15 980 l3 988 55 19 c87 30 198 57 295 72 122 19 376 19 500 1z m1465 -13 c52 -11 136 -33 185 -49 l90 -29 3 -988 c2 -939 1 -988 -15 -981 -49 18 -249 65 -333 76 -54 8 -175 13 -280 12 -201 -1 -336 -19 -503 -67 -48 -15 -89 -26 -92 -26 -3 0 -5 443 -5 984 l0 984 38 15 c64 26 222 65 322 81 136 22 460 15 590 -12z m-2470 -1285 c0 -981 -3 -937 54 -951 16 -4 51 4 98 23 367 144 828 146 1203 6 l95 -36 95 36 c384 143 845 138 1223 -14 32 -13 63 -19 78 -15 57 14 54 -30 54 951 l0 903 44 0 c36 0 48 -5 65 -26 21 -27 21 -31 21 -934 0 -879 -1 -909 -19 -931 l-19 -24 -1542 0 -1542 0 -19 24 c-18 22 -19 52 -19 931 0 903 0 907 21 934 17 21 29 26 65 26 l44 0 0 -903z"
+              />
+              <path
+                d="M2341 2603 c-47 -23 -71 -67 -71 -131 0 -45 4 -57 33 -88 91 -99 247 -36 247 99 0 67 -74 137 -145 137 -16 0 -45 -8 -64 -17z"
+              />
+              <path
+                d="M2156 2119 c-19 -15 -26 -30 -26 -54 0 -50 31 -75 92 -75 l48 0 0 -345 0 -345 140 0 140 0 0 399 0 400 -26 20 c-24 19 -40 21 -184 21 -144 0 -160 -2 -184 -21z"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div
+        className="randomize"
+      >
+        <div
+          className="active"
+        >
+          <label>
+            Manually hide cells with checkboxes
+          </label>
+        </div>
+        <label
+          className="switch"
+          htmlFor="hide-method-toggle"
+        >
+          <input
+            checked={false}
+            id="hide-method-toggle"
+            onChange={[Function]}
+            onClick={[Function]}
+            onKeyPress={[Function]}
+            tabIndex={0}
+            type="checkbox"
+          />
+          <span
+            className="slider"
+          />
+        </label>
+        <div
+          className=""
+        >
+          <label>
+            Randomly hide 
+            <input
+              onChange={[Function]}
+              placeholder={0}
+              readOnly={true}
+              type="number"
+              value={0}
+            />
+             cells.
+          </label>
+        </div>
+      </div>
+      <div
+        className="empty-element"
+      />
+    </div>
+  </div>
+  <div
+    className="table-container"
+  >
+    <div
+      className="table-text "
+    >
+      <span
+        aria-checked={true}
+        aria-label="Close instruction window."
+        className="close"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        x
+      </span>
+      <h2>
+        WHAT TO DO
+      </h2>
+      <ul
+        className="what-to-do"
+      >
+        <li>
+          Add rows and columns, then input data in the cells below.
+        </li>
+        <li
+          className=""
+        >
+          Check cells to turn them 
+          <span
+            className="blue-text"
+          >
+            blue
+          </span>
+           - these will be left blank for students to fill out.
+        </li>
+        <li
+          className="list-item-hidden"
+        >
+          The widget will automatically hide the given number of cells
+        </li>
+        <li
+          className="keyboard-controls-div"
+          onClick={[Function]}
+        >
+          <span
+            className="keyboard-controls-spam"
+            onKeyPress={[Function]}
+            tabIndex={0}
+          >
+            Keyboard controls
+          </span>
+          
+        </li>
+      </ul>
+    </div>
+    <div
+      className=""
+    >
+      <div>
+        <textarea
+          className="question-header"
+          onChange={[Function]}
+          placeholder="Question Header"
+          rows={1}
+          type="text"
+        />
+      </div>
+      <div>
+        <textarea
+          className="question-text"
+          onChange={[Function]}
+          placeholder="Question Text"
+          rows={2}
+          type="text"
+        />
+      </div>
+    </div>
+    <div
+      className="table"
+    >
+      <div
+        className="table-elements"
+      >
+        <div
+          className="table-surround"
+        >
+          <table>
+            <tbody>
+              <tr>
+                <td
+                  className="center-align   tableCell"
+                >
+                  <div
+                    className="cell"
+                    column={0}
+                    onKeyDown={[Function]}
+                    row={0}
+                  >
+                    <input
+                      className="row-0 col-0"
+                      onChange={[Function]}
+                      placeholder=""
+                      type="text"
+                    />
+                    <div
+                      className=" checkbox"
+                      onClick={[Function]}
+                    >
+                      <input
+                        checked={false}
+                        onChange={[Function]}
+                        onKeyDown={[Function]}
+                        type="checkbox"
+                      />
+                      Hide
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button
+          hidden={true}
+        />
+        <div
+          className="column-buttons"
+        >
+          <button
+            onClick={[Function]}
+          >
+            <svg
+              id="svg"
+              version="1.1"
+              viewBox="0 0 400 400"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+            >
+              <g
+                id="svgg"
+              >
+                <path
+                  d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M213.333 160.000 C 213.333 177.778,222.222 186.667,240.000 186.667 C 254.667 186.667,266.667 192.667,266.667 200.000 C 266.667 207.333,254.667 213.333,240.000 213.333 C 222.222 213.333,213.333 222.222,213.333 240.000 C 213.333 254.667,207.333 266.667,200.000 266.667 C 192.667 266.667,186.667 254.667,186.667 240.000 C 186.667 222.222,177.778 213.333,160.000 213.333 C 145.333 213.333,133.333 207.333,133.333 200.000 C 133.333 192.667,145.333 186.667,160.000 186.667 C 177.778 186.667,186.667 177.778,186.667 160.000 C 186.667 145.333,192.667 133.333,200.000 133.333 C 207.333 133.333,213.333 145.333,213.333 160.000 "
+                  id="path0"
+                />
+              </g>
+            </svg>
+            <div>
+              Col
+            </div>
+          </button>
+          <button
+            onClick={[Function]}
+          >
+            <svg
+              id="svg"
+              version="1.1"
+              viewBox="0, 0, 400,400"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+            >
+              <g
+                id="svgg"
+              >
+                <path
+                  d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M280.000 200.000 C 280.000 207.407,244.444 213.333,200.000 213.333 C 155.556 213.333,120.000 207.407,120.000 200.000 C 120.000 192.593,155.556 186.667,200.000 186.667 C 244.444 186.667,280.000 192.593,280.000 200.000 "
+                  id="path0"
+                />
+              </g>
+            </svg>
+            <div>
+              Col
+            </div>
+          </button>
+        </div>
+      </div>
+      <div
+        className="row-buttons"
+      >
+        <button
+          onClick={[Function]}
+        >
+          <svg
+            id="svg"
+            version="1.1"
+            viewBox="0 0 400 400"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+          >
+            <g
+              id="svgg"
+            >
+              <path
+                d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M213.333 160.000 C 213.333 177.778,222.222 186.667,240.000 186.667 C 254.667 186.667,266.667 192.667,266.667 200.000 C 266.667 207.333,254.667 213.333,240.000 213.333 C 222.222 213.333,213.333 222.222,213.333 240.000 C 213.333 254.667,207.333 266.667,200.000 266.667 C 192.667 266.667,186.667 254.667,186.667 240.000 C 186.667 222.222,177.778 213.333,160.000 213.333 C 145.333 213.333,133.333 207.333,133.333 200.000 C 133.333 192.667,145.333 186.667,160.000 186.667 C 177.778 186.667,186.667 177.778,186.667 160.000 C 186.667 145.333,192.667 133.333,200.000 133.333 C 207.333 133.333,213.333 145.333,213.333 160.000 "
+                id="path0"
+              />
+            </g>
+          </svg>
+          <div>
+            Row
+          </div>
+        </button>
+        <button
+          onClick={[Function]}
+        >
+          <svg
+            id="svg"
+            version="1.1"
+            viewBox="0, 0, 400,400"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+          >
+            <g
+              id="svgg"
+            >
+              <path
+                d="M85.333 85.333 C 19.189 151.478,19.189 248.522,85.333 314.667 C 190.592 419.925,360.000 349.202,360.000 200.000 C 360.000 50.798,190.592 -19.925,85.333 85.333 M280.000 200.000 C 280.000 207.407,244.444 213.333,200.000 213.333 C 155.556 213.333,120.000 207.407,120.000 200.000 C 120.000 192.593,155.556 186.667,200.000 186.667 C 244.444 186.667,280.000 192.593,280.000 200.000 "
+                id="path0"
+              />
+            </g>
+          </svg>
+          <div>
+            Row
+          </div>
+        </button>
+      </div>
+      <input
+        hidden={true}
+        type="submit"
+      />
+    </div>
+  </div>
+</div>
+`;

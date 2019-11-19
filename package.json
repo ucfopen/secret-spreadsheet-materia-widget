@@ -1,0 +1,46 @@
+{
+	"name": "@ucfopen/spreadsheet",
+	"materia": {
+		"cleanName": "secret-spreadsheet"
+	},
+	"dependencies": {
+		"materia-widget-development-kit": "^2.4.2"
+	},
+	"devDependencies": {
+		"@babel/preset-react": "^7.0.0",
+		"enzyme": "^3.10.0",
+		"enzyme-adapter-react-16": "^1.12.1",
+		"eslint": "^6.5.1",
+		"eslint-plugin-react": "^7.16.0",
+		"jest": "^24.9",
+		"react": "16.9.0",
+		"react-dom": "^16.9.0",
+		"react-test-renderer": "^16.9.0"
+	},
+	"scripts": {
+		"start": "webpack-dev-server",
+		"lint": "eslint src/**/*.js",
+		"build": "webpack -p",
+		"build-dev": "webpack",
+		"test": "jest",
+		"test-ci": "TZ='America/New_York' CI=true jest --ci --useStderr --coverage --coverageReporters text-summary cobertura"
+	},
+	"jest": {
+		"coverageReporters": [
+			"text",
+			"lcov"
+		],
+		"coverageThreshold": {
+			"global": {
+				"branches": 99.48,
+				"functions": 100,
+				"lines": 100,
+				"statements": 100
+			}
+		}
+	},
+	"author": "University of Central Florida, Center for Distributed Learning",
+	"description": "Spreadsheet is a Materia Widget that has students fill in the blanks of a spreadsheet.",
+	"license": "AGPL-3.0",
+	"version": "1.0.0"
+}
