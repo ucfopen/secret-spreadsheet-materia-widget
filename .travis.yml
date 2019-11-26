@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+- '12'
+cache:
+  yarn: true
+  directories:
+  - node_modules
+before_install:
+- npm install -g yarn
+- npm config set spin false
+- npm install -g npm@^6.9.0
+script:
+- yarn test-ci
+- yarn build
+deploy:
+  skip_cleanup: true
+  provider: releases
+  file:
+  - build/_output/secret-spreadsheet.wigt
+  - build/_output/secret-spreadsheet-build-info.yml
+  on:
+    tags: true
+    repo: ucfopen/secret-spreadsheet-materia-widget
+  api_key:
+    secure: fDwmKTiqa/3MN/vHbER32kOjUdhaoI+KDsBLAzDYUyCTIGi/u9tsklSmlUHaLU2VRv1jNxrftIz8po1p0aUhCF7Roh4St1Kq/YH/OKinRHB17g+S56hmV3Nfg96CIfuKFZZURTS76cqh4R0TnJEIFJScs6stG1glsSly1+SleJaFufS1dDJjMakAkzLBAYb1oYEYF2jyKxvK6gbB1Rk+ZyN8wqsyv4qrrgcS6slu8Xu6phI7Vb9EQxfJdGF300c/eO64zWuhnQFO5xjpGhngSwxjmoFuHTldj1WzlRRqB8hy57D8/jqXX6eg9kMZXxeVZGrFT9iJxHEE1/0GxfVKTC1CdqMjYURmEUP1P6c3RhHo+UVBa9UIZbmCt8nyEryFUkY/ByX0oRKZrYixqKNzSvWnsuvaBZX6QBn/a+t9tZ064LOgL3UU7DfX5eUihs0A+IqsMGBwfIlyATrJsllf2rkuq/u+GJ4nZ+o+k/CkLNx2rUxTANaSYOb/mnjjPBZHpxspc1ZJALXJ+8bIj+eW60TIWLURJxG1XKW4GqW4tzvh+/um5J7ypSKSVM2n3Hz9EJ2gdw+z6eXU/0S9sszpIfAhKv2tYL4VgZbtLPEAGbTnzopSRBu4jEkz1IyuquKU6wMtlUEeDIZ0MrP7OJGv10IuE/Xjk8nw/yIje4yhi8M=
+notifications:
+  email: false
+  slack:
+    secure: yrF22weYSsvLqlpKE4g+wUM3iOLW763zeZ67kE62mfspUwjgCbJ5h08/Cxfb6zfRYcU8x0u2ltTybwOqP0vY9NykGBlzEIEvnjJ/mbrHBarer+nIPr175ABdCiQwZ0TiqbDYFeHs9D+Q7tqGTzkizR6p5qUYY31uwzO3GyW0dp9g4bn+mjky+QfA7mzJeQEK8ERf9lG00vGCSEIM9NQ1en8te4LU9MhPU/S9y+Iy14/rvC8WfsMsG2AQujkD8Eb2c7Dreve/drKJN7WyT2dYncHG1g8hy5Rxph6P5SnwOYF9OwIVJnBMQL9SZq6+TTMrAd5VmEwRQ7mGHY94k5FKWbccE6oiVNqhRo52ZIT3IAWBVZ5TDiN/moCIcG4ojC7Ht0zf//czTjx9FbgJFQe/2UxB/dTN6lrzgFJoTigCzPLoEZn7d0ylSgAAMRe34NvimhQR7hRWvhguNNYRT3PRov7Vqnc/Sv1zSfhDRRsXxa4VWeq2cIqyCAH7ssJPO0jD9ywdliTHGpF7wNN7hJXyoBGDJ1VnF6srKgrtO6JeqiP3s3pPb4hKIYfMWAOnYwvSH6cpIbTgg+ZsGPkBC9hy738wAL95sl9P/4eZDFztXnvUPMwWpW4Ed3soyuVEzgP54GX1Zz0Ib+edhxYy8am+v1t7EUpD942/eGj/UCAEgk8=
