@@ -204,7 +204,7 @@ describe(`ScoreScreen`, () => {
 	});
 
 	test(`Registers callbacks`, () => {
-		require(`./scorescreen`);
+		require(`./scoreScreen`);
 		jest.mock(`react-dom`, () => {
 			jest.fn();
 		});
