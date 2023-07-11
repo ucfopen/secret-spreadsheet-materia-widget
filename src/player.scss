@@ -170,6 +170,12 @@ header {
 	p:not(.mainQuestion) {
 		margin-bottom: 20px;
 	}
+
+	&:focus {
+		.mainQuestion {
+			text-decoration: underline;
+		}
+	}
 }
 
 .help {

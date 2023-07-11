@@ -59,9 +59,13 @@ class Cell extends React.Component {
 	}
 
 	render() {
+		// const cellClass = `${this.props.showInput ? `${this.state.colorClass} `:``}${this.props.leftAlign ? `leftAlign`:`centerAlign`}`
+		const cellClass = (this.props.showInput ? this.state.colorClass + ' ' : '') +
+			(this.props.leftAlign ? 'leftAlign' : 'centerAlign')
 		// test if it should display an input box or if it should show the text
 		return(
-			<td id={this.props.id} className={`${this.props.showInput ? `${this.state.colorClass} `:``}${this.props.leftAlign ? `leftAlign`:`centerAlign`}`} >
+			<td id={this.props.id}
+				className={cellClass} >
 				{ this.props.showInput ?
 					<input
 						type="text"
@@ -71,6 +75,7 @@ class Cell extends React.Component {
 						onBlur={this.props.saveAnswer}
 						className={this.state.colorClass}
 						ref={this.input}
+						autoComplete='off'
 						placeholder="?"
 					/>
 					: <span>{this.props.displayText}</span>

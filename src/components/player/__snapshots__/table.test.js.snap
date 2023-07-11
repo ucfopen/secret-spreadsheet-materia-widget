@@ -20,6 +20,7 @@ exports[`PlayerTable component Rendered centered, no header, no labels 1`] = `
         id="cell1"
       >
         <input
+          autoComplete="off"
           className="unanswered"
           id="1-input"
           onBlur={[Function]}
@@ -38,6 +39,7 @@ exports[`PlayerTable component Rendered centered, no header, no labels 1`] = `
         id="cell2"
       >
         <input
+          autoComplete="off"
           className="unanswered"
           id="2-input"
           onBlur={[Function]}
@@ -107,6 +109,7 @@ exports[`PlayerTable component Rendered centered, no header, with labels 1`] = `
         id="cell1"
       >
         <input
+          autoComplete="off"
           className="unanswered"
           id="1-input"
           onBlur={[Function]}
@@ -131,6 +134,7 @@ exports[`PlayerTable component Rendered centered, no header, with labels 1`] = `
         id="cell2"
       >
         <input
+          autoComplete="off"
           className="unanswered"
           id="2-input"
           onBlur={[Function]}
@@ -182,6 +186,7 @@ exports[`PlayerTable component Rendered centered, with header, no labels 1`] = `
         id="cell2"
       >
         <input
+          autoComplete="off"
           className="unanswered"
           id="2-input"
           onBlur={[Function]}
@@ -265,6 +270,7 @@ exports[`PlayerTable component Rendered centered, with header, with labels 1`] =
         id="cell2"
       >
         <input
+          autoComplete="off"
           className="unanswered"
           id="2-input"
           onBlur={[Function]}
@@ -307,6 +313,7 @@ exports[`PlayerTable component Rendered leftAligned, no header, no labels 1`] = 
         id="cell1"
       >
         <input
+          autoComplete="off"
           className="unanswered"
           id="1-input"
           onBlur={[Function]}
@@ -325,6 +332,7 @@ exports[`PlayerTable component Rendered leftAligned, no header, no labels 1`] = 
         id="cell2"
       >
         <input
+          autoComplete="off"
           className="unanswered"
           id="2-input"
           onBlur={[Function]}
@@ -394,6 +402,7 @@ exports[`PlayerTable component Rendered leftAligned, no header, with labels 1`] 
         id="cell1"
       >
         <input
+          autoComplete="off"
           className="unanswered"
           id="1-input"
           onBlur={[Function]}
@@ -418,6 +427,7 @@ exports[`PlayerTable component Rendered leftAligned, no header, with labels 1`] 
         id="cell2"
       >
         <input
+          autoComplete="off"
           className="unanswered"
           id="2-input"
           onBlur={[Function]}
@@ -469,6 +479,7 @@ exports[`PlayerTable component Rendered leftAligned, with header, no labels 1`] 
         id="cell2"
       >
         <input
+          autoComplete="off"
           className="unanswered"
           id="2-input"
           onBlur={[Function]}
@@ -552,6 +563,7 @@ exports[`PlayerTable component Rendered leftAligned, with header, with labels 1`
         id="cell2"
       >
         <input
+          autoComplete="off"
           className="unanswered"
           id="2-input"
           onBlur={[Function]}
@@ -603,6 +615,7 @@ exports[`PlayerTable component Rendered with randomness and a header 1`] = `
         id="cell2"
       >
         <input
+          autoComplete="off"
           className="unanswered"
           id="2-input"
           onBlur={[Function]}
@@ -645,6 +658,7 @@ exports[`PlayerTable component Rendered with randomness and no header 1`] = `
         id="cell1"
       >
         <input
+          autoComplete="off"
           className="unanswered"
           id="1-input"
           onBlur={[Function]}
@@ -663,6 +677,7 @@ exports[`PlayerTable component Rendered with randomness and no header 1`] = `
         id="cell2"
       >
         <input
+          autoComplete="off"
           className="unanswered"
           id="2-input"
           onBlur={[Function]}

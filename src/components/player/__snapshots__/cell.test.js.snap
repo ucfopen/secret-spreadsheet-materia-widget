@@ -6,6 +6,7 @@ exports[`Cell component Rendered with user input center aligned 1`] = `
   id={1}
 >
   <input
+    autoComplete="off"
     className="unanswered"
     onBlur={[MockFunction]}
     onChange={[Function]}
@@ -22,6 +23,7 @@ exports[`Cell component Rendered with user input left aligned 1`] = `
   id={1}
 >
   <input
+    autoComplete="off"
     className="unanswered"
     onBlur={[MockFunction]}
     onChange={[Function]}

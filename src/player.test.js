@@ -444,6 +444,36 @@ describe(`Player`, () => {
 		mockPlayer.unmount();
 	});
 
+	test('handleKeyUp does nothing when handling an irrelevant key', () => {
+		const mockPlayer = makeNewPlayer();
+
+		const mockHandleQuestionToggle = jest.fn();
+
+		mockPlayer.instance().handleQuestionToggle = mockHandleQuestionToggle;
+
+		const mockKeyupEvent = { key: 'Tab' };
+
+		mockPlayer.instance().handleQuestionKeyUp(mockKeyupEvent);
+		expect(mockHandleQuestionToggle).not.toHaveBeenCalled();
+	});
+	test('handleKeyUp handles expected keys', () => {
+		const mockPlayer = makeNewPlayer();
+
+		const mockHandleQuestionToggle = jest.fn();
+
+		mockPlayer.instance().handleQuestionToggle = mockHandleQuestionToggle;
+
+		let mockKeyupEvent;
+
+		mockKeyupEvent = { key: ' ' };
+		mockPlayer.instance().handleQuestionKeyUp(mockKeyupEvent);
+		expect(mockHandleQuestionToggle).toHaveBeenCalledTimes(1);
+
+		mockKeyupEvent = { key: 'Enter' };
+		mockPlayer.instance().handleQuestionKeyUp(mockKeyupEvent);
+		expect(mockHandleQuestionToggle).toHaveBeenCalledTimes(2);
+	});
+
 	test(`handleQuestionToggle is toggled off`, () => {
 		const mockPlayer = makeNewPlayer();
 
