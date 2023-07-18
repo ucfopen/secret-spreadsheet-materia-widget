@@ -171,6 +171,7 @@ class PlayerApp extends React.Component {
 					:
 						<button type="button"
 							value="Help"
+							inert={this.state.showQuestion ? 'yes' : undefined}
 							onClick={this.handlePopupToggle}>
 							<img src="./assets/img/question-mark.svg" />
 							Help
@@ -189,7 +190,10 @@ class PlayerApp extends React.Component {
 						/>:
 						null}
 
-					<p className="instructions">Input the <span>missing data</span> to complete the spreadsheet:</p>
+					<p className="instructions"
+						inert="true">
+						Input the <span>missing data</span> to complete the spreadsheet:
+					</p>
 
 					<form onSubmit={this.handleSubmit}
 						inert={this.state.showQuestion || this.state.popup ? 'yes' : undefined}>
@@ -230,6 +234,13 @@ class PlayerApp extends React.Component {
 
 						<input type="submit"
 							value="Submit"
+							aria-label={ 'Submit answers.' +
+								(
+								this.state.answered !== this.blankPositions.size
+								? ` Warning, ${this.state.answered} of ${this.blankPositions.size} blank cells have been filled in.`
+								: ''
+								)
+							}
 							className={this.state.answered !== this.blankPositions.size ? `grayed`:`filled`}
 						/>
 					</form>

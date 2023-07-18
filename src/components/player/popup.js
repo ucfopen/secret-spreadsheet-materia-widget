@@ -4,7 +4,7 @@ const fullAriaString = "Secret Spreadsheet widget instructions. " +
 	"Cells of this spreadsheet have been intentionally hidden. " +
 	"Navigate the spreadsheet and input the hidden data until all cells have been filled. " +
 	"Capitalization and punctuation must be precise to match correctly. " +
-	"Navigate the table using your screen reader's dedicated key bindings, or use the tab key to move between blank cells."
+	"Navigate the table cells individually using your screen reader's dedicated key bindings, or use the Tab key to move between blank cells."
 
 // popup containing instructions on how to use the wdget
 const Popup = props => {

@@ -69,6 +69,7 @@ class Cell extends React.Component {
 				{ this.props.showInput ?
 					<input
 						type="text"
+						aria-label={this.state.value != '' ? 'Current cell value: ' + this.state.value : 'This cell is currently blank, please provide a value.'}
 						id={this.props.inputID}
 						value={this.state.value}
 						onChange={this.handleChange}
