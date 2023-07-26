@@ -239,4 +239,39 @@ describe(`Cell component`, () => {
 		// cleanup
 		tempComponent.unmount();
 	});
+
+	test('handleChange calls props.saveAnswer appropriately', () => {
+		const mockSaveAnswer = jest.fn();
+
+		const props = makeProps(true, false);
+		props.saveAnswer = mockSaveAnswer;
+
+		const tempComponent = shallow(<Cell {... props} />);
+
+		const event = {
+			target: { value: 'test' }
+		};
+
+		// changing from a blank answer to a non-blank answer should call saveAnswer
+		tempComponent.instance().handleChange(event);
+		expect(tempComponent.state([`value`])).toEqual('test');
+		expect(mockSaveAnswer).toHaveBeenCalledTimes(1);
+		mockSaveAnswer.mockClear();
+
+		// changing from a non-blank answer to a non-blank answer should not call save Answer
+		event.target.value = 'test2'
+		tempComponent.instance().handleChange(event);
+		expect(tempComponent.state([`value`])).toEqual('test2');
+		expect(mockSaveAnswer).not.toHaveBeenCalled();
+
+		// changing from a non-blank answer to a blank answer should call saveAnswer
+		event.target.value = ''
+		tempComponent.instance().handleChange(event);
+		expect(tempComponent.state([`value`])).toEqual('');
+		expect(mockSaveAnswer).toHaveBeenCalledTimes(1);
+		mockSaveAnswer.mockClear();
+
+		// cleanup
+		tempComponent.unmount();
+	})
 });

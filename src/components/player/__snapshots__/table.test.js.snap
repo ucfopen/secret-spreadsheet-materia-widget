@@ -20,6 +20,7 @@ exports[`PlayerTable component Rendered centered, no header, no labels 1`] = `
         id="cell1"
       >
         <input
+          aria-label="This cell is currently blank, please provide a value."
           autoComplete="off"
           className="unanswered"
           id="1-input"
@@ -39,6 +40,7 @@ exports[`PlayerTable component Rendered centered, no header, no labels 1`] = `
         id="cell2"
       >
         <input
+          aria-label="This cell is currently blank, please provide a value."
           autoComplete="off"
           className="unanswered"
           id="2-input"
@@ -66,21 +68,29 @@ exports[`PlayerTable component Rendered centered, no header, with labels 1`] = `
 <table>
   <thead>
     <tr
+      aria-hidden="true"
       id="column-labels"
+      inert="true"
     >
       <th
+        aria-hidden="true"
         className="label skinny"
         id="col-label-0"
+        inert="true"
       />
       <th
+        aria-hidden="true"
         className="label"
         id="col-label-1"
+        inert="true"
       >
         A
       </th>
       <th
+        aria-hidden="true"
         className="label"
         id="col-label-2"
+        inert="true"
       >
         B
       </th>
@@ -91,8 +101,10 @@ exports[`PlayerTable component Rendered centered, no header, with labels 1`] = `
       id="row0"
     >
       <td
+        aria-hidden="true"
         className="label skinny"
         id="row-label-1"
+        inert="true"
       >
         1
       </td>
@@ -109,6 +121,7 @@ exports[`PlayerTable component Rendered centered, no header, with labels 1`] = `
         id="cell1"
       >
         <input
+          aria-label="This cell is currently blank, please provide a value."
           autoComplete="off"
           className="unanswered"
           id="1-input"
@@ -124,8 +137,10 @@ exports[`PlayerTable component Rendered centered, no header, with labels 1`] = `
       id="row1"
     >
       <td
+        aria-hidden="true"
         className="label skinny"
         id="row-label-2"
+        inert="true"
       >
         2
       </td>
@@ -134,6 +149,7 @@ exports[`PlayerTable component Rendered centered, no header, with labels 1`] = `
         id="cell2"
       >
         <input
+          aria-label="This cell is currently blank, please provide a value."
           autoComplete="off"
           className="unanswered"
           id="2-input"
@@ -186,6 +202,7 @@ exports[`PlayerTable component Rendered centered, with header, no labels 1`] = `
         id="cell2"
       >
         <input
+          aria-label="This cell is currently blank, please provide a value."
           autoComplete="off"
           className="unanswered"
           id="2-input"
@@ -213,21 +230,29 @@ exports[`PlayerTable component Rendered centered, with header, with labels 1`] =
 <table>
   <thead>
     <tr
+      aria-hidden="true"
       id="column-labels"
+      inert="true"
     >
       <th
+        aria-hidden="true"
         className="label skinny"
         id="col-label-0"
+        inert="true"
       />
       <th
+        aria-hidden="true"
         className="label"
         id="col-label-1"
+        inert="true"
       >
         A
       </th>
       <th
+        aria-hidden="true"
         className="label"
         id="col-label-2"
+        inert="true"
       >
         B
       </th>
@@ -236,8 +261,10 @@ exports[`PlayerTable component Rendered centered, with header, with labels 1`] =
       id="row0"
     >
       <th
+        aria-hidden="true"
         className="label skinny"
         id="row-label-1"
+        inert="true"
       >
         1
       </th>
@@ -260,8 +287,10 @@ exports[`PlayerTable component Rendered centered, with header, with labels 1`] =
       id="row1"
     >
       <td
+        aria-hidden="true"
         className="label skinny"
         id="row-label-2"
+        inert="true"
       >
         2
       </td>
@@ -270,6 +299,7 @@ exports[`PlayerTable component Rendered centered, with header, with labels 1`] =
         id="cell2"
       >
         <input
+          aria-label="This cell is currently blank, please provide a value."
           autoComplete="off"
           className="unanswered"
           id="2-input"
@@ -313,6 +343,7 @@ exports[`PlayerTable component Rendered leftAligned, no header, no labels 1`] = 
         id="cell1"
       >
         <input
+          aria-label="This cell is currently blank, please provide a value."
           autoComplete="off"
           className="unanswered"
           id="1-input"
@@ -332,6 +363,7 @@ exports[`PlayerTable component Rendered leftAligned, no header, no labels 1`] = 
         id="cell2"
       >
         <input
+          aria-label="This cell is currently blank, please provide a value."
           autoComplete="off"
           className="unanswered"
           id="2-input"
@@ -359,21 +391,29 @@ exports[`PlayerTable component Rendered leftAligned, no header, with labels 1`] 
 <table>
   <thead>
     <tr
+      aria-hidden="true"
       id="column-labels"
+      inert="true"
     >
       <th
+        aria-hidden="true"
         className="label skinny"
         id="col-label-0"
+        inert="true"
       />
       <th
+        aria-hidden="true"
         className="label"
         id="col-label-1"
+        inert="true"
       >
         A
       </th>
       <th
+        aria-hidden="true"
         className="label"
         id="col-label-2"
+        inert="true"
       >
         B
       </th>
@@ -384,8 +424,10 @@ exports[`PlayerTable component Rendered leftAligned, no header, with labels 1`] 
       id="row0"
     >
       <td
+        aria-hidden="true"
         className="label skinny"
         id="row-label-1"
+        inert="true"
       >
         1
       </td>
@@ -402,6 +444,7 @@ exports[`PlayerTable component Rendered leftAligned, no header, with labels 1`] 
         id="cell1"
       >
         <input
+          aria-label="This cell is currently blank, please provide a value."
           autoComplete="off"
           className="unanswered"
           id="1-input"
@@ -417,8 +460,10 @@ exports[`PlayerTable component Rendered leftAligned, no header, with labels 1`] 
       id="row1"
     >
       <td
+        aria-hidden="true"
         className="label skinny"
         id="row-label-2"
+        inert="true"
       >
         2
       </td>
@@ -427,6 +472,7 @@ exports[`PlayerTable component Rendered leftAligned, no header, with labels 1`] 
         id="cell2"
       >
         <input
+          aria-label="This cell is currently blank, please provide a value."
           autoComplete="off"
           className="unanswered"
           id="2-input"
@@ -479,6 +525,7 @@ exports[`PlayerTable component Rendered leftAligned, with header, no labels 1`] 
         id="cell2"
       >
         <input
+          aria-label="This cell is currently blank, please provide a value."
           autoComplete="off"
           className="unanswered"
           id="2-input"
@@ -506,21 +553,29 @@ exports[`PlayerTable component Rendered leftAligned, with header, with labels 1`
 <table>
   <thead>
     <tr
+      aria-hidden="true"
       id="column-labels"
+      inert="true"
     >
       <th
+        aria-hidden="true"
         className="label skinny"
         id="col-label-0"
+        inert="true"
       />
       <th
+        aria-hidden="true"
         className="label"
         id="col-label-1"
+        inert="true"
       >
         A
       </th>
       <th
+        aria-hidden="true"
         className="label"
         id="col-label-2"
+        inert="true"
       >
         B
       </th>
@@ -529,8 +584,10 @@ exports[`PlayerTable component Rendered leftAligned, with header, with labels 1`
       id="row0"
     >
       <th
+        aria-hidden="true"
         className="label skinny"
         id="row-label-1"
+        inert="true"
       >
         1
       </th>
@@ -553,8 +610,10 @@ exports[`PlayerTable component Rendered leftAligned, with header, with labels 1`
       id="row1"
     >
       <td
+        aria-hidden="true"
         className="label skinny"
         id="row-label-2"
+        inert="true"
       >
         2
       </td>
@@ -563,6 +622,7 @@ exports[`PlayerTable component Rendered leftAligned, with header, with labels 1`
         id="cell2"
       >
         <input
+          aria-label="This cell is currently blank, please provide a value."
           autoComplete="off"
           className="unanswered"
           id="2-input"
@@ -615,6 +675,7 @@ exports[`PlayerTable component Rendered with randomness and a header 1`] = `
         id="cell2"
       >
         <input
+          aria-label="This cell is currently blank, please provide a value."
           autoComplete="off"
           className="unanswered"
           id="2-input"
@@ -658,6 +719,7 @@ exports[`PlayerTable component Rendered with randomness and no header 1`] = `
         id="cell1"
       >
         <input
+          aria-label="This cell is currently blank, please provide a value."
           autoComplete="off"
           className="unanswered"
           id="1-input"
@@ -677,6 +739,7 @@ exports[`PlayerTable component Rendered with randomness and no header 1`] = `
         id="cell2"
       >
         <input
+          aria-label="This cell is currently blank, please provide a value."
           autoComplete="off"
           className="unanswered"
           id="2-input"
