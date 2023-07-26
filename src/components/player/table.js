@@ -199,7 +199,7 @@ class PlayerTable extends React.Component {
 		}
 
 		return(
-			<table onFocus={() => {console.log('table got focus?')}}>
+			<table>
 				<thead>
 					{headRows}
 				</thead>

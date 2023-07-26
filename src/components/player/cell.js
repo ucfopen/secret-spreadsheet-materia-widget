@@ -21,6 +21,9 @@ class Cell extends React.Component {
 			value = value.slice(0, 36);
 		}
 
+		// trigger the behavior to save the answer if we went from empty to non-empty or vice versa
+		if (!this.state.value.length || !value.length) this.props.saveAnswer(event);
+
 		this.setState({
 			value: value,
 			colorClass: this.state.colorClass,
