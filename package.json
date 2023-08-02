@@ -4,7 +4,7 @@
 		"cleanName": "secret-spreadsheet"
 	},
 	"dependencies": {
-		"materia-widget-development-kit": "^2.4.2"
+		"materia-widget-development-kit": "^2.5.2"
 	},
 	"devDependencies": {
 		"@babel/preset-react": "^7.0.0",
