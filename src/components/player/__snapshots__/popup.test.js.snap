@@ -5,7 +5,10 @@ exports[`Popup component Is rendered 1`] = `
   className="popup help"
 >
   <div>
-    <h2>
+    <h2
+      aria-label="Secret Spreadsheet widget instructions. Cells of this spreadsheet have been intentionally hidden. Navigate the spreadsheet and input the hidden data until all cells have been filled. Capitalization and punctuation must be precise to match correctly. Navigate the table cells individually using your screen reader's dedicated key bindings, or use the Tab key to move between blank cells."
+      tabIndex="0"
+    >
       Secret Spreadsheet - How it works:
     </h2>
     <div>
@@ -29,6 +32,7 @@ exports[`Popup component Is rendered 1`] = `
     </div>
     <button
       onClick={[MockFunction]}
+      tabIndex="0"
       type="button"
       value="Got it!"
     >

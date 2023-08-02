@@ -6,6 +6,8 @@ exports[`Cell component Rendered with user input center aligned 1`] = `
   id={1}
 >
   <input
+    aria-label="This cell is currently blank, please provide a value."
+    autoComplete="off"
     className="unanswered"
     onBlur={[MockFunction]}
     onChange={[Function]}
@@ -22,6 +24,8 @@ exports[`Cell component Rendered with user input left aligned 1`] = `
   id={1}
 >
   <input
+    aria-label="This cell is currently blank, please provide a value."
+    autoComplete="off"
     className="unanswered"
     onBlur={[MockFunction]}
     onChange={[Function]}

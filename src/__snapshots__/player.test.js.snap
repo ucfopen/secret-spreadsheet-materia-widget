@@ -224,7 +224,10 @@ exports[`Player Render with no question 1`] = `
       className="popup help"
     >
       <div>
-        <h2>
+        <h2
+          aria-label="Secret Spreadsheet widget instructions. Cells of this spreadsheet have been intentionally hidden. Navigate the spreadsheet and input the hidden data until all cells have been filled. Capitalization and punctuation must be precise to match correctly. Navigate the table cells individually using your screen reader's dedicated key bindings, or use the Tab key to move between blank cells."
+          tabIndex="0"
+        >
           Secret Spreadsheet - How it works:
         </h2>
         <div>
@@ -248,6 +251,7 @@ exports[`Player Render with no question 1`] = `
         </div>
         <button
           onClick={[Function]}
+          tabIndex="0"
           type="button"
           value="Got it!"
         >
@@ -257,6 +261,7 @@ exports[`Player Render with no question 1`] = `
     </div>
     <p
       className="instructions"
+      inert="true"
     >
       Input the 
       <span>
@@ -265,6 +270,7 @@ exports[`Player Render with no question 1`] = `
        to complete the spreadsheet:
     </p>
     <form
+      inert="yes"
       onSubmit={[Function]}
     >
       <div
@@ -290,6 +296,8 @@ exports[`Player Render with no question 1`] = `
                   id="cell1"
                 >
                   <input
+                    aria-label="This cell is currently blank, please provide a value."
+                    autoComplete="off"
                     className="unanswered"
                     id="1-input"
                     onBlur={[Function]}
@@ -308,6 +316,8 @@ exports[`Player Render with no question 1`] = `
                   id="cell2"
                 >
                   <input
+                    aria-label="This cell is currently blank, please provide a value."
+                    autoComplete="off"
                     className="unanswered"
                     id="2-input"
                     onBlur={[Function]}
@@ -338,6 +348,7 @@ exports[`Player Render with no question 1`] = `
          missing cells
       </p>
       <input
+        aria-label="Submit answers."
         className="filled"
         type="submit"
         value="Submit"
@@ -359,7 +370,10 @@ exports[`Player Render with question and body 1`] = `
       className="popup help"
     >
       <div>
-        <h2>
+        <h2
+          aria-label="Secret Spreadsheet widget instructions. Cells of this spreadsheet have been intentionally hidden. Navigate the spreadsheet and input the hidden data until all cells have been filled. Capitalization and punctuation must be precise to match correctly. Navigate the table cells individually using your screen reader's dedicated key bindings, or use the Tab key to move between blank cells."
+          tabIndex="0"
+        >
           Secret Spreadsheet - How it works:
         </h2>
         <div>
@@ -383,6 +397,7 @@ exports[`Player Render with question and body 1`] = `
         </div>
         <button
           onClick={[Function]}
+          tabIndex="0"
           type="button"
           value="Got it!"
         >
@@ -392,6 +407,7 @@ exports[`Player Render with question and body 1`] = `
     </div>
     <p
       className="instructions"
+      inert="true"
     >
       Input the 
       <span>
@@ -400,6 +416,7 @@ exports[`Player Render with question and body 1`] = `
        to complete the spreadsheet:
     </p>
     <form
+      inert="yes"
       onSubmit={[Function]}
     >
       <div
@@ -425,6 +442,8 @@ exports[`Player Render with question and body 1`] = `
                   id="cell1"
                 >
                   <input
+                    aria-label="This cell is currently blank, please provide a value."
+                    autoComplete="off"
                     className="unanswered"
                     id="1-input"
                     onBlur={[Function]}
@@ -443,6 +462,8 @@ exports[`Player Render with question and body 1`] = `
                   id="cell2"
                 >
                   <input
+                    aria-label="This cell is currently blank, please provide a value."
+                    autoComplete="off"
                     className="unanswered"
                     id="2-input"
                     onBlur={[Function]}
@@ -473,12 +494,16 @@ exports[`Player Render with question and body 1`] = `
          missing cells
       </p>
       <p
+        aria-roledescription="button"
         className="link"
         onClick={[Function]}
+        onKeyUp={[Function]}
+        tabIndex="0"
       >
         View Question
       </p>
       <input
+        aria-label="Submit answers."
         className="filled"
         type="submit"
         value="Submit"
@@ -500,7 +525,10 @@ exports[`Player Render with question and no body 1`] = `
       className="popup help"
     >
       <div>
-        <h2>
+        <h2
+          aria-label="Secret Spreadsheet widget instructions. Cells of this spreadsheet have been intentionally hidden. Navigate the spreadsheet and input the hidden data until all cells have been filled. Capitalization and punctuation must be precise to match correctly. Navigate the table cells individually using your screen reader's dedicated key bindings, or use the Tab key to move between blank cells."
+          tabIndex="0"
+        >
           Secret Spreadsheet - How it works:
         </h2>
         <div>
@@ -524,6 +552,7 @@ exports[`Player Render with question and no body 1`] = `
         </div>
         <button
           onClick={[Function]}
+          tabIndex="0"
           type="button"
           value="Got it!"
         >
@@ -533,6 +562,7 @@ exports[`Player Render with question and no body 1`] = `
     </div>
     <p
       className="instructions"
+      inert="true"
     >
       Input the 
       <span>
@@ -541,6 +571,7 @@ exports[`Player Render with question and no body 1`] = `
        to complete the spreadsheet:
     </p>
     <form
+      inert="yes"
       onSubmit={[Function]}
     >
       <div
@@ -566,6 +597,8 @@ exports[`Player Render with question and no body 1`] = `
                   id="cell1"
                 >
                   <input
+                    aria-label="This cell is currently blank, please provide a value."
+                    autoComplete="off"
                     className="unanswered"
                     id="1-input"
                     onBlur={[Function]}
@@ -584,6 +617,8 @@ exports[`Player Render with question and no body 1`] = `
                   id="cell2"
                 >
                   <input
+                    aria-label="This cell is currently blank, please provide a value."
+                    autoComplete="off"
                     className="unanswered"
                     id="2-input"
                     onBlur={[Function]}
@@ -614,12 +649,16 @@ exports[`Player Render with question and no body 1`] = `
          missing cells
       </p>
       <p
+        aria-roledescription="button"
         className="link"
         onClick={[Function]}
+        onKeyUp={[Function]}
+        tabIndex="0"
       >
         View Question
       </p>
       <input
+        aria-label="Submit answers."
         className="filled"
         type="submit"
         value="Submit"
@@ -641,7 +680,10 @@ exports[`Player Render without randomization 1`] = `
       className="popup help"
     >
       <div>
-        <h2>
+        <h2
+          aria-label="Secret Spreadsheet widget instructions. Cells of this spreadsheet have been intentionally hidden. Navigate the spreadsheet and input the hidden data until all cells have been filled. Capitalization and punctuation must be precise to match correctly. Navigate the table cells individually using your screen reader's dedicated key bindings, or use the Tab key to move between blank cells."
+          tabIndex="0"
+        >
           Secret Spreadsheet - How it works:
         </h2>
         <div>
@@ -665,6 +707,7 @@ exports[`Player Render without randomization 1`] = `
         </div>
         <button
           onClick={[Function]}
+          tabIndex="0"
           type="button"
           value="Got it!"
         >
@@ -674,6 +717,7 @@ exports[`Player Render without randomization 1`] = `
     </div>
     <p
       className="instructions"
+      inert="true"
     >
       Input the 
       <span>
@@ -682,6 +726,7 @@ exports[`Player Render without randomization 1`] = `
        to complete the spreadsheet:
     </p>
     <form
+      inert="yes"
       onSubmit={[Function]}
     >
       <div
@@ -707,6 +752,8 @@ exports[`Player Render without randomization 1`] = `
                   id="cell1"
                 >
                   <input
+                    aria-label="This cell is currently blank, please provide a value."
+                    autoComplete="off"
                     className="unanswered"
                     id="1-input"
                     onBlur={[Function]}
@@ -725,6 +772,8 @@ exports[`Player Render without randomization 1`] = `
                   id="cell2"
                 >
                   <input
+                    aria-label="This cell is currently blank, please provide a value."
+                    autoComplete="off"
                     className="unanswered"
                     id="2-input"
                     onBlur={[Function]}
@@ -755,12 +804,16 @@ exports[`Player Render without randomization 1`] = `
          missing cells
       </p>
       <p
+        aria-roledescription="button"
         className="link"
         onClick={[Function]}
+        onKeyUp={[Function]}
+        tabIndex="0"
       >
         View Question
       </p>
       <input
+        aria-label="Submit answers."
         className="filled"
         type="submit"
         value="Submit"

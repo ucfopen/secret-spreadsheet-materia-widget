@@ -21,6 +21,8 @@ score:
   score_module: SecretSpreadsheet
   score_screen: scoreScreen.html
 meta_data:
+  accessibility_keyboard: Full
+  accessibility_reader: Full
   features:
     - Customizable
     - Scorable

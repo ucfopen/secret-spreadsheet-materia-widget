@@ -170,6 +170,12 @@ header {
 	p:not(.mainQuestion) {
 		margin-bottom: 20px;
 	}
+
+	&:focus {
+		.mainQuestion {
+			text-decoration: underline;
+		}
+	}
 }
 
 .help {
@@ -188,6 +194,7 @@ main {
 		border-radius: 3px;
 		font-size: inherit;
 		font-family: inherit;
+		cursor: pointer;
 	}
 }
 
@@ -228,13 +235,16 @@ form p {
 	background-color: #eff0ef;
 	border: none;
 	color: gray;
+
+	&:hover, &:focus {
+		background-color: #cacaca;
+	}
 }
 
 // button colors
 .filled {
 	background-color: #6f0cac;
 	color: white;
-	cursor: pointer;
 	border: none;
 
 	&:hover, &:focus {
