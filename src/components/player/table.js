@@ -72,20 +72,34 @@ class PlayerTable extends React.Component {
 
 			// add in the leftmost label (above the row labels)
 			cells.push(
-				<th key="col-label-0" id="col-label-0" className="label skinny" />
+				<th key="col-label-0"
+					id="col-label-0"
+					aria-hidden="true"
+					inert="true"
+					className="label skinny" />
 			);
 
 			for (let i=0;i<this.props.dimensions.columns;i++) {
 				const b26Number = this.convertNumberToLetters(i);
 
 				cells.push(
-					<th key={`col-label-${i+1}`} id={`col-label-${i+1}`} className="label">
+					<th key={`col-label-${i+1}`}
+						id={`col-label-${i+1}`}
+						aria-hidden="true"
+						inert="true"
+						className="label">
 						{b26Number}
 					</th>
 				);
 			}
 
-			headRows.push(<tr key="column-labels" id="column-labels">{cells}</tr>);
+			headRows.push(<tr key="column-labels"
+				aria-hidden="true"
+				inert="true"
+				id="column-labels">
+					{cells}
+				</tr>
+			);
 		}
 
 		// generate the table
@@ -102,11 +116,28 @@ class PlayerTable extends React.Component {
 				// add in the row labels if needed
 				if (j === 0 && this.props.spreadsheet) {
 					// make the first label generated a th if needed
-					cells.push(
-						<th key={`row-label-${i+1}`} id={`row-label-${i+1}`} className="label skinny" >
-							{i+1}
-						</th>
-					);
+					if (i === 0 && this.props.header) {
+						cells.push(
+							<th key={`row-label-${i+1}`}
+								id={`row-label-${i+1}`}
+								aria-hidden="true"
+								inert="true"
+								className="label skinny" >
+								{i+1}
+							</th>
+						);
+					}
+					else {
+						cells.push(
+							<td key={`row-label-${i+1}`}
+								id={`row-label-${i+1}`}
+								aria-hidden="true"
+								inert="true"
+								className="label skinny" >
+								{i+1}
+							</td>
+						);
+					}
 				}
 
 				// make the first row of user created content a header if needed
