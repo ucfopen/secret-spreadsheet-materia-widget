@@ -102,20 +102,11 @@ class PlayerTable extends React.Component {
 				// add in the row labels if needed
 				if (j === 0 && this.props.spreadsheet) {
 					// make the first label generated a th if needed
-					if (i === 0 && this.props.header) {
-						cells.push(
-							<th key={`row-label-${i+1}`} id={`row-label-${i+1}`} className="label skinny" >
-								{i+1}
-							</th>
-						);
-					}
-					else {
-						cells.push(
-							<td key={`row-label-${i+1}`} id={`row-label-${i+1}`} className="label skinny" >
-								{i+1}
-							</td>
-						);
-					}
+					cells.push(
+						<th key={`row-label-${i+1}`} id={`row-label-${i+1}`} className="label skinny" >
+							{i+1}
+						</th>
+					);
 				}
 
 				// make the first row of user created content a header if needed
@@ -177,6 +168,7 @@ class PlayerTable extends React.Component {
 		}
 
 		return(
+			<>
 			<table>
 				<thead>
 					{headRows}
@@ -186,6 +178,7 @@ class PlayerTable extends React.Component {
 					{mainRows}
 				</tbody>
 			</table>
+			</>
 		);
 	}
 }

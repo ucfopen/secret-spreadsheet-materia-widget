@@ -29,6 +29,7 @@ class PlayerApp extends React.Component {
 	// check if question has been answered. If it is, submit the answer, or submit blank
 	submitAnswer(id, counter) {
 		if (Object.prototype.hasOwnProperty.call(this.answers, `${counter}-input`)) {
+			console.log(id)
 			Materia.Score.submitQuestionForScoring(id, this.answers[`${counter}-input`]);
 		}
 		else {
@@ -216,7 +217,7 @@ class PlayerApp extends React.Component {
 							</div>
 						</div>
 
-						<p>You've filled out {this.state.answered} of {this.blankPositions.size} missing cells</p>
+						<p aria-hidden="true" >You've filled out {this.state.answered} of {this.blankPositions.size} missing cells</p>
 
 						{
 							this.state.question

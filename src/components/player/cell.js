@@ -21,6 +21,10 @@ class Cell extends React.Component {
 			value = value.slice(0, 36);
 		}
 
+		if (value.length > 0) {
+			this.props.saveAnswer(event)
+		}
+
 		this.setState({
 			value: value,
 			colorClass: this.state.colorClass,
