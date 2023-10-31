@@ -72,7 +72,7 @@ class ScoreTable extends React.Component {
 			// add in the row labels if needed
 			if (this.props.spreadsheet) {
 				cells.push(
-					<th key="row=label-1" id="row-label-1" className={`label skinny${this.props.leftAlign ? ` leftAlign`:``}`}>1</th>
+					<th key="row-label-1" id="row-label-1" className={`label skinny${this.props.leftAlign ? ` leftAlign`:``}`}>1</th>
 				);
 			}
 
@@ -124,9 +124,9 @@ class ScoreTable extends React.Component {
 				// add in row labels if needed
 				if (j === 0 && this.props.spreadsheet) {
 					cells.push(
-						<td key={`row-label-${i+1}`} id={`row-label-${i+1}`} className={`label skinny${this.props.leftAlign ? ` leftAlign`:``}`}>
+						<th key={`row-label-${i+1}`} id={`row-label-${i+1}`} className={`label skinny${this.props.leftAlign ? ` leftAlign`:``}`}>
 							{i+1}
-						</td>
+						</th>
 					);
 				}
 

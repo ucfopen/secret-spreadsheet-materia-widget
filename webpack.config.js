@@ -7,32 +7,20 @@ const rules = widgetWebpack.getDefaultRules()
 const copy = widgetWebpack.getDefaultCopyList()
 
 const entries = {
-	'player.js': [
-		path.join(srcPath, 'player.js')
-	],
-	'player.css': [
+	'player': [
 		path.join(srcPath, 'player.html'),
+		path.join(srcPath, 'player.js'),
 		path.join(srcPath, 'player.scss')
 	],
-	'creator.js': [
-		path.join(srcPath, 'creator.js')
-	],
-	'creator.css': [
+	'creator': [
 		path.join(srcPath, 'creator.html'),
+		path.join(srcPath, 'creator.js'),
 		path.join(srcPath, 'creator.scss')
 	],
-	'scoreScreen.js': [
-		path.join(srcPath, 'scoreScreen.js')
-	],
-	'scoreScreen.css': [
+	'scoreScreen': [
 		path.join(srcPath, 'scoreScreen.html'),
+		path.join(srcPath, 'scoreScreen.js'),
 		path.join(srcPath, 'scoreScreen.scss')
-	],
-	'guides/player.temp.html': [
-		path.join(srcPath, '_guides', 'player.md')
-	],
-	'guides/creator.temp.html': [
-		path.join(srcPath, '_guides', 'creator.md')
 	]
 }
 
@@ -54,9 +42,7 @@ const customReactLoader = {
 
 const customRules = [
 	rules.loadHTMLAndReplaceMateriaScripts,
-	rules.loadAndPrefixCSS,
 	rules.loadAndPrefixSASS,
-	rules.loadAndCompileMarkdown,
 	rules.copyImages,
 	customReactLoader
 ]
