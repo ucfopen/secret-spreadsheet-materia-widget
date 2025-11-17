@@ -4,7 +4,7 @@
 		"cleanName": "secret-spreadsheet"
 	},
 	"dependencies": {
-		"materia-widget-development-kit": "^2.5.2"
+		"materia-widget-development-kit": "3.0.4"
 	},
 	"devDependencies": {
 		"@babel/preset-react": "^7.0.0",
@@ -18,10 +18,10 @@
 		"react-test-renderer": "^16.9.0"
 	},
 	"scripts": {
-		"start": "webpack-dev-server",
 		"lint": "eslint src/**/*.js",
-		"build": "webpack -p",
-		"build-dev": "webpack",
+		"start": "mwdk-start",
+		"build": "mwdk-build-prod",
+		"build-dev": "mwdk-build-dev",
 		"test": "jest",
 		"test-ci": "TZ='America/New_York' CI=true jest --ci --useStderr --coverage --coverageReporters text-summary cobertura",
 		"test-dev": "TZ='America/New_York' jest --verbose --watchAll --coverage --coverageReporters lcov"

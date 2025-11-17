@@ -394,6 +394,7 @@ export default class CreatorApp extends React.Component {
 		if (row >= 0 && row < this.state.qset.dimensions.rows &&
 				col >= 0 && col < this.state.qset.dimensions.columns) {
 			this.refsArray[row][col].focus();
+			console.log(document.activeElement)
 			// return value for testing
 			return 1;
 		}

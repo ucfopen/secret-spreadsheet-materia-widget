@@ -199,6 +199,7 @@ class PlayerTable extends React.Component {
 		}
 
 		return(
+			<>
 			<table>
 				<thead>
 					{headRows}
@@ -208,6 +209,7 @@ class PlayerTable extends React.Component {
 					{mainRows}
 				</tbody>
 			</table>
+			</>
 		);
 	}
 }
