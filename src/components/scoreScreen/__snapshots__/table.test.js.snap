@@ -241,12 +241,12 @@ exports[`ScoreTable Rendered with header, spreadsheet, centered 1`] = `
           <tr
             id="row1"
           >
-            <td
+            <th
               className="label skinny"
               id="row-label-2"
             >
               2
-            </td>
+            </th>
             <td
               className="wrong"
               id="cell2"
@@ -352,12 +352,12 @@ exports[`ScoreTable Rendered with header, spreadsheet, left aligned 1`] = `
           <tr
             id="row1"
           >
-            <td
+            <th
               className="label skinny leftAlign"
               id="row-label-2"
             >
               2
-            </td>
+            </th>
             <td
               className="wrong leftAlign"
               id="cell2"
@@ -596,12 +596,12 @@ exports[`ScoreTable Rendered with no header, spreadsheet, centered 1`] = `
           <tr
             id="row0"
           >
-            <td
+            <th
               className="label skinny"
               id="row-label-1"
             >
               1
-            </td>
+            </th>
             <td
               className=""
               id="cell0"
@@ -620,12 +620,12 @@ exports[`ScoreTable Rendered with no header, spreadsheet, centered 1`] = `
           <tr
             id="row1"
           >
-            <td
+            <th
               className="label skinny"
               id="row-label-2"
             >
               2
-            </td>
+            </th>
             <td
               className="wrong"
               id="cell2"
@@ -708,12 +708,12 @@ exports[`ScoreTable Rendered with no header, spreadsheet, left aligned 1`] = `
           <tr
             id="row0"
           >
-            <td
+            <th
               className="label skinny leftAlign"
               id="row-label-1"
             >
               1
-            </td>
+            </th>
             <td
               className="leftAlign"
               id="cell0"
@@ -732,12 +732,12 @@ exports[`ScoreTable Rendered with no header, spreadsheet, left aligned 1`] = `
           <tr
             id="row1"
           >
-            <td
+            <th
               className="label skinny leftAlign"
               id="row-label-2"
             >
               2
-            </td>
+            </th>
             <td
               className="wrong leftAlign"
               id="cell2"

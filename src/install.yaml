@@ -36,3 +36,5 @@ meta_data:
     Students are provided with a
     spreadsheet that is missing some
     information and must fill in the gaps.
+  update_method: github
+  repo: ucfopen/secret-spreadsheet-materia-widget

@@ -216,7 +216,7 @@ class PlayerApp extends React.Component {
 							</div>
 						</div>
 
-						<p>You've filled out {this.state.answered} of {this.blankPositions.size} missing cells</p>
+						<p aria-hidden="true" >You've filled out {this.state.answered} of {this.blankPositions.size} missing cells</p>
 
 						{
 							this.state.question

@@ -340,7 +340,9 @@ exports[`Player Render with no question 1`] = `
           </table>
         </div>
       </div>
-      <p>
+      <p
+        aria-hidden="true"
+      >
         You've filled out 
         0
          of 
@@ -486,7 +488,9 @@ exports[`Player Render with question and body 1`] = `
           </table>
         </div>
       </div>
-      <p>
+      <p
+        aria-hidden="true"
+      >
         You've filled out 
         0
          of 
@@ -641,7 +645,9 @@ exports[`Player Render with question and no body 1`] = `
           </table>
         </div>
       </div>
-      <p>
+      <p
+        aria-hidden="true"
+      >
         You've filled out 
         0
          of 
@@ -796,7 +802,9 @@ exports[`Player Render without randomization 1`] = `
           </table>
         </div>
       </div>
-      <p>
+      <p
+        aria-hidden="true"
+      >
         You've filled out 
         0
          of 
