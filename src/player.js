@@ -29,7 +29,6 @@ class PlayerApp extends React.Component {
 	// check if question has been answered. If it is, submit the answer, or submit blank
 	submitAnswer(id, counter) {
 		if (Object.prototype.hasOwnProperty.call(this.answers, `${counter}-input`)) {
-			console.log(id)
 			Materia.Score.submitQuestionForScoring(id, this.answers[`${counter}-input`]);
 		}
 		else {
